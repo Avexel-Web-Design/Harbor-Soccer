@@ -1,9 +1,4 @@
-import Link from 'next/link';
-
-export const metadata = {
-  title: "Registration | Harbor Soccer Club",
-  description: "Register for Harbor Soccer Club's recreational and premier programs. Information about registration dates, fees, and requirements.",
-};
+import { Link } from 'react-router-dom'; // Changed from next/link
 
 export default function RegistrationPage() {
   return (
@@ -90,7 +85,7 @@ export default function RegistrationPage() {
                       </li>
                     </ul>
                     <Link 
-                      href="/programs/recreational" 
+                      to="/programs/recreational" 
                       className="text-blue-600 hover:text-blue-800 font-medium"
                     >
                       Program Details →
@@ -123,7 +118,7 @@ export default function RegistrationPage() {
                       </li>
                     </ul>
                     <Link 
-                      href="/programs/premier" 
+                      to="/programs/premier" 
                       className="text-blue-600 hover:text-blue-800 font-medium"
                     >
                       Program Details →
@@ -324,7 +319,7 @@ export default function RegistrationPage() {
               </ol>
               <div className="mt-6">
                 <Link 
-                  href="/registration/financial-aid" 
+                  to="/registration/financial-aid" 
                   className="text-blue-600 hover:text-blue-800 font-medium"
                 >
                   Learn More About Financial Aid →
@@ -378,7 +373,7 @@ export default function RegistrationPage() {
             
             <div className="mt-10 text-center">
               <Link 
-                href="/contact" 
+                to="/contact" 
                 className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors inline-block"
               >
                 Still Have Questions? Contact Us

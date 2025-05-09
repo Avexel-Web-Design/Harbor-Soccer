@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./index.html", // Added for Vite
+    "./src/**/*.{js,ts,jsx,tsx}", // Simplified content path
   ],
   theme: {
     extend: {
@@ -41,7 +40,7 @@ module.exports = {
         mono: ["var(--font-geist-mono)", "monospace"],
       },
       backgroundImage: {
-        'soccer-pattern': "url('/images/soccer-pattern.png')",
+        'soccer-pattern': "url('/images/soccer-pattern.png')", // Ensure paths are relative to public or handled by Vite
         'field-texture': "url('/images/field-texture.jpg')",
         'hero-image': "url('/images/soccer-hero.jpg')",
       },

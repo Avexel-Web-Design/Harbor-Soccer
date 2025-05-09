@@ -1,7 +1,5 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -308,7 +306,7 @@ export default function ContactPage() {
             </div>
             
             <div className="text-center mt-12">
-              <Link href="/faq" className="text-primary hover-underline font-normal">
+              <Link to="/faq" className="text-primary hover-underline font-normal">
                 View All FAQs →
               </Link>
             </div>

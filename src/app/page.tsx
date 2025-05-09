@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from 'react-router-dom'; // Changed from next/link
 
 export default function Home() {
   return (
@@ -19,13 +19,13 @@ export default function Home() {
             <p className="text-xl md:text-2xl mb-8 font-light italic">Developing youth through the beautiful game since 1982</p>
             <div className="flex flex-wrap gap-4">
               <Link 
-                href="/registration" 
+                to="/registration" 
                 className="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-normal rounded-none transition-colors border-b-2 border-white/20"
               >
                 Register Now
               </Link>
               <Link 
-                href="/about" 
+                to="/about" 
                 className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-normal rounded-none transition-colors border border-white/30"
               >
                 Learn More
@@ -59,7 +59,7 @@ export default function Home() {
                 <h3 className="text-xl font-serif mb-2 text-secondary">Recreational Soccer</h3>
                 <p className="text-gray-600 mb-4 font-light">Fun, inclusive soccer for all skill levels. Focus on player development and enjoyment of the game.</p>
                 <Link 
-                  href="/programs/recreational" 
+                  to="/programs/recreational" 
                   className="text-primary hover:underline font-normal flex items-center"
                 >
                   <span>Learn More</span>
@@ -84,7 +84,7 @@ export default function Home() {
                 <h3 className="text-xl font-serif mb-2 text-secondary">Premier Soccer</h3>
                 <p className="text-gray-600 mb-4 font-light">Competitive soccer for dedicated players. Professional coaching and advanced skill development.</p>
                 <Link 
-                  href="/programs/premier" 
+                  to="/programs/premier" 
                   className="text-primary hover:underline font-normal flex items-center"
                 >
                   <span>Learn More</span>
@@ -109,7 +109,7 @@ export default function Home() {
                 <h3 className="text-xl font-serif mb-2 text-secondary">Camps & Clinics</h3>
                 <p className="text-gray-600 mb-4 font-light">Seasonal camps and specialized training clinics for players looking to enhance specific skills.</p>
                 <Link 
-                  href="/programs/camps" 
+                  to="/programs/camps" 
                   className="text-primary hover:underline font-normal flex items-center"
                 >
                   <span>Learn More</span>
@@ -143,7 +143,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2 font-light">May 1, 2025</p>
                 <h3 className="text-xl font-serif mb-2 text-secondary">Fall Registration Now Open</h3>
                 <p className="text-gray-600 mb-4 font-light">Registration for our Fall 2025 season is now open for all age groups. Register early to secure your spot!</p>
-                <Link href="/news/fall-registration" className="text-primary hover:underline font-normal flex items-center">
+                <Link to="/news/fall-registration" className="text-primary hover:underline font-normal flex items-center">
                   <span>Read More</span>
                   <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -158,7 +158,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2 font-light">April 25, 2025</p>
                 <h3 className="text-xl font-serif mb-2 text-secondary">Summer Camp Schedule Released</h3>
                 <p className="text-gray-600 mb-4 font-light">Our summer camp schedule is now available! Multiple sessions available for all age groups.</p>
-                <Link href="/news/summer-camps" className="text-primary hover:underline font-normal flex items-center">
+                <Link to="/news/summer-camps" className="text-primary hover:underline font-normal flex items-center">
                   <span>Read More</span>
                   <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -173,7 +173,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2 font-light">April 15, 2025</p>
                 <h3 className="text-xl font-serif mb-2 text-secondary">Harbor United Wins State Cup</h3>
                 <p className="text-gray-600 mb-4 font-light">Congratulations to our Harbor United U16 team for winning the State Cup championship!</p>
-                <Link href="/news/state-cup-champions" className="text-primary hover:underline font-normal flex items-center">
+                <Link to="/news/state-cup-champions" className="text-primary hover:underline font-normal flex items-center">
                   <span>Read More</span>
                   <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -185,7 +185,7 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <Link 
-              href="/news" 
+              to="/news" 
               className="px-6 py-3 bg-primary/90 hover:bg-primary text-white font-normal rounded-none transition-colors inline-block border-b border-white/20"
             >
               View All News
@@ -208,13 +208,13 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-2xl mx-auto font-light italic">Be part of our community and experience the joy of soccer in a supportive environment</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
-              href="/registration" 
+              to="/registration" 
               className="px-6 py-3 bg-primary/90 hover:bg-primary text-white font-normal rounded-none transition-colors border-b border-white/20"
             >
               Register Now
             </Link>
             <Link 
-              href="/contact" 
+              to="/contact" 
               className="px-6 py-3 border border-white hover:bg-white/5 text-white font-normal rounded-none transition-colors"
             >
               Contact Us

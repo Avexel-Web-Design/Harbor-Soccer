@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next"; // Commented out as 'next' is not a dependency
 
-const nextConfig: NextConfig = {
+const nextConfig = { // Removed NextConfig type
   images: {
     unoptimized: true,
   },

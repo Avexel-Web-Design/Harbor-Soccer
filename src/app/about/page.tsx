@@ -1,9 +1,4 @@
-import Link from "next/link";
-
-export const metadata = {
-  title: "About Harbor Soccer Club | Gig Harbor, WA",
-  description: "Learn about Harbor Soccer Club's history, mission, and vision for youth soccer in the Gig Harbor community.",
-};
+import { Link } from 'react-router-dom'; // Changed from next/link
 
 export default function AboutPage() {
   return (
@@ -182,10 +177,10 @@ export default function AboutPage() {
           
           <div className="mt-10 text-center">
             <Link
-              href="/about/staff"
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors inline-block"
+              to="/about/staff"
+              className="text-blue-600 hover:text-blue-800 font-medium"
             >
-              View All Staff & Board Members
+              Meet Our Team →
             </Link>
           </div>
         </div>
@@ -199,15 +194,15 @@ export default function AboutPage() {
             Be part of Harbor Soccer Club&apos;s rich history and bright future. Register today for our upcoming season!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link 
-              href="/registration" 
-              className="px-6 py-3 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-md transition-colors"
+            <Link
+              to="/registration"
+              className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors"
             >
               Register Now
             </Link>
-            <Link 
-              href="/contact" 
-              className="px-6 py-3 border-2 border-white hover:bg-white/10 text-white font-semibold rounded-md transition-colors"
+            <Link
+              to="/contact"
+              className="px-6 py-3 border border-white text-white font-semibold rounded-md hover:bg-white/10 transition-colors"
             >
               Contact Us
             </Link>
