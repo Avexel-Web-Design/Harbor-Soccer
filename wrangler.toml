@@ -1,15 +1,13 @@
 # Cloudflare Pages configuration
 name = "harbor-soccer-website"
+main = "./out"
 compatibility_date = "2023-06-14"
+
+# The directory where your built assets will be output
+pages_build_output_dir = "out"
 
 [build]
 command = "npm run build"
 
-[site]
-bucket = "./out"
-
 [build.upload]
 format = "directory"
-
-# The directory where your built assets will be output
-pages_build_output_dir = "out"
