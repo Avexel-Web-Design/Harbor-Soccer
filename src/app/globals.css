@@ -98,3 +98,23 @@ h1, h2, h3, h4, h5, h6 {
     @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-current hover:after:w-full after:transition-all after:duration-300;
   }
 }
+
+/* Navigation hover effects */
+.hover-underline-animation {
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: theme('colors.primary.DEFAULT');
+  transition: width 0.3s ease-in-out;
+}
+
+.hover-underline-animation:hover::after {
+  width: 100%;
+}

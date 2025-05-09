@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -22,17 +20,17 @@ const Footer = () => {
               </div>
               <p className="mb-6 font-light italic text-gray-400">Developing youth through the beautiful game since 1982</p>
               <div className="flex space-x-5">
-                <a href="https://facebook.com" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors">
+                <a href="https://facebook.com/harborsoccerclub" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z" />
                   </svg>
                 </a>
-                <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors">
+                <a href="https://x.com/harborsoccer" aria-label="X (Twitter)" className="text-gray-400 hover:text-primary transition-colors">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.95 4.57a10 10 0 01-2.82.78c1-.6 1.8-1.56 2.16-2.7a10 10 0 01-3.13 1.2 5 5 0 00-8.45 4.55A14 14 0 013.03 3.1a5 5 0 001.52 6.57 4.8 4.8 0 01-2.23-.6v.05a5 5 0 004 4.9 5 5 0 01-2.23.08 5 5 0 004.6 3.45A10 10 0 010 19.54a14 14 0 007.6 2.21c9 0 14-7.5 14-14 0-.21 0-.42-.02-.63a10 10 0 002.37-2.55z" />
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
-                <a href="https://instagram.com" aria-label="Instagram" className="text-gray-400 hover:text-primary transition-colors">
+                <a href="https://instagram.com/harborsoccerclub" aria-label="Instagram" className="text-gray-400 hover:text-primary transition-colors">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.7.07 4.95.07 3.26 0 3.67-.01 4.95-.07 4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.7.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm7.84-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
                   </svg>
@@ -44,11 +42,11 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-serif font-normal text-white mb-6 pb-2 relative after:absolute after:w-16 after:h-px after:bg-primary/40 after:bottom-0 after:left-0">Quick Links</h3>
               <ul className="space-y-3">
-                <li><Link href="/programs/recreational" className="hover:text-primary font-light transition-colors">Recreational Soccer</Link></li>
-                <li><Link href="/programs/premier" className="hover:text-primary font-light transition-colors">Premier Soccer</Link></li>
-                <li><Link href="/programs/camps" className="hover:text-primary font-light transition-colors">Camps & Clinics</Link></li>
-                <li><Link href="/teams" className="hover:text-primary font-light transition-colors">Teams</Link></li>
-                <li><Link href="/schedule" className="hover:text-primary font-light transition-colors">Schedule</Link></li>
+                <li><a href="/programs/recreational" className="hover:text-primary font-light transition-colors">Recreational Soccer</a></li>
+                <li><a href="/programs/premier" className="hover:text-primary font-light transition-colors">Premier Soccer</a></li>
+                <li><a href="/programs/camps" className="hover:text-primary font-light transition-colors">Camps & Clinics</a></li>
+                <li><a href="/teams" className="hover:text-primary font-light transition-colors">Teams</a></li>
+                <li><a href="/schedule" className="hover:text-primary font-light transition-colors">Schedule</a></li>
               </ul>
             </div>
 
@@ -56,11 +54,11 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-serif font-normal text-white mb-6 pb-2 relative after:absolute after:w-16 after:h-px after:bg-primary/40 after:bottom-0 after:left-0">Resources</h3>
               <ul className="space-y-3">
-                <li><Link href="/about" className="hover:text-primary font-light transition-colors">About Us</Link></li>
-                <li><Link href="/news" className="hover:text-primary font-light transition-colors">News & Events</Link></li>
-                <li><Link href="/registration" className="hover:text-primary font-light transition-colors">Registration</Link></li>
-                <li><Link href="/contact" className="hover:text-primary font-light transition-colors">Contact</Link></li>
-                <li><Link href="/privacy-policy" className="hover:text-primary font-light transition-colors">Privacy Policy</Link></li>
+                <li><a href="/about" className="hover:text-primary font-light transition-colors">About Us</a></li>
+                <li><a href="/news" className="hover:text-primary font-light transition-colors">News & Events</a></li>
+                <li><a href="/registration" className="hover:text-primary font-light transition-colors">Registration</a></li>
+                <li><a href="/contact" className="hover:text-primary font-light transition-colors">Contact</a></li>
+                <li><a href="/privacy-policy" className="hover:text-primary font-light transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
 
@@ -95,8 +93,8 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="font-light text-gray-400">&copy; {currentYear} Harbor Soccer Club. All rights reserved.</p>
               <div className="mt-4 md:mt-0 font-light text-sm">
-                <Link href="/privacy-policy" className="hover:text-primary transition-colors mr-6">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+                <a href="/privacy-policy" className="hover:text-primary transition-colors mr-6">Privacy Policy</a>
+                <a href="/terms" className="hover:text-primary transition-colors">Terms of Service</a>
               </div>
             </div>
           </div>

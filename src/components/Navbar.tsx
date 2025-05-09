@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <a href="/" className="flex items-center">
             <div className="relative h-14 w-14 mr-3">
               <div className="absolute inset-0 bg-primary/90 rounded-none flex items-center justify-center text-white">
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +27,7 @@ const Navbar = () => {
               <span className="text-2xl font-serif text-secondary tracking-wide">Harbor Soccer</span>
               <span className="block text-xs text-primary font-light italic">Established 1982</span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -49,12 +48,12 @@ const Navbar = () => {
           </div>
 
           {/* Registration Button */}
-          <Link
+          <a
             href="/registration"
             className="hidden md:block px-5 py-2 bg-primary/90 hover:bg-primary text-white font-normal transition-colors border-b border-white/20"
           >
             Register
-          </Link>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -88,13 +87,13 @@ const Navbar = () => {
             <MobileNavLink href="/contact" label="Contact" onClick={() => setIsMenuOpen(false)} />
             
             <div className="pt-4">
-              <Link
+              <a
                 href="/registration"
                 className="block w-full px-4 py-2 bg-primary/90 hover:bg-primary text-white font-normal text-center transition-colors border-b border-white/20"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Register Now
-              </Link>
+              </a>
             </div>
           </div>
         )}
@@ -105,20 +104,20 @@ const Navbar = () => {
 
 // Desktop Nav Link Component
 const NavLink = ({ href, label }: { href: string; label: string }) => (
-  <Link href={href} className="text-secondary hover:text-primary font-serif font-normal hover-underline">
+  <a href={href} className="text-secondary hover:text-primary font-serif font-normal relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300">
     {label}
-  </Link>
+  </a>
 );
 
 // Mobile Nav Link Component
 const MobileNavLink = ({ href, label, onClick }: { href: string; label: string; onClick: () => void }) => (
-  <Link
+  <a
     href={href}
     className="block py-2 px-4 text-secondary font-serif hover:bg-gray-50 hover:text-primary"
     onClick={onClick}
   >
     {label}
-  </Link>
+  </a>
 );
 
 // Dropdown Component
@@ -128,7 +127,7 @@ const NavDropdown = ({ label, items }: { label: string; items: { label: string; 
   return (
     <div className="relative" onMouseLeave={() => setIsOpen(false)}>
       <button
-        className="text-secondary hover:text-primary font-serif font-normal flex items-center hover-underline"
+        className="text-secondary hover:text-primary font-serif font-normal flex items-center relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
         onMouseEnter={() => setIsOpen(true)}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -141,14 +140,14 @@ const NavDropdown = ({ label, items }: { label: string; items: { label: string; 
       {isOpen && (
         <div className="absolute left-0 mt-2 w-48 bg-white shadow-md py-2 z-10 border-t border-primary/20">
           {items.map((item, index) => (
-            <Link
+            <a
               key={index}
               href={item.href}
               className="block px-4 py-2 text-secondary font-serif hover:bg-gray-50 hover:text-primary"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </div>
       )}

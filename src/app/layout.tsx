@@ -1,38 +1,36 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import React from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Replace Next.js font system with standard CSS imports
+// You would need to import these fonts in your CSS or use a CDN link in your HTML
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+interface LayoutProps {
+  children: React.ReactNode;
+}
 
-export const metadata: Metadata = {
-  title: "Harbor Soccer Club | Gig Harbor, WA",
-  description: "Harbor Soccer Club is a premier youth soccer organization serving Gig Harbor, WA and surrounding communities since 1982.",
+// Convert from Next.js RootLayout to standard React component
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div className="flex flex-col min-h-screen antialiased">
+      <Navbar />
+      <main className="flex-grow">{children}</main>
+      <Footer />
+    </div>
+  );
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
-      >
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
-}
+export default Layout;
+
+// Note: For a complete React app, you would use this Layout in your App component:
+// 
+// function App() {
+//   return (
+//     <Layout>
+//       <YourPageContent />
+//     </Layout>
+//   );
+// }
+//
+// And add document head metadata with react-helmet or similar library if needed
