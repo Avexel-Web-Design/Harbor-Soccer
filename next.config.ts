@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: 'export', // Enables static HTML export
+  output: 'export',
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
+  // Required for Cloudflare Pages
+  distDir: process.env.CF_PAGES ? '.vercel/output/static' : '.next',
+  generateBuildId: async () => {
+    return 'my-build-id'
+  },
+  trailingSlash: true,
 };
 
 export default nextConfig;
