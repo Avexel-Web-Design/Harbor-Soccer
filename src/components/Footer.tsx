@@ -42,23 +42,21 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-serif font-normal text-white mb-6 pb-2 relative after:absolute after:w-16 after:h-px after:bg-primary/40 after:bottom-0 after:left-0">Quick Links</h3>
               <ul className="space-y-3">
-                <li><a href="/programs/recreational" className="hover:text-primary font-light transition-colors">Recreational Soccer</a></li>
-                <li><a href="/programs/premier" className="hover:text-primary font-light transition-colors">Premier Soccer</a></li>
-                <li><a href="/programs/camps" className="hover:text-primary font-light transition-colors">Camps & Clinics</a></li>
-                <li><a href="/teams" className="hover:text-primary font-light transition-colors">Teams</a></li>
-                <li><a href="/schedule" className="hover:text-primary font-light transition-colors">Schedule</a></li>
+                <li><a href="/" className="hover:text-primary font-light transition-colors">Home</a></li>
+                <li><a href="/programs/travel" className="hover:text-primary font-light transition-colors">Travel Soccer</a></li>
+                <li><a href="/programs/rec" className="hover:text-primary font-light transition-colors">Rec Soccer</a></li>
+                <li><a href="/schedules" className="hover:text-primary font-light transition-colors">Schedules</a></li>
+                <li><a href="/referee" className="hover:text-primary font-light transition-colors">Referee</a></li>
+                <li><a href="/registration" className="hover:text-primary font-light transition-colors">Registration</a></li>
               </ul>
             </div>
 
-            {/* Resources */}
+            {/* More Info */}
             <div>
-              <h3 className="text-xl font-serif font-normal text-white mb-6 pb-2 relative after:absolute after:w-16 after:h-px after:bg-primary/40 after:bottom-0 after:left-0">Resources</h3>
+              <h3 className="text-xl font-serif font-normal text-white mb-6 pb-2 relative after:absolute after:w-16 after:h-px after:bg-primary/40 after:bottom-0 after:left-0">More Info</h3>
               <ul className="space-y-3">
-                <li><a href="/about" className="hover:text-primary font-light transition-colors">About Us</a></li>
-                <li><a href="/news" className="hover:text-primary font-light transition-colors">News & Events</a></li>
-                <li><a href="/registration" className="hover:text-primary font-light transition-colors">Registration</a></li>
-                <li><a href="/contact" className="hover:text-primary font-light transition-colors">Contact</a></li>
                 <li><a href="/privacy-policy" className="hover:text-primary font-light transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-primary font-light transition-colors">Terms of Service</a></li>
               </ul>
             </div>
 
@@ -93,8 +91,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="font-light text-gray-400">&copy; {currentYear} Harbor Soccer Club. All rights reserved.</p>
               <div className="mt-4 md:mt-0 font-light text-sm">
-                <a href="/privacy-policy" className="hover:text-primary transition-colors mr-6">Privacy Policy</a>
-                <a href="/terms" className="hover:text-primary transition-colors">Terms of Service</a>
+                {/* Removed Privacy Policy and Terms of Service as they are not priority pages */}
               </div>
             </div>
           </div>

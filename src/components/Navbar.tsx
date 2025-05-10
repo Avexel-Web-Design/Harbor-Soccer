@@ -32,8 +32,16 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <NavLink href="/" label="Home" />
-            <NavLink href="/programs/travel" label="Travel Soccer" />
-            <NavLink href="/programs/rec" label="Rec Soccer" />
+            {/* Programs Dropdown - Simplified for now, can be enhanced with a proper dropdown component */}
+            <div className="relative group">
+              <span className="text-secondary hover:text-primary font-serif font-normal relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300 cursor-pointer">
+                Programs
+              </span>
+              <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible">
+                <a href="/programs/travel" className="block px-4 py-2 text-sm text-secondary hover:bg-gray-100 hover:text-primary">Travel Soccer</a>
+                <a href="/programs/rec" className="block px-4 py-2 text-sm text-secondary hover:bg-gray-100 hover:text-primary">Rec Soccer</a>
+              </div>
+            </div>
             <NavLink href="/schedules" label="Schedules" />
             <NavLink href="/referee" label="Referee" />
             <NavLink href="/registration" label="Registration" />
@@ -69,8 +77,12 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-2 border-t border-gray-100">
             <MobileNavLink href="/" label="Home" onClick={() => setIsMenuOpen(false)} />
-            <MobileNavLink href="/programs/travel" label="Travel Soccer" onClick={() => setIsMenuOpen(false)} />
-            <MobileNavLink href="/programs/rec" label="Rec Soccer" onClick={() => setIsMenuOpen(false)} />
+            {/* Mobile Programs Links - Simplified */}
+            <div>
+              <span className="block py-2 px-4 text-secondary font-serif hover:bg-gray-50 hover:text-primary cursor-default">Programs:</span>
+              <MobileNavLink href="/programs/travel" label="  - Travel Soccer" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavLink href="/programs/rec" label="  - Rec Soccer" onClick={() => setIsMenuOpen(false)} />
+            </div>
             <MobileNavLink href="/schedules" label="Schedules" onClick={() => setIsMenuOpen(false)} />
             <MobileNavLink href="/referee" label="Referee" onClick={() => setIsMenuOpen(false)} />
             <MobileNavLink href="/registration" label="Registration" onClick={() => setIsMenuOpen(false)} />

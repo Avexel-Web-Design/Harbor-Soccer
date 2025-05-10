@@ -62,14 +62,14 @@ export default function RegistrationPage() {
                   <div className="bg-white p-6 rounded-lg shadow-md">
                     <h4 className="text-xl font-bold mb-2">Recreational Soccer</h4>
                     <p className="text-gray-600 mb-4">
-                      For players of all skill levels focusing on fun, participation, and basic skills development.
+                      For younger players focusing on fun, participation, and basic skills development.
                     </p>
                     <ul className="mb-4 space-y-2">
                       <li className="flex items-start">
                         <svg className="h-5 w-5 text-blue-600 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-gray-700">Ages 5-19 (U6 to U19)</span>
+                        <span className="text-gray-700">Younger age groups (e.g., U6, U8)</span>
                       </li>
                       <li className="flex items-start">
                         <svg className="h-5 w-5 text-blue-600 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +85,7 @@ export default function RegistrationPage() {
                       </li>
                     </ul>
                     <Link 
-                      to="/programs/recreational" 
+                      to="/programs/rec" 
                       className="text-blue-600 hover:text-blue-800 font-medium"
                     >
                       Program Details →
@@ -93,7 +93,7 @@ export default function RegistrationPage() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h4 className="text-xl font-bold mb-2">Premier Soccer</h4>
+                    <h4 className="text-xl font-bold mb-2">Travel Soccer</h4>
                     <p className="text-gray-600 mb-4">
                       For committed players seeking a more competitive environment with professional coaching.
                     </p>
@@ -102,7 +102,7 @@ export default function RegistrationPage() {
                         <svg className="h-5 w-5 text-blue-600 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-gray-700">Ages 10-19 (U11 to U19)</span>
+                        <span className="text-gray-700">Ages U10, U12, U14</span>
                       </li>
                       <li className="flex items-start">
                         <svg className="h-5 w-5 text-blue-600 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -118,7 +118,7 @@ export default function RegistrationPage() {
                       </li>
                     </ul>
                     <Link 
-                      to="/programs/premier" 
+                      to="/programs/travel" 
                       className="text-blue-600 hover:text-blue-800 font-medium"
                     >
                       Program Details →
@@ -192,37 +192,31 @@ export default function RegistrationPage() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border px-4 py-3 font-medium" rowSpan={3}>Recreational</td>
-                        <td className="border px-4 py-3">U6-U8</td>
+                        <td className="border px-4 py-3 font-medium" rowSpan={2}>Recreational</td>
+                        <td className="border px-4 py-3">Younger Ages (e.g. U6-U8)</td>
                         <td className="border px-4 py-3">$125</td>
                         <td className="border px-4 py-3">$145</td>
                         <td className="border px-4 py-3">$165</td>
                       </tr>
+                      {/* Removed U9-U12 and U13-U19 from Rec as they are now covered by Travel or simplified */}
                       <tr>
-                        <td className="border px-4 py-3">U9-U12</td>
-                        <td className="border px-4 py-3">$145</td>
-                        <td className="border px-4 py-3">$165</td>
-                        <td className="border px-4 py-3">$185</td>
+                        <td className="border px-4 py-3 font-medium" rowSpan={3}>Travel</td>
+                        <td className="border px-4 py-3">U10</td>
+                        <td className="border px-4 py-3" colSpan={3}>$X00 per year</td> {/* Placeholder Fee */}
                       </tr>
                       <tr>
-                        <td className="border px-4 py-3">U13-U19</td>
-                        <td className="border px-4 py-3">$165</td>
-                        <td className="border px-4 py-3">$185</td>
-                        <td className="border px-4 py-3">$205</td>
+                        <td className="border px-4 py-3">U12</td>
+                        <td className="border px-4 py-3" colSpan={3}>$Y00 per year</td> {/* Placeholder Fee */}
                       </tr>
                       <tr>
-                        <td className="border px-4 py-3 font-medium" rowSpan={2}>Premier</td>
-                        <td className="border px-4 py-3">U11-U14</td>
-                        <td className="border px-4 py-3" colSpan={3}>$1,200 per year</td>
+                        <td className="border px-4 py-3">U14</td>
+                        <td className="border px-4 py-3" colSpan={3}>$Z00 per year</td> {/* Placeholder Fee */}
                       </tr>
-                      <tr>
-                        <td className="border px-4 py-3">U15-U19</td>
-                        <td className="border px-4 py-3" colSpan={3}>$1,400 per year</td>
-                      </tr>
+                      {/* Removed U15-U19 from Premier/Travel as it's not specified for Travel */}
                     </tbody>
                   </table>
                   <p className="mt-4 text-sm text-gray-500">
-                    * Premier fees can be paid in installments. Financial assistance is available for qualifying families.
+                    * Travel fees can be paid in installments. Financial assistance is available for qualifying families. Recreational fees are per season.
                   </p>
                 </div>
               </div>

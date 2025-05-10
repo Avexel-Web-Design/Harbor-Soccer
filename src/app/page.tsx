@@ -30,12 +30,6 @@ export default function Home() {
             >
               Register Now
             </Link>
-            <Link 
-              to="/about" 
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-normal rounded-none transition-colors border border-white/30"
-            >
-              Learn More
-            </Link>
           </div>
         </div>
       </section>
@@ -86,36 +80,6 @@ export default function Home() {
           <p className="text-center text-gray-700 mt-8 font-light italic text-lg">
             *We are looking for a new Vice President and Secretary*
           </p>
-        </div>
-      </section>
-
-      {/* Contact Us Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-serif font-light text-center mb-3 text-secondary">Contact Us</h2>
-          <div className="w-24 h-0.5 bg-primary/40 mx-auto mb-12"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 className="text-xl font-serif text-primary mb-2">Mail</h3>
-              <p className="text-gray-600 font-light">Harbor Soccer, Inc.</p>
-              <p className="text-gray-600 font-light">PO Box 223</p>
-              <p className="text-gray-600 font-light">Harbor Springs, MI 49740</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-serif text-primary mb-2">Email</h3>
-              <p className="text-gray-600 font-light">New Email Coming Soon</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-serif text-primary mb-2">Location</h3>
-              <p className="text-gray-600 font-light">2943 Quick Road,</p>
-              <p className="text-gray-600 font-light">Harbor Springs, MI 49740</p>
-              <p className="text-gray-600 font-light italic">(At the Intersection of Quick Road and Hoyt Road)</p>
-            </div>
-          </div>
-           <div className="text-center mt-8">
-              <h3 className="text-xl font-serif text-primary mb-2">Facebook</h3>
-              <p className="text-gray-600 font-light">New Account Coming Soon</p>
-            </div>
         </div>
       </section>
     </div>
