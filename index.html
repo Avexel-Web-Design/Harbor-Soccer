@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harbor Soccer Program</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Harbor Soccer Program</title>
+    <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,12 +70,12 @@
                     <div class="card-icon">⚽</div>
                     <h3 class="card-title">Recreational Soccer</h3>
                     <p class="card-description">
-                        <span class="drop-cap">D</span>esigned for younger players from Kindergarten through 5th grade, 
+                        <span class="drop-cap">D</span>esigned for younger players from Kindergarten through 2nd grade, 
                         our recreational program focuses on fun, skill development, and fostering a love for the game. 
                         Games are held at local middle school and elementary fields in a supportive, non-competitive environment.
                     </p>
                     <ul class="card-features">
-                        <li>Ages K-5th grade</li>
+                        <li>Ages K-2nd grade</li>
                         <li>Local field locations</li>
                         <li>Focus on fun and fundamentals</li>
                         <li>Inclusive environment</li>
@@ -133,7 +133,7 @@
                         Join our community of young athletes and experience the joy of soccer in a supportive environment.
                     </p>
                     
-                    <a href="#" class="register-button">Register Now</a>
+                    <a id="register-btn" href="#" class="register-button">Register Now</a>
                     
                     <div class="registration-details">
                         <h4>Important Information</h4>
@@ -259,27 +259,33 @@
                         <span class="drop-cap">H</span>ave questions about our programs? Want to volunteer? 
                         We'd love to hear from you! Reach out using the form below or contact us directly.
                     </p>
-                    
-                    <div class="contact-details">
+                      <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">📧</div>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:info@harborsoccer.org">info@harborsoccer.org</a>
+                                <p>New Email Coming Soon</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon">📱</div>
                             <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+15551234567">(555) 123-4567</a>
+                                <h4>Facebook</h4>
+                                <p>New Account Coming Soon</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">📍</div>
                             <div>
-                                <h4>Fields</h4>
-                                <p>Harbor Middle School<br>123 Soccer Lane<br>Harbor City, ST 12345</p>
+                                <h4>Location</h4>
+                                <p>2943 Quick Road<br>Harbor Springs, MI 49740</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📮</div>
+                            <div>
+                                <h4>Mail</h4>
+                                <p>Harbor Soccer, Inc.<br>PO Box 223<br>Harbor Springs, MI 49740</p>
                             </div>
                         </div>
                     </div>
@@ -311,8 +317,32 @@
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
             </div>
+        </div>    </section>
+
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Choose Your Program</h2>
+            <p>Select the program that best fits your child's age and experience level:</p>
+            
+            <div class="program-options">
+                <div class="program-option">
+                    <h3>Recreational Soccer</h3>
+                    <p><strong>Ages:</strong> Kindergarten - 5th Grade</p>
+                    <p>Fun, skill development, and fostering a love for the game in a supportive, non-competitive environment.</p>
+                    <a href="https://system.gotsport.com/programs/89838661J?reg_role=player" target="_blank" class="program-button rec-button">Register for Rec Soccer</a>
+                </div>
+                
+                <div class="program-option">
+                    <h3>Travel Soccer</h3>
+                    <p><strong>Ages:</strong> U8, U10, U12, U14 Divisions</p>
+                    <p>Competitive play for players ready to take their game to the next level with regional competition.</p>
+                    <a href="https://system.gotsport.com/programs/28428K728?reg_role=player" target="_blank" class="program-button travel-button">Register for Travel Soccer</a>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

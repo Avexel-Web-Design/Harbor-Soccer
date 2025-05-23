@@ -357,6 +357,42 @@ if ('IntersectionObserver' in window) {
     });
 }
 
+// Registration Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('registration-modal');
+    const registerBtn = document.getElementById('register-btn');
+    const closeBtn = document.querySelector('.close');
+
+    // Open modal when register button is clicked
+    registerBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close modal when X is clicked
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    });
+});
+
 // Console message for developers
 console.log('%c🌊 Harbor Soccer Website', 'color: #000000; font-size: 20px; font-weight: bold;');
 console.log('%cBuilding character through community soccer', 'color: #FF8C00; font-style: italic;');
