@@ -13,9 +13,9 @@ body {
     font-family: 'Junicode', Georgia, 'Times New Roman', serif;
     line-height: 1.7;
     color: #333;
-    background-color: #fefcf8;
+    background-color: #ffffff;
     background-image: 
-        radial-gradient(circle at 1px 1px, rgba(26, 46, 75, 0.1) 1px, transparent 0);
+        radial-gradient(circle at 1px 1px, rgba(255, 140, 0, 0.05) 1px, transparent 0);
     background-size: 20px 20px;
 }
 
@@ -57,7 +57,7 @@ p {
     padding-right: 0.5rem;
     padding-top: 0.2rem;
     font-weight: 700;
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 /* Utility Classes */
@@ -69,7 +69,7 @@ p {
 
 .section-title {
     text-align: center;
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 3rem;
     position: relative;
 }
@@ -79,7 +79,7 @@ p {
     display: block;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #1A2E4B, #F4B400);
+    background: linear-gradient(90deg, #000000, #FF8C00);
     margin: 1rem auto;
 }
 
@@ -90,13 +90,13 @@ p {
     width: 100%;
     z-index: 1000;
     padding: 1rem 0;
-    background: rgba(26, 46, 75, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-    background: rgba(26, 46, 75, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
 }
 
@@ -112,7 +112,7 @@ p {
 .nav-logo {
     display: flex;
     align-items: center;
-    color: #fefcf8;
+    color: #ffffff;
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
@@ -121,7 +121,7 @@ p {
 .logo-icon {
     font-size: 2rem;
     margin-right: 0.5rem;
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 .logo-text {
@@ -135,7 +135,7 @@ p {
 }
 
 .nav-link {
-    color: #fefcf8;
+    color: #ffffff;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -152,7 +152,7 @@ p {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #F4B400;
+    background: #FF8C00;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -162,7 +162,7 @@ p {
 }
 
 .nav-link:hover {
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 /* Mobile Navigation */
@@ -175,7 +175,7 @@ p {
 .bar {
     width: 25px;
     height: 3px;
-    background: #fefcf8;
+    background: #ffffff;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -186,7 +186,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(26, 46, 75, 0.8), rgba(244, 180, 0, 0.3)),
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 140, 0, 0.3)),
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="soccer" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23soccer)"/></svg>');
     background-size: cover;
     background-position: center;
@@ -202,7 +202,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #1A2E4B 0%, #F4B400 100%);
+    background: linear-gradient(45deg, #000000 0%, #FF8C00 100%);
     opacity: 0.1;
     z-index: -1;
 }
@@ -223,25 +223,25 @@ p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     font-style: italic;
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #F4B400, #e6a200);
-    color: #1A2E4B;
+    background: linear-gradient(135deg, #FF8C00, #e67c00);
+    color: #000000;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(244, 180, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(244, 180, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
 }
 
 /* Wave Divider */
@@ -263,13 +263,13 @@ p {
 }
 
 .wave-divider .shape-fill {
-    fill: #fefcf8;
+    fill: #ffffff;
 }
 
 /* Programs Section */
 .programs {
     padding: 6rem 0;
-    background: #fefcf8;
+    background: #ffffff;
     position: relative;
 }
 
@@ -284,14 +284,14 @@ p {
     background: white;
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(26, 46, 75, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(244, 180, 0, 0.1);
+    border: 1px solid rgba(255, 140, 0, 0.1);
 }
 
 .program-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(26, 46, 75, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
@@ -301,7 +301,7 @@ p {
 }
 
 .card-title {
-    color: #1A2E4B;
+    color: #000000;
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -327,7 +327,7 @@ p {
     content: '⚽';
     position: absolute;
     left: 0;
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 .travel-divisions {
@@ -338,14 +338,14 @@ p {
 }
 
 .division {
-    background: rgba(26, 46, 75, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
 }
 
 .division h4 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
@@ -359,7 +359,7 @@ p {
 /* Registration Section */
 .registration {
     padding: 6rem 0;
-    background: linear-gradient(135deg, rgba(26, 46, 75, 0.05), rgba(244, 180, 0, 0.05));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(255, 140, 0, 0.05));
     position: relative;
 }
 
@@ -371,7 +371,7 @@ p {
 }
 
 .registration-main h3 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -383,20 +383,20 @@ p {
 .register-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, #1A2E4B, #2a4a75);
-    color: white;
+    background: linear-gradient(135deg, #FF8C00, #e67c00);
+    color: #ffffff;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(26, 46, 75, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
     margin-bottom: 2rem;
 }
 
 .register-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(26, 46, 75, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
 }
 
 .registration-details {
@@ -407,7 +407,7 @@ p {
 }
 
 .registration-details h4 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1rem;
 }
 
@@ -428,7 +428,7 @@ p {
 }
 
 .registration-faq h4 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -437,7 +437,7 @@ p {
 }
 
 .faq-item h5 {
-    color: #F4B400;
+    color: #FF8C00;
     margin-bottom: 0.5rem;
 }
 
@@ -448,7 +448,7 @@ p {
 }
 
 .faq-item a {
-    color: #1A2E4B;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -459,7 +459,7 @@ p {
 /* About Section */
 .about {
     padding: 6rem 0;
-    background: #fefcf8;
+    background: #ffffff;
     position: relative;
 }
 
@@ -472,7 +472,7 @@ p {
 }
 
 .about-story h3 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -481,7 +481,7 @@ p {
 }
 
 .about-values h3 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 2rem;
 }
 
@@ -510,7 +510,7 @@ p {
 }
 
 .value-item h4 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1rem;
 }
 
@@ -521,7 +521,7 @@ p {
 }
 
 .testimonials h3 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 2rem;
 }
 
@@ -536,7 +536,7 @@ p {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-left: 4px solid #F4B400;
+    border-left: 4px solid #FF8C00;
     font-style: italic;
 }
 
@@ -546,7 +546,7 @@ p {
 }
 
 .testimonial cite {
-    color: #1A2E4B;
+    color: #000000;
     font-weight: 600;
     font-style: normal;
 }
@@ -554,7 +554,7 @@ p {
 /* Contact Section */
 .contact {
     padding: 6rem 0;
-    background: linear-gradient(135deg, rgba(26, 46, 75, 0.05), rgba(244, 180, 0, 0.05));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(255, 140, 0, 0.05));
     position: relative;
 }
 
@@ -566,7 +566,7 @@ p {
 }
 
 .contact-info h3 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -587,22 +587,22 @@ p {
 .contact-icon {
     font-size: 2rem;
     margin-right: 1rem;
-    color: #F4B400;
+    color: #FF8C00;
     min-width: 60px;
 }
 
 .contact-item h4 {
-    color: #1A2E4B;
+    color: #000000;
     margin-bottom: 0.5rem;
 }
 
 .contact-item a {
-    color: #1A2E4B;
+    color: #000000;
     text-decoration: none;
 }
 
 .contact-item a:hover {
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 .contact-form {
@@ -619,7 +619,7 @@ p {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #1A2E4B;
+    color: #000000;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
@@ -640,14 +640,14 @@ p {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #F4B400;
+    border-color: #FF8C00;
 }
 
 .submit-button {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #1A2E4B, #2a4a75);
-    color: white;
+    background: linear-gradient(135deg, #FF8C00, #e67c00);
+    color: #ffffff;
     border: none;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -659,12 +659,12 @@ p {
 
 .submit-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(26, 46, 75, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
 }
 
 /* Footer */
 .footer {
-    background: #1A2E4B;
+    background: #000000;
     color: white;
     padding: 3rem 0 2rem;
 }
@@ -700,7 +700,7 @@ p {
 }
 
 .footer-links a:hover {
-    color: #F4B400;
+    color: #FF8C00;
 }
 
 .footer-info p {
@@ -714,13 +714,12 @@ p {
     .hamburger {
         display: flex;
     }
-    
-    .nav-menu {
+      .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(26, 46, 75, 0.95);
+        background-color: rgba(0, 0, 0, 0.95);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -836,20 +835,20 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 2px solid #F4B400;
+    outline: 2px solid #FF8C00;
     outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .hero {
-        background: #1A2E4B;
+        background: #000000;
     }
     
     .program-card,
     .contact-form,
     .value-item,
     .testimonial {
-        border: 2px solid #1A2E4B;
+        border: 2px solid #000000;
     }
 }

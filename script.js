@@ -81,13 +81,12 @@ function showMessage(message, type = 'info') {
     const messageEl = document.createElement('div');
     messageEl.className = `message message-${type}`;
     messageEl.textContent = message;
-    
-    // Style the message
+      // Style the message
     messageEl.style.cssText = `
         position: fixed;
         top: 100px;
         right: 20px;
-        background: ${type === 'success' ? '#4CAF50' : '#F4B400'};
+        background: ${type === 'success' ? '#4CAF50' : '#FF8C00'};
         color: white;
         padding: 1rem 2rem;
         border-radius: 5px;
@@ -197,9 +196,8 @@ style.textContent = `
         position: relative;
         overflow: hidden;
     }
-    
-    .nav-link.active {
-        color: #F4B400 !important;
+      .nav-link.active {
+        color: #FF8C00 !important;
     }
     
     .nav-link.active::after {
@@ -360,5 +358,5 @@ if ('IntersectionObserver' in window) {
 }
 
 // Console message for developers
-console.log('%c🌊 Harbor Soccer Website', 'color: #1A2E4B; font-size: 20px; font-weight: bold;');
-console.log('%cBuilding character through community soccer', 'color: #F4B400; font-style: italic;');
+console.log('%c🌊 Harbor Soccer Website', 'color: #000000; font-size: 20px; font-weight: bold;');
+console.log('%cBuilding character through community soccer', 'color: #FF8C00; font-style: italic;');
