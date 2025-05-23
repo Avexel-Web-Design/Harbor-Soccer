@@ -124,6 +124,14 @@ p {
     color: #FF8C00;
 }
 
+.logo-icon img {
+    width: 10vh;
+    height: 10vh;
+    vertical-align: middle;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
 .logo-text {
     font-family: 'Junicode', serif;
 }
