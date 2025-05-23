@@ -1,13 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harbor Soccer Club</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbor Soccer Program</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚓</span>
+                <span class="logo-text">Harbor Soccer</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#programs" class="nav-link">Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#registration" class="nav-link">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">Welcome to Harbor Soccer</h1>
+            <p class="hero-subtitle">Building character through community soccer</p>
+            <a href="#programs" class="cta-button">Explore Our Programs</a>
+        </div>
+        <div class="hero-background"></div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
+            
+            <div class="programs-grid">
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">⚽</div>
+                    <h3 class="card-title">Recreational Soccer</h3>
+                    <p class="card-description">
+                        <span class="drop-cap">D</span>esigned for younger players from Kindergarten through 5th grade, 
+                        our recreational program focuses on fun, skill development, and fostering a love for the game. 
+                        Games are held at local middle school and elementary fields in a supportive, non-competitive environment.
+                    </p>
+                    <ul class="card-features">
+                        <li>Ages K-5th grade</li>
+                        <li>Local field locations</li>
+                        <li>Focus on fun and fundamentals</li>
+                        <li>Inclusive environment</li>
+                    </ul>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Travel Soccer</h3>
+                    <p class="card-description">
+                        <span class="drop-cap">F</span>or players ready to take their game to the next level, 
+                        our travel program offers competitive play across multiple age divisions. 
+                        Teams compete regionally while developing advanced skills and teamwork.
+                    </p>
+                    <div class="travel-divisions">
+                        <div class="division">
+                            <h4>U8 Division</h4>
+                            <p>Introduction to competitive play</p>
+                        </div>
+                        <div class="division">
+                            <h4>U10 Division</h4>
+                            <p>Skill development focus</p>
+                        </div>
+                        <div class="division">
+                            <h4>U12 Division</h4>
+                            <p>Advanced tactics and strategy</p>
+                        </div>
+                        <div class="division">
+                            <h4>U14 Division</h4>
+                            <p>Competitive regional play</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Registration</h2>
+            
+            <div class="registration-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="registration-main">
+                    <h3>Ready to Join Harbor Soccer?</h3>
+                    <p class="registration-intro">
+                        <span class="drop-cap">R</span>egistration is now open for the upcoming season! 
+                        Join our community of young athletes and experience the joy of soccer in a supportive environment.
+                    </p>
+                    
+                    <a href="#" class="register-button">Register Now</a>
+                    
+                    <div class="registration-details">
+                        <h4>Important Information</h4>
+                        <ul>
+                            <li><strong>Registration Deadline:</strong> March 15th</li>
+                            <li><strong>Season Runs:</strong> April through June</li>
+                            <li><strong>Uniform Package:</strong> Included with registration</li>
+                            <li><strong>Equipment:</strong> Cleats and shin guards required</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="registration-faq">
+                    <h4>Quick FAQ</h4>
+                    <div class="faq-item">
+                        <h5>Age Eligibility</h5>
+                        <p>Players must be within the age range for their division as of August 1st.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Refund Policy</h5>
+                        <p>Full refunds available before the season starts. Partial refunds considered for medical reasons.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Questions?</h5>
+                        <p>Contact us at <a href="mailto:info@harborsoccer.org">info@harborsoccer.org</a> or call (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Harbor Soccer</h2>
+            
+            <div class="about-content">
+                <div class="about-story" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Our Story</h3>
+                    <p>
+                        <span class="drop-cap">F</span>ounded in 2010, Harbor Soccer Program has been dedicated to 
+                        providing quality soccer experiences for young athletes in our community. We believe that 
+                        soccer is more than just a game—it's a platform for building character, developing friendships, 
+                        and learning valuable life skills.
+                    </p>
+                    <p>
+                        Our program has grown from a small group of enthusiastic parents to a thriving community 
+                        organization serving hundreds of families. We're proud to maintain our grassroots feel 
+                        while providing professional-quality coaching and facilities.
+                    </p>
+                </div>
+                
+                <div class="about-values" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Our Values</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">🤝</div>
+                            <h4>Community</h4>
+                            <p>Building lasting connections between players, families, and coaches.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🌟</div>
+                            <h4>Character</h4>
+                            <p>Developing integrity, respect, and sportsmanship on and off the field.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">⚽</div>
+                            <h4>Excellence</h4>
+                            <p>Striving for continuous improvement in all aspects of our program.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🎯</div>
+                            <h4>Fun</h4>
+                            <p>Ensuring every player enjoys their soccer experience and develops a love for the game.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonials" data-aos="fade-up" data-aos-delay="300">
+                    <h3>What Families Say</h3>
+                    <div class="testimonial-grid">
+                        <blockquote class="testimonial">
+                            <p>"Harbor Soccer has been incredible for our daughter. She's learned so much about teamwork and has made lifelong friends."</p>
+                            <cite>— Sarah M., Parent</cite>
+                        </blockquote>
+                        <blockquote class="testimonial">
+                            <p>"The coaches really care about each player's development, both as athletes and as people. We couldn't be happier."</p>
+                            <cite>— Mike R., Parent</cite>
+                        </blockquote>
+                        <blockquote class="testimonial">
+                            <p>"This program strikes the perfect balance between fun and skill development. My son loves coming to practice!"</p>
+                            <cite>— Jennifer L., Parent</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Get in Touch</h3>
+                    <p>
+                        <span class="drop-cap">H</span>ave questions about our programs? Want to volunteer? 
+                        We'd love to hear from you! Reach out using the form below or contact us directly.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:info@harborsoccer.org">info@harborsoccer.org</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+15551234567">(555) 123-4567</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Fields</h4>
+                                <p>Harbor Middle School<br>123 Soccer Lane<br>Harbor City, ST 12345</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic</option>
+                            <option value="registration">Registration Question</option>
+                            <option value="programs">Program Information</option>
+                            <option value="volunteer">Volunteer Opportunities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">⚓</span>
+                    <span class="logo-text">Harbor Soccer</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#registration">Registration</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Harbor Soccer Program. All rights reserved.</p>
+                    <p>Building character through community soccer.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
