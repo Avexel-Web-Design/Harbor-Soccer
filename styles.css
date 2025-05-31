@@ -720,6 +720,15 @@ p {
     margin-right: 1rem;
     color: #FF8C00;
     min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 2rem;
+    height: 2rem;
+    color: #FF8C00;
 }
 
 .contact-item h4 {

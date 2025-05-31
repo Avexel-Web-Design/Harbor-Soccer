@@ -1,400 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Harbor Soccer, Inc.</title>
-    <link rel="icon" type="image/png" href="icon.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbor Soccer, Inc.</title>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon"><img src="icon.png" width="32" height="32" alt="Harbor Soccer Logo"/></span>
-                <span class="logo-text">Harbor Soccer, Inc.</span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#programs" class="nav-link">Programs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#registration" class="nav-link">Registration</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon"
+            ><img
+              src="icon.png"
+              width="32"
+              height="32"
+              alt="Harbor Soccer Logo"
+          /></span>
+          <span class="logo-text">Harbor Soccer, Inc.</span>
         </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#programs" class="nav-link">Programs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#registration" class="nav-link">Registration</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">Welcome to Harbor Soccer, Inc.</h1>
-            <p class="hero-subtitle">Promoting soccer and enhancing each child's skill development</p>
-            <a href="#programs" class="cta-button">Explore Our Programs</a>
-        </div>
-        <div class="hero-background"></div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">Welcome to Harbor Soccer, Inc.</h1>
+        <p class="hero-subtitle">
+          Promoting soccer and enhancing each child's skill development
+        </p>
+        <a href="#programs" class="cta-button">Explore Our Programs</a>
+      </div>
+      <div class="hero-background"></div>
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
     </section>
 
     <!-- Programs Section -->
     <section id="programs" class="programs">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
-            
-            <div class="programs-grid">
-                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon">⚽</div>
-                    <h3 class="card-title">Recreational Soccer</h3>
-                    <p class="card-description">
-                        <span class="drop-cap">A</span> developmental program for kids with an emphasis on skill building, game-style play, and most importantly fun! This program is meant to introduce the game of soccer to those who are excited, passionate, or maybe just curious about soccer.
-                    </p>
-                    <ul class="card-features">
-                        <li>Emphasis on skill building</li>
-                        <li>Game-style play</li>
-                        <li>Fun and supportive environment</li>
-                        <li>Perfect for beginners</li>
-                    </ul>
-                </div>
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
 
-                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon">🏆</div>
-                    <h3 class="card-title">Travel Soccer</h3>
-                    <p class="card-description">
-                        <span class="drop-cap">A</span> recreational player development program providing players the opportunity for a competitive soccer experience. Typically, practices are held weekdays with games on weekends against other Northern Michigan communities. Girls play on Saturday and boys play on Sunday.
-                    </p>
-                    <div class="travel-info">
-                        <ul class="travel-features">
-                            <li>Weekday practices</li>
-                            <li>Weekend games</li>
-                            <li>Girls play Saturdays</li>
-                            <li>Boys play Sundays</li>
-                            <li>Northern Michigan competition</li>
-                        </ul>
-                        <p><em>Learn more about who we play on the <a href="https://www.nmsaonline.org/" target="_blank" rel="noopener noreferrer">Michigan Alliance website</a>.</em></p>
-                    </div>
-                </div>
+        <div class="programs-grid">
+          <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-icon">⚽</div>
+            <h3 class="card-title">Recreational Soccer</h3>
+            <p class="card-description">
+              <span class="drop-cap">A</span> developmental program for kids
+              with an emphasis on skill building, game-style play, and most
+              importantly fun! This program is meant to introduce the game of
+              soccer to those who are excited, passionate, or maybe just curious
+              about soccer.
+            </p>
+            <ul class="card-features">
+              <li>Emphasis on skill building</li>
+              <li>Game-style play</li>
+              <li>Fun and supportive environment</li>
+              <li>Perfect for beginners</li>
+            </ul>
+          </div>
+
+          <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-icon">🏆</div>
+            <h3 class="card-title">Travel Soccer</h3>
+            <p class="card-description">
+              <span class="drop-cap">A</span> recreational player development
+              program providing players the opportunity for a competitive soccer
+              experience. Typically, practices are held weekdays with games on
+              weekends against other Northern Michigan communities. Girls play
+              on Saturday and boys play on Sunday.
+            </p>
+            <div class="travel-info">
+              <ul class="travel-features">
+                <li>Weekday practices</li>
+                <li>Weekend games</li>
+                <li>Girls play Saturdays</li>
+                <li>Boys play Sundays</li>
+                <li>Northern Michigan competition</li>
+              </ul>
+              <p>
+                <em
+                  >Learn more about who we play on the
+                  <a
+                    href="https://www.nmsaonline.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Michigan Alliance website</a
+                  >.</em
+                >
+              </p>
             </div>
+          </div>
         </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
+      </div>
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
     </section>
 
     <!-- Registration Section -->
     <section id="registration" class="registration">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Registration</h2>
-            
-            <div class="registration-content" data-aos="fade-up" data-aos-delay="100">
-                <div class="registration-main">
-                    <h3>Spring 2025 Registration Open Now</h3>
-                    <p class="registration-intro">
-                        <span class="drop-cap">R</span>egistration is now open for the Spring 2025 season! 
-                        Join our community of young athletes and experience the joy of soccer in a supportive environment.
-                    </p>
-                    
-                    <a id="register-btn" href="#" class="register-button">Register Now</a>
-                    
-                    <div class="registration-details">
-                        <h4>Important Deadlines</h4>
-                        <ul>
-                            <li><strong>Rec Soccer Registration Deadline:</strong> April 14th</li>
-                            <li><strong>Travel Soccer Registration Deadline:</strong> February 20th</li>
-                            <li><strong>Travel Soccer Late Fees:</strong> February 21st - March 10th</li>
-                            <li><strong>Equipment:</strong> Cleats and shin guards required</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="registration-faq">
-                    <h4>Quick FAQ</h4>
-                    <div class="faq-item">
-                        <h5>Registration Deadlines</h5>
-                        <p>Rec Soccer: April 14th | Travel Soccer: February 20th (late fees Feb 21-March 10)</p>
-                    </div>
-                    <div class="faq-item">
-                        <h5>Age Eligibility</h5>
-                        <p>Players must be within the age range for their division as of August 1st.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h5>Questions?</h5>
-                        <p>Contact us at <a href="mailto:info@harborsoccer.org">info@harborsoccer.org</a> or call (555) 123-4567</p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Registration</h2>
+
+        <div
+          class="registration-content"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="registration-main">
+            <h3>Spring 2025 Registration Open Now</h3>
+            <p class="registration-intro">
+              <span class="drop-cap">R</span>egistration is now open for the
+              Spring 2025 season! Join our community of young athletes and
+              experience the joy of soccer in a supportive environment.
+            </p>
+
+            <a id="register-btn" href="#" class="register-button"
+              >Register Now</a
+            >
+
+            <div class="registration-details">
+              <h4>Important Deadlines</h4>
+              <ul>
+                <li>
+                  <strong>Rec Soccer Registration Deadline:</strong> April 14th
+                </li>
+                <li>
+                  <strong>Travel Soccer Registration Deadline:</strong> February
+                  20th
+                </li>
+                <li>
+                  <strong>Travel Soccer Late Fees:</strong> February 21st -
+                  March 10th
+                </li>
+                <li>
+                  <strong>Equipment:</strong> Cleats and shin guards required
+                </li>
+              </ul>
             </div>
+          </div>
+
+          <div class="registration-faq">
+            <h4>Quick FAQ</h4>
+            <div class="faq-item">
+              <h5>Registration Deadlines</h5>
+              <p>
+                Rec Soccer: April 14th | Travel Soccer: February 20th (late fees
+                Feb 21-March 10)
+              </p>
+            </div>
+            <div class="faq-item">
+              <h5>Age Eligibility</h5>
+              <p>
+                Players must be within the age range for their division as of
+                August 1st.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h5>Questions?</h5>
+              <p>
+                Contact us at
+                <a href="mailto:info@harborsoccer.org">info@harborsoccer.org</a>
+                or call (555) 123-4567
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
+      </div>
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Harbor Soccer, Inc.</h2>
-            
-            <div class="about-content">
-                <div class="about-story" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Our Mission</h3>
-                    <p>
-                        <span class="drop-cap">T</span>he mission of Harbor Soccer, Inc. is to promote the game of soccer and enhance each child's skill development. Harbor Soccer, Inc. will promote fair play in a fun, safe and recreational environment while encouraging the development of camaraderie, encouragement of teamwork, and nurturing the skills of each individual player.
-                    </p>
-                    <p>
-                        Harbor Soccer, Inc. (HSI) is the governing board, which serves to organize and oversee soccer teams in the Harbor Springs area. We are proud members of the Northern Michigan Soccer Alliance (NMSA) and Michigan State Youth Soccer Association (MSYSA).
-                    </p>
-                </div>
-                
-                <div class="about-memberships" data-aos="fade-up" data-aos-delay="150">
-                    <h3>We Are Members Of</h3>
-                    <div class="memberships-grid">
-                        <div class="membership-item">
-                            <h4>NMSA</h4>
-                            <p>Northern Michigan Soccer Alliance</p>
-                        </div>
-                        <div class="membership-item">
-                            <h4>MSYSA</h4>
-                            <p>Michigan State Youth Soccer Association</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-values" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Our Values</h3>
-                    <div class="values-grid">
-                        <div class="value-item">
-                            <div class="value-icon">🤝</div>
-                            <h4>Community</h4>
-                            <p>Building lasting connections between players, families, and coaches.</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">🌟</div>
-                            <h4>Character</h4>
-                            <p>Developing integrity, respect, and sportsmanship on and off the field.</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">⚽</div>
-                            <h4>Excellence</h4>
-                            <p>Striving for continuous improvement in all aspects of our program.</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">🎯</div>
-                            <h4>Fun</h4>
-                            <p>Ensuring every player enjoys their soccer experience and develops a love for the game.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-board" data-aos="fade-up" data-aos-delay="250">
-                    <h3>Meet the Board</h3>
-                    <div class="board-grid">
-                        <div class="board-member">
-                            <h4>President</h4>
-                            <p>Ashley Price</p>
-                        </div>
-                        <div class="board-member">
-                            <h4>Treasurer</h4>
-                            <p>Robert Latimer</p>
-                        </div>
-                        <div class="board-member">
-                            <h4>Facilities</h4>
-                            <p>Kyle Kughn</p>
-                        </div>
-                        <div class="board-member">
-                            <h4>Registrar</h4>
-                            <p>Ashley Brainerd</p>
-                        </div>
-                        <div class="board-member">
-                            <h4>Rec Soccer Coordinator</h4>
-                            <p>Madelaine McShannock</p>
-                        </div>
-                        <div class="board-member">
-                            <h4>We're looking for:</h4>
-                            <p>Vice President<br>Secretary</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonials" data-aos="fade-up" data-aos-delay="300">
-                    <h3>What Families Say</h3>
-                    <div class="testimonial-grid">
-                        <blockquote class="testimonial">
-                            <p>"Harbor Soccer has been incredible for our daughter. She's learned so much about teamwork and has made lifelong friends."</p>
-                            <cite>— Sarah M., Parent</cite>
-                        </blockquote>
-                        <blockquote class="testimonial">
-                            <p>"The coaches really care about each player's development, both as athletes and as people. We couldn't be happier."</p>
-                            <cite>— Mike R., Parent</cite>
-                        </blockquote>
-                        <blockquote class="testimonial">
-                            <p>"This program strikes the perfect balance between fun and skill development. My son loves coming to practice!"</p>
-                            <cite>— Jennifer L., Parent</cite>
-                        </blockquote>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">
+          About Harbor Soccer, Inc.
+        </h2>
+
+        <div class="about-content">
+          <div class="about-story" data-aos="fade-up" data-aos-delay="100">
+            <h3>Our Mission</h3>
+            <p>
+              <span class="drop-cap">T</span>he mission of Harbor Soccer, Inc.
+              is to promote the game of soccer and enhance each child's skill
+              development. Harbor Soccer, Inc. will promote fair play in a fun,
+              safe and recreational environment while encouraging the
+              development of camaraderie, encouragement of teamwork, and
+              nurturing the skills of each individual player.
+            </p>
+            <p>
+              Harbor Soccer, Inc. (HSI) is the governing board, which serves to
+              organize and oversee soccer teams in the Harbor Springs area. We
+              are proud members of the Northern Michigan Soccer Alliance (NMSA)
+              and Michigan State Youth Soccer Association (MSYSA).
+            </p>
+          </div>
+
+          <div
+            class="about-memberships"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <h3>We Are Members Of</h3>
+            <div class="memberships-grid">
+              <div class="membership-item">
+                <h4>NMSA</h4>
+                <p>Northern Michigan Soccer Alliance</p>
+              </div>
+              <div class="membership-item">
+                <h4>MSYSA</h4>
+                <p>Michigan State Youth Soccer Association</p>
+              </div>
             </div>
+          </div>
+
+          <div class="about-values" data-aos="fade-up" data-aos-delay="200">
+            <h3>Our Values</h3>
+            <div class="values-grid">
+              <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <h4>Community</h4>
+                <p>
+                  Building lasting connections between players, families, and
+                  coaches.
+                </p>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">🌟</div>
+                <h4>Character</h4>
+                <p>
+                  Developing integrity, respect, and sportsmanship on and off
+                  the field.
+                </p>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">⚽</div>
+                <h4>Excellence</h4>
+                <p>
+                  Striving for continuous improvement in all aspects of our
+                  program.
+                </p>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">🎯</div>
+                <h4>Fun</h4>
+                <p>
+                  Ensuring every player enjoys their soccer experience and
+                  develops a love for the game.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-board" data-aos="fade-up" data-aos-delay="250">
+            <h3>Meet the Board</h3>
+            <div class="board-grid">
+              <div class="board-member">
+                <h4>President</h4>
+                <p>Ashley Price</p>
+              </div>
+              <div class="board-member">
+                <h4>Treasurer</h4>
+                <p>Robert Latimer</p>
+              </div>
+              <div class="board-member">
+                <h4>Facilities</h4>
+                <p>Kyle Kughn</p>
+              </div>
+              <div class="board-member">
+                <h4>Registrar</h4>
+                <p>Ashley Brainerd</p>
+              </div>
+              <div class="board-member">
+                <h4>Rec Soccer Coordinator</h4>
+                <p>Madelaine McShannock</p>
+              </div>
+              <div class="board-member">
+                <h4>We're looking for:</h4>
+                <p>Vice President<br />Secretary</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonials" data-aos="fade-up" data-aos-delay="300">
+            <h3>What Families Say</h3>
+            <div class="testimonial-grid">
+              <blockquote class="testimonial">
+                <p>
+                  "Harbor Soccer has been incredible for our daughter. She's
+                  learned so much about teamwork and has made lifelong friends."
+                </p>
+                <cite>— Sarah M., Parent</cite>
+              </blockquote>
+              <blockquote class="testimonial">
+                <p>
+                  "The coaches really care about each player's development, both
+                  as athletes and as people. We couldn't be happier."
+                </p>
+                <cite>— Mike R., Parent</cite>
+              </blockquote>
+              <blockquote class="testimonial">
+                <p>
+                  "This program strikes the perfect balance between fun and
+                  skill development. My son loves coming to practice!"
+                </p>
+                <cite>— Jennifer L., Parent</cite>
+              </blockquote>
+            </div>
+          </div>
         </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
+      </div>
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
-            
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Get in Touch</h3>
-                    <p>
-                        <span class="drop-cap">H</span>ave questions about our programs in the Harbor Springs area? Want to volunteer with Harbor Soccer, Inc.? 
-                        We'd love to hear from you! Reach out using the form below or contact us directly.
-                    </p>
-                      <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>New Email Coming Soon</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📱</div>
-                            <div>
-                                <h4>Facebook</h4>
-                                <p>New Account Coming Soon</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>2943 Quick Road<br>Harbor Springs, MI 49740</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📮</div>
-                            <div>
-                                <h4>Mail</h4>
-                                <p>Harbor Soccer, Inc.<br>PO Box 223<br>Harbor Springs, MI 49740</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a topic</option>
-                            <option value="registration">Registration Question</option>
-                            <option value="programs">Program Information</option>
-                            <option value="volunteer">Volunteer Opportunities</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+            <h3>Get in Touch</h3>
+            <p>
+              <span class="drop-cap">H</span>ave questions about our programs in
+              the Harbor Springs area? Want to volunteer with Harbor Soccer,
+              Inc.? We'd love to hear from you! Reach out using the form below
+              or contact us directly.
+            </p>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>Location</h4>
+                <p>2943 Quick Road<br />Harbor Springs, MI 49740</p>
+              </div>
             </div>
-        </div>    </section>
+            <div class="contact-item">
+              <div class="contact-icon">📮</div>
+              <div>
+                <h4>Mail</h4>
+                <p>
+                  Harbor Soccer, Inc.<br />PO Box 223<br />Harbor Springs, MI
+                  49740
+                </p>
+              </div>
+            </div>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                  <h4>Email</h4>
+                  <p>New Email Coming Soon</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Facebook</h4>
+                  <p>New Account Coming Soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic</option>
+                <option value="registration">Registration Question</option>
+                <option value="programs">Program Information</option>
+                <option value="volunteer">Volunteer Opportunities</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <!-- Registration Modal -->
     <div id="registration-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Choose Your Program</h2>
-            <p>Select the program that best fits your child's age and experience level:</p>
-            
-            <div class="program-options">
-                <div class="program-option">
-                    <h3>Recreational Soccer</h3>
-                    <p><strong>Ages:</strong> Kindergarten - 5th Grade</p>
-                    <p>A developmental program with an emphasis on skill building, game-style play, and most importantly fun! Perfect for those excited, passionate, or curious about soccer.</p>
-                    <a href="https://system.gotsport.com/programs/89838661J?reg_role=player" target="_blank" class="program-button rec-button">Register for Rec Soccer</a>
-                </div>
-                
-                <div class="program-option">
-                    <h3>Travel Soccer</h3>
-                    <p><strong>Ages:</strong> U8, U10, U12, U14 Divisions</p>
-                    <p>A recreational player development program providing competitive soccer experience. Weekday practices with weekend games against Northern Michigan communities.</p>
-                    <a href="https://system.gotsport.com/programs/28428K728?reg_role=player" target="_blank" class="program-button travel-button">Register for Travel Soccer</a>
-                </div>
-            </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Choose Your Program</h2>
+        <p>
+          Select the program that best fits your child's age and experience
+          level:
+        </p>
+
+        <div class="program-options">
+          <div class="program-option">
+            <h3>Recreational Soccer</h3>
+            <p><strong>Ages:</strong> Kindergarten - 5th Grade</p>
+            <p>
+              A developmental program with an emphasis on skill building,
+              game-style play, and most importantly fun! Perfect for those
+              excited, passionate, or curious about soccer.
+            </p>
+            <a
+              href="https://system.gotsport.com/programs/89838661J?reg_role=player"
+              target="_blank"
+              class="program-button rec-button"
+              >Register for Rec Soccer</a
+            >
+          </div>
+
+          <div class="program-option">
+            <h3>Travel Soccer</h3>
+            <p><strong>Ages:</strong> U8, U10, U12, U14 Divisions</p>
+            <p>
+              A recreational player development program providing competitive
+              soccer experience. Weekday practices with weekend games against
+              Northern Michigan communities.
+            </p>
+            <a
+              href="https://system.gotsport.com/programs/28428K728?reg_role=player"
+              target="_blank"
+              class="program-button travel-button"
+              >Register for Travel Soccer</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-icon"><img src="icon.png" width="32" height="32" alt="Harbor Soccer Logo"/></span>
-                    <span class="logo-text">Harbor Soccer, Inc.</span>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#programs">Programs</a>
-                    <a href="#registration">Registration</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-info">
-                    <p>&copy; 2025 Harbor Soccer, Inc. All rights reserved.</p>
-                    <p>Promoting soccer and enhancing each child's skill development.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span class="logo-icon"
+              ><img
+                src="icon.png"
+                width="32"
+                height="32"
+                alt="Harbor Soccer Logo"
+            /></span>
+            <span class="logo-text">Harbor Soccer, Inc.</span>
+          </div>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#programs">Programs</a>
+            <a href="#registration">Registration</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-info">
+            <p>&copy; 2025 Harbor Soccer, Inc. All rights reserved.</p>
+            <p>
+              Promoting soccer and enhancing each child's skill development.
+            </p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
