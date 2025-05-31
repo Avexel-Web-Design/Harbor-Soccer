@@ -134,6 +134,7 @@ p {
 
 .logo-text {
     font-family: 'Junicode', serif;
+    white-space: nowrap;
 }
 
 .nav-menu {
@@ -338,6 +339,45 @@ p {
     color: #FF8C00;
 }
 
+.travel-info {
+    margin-top: 1.5rem;
+}
+
+.travel-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.travel-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.travel-features li::before {
+    content: '⚽';
+    position: absolute;
+    left: 0;
+    color: #FF8C00;
+}
+
+.travel-info p {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+
+.travel-info a {
+    color: #FF8C00;
+    text-decoration: none;
+}
+
+.travel-info a:hover {
+    text-decoration: underline;
+}
+
 .travel-divisions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -491,6 +531,89 @@ p {
 .about-values h3 {
     color: #000000;
     margin-bottom: 2rem;
+}
+
+.about-memberships {
+    margin-bottom: 4rem;
+}
+
+.about-memberships h3 {
+    color: #000000;
+    margin-bottom: 2rem;
+}
+
+.memberships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.membership-item {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.05));
+    border-radius: 10px;
+    border: 2px solid rgba(255, 140, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.membership-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 140, 0, 0.4);
+}
+
+.membership-item h4 {
+    color: #FF8C00;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.membership-item p {
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.about-board {
+    margin-bottom: 4rem;
+}
+
+.about-board h3 {
+    color: #000000;
+    margin-bottom: 2rem;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.board-member {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.board-member:hover {
+    transform: translateY(-3px);
+}
+
+.board-member h4 {
+    color: #FF8C00;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.board-member p {
+    color: #333;
+    font-weight: 500;
+    margin: 0;
 }
 
 .values-grid {
@@ -960,8 +1083,21 @@ p {
         padding: 1.5rem;
     }
     
-    .travel-divisions {
+    .travel-info {
         grid-template-columns: 1fr;
+    }
+    
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+    
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-icon img {
+        width: 8vh;
+        height: 8vh;
     }
 }
 
