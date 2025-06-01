@@ -272,6 +272,39 @@ p {
     overflow: hidden;
 }
 
+/* Use vertical image for portrait orientations and mobile devices */
+@media (orientation: portrait) and (max-width: 768px) {
+    .hero {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)),
+                    url('soccer-stock-vertical.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+/* Use vertical image for very tall aspect ratios (taller than 4:3) */
+@media (min-aspect-ratio: 3/4) and (orientation: portrait) {
+    .hero {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)),
+                    url('soccer-stock-vertical.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+/* Additional breakpoint for tablets in portrait mode */
+@media (orientation: portrait) and (max-width: 1024px) {
+    .hero {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)),
+                    url('soccer-stock-vertical.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
 .hero-background {
     position: absolute;
     top: 0;
