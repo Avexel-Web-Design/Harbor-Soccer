@@ -1082,10 +1082,6 @@ document.addEventListener("DOMContentLoaded", function () {
         )
         .join("");
 
-      const equipmentHTML = teamInfo.equipment
-        .map((item) => `<li>${item}</li>`)
-        .join("");
-
       // Hide the "no team selected" message
       noTeamSelected.style.display = "none";
 
