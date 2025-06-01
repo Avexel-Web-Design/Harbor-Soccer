@@ -713,3 +713,402 @@ const menuObserver = new MutationObserver(function (mutations) {
 });
 
 menuObserver.observe(mobileMenu, { attributes: true });
+
+// Team Information System
+const teamData = {
+  travel: {
+    boys: {
+      u10: {
+        name: "U10 Boys Travel Team",
+        badge: "travel",
+        description: "Competitive travel soccer for boys under 10. Focus on skill development, teamwork, and sportsmanship.",
+        schedule: {
+          "Practice Days": "Tuesday & Thursday",
+          "Practice Time": "6:00 PM - 7:30 PM",
+          "Game Day": "Sunday",
+          "Game Time": "Varies (10:00 AM - 4:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach Mike Thompson",
+          email: "mike.thompson@harborsoccer.org",
+          phone: "(555) 123-4501"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Travel to nearby communities for games. Parent volunteers needed for game day support."
+      },
+      u12: {
+        name: "U12 Boys Travel Team",
+        badge: "travel",
+        description: "Advanced travel soccer for boys under 12. Emphasis on tactical awareness and competitive play.",
+        schedule: {
+          "Practice Days": "Monday & Wednesday",
+          "Practice Time": "6:30 PM - 8:00 PM",
+          "Game Day": "Sunday",
+          "Game Time": "Varies (10:00 AM - 4:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach David Rodriguez",
+          email: "david.rodriguez@harborsoccer.org",
+          phone: "(555) 123-4502"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Higher level of competition with emphasis on player development and game strategy."
+      },
+      u14: {
+        name: "U14 Boys Travel Team",
+        badge: "travel",
+        description: "Elite travel soccer for boys under 14. Focus on advanced tactics, fitness, and competitive excellence.",
+        schedule: {
+          "Practice Days": "Tuesday & Thursday",
+          "Practice Time": "7:00 PM - 8:30 PM",
+          "Game Day": "Sunday",
+          "Game Time": "Varies (10:00 AM - 4:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach James Wilson",
+          email: "james.wilson@harborsoccer.org",
+          phone: "(555) 123-4503"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Premier level of travel soccer with potential for tournament play and advanced skill development."
+      }
+    },
+    girls: {
+      u10: {
+        name: "U10 Girls Travel Team",
+        badge: "travel",
+        description: "Competitive travel soccer for girls under 10. Building confidence and skills through structured play.",
+        schedule: {
+          "Practice Days": "Tuesday & Thursday",
+          "Practice Time": "5:30 PM - 7:00 PM",
+          "Game Day": "Saturday",
+          "Game Time": "Varies (9:00 AM - 3:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach Sarah Johnson",
+          email: "sarah.johnson@harborsoccer.org",
+          phone: "(555) 123-4504"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Travel to nearby communities for games. Focus on building confidence and fundamental skills."
+      },
+      u12: {
+        name: "U12 Girls Travel Team",
+        badge: "travel",
+        description: "Advanced travel soccer for girls under 12. Developing tactical skills and team chemistry.",
+        schedule: {
+          "Practice Days": "Monday & Wednesday",
+          "Practice Time": "6:00 PM - 7:30 PM",
+          "Game Day": "Saturday",
+          "Game Time": "Varies (9:00 AM - 3:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach Lisa Anderson",
+          email: "lisa.anderson@harborsoccer.org",
+          phone: "(555) 123-4505"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Competitive play with emphasis on skill development and sportsmanship."
+      },
+      u14: {
+        name: "U14 Girls Travel Team",
+        badge: "travel",
+        description: "Elite travel soccer for girls under 14. Advanced tactical training and competitive excellence.",
+        schedule: {
+          "Practice Days": "Tuesday & Thursday",
+          "Practice Time": "6:30 PM - 8:00 PM",
+          "Game Day": "Saturday",
+          "Game Time": "Varies (9:00 AM - 3:00 PM)",
+          "Season": "April - June"
+        },
+        coach: {
+          name: "Coach Maria Garcia",
+          email: "maria.garcia@harborsoccer.org",
+          phone: "(555) 123-4506"
+        },
+        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
+        additionalInfo: "Premier level of travel soccer with advanced tactical training and tournament opportunities."
+      }
+    }
+  },
+  rec: {
+    red: {
+      name: "Red Rockets",
+      badge: "red",
+      description: "An energetic team focused on developing fundamental soccer skills while having fun. Perfect for players who want to learn the game in a supportive environment.",
+      schedule: {
+        "Practice Day": "Wednesday",
+        "Practice Time": "5:30 PM - 6:30 PM",
+        "Game Day": "Saturday",
+        "Game Time": "9:00 AM - 10:00 AM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Tom Mitchell",
+        email: "tom.mitchell@harborsoccer.org",
+        phone: "(555) 123-4507"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "All games are played locally at Harbor Springs Soccer Complex. Focus on fun and skill building."
+    },
+    orange: {
+      name: "Orange Crushers",
+      badge: "orange",
+      description: "A vibrant team that emphasizes teamwork and ball skills. Great for players ready to take their game to the next level.",
+      schedule: {
+        "Practice Day": "Tuesday",
+        "Practice Time": "5:30 PM - 6:30 PM",
+        "Game Day": "Saturday",
+        "Game Time": "10:15 AM - 11:15 AM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Jennifer Clark",
+        email: "jennifer.clark@harborsoccer.org",
+        phone: "(555) 123-4508"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Focus on developing passing skills and game awareness in a fun, encouraging environment."
+    },
+    yellow: {
+      name: "Yellow Thunder",
+      badge: "yellow",
+      description: "A dynamic team that combines skill development with competitive spirit. Perfect for players who love the excitement of soccer.",
+      schedule: {
+        "Practice Day": "Thursday",
+        "Practice Time": "5:30 PM - 6:30 PM",
+        "Game Day": "Saturday",
+        "Game Time": "11:30 AM - 12:30 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Robert Kim",
+        email: "robert.kim@harborsoccer.org",
+        phone: "(555) 123-4509"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Emphasis on speed, agility, and quick decision-making while maintaining a fun atmosphere."
+    },
+    green: {
+      name: "Green Lightning",
+      badge: "green",
+      description: "A fast-paced team focused on developing speed and agility. Great for players who enjoy an active, energetic style of play.",
+      schedule: {
+        "Practice Day": "Monday",
+        "Practice Time": "5:30 PM - 6:30 PM",
+        "Game Day": "Saturday",
+        "Game Time": "12:45 PM - 1:45 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Amanda Foster",
+        email: "amanda.foster@harborsoccer.org",
+        phone: "(555) 123-4510"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Focus on cardiovascular fitness, speed training, and quick transitions between offense and defense."
+    },
+    purple: {
+      name: "Purple Storm",
+      badge: "purple",
+      description: "A creative team that emphasizes technical skills and artistic play. Perfect for players who love to express themselves on the field.",
+      schedule: {
+        "Practice Day": "Wednesday",
+        "Practice Time": "6:45 PM - 7:45 PM",
+        "Game Day": "Saturday",
+        "Game Time": "2:00 PM - 3:00 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Daniel Martinez",
+        email: "daniel.martinez@harborsoccer.org",
+        phone: "(555) 123-4511"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Emphasis on creativity, ball control, and developing individual flair while working as a team."
+    },
+    "light-blue": {
+      name: "Light Blue Waves",
+      badge: "light-blue",
+      description: "A flowing, coordinated team that focuses on smooth passing and team movement. Great for players who enjoy tactical play.",
+      schedule: {
+        "Practice Day": "Tuesday",
+        "Practice Time": "6:45 PM - 7:45 PM",
+        "Game Day": "Saturday",
+        "Game Time": "3:15 PM - 4:15 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Michelle Taylor",
+        email: "michelle.taylor@harborsoccer.org",
+        phone: "(555) 123-4512"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Focus on possession-based soccer, team coordination, and understanding field positioning."
+    },
+    pink: {
+      name: "Pink Panthers",
+      badge: "pink",
+      description: "A fierce and determined team that combines strength with finesse. Perfect for players who want to develop confidence and competitive spirit.",
+      schedule: {
+        "Practice Day": "Thursday",
+        "Practice Time": "6:45 PM - 7:45 PM",
+        "Game Day": "Saturday",
+        "Game Time": "4:30 PM - 5:30 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Christina Davis",
+        email: "christina.davis@harborsoccer.org",
+        phone: "(555) 123-4513"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Building confidence through positive reinforcement while developing competitive skills and determination."
+    },
+    "dark-blue": {
+      name: "Dark Blue Dynamos",
+      badge: "dark-blue",
+      description: "A powerful team focused on strength, endurance, and tactical awareness. Great for players ready for more structured gameplay.",
+      schedule: {
+        "Practice Day": "Monday",
+        "Practice Time": "6:45 PM - 7:45 PM",
+        "Game Day": "Saturday",
+        "Game Time": "5:45 PM - 6:45 PM",
+        "Season": "April - June"
+      },
+      coach: {
+        name: "Coach Kevin O'Brien",
+        email: "kevin.obrien@harborsoccer.org",
+        phone: "(555) 123-4514"
+      },
+      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+      additionalInfo: "Focus on tactical understanding, defensive principles, and developing game intelligence."
+    }
+  }
+};
+
+// Team selector functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const programTypeSelect = document.getElementById('program-type');
+  const travelSelectors = document.getElementById('travel-selectors');
+  const recSelectors = document.getElementById('rec-selectors');
+  const genderSelect = document.getElementById('gender');
+  const ageGroupSelect = document.getElementById('age-group');
+  const teamColorSelect = document.getElementById('team-color');
+  const teamInfoDisplay = document.getElementById('team-info-display');
+
+  // Program type change handler
+  programTypeSelect.addEventListener('change', function() {
+    const selectedProgram = this.value;
+    
+    // Hide all selectors and info display
+    travelSelectors.style.display = 'none';
+    recSelectors.style.display = 'none';
+    teamInfoDisplay.style.display = 'none';
+    
+    // Reset all dependent selectors
+    genderSelect.value = '';
+    ageGroupSelect.value = '';
+    teamColorSelect.value = '';
+    
+    // Show appropriate selectors
+    if (selectedProgram === 'travel') {
+      travelSelectors.style.display = 'block';
+    } else if (selectedProgram === 'rec') {
+      recSelectors.style.display = 'block';
+    }
+  });
+
+  // Travel selectors change handlers
+  genderSelect.addEventListener('change', checkTravelSelection);
+  ageGroupSelect.addEventListener('change', checkTravelSelection);
+  
+  function checkTravelSelection() {
+    if (genderSelect.value && ageGroupSelect.value) {
+      displayTeamInfo('travel', genderSelect.value, ageGroupSelect.value);
+    } else {
+      teamInfoDisplay.style.display = 'none';
+    }
+  }
+
+  // Rec selector change handler
+  teamColorSelect.addEventListener('change', function() {
+    if (this.value) {
+      displayTeamInfo('rec', this.value);
+    } else {
+      teamInfoDisplay.style.display = 'none';
+    }
+  });
+
+  function displayTeamInfo(program, ...selectors) {
+    let teamInfo;
+    
+    if (program === 'travel') {
+      const [gender, ageGroup] = selectors;
+      teamInfo = teamData.travel[gender][ageGroup];
+    } else if (program === 'rec') {
+      const [teamColor] = selectors;
+      teamInfo = teamData.rec[teamColor];
+    }
+    
+    if (teamInfo) {
+      const scheduleHTML = Object.entries(teamInfo.schedule)
+        .map(([key, value]) => `<li><strong>${key}:</strong> <span class="highlight">${value}</span></li>`)
+        .join('');
+      
+      const equipmentHTML = teamInfo.equipment
+        .map(item => `<li>${item}</li>`)
+        .join('');
+
+      teamInfoDisplay.innerHTML = `
+        <div class="team-details">
+          <h4>
+            ${teamInfo.name}
+            <span class="team-badge ${teamInfo.badge}">${teamInfo.badge.toUpperCase()}</span>
+          </h4>
+          <p>${teamInfo.description}</p>
+          
+          <div class="schedule">
+            <h5>Schedule Information</h5>
+            <ul>
+              ${scheduleHTML}
+            </ul>
+          </div>
+          
+          <div class="coach-info">
+            <h5>Coach Contact</h5>
+            <p><strong>${teamInfo.coach.name}</strong></p>
+            <p>Email: <a href="mailto:${teamInfo.coach.email}">${teamInfo.coach.email}</a></p>
+            <p>Phone: ${teamInfo.coach.phone}</p>
+            <a href="mailto:${teamInfo.coach.email}?subject=Question about ${teamInfo.name}" class="contact-coach">Contact Coach</a>
+          </div>
+          
+          <div class="equipment-info">
+            <h5>Required Equipment</h5>
+            <ul>
+              ${equipmentHTML}
+            </ul>
+          </div>
+          
+          <div class="practice-info">
+            <h5>Additional Information</h5>
+            <p>${teamInfo.additionalInfo}</p>
+          </div>
+        </div>
+      `;
+      
+      teamInfoDisplay.style.display = 'block';
+      
+      // Smooth scroll to the team info display
+      teamInfoDisplay.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'nearest' 
+      });
+    }
+  }
+});

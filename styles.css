@@ -1706,3 +1706,244 @@ textarea:focus {
   text-rendering: optimizeLegibility;
   backface-visibility: hidden;
 }
+
+/* Team Info Section */
+.team-info {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+.team-info .container {
+  max-width: 1200px;
+}
+
+.info-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.general-info h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.general-info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.team-selector {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.team-selector h3 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.team-selector > p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.selector-container {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+}
+
+.form-group select:hover {
+  border-color: #ff8c00;
+}
+
+.selector-group {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.team-info-display {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.team-details h4 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-left: auto;
+}
+
+.team-badge.travel {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.team-badge.rec {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.team-details .schedule,
+.team-details .practice-info,
+.team-details .coach-info,
+.team-details .equipment-info {
+  margin-bottom: 1.5rem;
+}
+
+.team-details h5 {
+  color: #333;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #ff8c00;
+  padding-bottom: 0.3rem;
+  display: inline-block;
+}
+
+.team-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.team-details li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-details li:last-child {
+  border-bottom: none;
+}
+
+.team-details .highlight {
+  font-weight: 600;
+  color: #ff8c00;
+}
+
+.contact-coach {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ff8c00, #ff7300);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.contact-coach:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+/* Color-coded team badges for rec teams */
+.team-badge.red { background: linear-gradient(135deg, #dc3545, #c82333); }
+.team-badge.orange { background: linear-gradient(135deg, #fd7e14, #e8610e); }
+.team-badge.yellow { background: linear-gradient(135deg, #ffc107, #e0a800); }
+.team-badge.green { background: linear-gradient(135deg, #28a745, #1e7e34); }
+.team-badge.purple { background: linear-gradient(135deg, #6f42c1, #5a2d91); }
+.team-badge.light-blue { background: linear-gradient(135deg, #17a2b8, #138496); }
+.team-badge.pink { background: linear-gradient(135deg, #e83e8c, #d91a72); }
+.team-badge.dark-blue { background: linear-gradient(135deg, #007bff, #0056b3); }
+
+/* Responsive design for team info section */
+@media (max-width: 768px) {
+  .info-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .team-selector {
+    padding: 2rem;
+  }
+  
+  .team-selector h3 {
+    font-size: 1.5rem;
+  }
+  
+  .general-info h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-info {
+    padding: 4rem 0;
+  }
+  
+  .team-selector {
+    padding: 1.5rem;
+  }
+  
+  .team-info-display {
+    padding: 1.5rem;
+  }
+  
+  .team-details h4 {
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .team-badge {
+    margin-left: 0;
+  }
+}
