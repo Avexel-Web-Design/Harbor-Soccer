@@ -1647,43 +1647,6 @@ p {
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.1);
   }
-
-  .team-info {
-    padding: 4rem 0;
-  }
-  
-  .team-selector {
-    padding: 1.5rem;
-  }
-  
-  .team-info-display {
-    padding: 1.5rem;
-  }
-  
-  .team-details h4 {
-    font-size: 1.3rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .team-badge {
-    margin-left: 0;
-  }
-  
-  /* Enhanced mobile spacing for travel selectors */
-  .team-info.travel-mode {
-    padding-bottom: 6rem;
-  }
-  
-  #travel-selectors {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  .team-selector.travel-selected {
-    margin-bottom: 2rem;
-  }
 }
 
 /* Accessibility Improvements */
@@ -1856,31 +1819,59 @@ textarea:focus {
   border-top: 1px solid #e9ecef;
 }
 
-/* Enhanced spacing for travel selectors */
-#travel-selectors {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid #e9ecef;
+/* Color-coded team badges for rec teams */
+.team-badge.red { background: linear-gradient(135deg, #dc3545, #c82333); }
+.team-badge.orange { background: linear-gradient(135deg, #fd7e14, #e8610e); }
+.team-badge.yellow { background: linear-gradient(135deg, #ffc107, #e0a800); }
+.team-badge.green { background: linear-gradient(135deg, #28a745, #1e7e34); }
+.team-badge.purple { background: linear-gradient(135deg, #6f42c1, #5a2d91); }
+.team-badge.light-blue { background: linear-gradient(135deg, #17a2b8, #138496); }
+.team-badge.pink { background: linear-gradient(135deg, #e83e8c, #d91a72); }
+.team-badge.dark-blue { background: linear-gradient(135deg, #007bff, #0056b3); }
+
+/* Responsive design for team info section */
+@media (max-width: 768px) {
+  .info-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .team-selector {
+    padding: 2rem;
+  }
+  
+  .team-selector h3 {
+    font-size: 1.5rem;
+  }
+  
+  .general-info h3 {
+    font-size: 1.8rem;
+  }
 }
 
-/* Additional spacing when travel selectors are visible */
-.team-selector:has(#travel-selectors[style*="block"]) {
-  margin-bottom: 3rem;
-}
-
-/* Fallback for browsers that don't support :has() */
-.team-selector.travel-selected {
-  margin-bottom: 3rem;
-}
-
-/* Enhanced spacing for the entire team-info section when travel is selected */
-.team-info.travel-mode {
-  padding-bottom: 8rem;
-}
-
-/* Default enhanced spacing between team-info and schedules */
-.team-info {
-  margin-bottom: 2rem;
+@media (max-width: 480px) {
+  .team-info {
+    padding: 4rem 0;
+  }
+  
+  .team-selector {
+    padding: 1.5rem;
+  }
+  
+  .team-info-display {
+    padding: 1.5rem;
+  }
+  
+  .team-details h4 {
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .team-badge {
+    margin-left: 0;
+  }
 }
 
 /* Schedules Section */
@@ -1888,24 +1879,6 @@ textarea:focus {
   padding: 6rem 0;
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   position: relative;
-  margin-top: 1rem;
-}
-
-/* Enhanced visual separation */
-.schedules::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 140, 0, 0.2) 20%, 
-    rgba(255, 140, 0, 0.4) 50%, 
-    rgba(255, 140, 0, 0.2) 80%, 
-    transparent 100%
-  );
 }
 
 .no-selection {
@@ -2161,269 +2134,5 @@ textarea:focus {
   .coach-contact,
   .additional-info {
     padding: 1.5rem;
-  }
-  
-  .team-info {
-    padding: 4rem 0;
-  }
-  
-  .team-selector {
-    padding: 1.5rem;
-  }
-  
-  .team-info-display {
-    padding: 1.5rem;
-  }
-  
-  .team-details h4 {
-    font-size: 1.3rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .team-badge {
-    margin-left: 0;
-  }
-  
-  /* Enhanced mobile spacing for travel selectors */
-  .team-info.travel-mode {
-    padding-bottom: 6rem;
-  }
-  
-  #travel-selectors {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  .team-selector.travel-selected {
-    margin-bottom: 2rem;
-  }
-}
-
-/* Accessibility Improvements */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Focus indicators */
-a:focus,
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid #ff8c00;
-  outline-offset: 2px;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .hero {
-    background: #000000;
-  }
-
-  .program-card,
-  .contact-form,
-  .value-item,
-  .testimonial {
-    border: 2px solid #000000;
-  }
-}
-
-/* Menu state indicator for hamburger */
-.hamburger[aria-expanded="true"] .bar:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px);
-}
-
-.hamburger[aria-expanded="true"] .bar:nth-child(2) {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.hamburger[aria-expanded="true"] .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Add subtle glow effect to active menu */
-.nav-menu.active {
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 140, 0, 0.1);
-}
-
-/* Smooth menu item hover effects */
-.nav-item:hover {
-  transform: translateX(5px);
-}
-
-/* Focus styles for better accessibility */
-.nav-link:focus {
-  outline: 2px solid #ff8c00;
-  outline-offset: 2px;
-  background: rgba(255, 140, 0, 0.2);
-}
-
-.hamburger:focus {
-  outline: 2px solid #ff8c00;
-  outline-offset: 2px;
-}
-
-/* Additional text sharpening for all mobile menu text */
-.mobile-menu * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  backface-visibility: hidden;
-}
-
-/* Team Info Section */
-.team-info {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  position: relative;
-}
-
-.team-info .container {
-  max-width: 1200px;
-}
-
-.info-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.general-info h3 {
-  color: #000000;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-}
-
-.general-info p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.team-selector {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e9ecef;
-}
-
-.team-selector h3 {
-  color: #000000;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.team-selector > p {
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.selector-container {
-  margin-bottom: 2rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
-  font-size: 1rem;
-}
-
-.form-group select {
-  width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: white;
-  color: #333;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.form-group select:focus {
-  outline: none;
-  border-color: #ff8c00;
-  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
-}
-
-.form-group select:hover {
-  border-color: #ff8c00;
-}
-
-.selector-group {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e9ecef;
-}
-
-/* Enhanced spacing for travel selectors */
-#travel-selectors {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid #e9ecef;
-}
-
-/* Additional spacing when travel selectors are visible */
-.team-selector:has(#travel-selectors[style*="block"]) {
-  margin-bottom: 3rem;
-}
-
-/* Fallback for browsers that don't support :has() */
-.team-selector.travel-selected {
-  margin-bottom: 3rem;
-}
-
-/* Enhanced spacing for the entire team-info section when travel is selected */
-.team-info.travel-mode {
-  padding-bottom: 8rem;
-}
-
-/* Default enhanced spacing between team-info and schedules */
-.team-info {
-  margin-bottom: 2rem;
-}
-
-/* Enhanced tablet spacing for travel selectors */
-@media (max-width: 768px) {
-  .info-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .team-selector {
-    padding: 2rem;
-  }
-  
-  .team-selector h3 {
-    font-size: 1.5rem;
-  }
-  
-  .general-info h3 {
-    font-size: 1.8rem;
-  }
-  
-  /* Enhanced tablet spacing for travel selectors */
-  .team-info.travel-mode {
-    padding-bottom: 7rem;
-  }
-  
-  #travel-selectors {
-    margin-bottom: 1.8rem;
-    padding-bottom: 1.8rem;
   }
 }
