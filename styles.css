@@ -130,6 +130,7 @@ p {
     vertical-align: middle;
     object-fit: contain;
     margin-right: 8px;
+    padding: 0;
 }
 
 .logo-text {
