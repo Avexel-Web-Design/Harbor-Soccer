@@ -15,6 +15,27 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-header">
+        <h3 class="mobile-menu-title">Menu</h3>
+        <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#programs" class="mobile-nav-link">Programs</a>
+        <a href="#registration" class="mobile-nav-link">Registration</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </nav>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
@@ -45,7 +66,7 @@
             <a href="#contact" class="nav-link">Contact</a>
           </li>
         </ul>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
