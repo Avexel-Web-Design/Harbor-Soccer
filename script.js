@@ -770,7 +770,6 @@ const teamData = {
           email: "james.wilson@harborsoccer.org",
           phone: "(555) 123-4503"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Premier level of travel soccer with potential for tournament play and advanced skill development."
       }
     },
@@ -791,7 +790,6 @@ const teamData = {
           email: "sarah.johnson@harborsoccer.org",
           phone: "(555) 123-4504"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Travel to nearby communities for games. Focus on building confidence and fundamental skills."
       },
       u12: {
@@ -810,7 +808,6 @@ const teamData = {
           email: "lisa.anderson@harborsoccer.org",
           phone: "(555) 123-4505"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Competitive play with emphasis on skill development and sportsmanship."
       },
       u14: {
@@ -829,7 +826,6 @@ const teamData = {
           email: "maria.garcia@harborsoccer.org",
           phone: "(555) 123-4506"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Premier level of travel soccer with advanced tactical training and tournament opportunities."
       }
     }
@@ -851,7 +847,6 @@ const teamData = {
         email: "tom.mitchell@harborsoccer.org",
         phone: "(555) 123-4507"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "All games are played locally at Harbor Springs Soccer Complex. Focus on fun and skill building."
     },
     orange: {
@@ -870,7 +865,6 @@ const teamData = {
         email: "jennifer.clark@harborsoccer.org",
         phone: "(555) 123-4508"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Focus on developing passing skills and game awareness in a fun, encouraging environment."
     },
     yellow: {
@@ -889,7 +883,6 @@ const teamData = {
         email: "robert.kim@harborsoccer.org",
         phone: "(555) 123-4509"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Emphasis on speed, agility, and quick decision-making while maintaining a fun atmosphere."
     },
     green: {
@@ -908,7 +901,6 @@ const teamData = {
         email: "amanda.foster@harborsoccer.org",
         phone: "(555) 123-4510"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Focus on cardiovascular fitness, speed training, and quick transitions between offense and defense."
     },
     purple: {
@@ -927,7 +919,7 @@ const teamData = {
         email: "daniel.martinez@harborsoccer.org",
         phone: "(555) 123-4511"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
+
       additionalInfo: "Emphasis on creativity, ball control, and developing individual flair while working as a team."
     },
     "light-blue": {
@@ -946,7 +938,6 @@ const teamData = {
         email: "michelle.taylor@harborsoccer.org",
         phone: "(555) 123-4512"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Focus on possession-based soccer, team coordination, and understanding field positioning."
     },
     pink: {
@@ -965,7 +956,6 @@ const teamData = {
         email: "christina.davis@harborsoccer.org",
         phone: "(555) 123-4513"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Building confidence through positive reinforcement while developing competitive skills and determination."
     },
     "dark-blue": {
@@ -984,7 +974,6 @@ const teamData = {
         email: "kevin.obrien@harborsoccer.org",
         phone: "(555) 123-4514"
       },
-      equipment: ["Cleats (no metal studs)", "Shin guards", "Team jersey (provided)", "Water bottle"],
       additionalInfo: "Focus on tactical understanding, defensive principles, and developing game intelligence."
     }
   }
