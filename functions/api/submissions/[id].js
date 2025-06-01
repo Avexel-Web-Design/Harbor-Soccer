@@ -1,35 +1,10 @@
 // Dynamic route for individual submission operations
-import { verifyJWT } from '../auth/login.js';
-
-async function authenticateRequest(request, env) {
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return null;
-  }
-  
-  const token = authHeader.substring(7);
-  return await verifyJWT(token, env.JWT_SECRET);
-}
 
 // Delete a specific submission
 export async function onRequestDelete(context) {
   const { request, env, params } = context;
   
   try {
-    // Authenticate request
-    const payload = await authenticateRequest(request, env);
-    if (!payload) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: 'Unauthorized' 
-      }), {
-        status: 401,
-        headers: { 
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
-    }
     
     const submissionId = params.id;
     

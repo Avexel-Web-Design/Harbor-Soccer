@@ -6,7 +6,6 @@ This project includes an admin console for managing contact form submissions usi
 
 - **Contact Form**: Secure form submission with validation
 - **Admin Dashboard**: View and manage all form submissions
-- **Authentication**: JWT-based admin login system
 - **Database**: Cloudflare D1 for storing submissions
 - **Real-time Stats**: Dashboard showing submission statistics
 - **Responsive Design**: Works on desktop and mobile devices
@@ -47,43 +46,20 @@ database_id = "YOUR_ACTUAL_DATABASE_ID"
 npm run db:migrate
 ```
 
-### 6. Set Production Secrets
-```bash
-# Set a strong admin password
-wrangler secret put ADMIN_PASSWORD
-
-# Set a secure JWT secret (use a long random string)
-wrangler secret put JWT_SECRET
-```
-
-### 7. Test Locally (Optional)
-```bash
-# Create local database
-npm run db:migrate-local
-
-# Start development server
-npm run dev
-```
-
-### 8. Deploy
+### 6. Deploy
 Since this is already set up with Cloudflare Pages, push to your repository and the functions will be automatically deployed.
 
 ## 🔐 Admin Console
 
-Access the admin console at: `https://your-domain.com/admin.html`
+Access the admin console directly at: `https://your-domain.com/admin.html`
 
-**Default Development Credentials:**
-- Username: `admin`
-- Password: `changeme123`
-
-**⚠️ Important:** Change these credentials in production using the secret commands above.
+No authentication is required - the admin console is directly accessible.
 
 ## 📡 API Endpoints
 
 - `POST /api/contact` - Submit contact form
-- `POST /api/auth/login` - Admin login
-- `GET /api/submissions` - Get all submissions (requires auth)
-- `DELETE /api/submissions/{id}` - Delete submission (requires auth)
+- `GET /api/submissions` - Get all submissions
+- `DELETE /api/submissions/{id}` - Delete submission
 
 ## 🗄️ Database Schema
 
@@ -96,13 +72,6 @@ Access the admin console at: `https://your-domain.com/admin.html`
 - `submitted_at` - Timestamp
 - `ip_address` - Client IP (for spam prevention)
 - `user_agent` - Client browser info
-
-### Admin Sessions Table
-- `id` - Session ID
-- `token_hash` - Hashed JWT token
-- `created_at` - Session creation time
-- `expires_at` - Session expiration
-- `is_active` - Session status
 
 ## 🛠️ Development Commands
 
@@ -120,10 +89,6 @@ npm run deploy            # Deploy to Cloudflare Pages
 
 # Monitoring
 npm run logs              # View deployment logs
-
-# Security
-npm run secret:set ADMIN_PASSWORD    # Set admin password
-npm run secret:set JWT_SECRET        # Set JWT secret
 ```
 
 ## 🔒 Security Features
@@ -131,7 +96,6 @@ npm run secret:set JWT_SECRET        # Set JWT secret
 - **Input Validation**: All form inputs are validated
 - **CORS Protection**: Proper CORS headers configured
 - **Rate Limiting**: Cloudflare's built-in protection
-- **JWT Authentication**: Secure admin sessions
 - **SQL Injection Protection**: Prepared statements used
 - **XSS Protection**: HTML escaping in dashboard
 

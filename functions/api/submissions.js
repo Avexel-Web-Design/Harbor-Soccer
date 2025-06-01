@@ -1,35 +1,10 @@
 // Submissions management API
-import { verifyJWT } from './auth/login.js';
-
-async function authenticateRequest(request, env) {
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return null;
-  }
-  
-  const token = authHeader.substring(7);
-  return await verifyJWT(token, env.JWT_SECRET);
-}
 
 // Get all submissions
 export async function onRequestGet(context) {
   const { request, env } = context;
   
   try {
-    // Authenticate request
-    const payload = await authenticateRequest(request, env);
-    if (!payload) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: 'Unauthorized' 
-      }), {
-        status: 401,
-        headers: { 
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
-    }
     
     // Get submissions from database
     const result = await env.DB.prepare(`

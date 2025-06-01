@@ -18,16 +18,11 @@
 - [ ] Database tables created: `npm run db:migrate`
 - [ ] Database connection tested: `npm run db:query "SELECT 1"`
 
-### 4. **Security Configuration**
-- [ ] Admin password set: `wrangler secret put ADMIN_PASSWORD`
-- [ ] JWT secret set: `wrangler secret put JWT_SECRET`
-- [ ] Secrets verified: `wrangler secret list`
-
-### 5. **Testing**
+### 4. **Testing**
 - [ ] Local testing completed: `npm run dev`
 - [ ] API endpoints tested via `/test.html`
 - [ ] Contact form submission works
-- [ ] Admin login works
+- [ ] Admin console access works
 - [ ] Submission management works
 
 ## 🔧 Deployment Steps

@@ -53,88 +53,8 @@
             font-weight: 600;
         }
 
-        .logout-btn {
-            background: #e53e3e;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .logout-btn:hover {
-            background: #c53030;
-        }
-
-        .login-form {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 400px;
-            margin: 100px auto;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-form h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2d3748;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .login-btn {
-            width: 100%;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .login-btn:hover {
-            background: #5a67d8;
-        }
-
-        .error {
-            color: #e53e3e;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
         .dashboard {
-            display: none;
+            display: block;
         }
 
         .stats {
@@ -328,26 +248,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Login Form -->
-        <div id="login-form" class="login-form">
-            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-                <img src="/images/icon.png" alt="Harbor Soccer">
-                <h2>Admin Login</h2>
-            </div>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="login-btn">Login</button>
-                <div id="login-error" class="error"></div>
-            </form>
-        </div>
-
         <!-- Dashboard -->
         <div id="dashboard" class="dashboard">
             <div class="header">
@@ -355,7 +255,6 @@
                     <img src="/images/icon.png" alt="Harbor Soccer">
                     <h1>Harbor Soccer Admin</h1>
                 </div>
-                <button id="logout-btn" class="logout-btn">Logout</button>
             </div>
 
             <div id="success-message" class="success-message" style="display: none;"></div>
@@ -389,77 +288,22 @@
 
     <script>
         const API_BASE = '/api';
-        let authToken = localStorage.getItem('adminToken');
 
         // DOM elements
-        const loginForm = document.getElementById('login-form');
         const dashboard = document.getElementById('dashboard');
-        const loginFormElement = document.getElementById('loginForm');
-        const loginError = document.getElementById('login-error');
-        const logoutBtn = document.getElementById('logout-btn');
         const refreshBtn = document.getElementById('refresh-btn');
         const submissionsContent = document.getElementById('submissions-content');
         const successMessage = document.getElementById('success-message');
 
-        // Check if already logged in
-        if (authToken) {
-            showDashboard();
-        }
-
-        // Login form handler
-        loginFormElement.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            
-            try {
-                const response = await fetch(`${API_BASE}/auth/login`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        username: formData.get('username'),
-                        password: formData.get('password')
-                    })
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    authToken = result.token;
-                    localStorage.setItem('adminToken', authToken);
-                    showDashboard();
-                } else {
-                    loginError.textContent = result.error;
-                }
-            } catch (error) {
-                loginError.textContent = 'Login failed. Please try again.';
-            }
-        });
-
-        // Logout handler
-        logoutBtn.addEventListener('click', () => {
-            authToken = null;
-            localStorage.removeItem('adminToken');
-            showLogin();
+        // Load submissions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSubmissions();
         });
 
         // Refresh handler
         refreshBtn.addEventListener('click', () => {
             loadSubmissions();
         });
-
-        function showLogin() {
-            loginForm.style.display = 'block';
-            dashboard.style.display = 'none';
-            loginError.textContent = '';
-        }
-
-        function showDashboard() {
-            loginForm.style.display = 'none';
-            dashboard.style.display = 'block';
-            loadSubmissions();
-        }
 
         function showSuccess(message) {
             successMessage.textContent = message;
@@ -473,20 +317,7 @@
             try {
                 submissionsContent.innerHTML = '<div class="loading">Loading submissions...</div>';
 
-                const response = await fetch(`${API_BASE}/submissions`, {
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
-                    }
-                });
-
-                if (response.status === 401) {
-                    // Token expired
-                    authToken = null;
-                    localStorage.removeItem('adminToken');
-                    showLogin();
-                    return;
-                }
-
+                const response = await fetch(`${API_BASE}/submissions`);
                 const result = await response.json();
 
                 if (result.success) {
@@ -552,10 +383,7 @@
 
             try {
                 const response = await fetch(`${API_BASE}/submissions/${id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
-                    }
+                    method: 'DELETE'
                 });
 
                 const result = await response.json();

@@ -9,12 +9,3 @@ CREATE TABLE IF NOT EXISTS submissions (
     ip_address TEXT,
     user_agent TEXT
 );
-
--- Create admin sessions table for JWT tracking
-CREATE TABLE IF NOT EXISTS admin_sessions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    token_hash TEXT UNIQUE NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    expires_at DATETIME NOT NULL,
-    is_active BOOLEAN DEFAULT 1
-);
