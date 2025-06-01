@@ -89,7 +89,7 @@ p {
     top: 0;
     width: 100%;
     z-index: 1002;
-    padding: 1rem 0;
+    padding: 0.25rem 0;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
@@ -1484,8 +1484,8 @@ p {
     }
     
     .logo-icon img {
-        width: 14vh;
-        height: 14vh;
+        width: 80px;
+        height: 80px;
     }
     
     /* Modal responsive styles for mobile phones */
