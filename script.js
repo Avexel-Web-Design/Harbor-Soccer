@@ -170,28 +170,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Contact form handling
-const contactForm = document.querySelector(".contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-
-    // Here you would typically send the data to a server
-    // For this demo, we'll just show a success message
-    showMessage(
-      "Thank you for your message! We'll get back to you soon.",
-      "success"
-    );
-
-    // Reset form
-    this.reset();
-  });
-}
-
 // Show message function
 function showMessage(message, type = "info") {
   // Remove any existing messages
@@ -363,15 +341,15 @@ document
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     // Close mobile menu if open
-    if (navMenu.classList.contains("active")) {
+    if (mobileMenu.classList.contains("active")) {
       closeMobileMenu();
       hamburger.focus(); // Return focus to hamburger button
     }
   }
 
   // Trap focus within mobile menu when open
-  if (navMenu.classList.contains("active")) {
-    const focusableElements = navMenu.querySelectorAll(
+  if (mobileMenu.classList.contains("active")) {
+    const focusableElements = mobileMenu.querySelectorAll(
       'a[href], button, [tabindex]:not([tabindex="-1"])'
     );
     const firstElement = focusableElements[0];
@@ -457,45 +435,6 @@ function clearFieldError(field) {
   if (errorEl) {
     errorEl.remove();
   }
-}
-
-// Enhanced form submission validation
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    let isFormValid = true;
-    const formFields = this.querySelectorAll(
-      "input[required], select[required], textarea[required]"
-    );
-
-    formFields.forEach((field) => {
-      if (!validateField(field)) {
-        isFormValid = false;
-      }
-    });
-
-    if (isFormValid) {
-      // Simulate form submission
-      const submitButton = this.querySelector(".submit-button");
-      const originalText = submitButton.textContent;
-
-      submitButton.textContent = "Sending...";
-      submitButton.disabled = true;
-
-      setTimeout(() => {
-        showMessage(
-          "Thank you for your message! We'll get back to you soon.",
-          "success"
-        );
-        this.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-      }, 1500);
-    } else {
-      showMessage("Please fix the errors above and try again.", "error");
-    }
-  });
 }
 
 // Lazy loading for images (if you add images later)
@@ -721,6 +660,26 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+      
+      // Clear any existing error messages
+      document.querySelectorAll('.field-error').forEach(error => error.remove());
+      
+      // Validate form fields
+      let isFormValid = true;
+      const formFields = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+      
+      formFields.forEach((field) => {
+        field.style.borderColor = "#e1e5e9"; // Reset border color
+        
+        if (!validateField(field)) {
+          isFormValid = false;
+        }
+      });
+      
+      if (!isFormValid) {
+        showFormMessage('error', 'Please fix the errors above and try again.');
+        return;
+      }
       
       const submitButton = contactForm.querySelector('.submit-button');
       const originalText = submitButton.textContent;
