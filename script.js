@@ -836,7 +836,7 @@ const teamData = {
   },
   rec: {
     red: {
-      name: "Red Rockets",
+      name: "Red",
       badge: "red",
       description: "An energetic team focused on developing fundamental soccer skills while having fun. Perfect for players who want to learn the game in a supportive environment.",
       schedule: {
@@ -855,7 +855,7 @@ const teamData = {
       additionalInfo: "All games are played locally at Harbor Springs Soccer Complex. Focus on fun and skill building."
     },
     orange: {
-      name: "Orange Crushers",
+      name: "Orange",
       badge: "orange",
       description: "A vibrant team that emphasizes teamwork and ball skills. Great for players ready to take their game to the next level.",
       schedule: {
@@ -874,7 +874,7 @@ const teamData = {
       additionalInfo: "Focus on developing passing skills and game awareness in a fun, encouraging environment."
     },
     yellow: {
-      name: "Yellow Thunder",
+      name: "Yellow",
       badge: "yellow",
       description: "A dynamic team that combines skill development with competitive spirit. Perfect for players who love the excitement of soccer.",
       schedule: {
@@ -893,7 +893,7 @@ const teamData = {
       additionalInfo: "Emphasis on speed, agility, and quick decision-making while maintaining a fun atmosphere."
     },
     green: {
-      name: "Green Lightning",
+      name: "Green",
       badge: "green",
       description: "A fast-paced team focused on developing speed and agility. Great for players who enjoy an active, energetic style of play.",
       schedule: {
@@ -912,7 +912,7 @@ const teamData = {
       additionalInfo: "Focus on cardiovascular fitness, speed training, and quick transitions between offense and defense."
     },
     purple: {
-      name: "Purple Storm",
+      name: "Purple",
       badge: "purple",
       description: "A creative team that emphasizes technical skills and artistic play. Perfect for players who love to express themselves on the field.",
       schedule: {
@@ -931,7 +931,7 @@ const teamData = {
       additionalInfo: "Emphasis on creativity, ball control, and developing individual flair while working as a team."
     },
     "light-blue": {
-      name: "Light Blue Waves",
+      name: "Light Blue",
       badge: "light-blue",
       description: "A flowing, coordinated team that focuses on smooth passing and team movement. Great for players who enjoy tactical play.",
       schedule: {
@@ -950,7 +950,7 @@ const teamData = {
       additionalInfo: "Focus on possession-based soccer, team coordination, and understanding field positioning."
     },
     pink: {
-      name: "Pink Panthers",
+      name: "Pink ",
       badge: "pink",
       description: "A fierce and determined team that combines strength with finesse. Perfect for players who want to develop confidence and competitive spirit.",
       schedule: {
@@ -969,7 +969,7 @@ const teamData = {
       additionalInfo: "Building confidence through positive reinforcement while developing competitive skills and determination."
     },
     "dark-blue": {
-      name: "Dark Blue Dynamos",
+      name: "Dark Blue",
       badge: "dark-blue",
       description: "A powerful team focused on strength, endurance, and tactical awareness. Great for players ready for more structured gameplay.",
       schedule: {
@@ -1016,9 +1016,19 @@ document.addEventListener('DOMContentLoaded', function() {
     ageGroupSelect.value = '';
     teamColorSelect.value = '';
     
-    // Show appropriate selectors
+    // Enhanced spacing management
+    const teamInfoSection = document.getElementById('team-info');
+    const teamSelector = document.querySelector('.team-selector');
+    
+    // Remove previous spacing classes
+    teamInfoSection.classList.remove('travel-mode');
+    teamSelector.classList.remove('travel-selected');
+    
+    // Show appropriate selectors and add spacing classes
     if (selectedProgram === 'travel') {
       travelSelectors.style.display = 'block';
+      teamInfoSection.classList.add('travel-mode');
+      teamSelector.classList.add('travel-selected');
     } else if (selectedProgram === 'rec') {
       recSelectors.style.display = 'block';
     }
