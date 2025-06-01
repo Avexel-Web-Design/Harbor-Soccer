@@ -1443,6 +1443,15 @@ p {
     display: none;
   }
 
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+
+  .logo-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
   .nav-link:hover::before {
     width: 4px;
   }
@@ -1490,6 +1499,7 @@ p {
 
   .footer-links {
     justify-content: center;
+    gap: 1.5rem;
   }
 
   h1 {
@@ -2040,39 +2050,6 @@ textarea:focus {
   text-decoration: underline;
 }
 
-.equipment-requirements {
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  padding: 2rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-
-.equipment-requirements h4 {
-  color: #856404;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-.equipment-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.equipment-list li {
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #f0c14b;
-  font-size: 0.95rem;
-  text-align: center;
-  font-weight: 500;
-}
-
 .additional-info {
   background: #d1ecf1;
   border: 1px solid #bee5eb;
@@ -2145,12 +2122,7 @@ textarea:focus {
     padding: 1.5rem;
   }
   
-  .equipment-list {
-    grid-template-columns: 1fr;
-  }
-  
   .coach-contact,
-  .equipment-requirements,
   .additional-info {
     padding: 1.5rem;
   }
