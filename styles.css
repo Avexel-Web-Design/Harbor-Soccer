@@ -858,9 +858,12 @@ p {
     top: 0;
     width: 100%;
     height: 100%;
+    height: 100vh; /* Ensure full viewport height on mobile */
+    height: 100dvh; /* Use dynamic viewport height when supported */
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .modal-content {
@@ -897,6 +900,13 @@ p {
     right: 1.5rem;
     cursor: pointer;
     transition: color 0.3s ease;
+    min-width: 44px; /* Minimum touch target */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
 }
 
 .close:hover,
@@ -962,6 +972,11 @@ p {
     transition: all 0.3s ease;
     margin-top: 1rem;
     font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    min-height: 44px; /* Ensure minimum touch target size */
+    min-width: 44px;
+    box-sizing: border-box;
 }
 
 .rec-button {
@@ -984,6 +999,37 @@ p {
     background: linear-gradient(135deg, #e67e00 0%, #ff9500 100%);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Touch-friendly enhancements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .program-button:hover {
+        background: inherit;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .program-button:active {
+        transform: scale(0.98);
+    }
+    
+    .close:hover {
+        color: inherit;
+    }
+    
+    .close:active {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .program-option:hover {
+        border-color: transparent;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .program-option:active {
+        background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    }
 }
 
 /* Responsive Design */
@@ -1068,6 +1114,32 @@ p {
         font-size: 3rem;
         line-height: 2.5rem;
     }
+    
+    /* Modal responsive styles for tablets */
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .program-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .program-option {
+        padding: 1.5rem;
+    }
+    
+    .close {
+        font-size: 24px;
+        top: 0.8rem;
+        right: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1107,6 +1179,64 @@ p {
     .logo-icon img {
         width: 8vh;
         height: 8vh;
+    }
+    
+    /* Modal responsive styles for mobile phones */
+    .modal-content {
+        margin: 5% auto;
+        padding: 1rem;
+        width: 98%;
+        border-radius: 10px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .modal-content > p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .program-options {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .program-option {
+        padding: 1rem;
+    }
+    
+    .program-option h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .program-option p {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .program-button {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin-top: 0.8rem;
+        width: 100%;
+        display: block;
+    }
+    
+    .close {
+        font-size: 20px;
+        top: 0.5rem;
+        right: 1rem;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 }
 

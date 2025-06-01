@@ -368,28 +368,98 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Focus trap for accessibility
+        const focusableElements = modal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length > 0) {
+            focusableElements[0].focus();
+        }
     });
 
     // Close modal when X is clicked
     closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        closeModal();
     });
 
     // Close modal when clicking outside of it
-    window.addEventListener('click', function(e) {
+    modal.addEventListener('click', function(e) {
         if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            closeModal();
         }
+    });
+
+    // Prevent modal from closing when clicking inside modal content
+    modal.querySelector('.modal-content').addEventListener('click', function(e) {
+        e.stopPropagation();
     });
 
     // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            closeModal();
         }
+    });
+
+    // Handle touch events for better mobile interaction
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    modal.addEventListener('touchstart', function(e) {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', function(e) {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeDistance = touchStartY - touchEndY;
+        
+        // If swipe down is more than 100px, close modal
+        if (swipeDistance < -100) {
+            closeModal();
+        }
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        
+        // Return focus to the register button
+        registerBtn.focus();
+    }
+
+    // Add smooth scroll for mobile when modal is opened
+    function preventBackgroundScroll(e) {
+        if (modal.style.display === 'block') {
+            e.preventDefault();
+        }
+    }
+
+    // Prevent background scrolling on iOS
+    modal.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
+
+    // Add visual feedback for button taps on mobile
+    const programButtons = modal.querySelectorAll('.program-button');
+    programButtons.forEach(button => {
+        // Add touch feedback
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
+
+        button.addEventListener('touchend', function() {
+            this.style.transform = '';
+        }, { passive: true });
+
+        // Add accessible click handler
+        button.addEventListener('click', function(e) {
+            // Add visual feedback before navigation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
     });
 });
 
