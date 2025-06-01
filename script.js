@@ -1000,7 +1000,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const genderSelect = document.getElementById('gender');
   const ageGroupSelect = document.getElementById('age-group');
   const teamColorSelect = document.getElementById('team-color');
-  const teamInfoDisplay = document.getElementById('team-info-display');
+  const noTeamSelected = document.getElementById('no-team-selected');
+  const teamScheduleDisplay = document.getElementById('team-schedule-display');
 
   // Program type change handler
   programTypeSelect.addEventListener('change', function() {
@@ -1009,7 +1010,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide all selectors and info display
     travelSelectors.style.display = 'none';
     recSelectors.style.display = 'none';
-    teamInfoDisplay.style.display = 'none';
+    noTeamSelected.style.display = 'block';
+    teamScheduleDisplay.style.display = 'none';
     
     // Reset all dependent selectors
     genderSelect.value = '';
@@ -1032,7 +1034,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (genderSelect.value && ageGroupSelect.value) {
       displayTeamInfo('travel', genderSelect.value, ageGroupSelect.value);
     } else {
-      teamInfoDisplay.style.display = 'none';
+      noTeamSelected.style.display = 'block';
+      teamScheduleDisplay.style.display = 'none';
     }
   }
 
@@ -1041,7 +1044,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (this.value) {
       displayTeamInfo('rec', this.value);
     } else {
-      teamInfoDisplay.style.display = 'none';
+      noTeamSelected.style.display = 'block';
+      teamScheduleDisplay.style.display = 'none';
     }
   });
 
@@ -1058,56 +1062,63 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (teamInfo) {
       const scheduleHTML = Object.entries(teamInfo.schedule)
-        .map(([key, value]) => `<li><strong>${key}:</strong> <span class="highlight">${value}</span></li>`)
+        .map(([key, value]) => `<li><span class="label">${key}:</span> <span class="value">${value}</span></li>`)
         .join('');
       
       const equipmentHTML = teamInfo.equipment
         .map(item => `<li>${item}</li>`)
         .join('');
 
-      teamInfoDisplay.innerHTML = `
-        <div class="team-details">
-          <h4>
-            ${teamInfo.name}
-            <span class="team-badge ${teamInfo.badge}">${teamInfo.badge.toUpperCase()}</span>
-          </h4>
-          <p>${teamInfo.description}</p>
-          
-          <div class="schedule">
-            <h5>Schedule Information</h5>
-            <ul>
-              ${scheduleHTML}
-            </ul>
+      // Hide the "no team selected" message
+      noTeamSelected.style.display = 'none';
+
+      teamScheduleDisplay.innerHTML = `
+        <div class="schedule-header">
+          <h3>${teamInfo.name}</h3>
+          <span class="team-badge ${teamInfo.badge}">${teamInfo.badge.toUpperCase()}</span>
+          <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">${teamInfo.description}</p>
+        </div>
+        
+        <div class="schedule-content">
+          <div class="schedule-grid">
+            <div class="schedule-section">
+              <h4>📅 Schedule Information</h4>
+              <ul class="schedule-list">
+                ${scheduleHTML}
+              </ul>
+            </div>
+            
+            <div class="coach-contact">
+              <h4>👨‍🏫 Coach Contact</h4>
+              <div class="coach-info">
+                <p><strong>${teamInfo.coach.name}</strong></p>
+                <p>📧 <a href="mailto:${teamInfo.coach.email}">${teamInfo.coach.email}</a></p>
+                <p>📞 ${teamInfo.coach.phone}</p>
+                <a href="mailto:${teamInfo.coach.email}?subject=Question about ${teamInfo.name}" class="contact-coach">Contact Coach</a>
+              </div>
+            </div>
           </div>
           
-          <div class="coach-info">
-            <h5>Coach Contact</h5>
-            <p><strong>${teamInfo.coach.name}</strong></p>
-            <p>Email: <a href="mailto:${teamInfo.coach.email}">${teamInfo.coach.email}</a></p>
-            <p>Phone: ${teamInfo.coach.phone}</p>
-            <a href="mailto:${teamInfo.coach.email}?subject=Question about ${teamInfo.name}" class="contact-coach">Contact Coach</a>
-          </div>
-          
-          <div class="equipment-info">
-            <h5>Required Equipment</h5>
-            <ul>
+          <div class="equipment-requirements">
+            <h4>⚽ Required Equipment</h4>
+            <ul class="equipment-list">
               ${equipmentHTML}
             </ul>
           </div>
           
-          <div class="practice-info">
-            <h5>Additional Information</h5>
+          <div class="additional-info">
+            <h4>ℹ️ Additional Information</h4>
             <p>${teamInfo.additionalInfo}</p>
           </div>
         </div>
       `;
       
-      teamInfoDisplay.style.display = 'block';
+      teamScheduleDisplay.style.display = 'block';
       
-      // Smooth scroll to the team info display
-      teamInfoDisplay.scrollIntoView({ 
+      // Smooth scroll to the schedules section
+      document.getElementById('schedules').scrollIntoView({ 
         behavior: 'smooth', 
-        block: 'nearest' 
+        block: 'start' 
       });
     }
   }
