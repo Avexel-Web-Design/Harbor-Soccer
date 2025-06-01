@@ -126,6 +126,25 @@ p {
   text-decoration: none;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.logo-link:hover {
+  transform: translateY(-2px);
+  color: #ff8c00;
+}
+
+.logo-link:hover .logo-text {
+  color: #ff8c00;
+}
+
 .logo-icon {
   font-size: 2rem;
   margin-right: 0.5rem;
