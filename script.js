@@ -1075,7 +1075,6 @@ document.addEventListener('DOMContentLoaded', function() {
       teamScheduleDisplay.innerHTML = `
         <div class="schedule-header">
           <h3>${teamInfo.name}</h3>
-          <span class="team-badge ${teamInfo.badge}">${teamInfo.badge.toUpperCase()}</span>
           <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">${teamInfo.description}</p>
         </div>
         

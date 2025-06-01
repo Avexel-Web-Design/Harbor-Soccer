@@ -1810,16 +1810,6 @@ textarea:focus {
   border-top: 1px solid #e9ecef;
 }
 
-/* Color-coded team badges for rec teams */
-.team-badge.red { background: linear-gradient(135deg, #dc3545, #c82333); }
-.team-badge.orange { background: linear-gradient(135deg, #fd7e14, #e8610e); }
-.team-badge.yellow { background: linear-gradient(135deg, #ffc107, #e0a800); }
-.team-badge.green { background: linear-gradient(135deg, #28a745, #1e7e34); }
-.team-badge.purple { background: linear-gradient(135deg, #6f42c1, #5a2d91); }
-.team-badge.light-blue { background: linear-gradient(135deg, #17a2b8, #138496); }
-.team-badge.pink { background: linear-gradient(135deg, #e83e8c, #d91a72); }
-.team-badge.dark-blue { background: linear-gradient(135deg, #007bff, #0056b3); }
-
 /* Responsive design for team info section */
 @media (max-width: 768px) {
   .info-content {
@@ -1858,10 +1848,6 @@ textarea:focus {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-  }
-  
-  .team-badge {
-    margin-left: 0;
   }
 }
 
@@ -1948,13 +1934,6 @@ textarea:focus {
   margin: 0;
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-}
-
-.schedule-header .team-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.9rem;
 }
 
 .schedule-content {
@@ -2100,12 +2079,6 @@ textarea:focus {
   
   .schedule-header h3 {
     font-size: 1.8rem;
-  }
-  
-  .schedule-header .team-badge {
-    position: static;
-    margin-top: 1rem;
-    display: block;
   }
 }
 
