@@ -1883,6 +1883,530 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 
+/* Schedules Section */
+.schedules {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  margin-top: 1rem;
+}
+
+/* Enhanced visual separation */
+.schedules::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 140, 0, 0.2) 20%, 
+    rgba(255, 140, 0, 0.4) 50%, 
+    rgba(255, 140, 0, 0.2) 80%, 
+    transparent 100%
+  );
+}
+
+.no-selection {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.selection-prompt {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.selection-prompt h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.selection-prompt p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.prompt-icon {
+  font-size: 4rem;
+  margin: 2rem 0;
+  opacity: 0.7;
+}
+
+.select-team-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff8c00, #ff7300);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+.select-team-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.team-schedule-display {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+}
+
+.schedule-header {
+  background: linear-gradient(135deg, #000000, #333333);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.schedule-header h3 {
+  margin: 0;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-header .team-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+}
+
+.schedule-content {
+  padding: 2.5rem;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.schedule-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.schedule-section h4 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 3px solid #ff8c00;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.schedule-list li:last-child {
+  border-bottom: none;
+}
+
+.schedule-list .label {
+  font-weight: 600;
+  color: #333;
+}
+
+.schedule-list .value {
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+.coach-contact {
+  background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #dee2e6;
+}
+
+.coach-contact h4 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.coach-info {
+  margin-bottom: 1.5rem;
+}
+
+.coach-info p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.coach-info strong {
+  color: #000000;
+}
+
+.coach-info a {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.coach-info a:hover {
+  text-decoration: underline;
+}
+
+.additional-info {
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.additional-info h4 {
+  color: #0c5460;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.additional-info p {
+  color: #0c5460;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive design for schedules section */
+@media (max-width: 768px) {
+  .schedules {
+    padding: 4rem 0;
+  }
+  
+  .selection-prompt {
+    padding: 2rem;
+    margin: 0 0.5rem;
+  }
+  
+  .selection-prompt h3 {
+    font-size: 1.6rem;
+  }
+  
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .schedule-content {
+    padding: 2rem;
+  }
+  
+  .schedule-header {
+    padding: 1.5rem;
+  }
+  
+  .schedule-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .schedule-header .team-badge {
+    position: static;
+    margin-top: 1rem;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedules {
+    padding: 4rem 0;
+  }
+  
+  .no-selection {
+    padding: 3rem 1rem;
+  }
+  
+  .selection-prompt {
+    padding: 2rem 1.5rem;
+    margin: 0;
+  }
+  
+  .schedule-content {
+    padding: 1.5rem;
+  }
+  
+  .schedule-section {
+    padding: 1.5rem;
+  }
+  
+  .coach-contact,
+  .additional-info {
+    padding: 1.5rem;
+  }
+  
+  .team-info {
+    padding: 4rem 0;
+  }
+  
+  .team-selector {
+    padding: 1.5rem;
+  }
+  
+  .team-info-display {
+    padding: 1.5rem;
+  }
+  
+  .team-details h4 {
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .team-badge {
+    margin-left: 0;
+  }
+  
+  /* Enhanced mobile spacing for travel selectors */
+  .team-info.travel-mode {
+    padding-bottom: 6rem;
+  }
+  
+  #travel-selectors {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .team-selector.travel-selected {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero {
+    background: #000000;
+  }
+
+  .program-card,
+  .contact-form,
+  .value-item,
+  .testimonial {
+    border: 2px solid #000000;
+  }
+}
+
+/* Menu state indicator for hamburger */
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Add subtle glow effect to active menu */
+.nav-menu.active {
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 140, 0, 0.1);
+}
+
+/* Smooth menu item hover effects */
+.nav-item:hover {
+  transform: translateX(5px);
+}
+
+/* Focus styles for better accessibility */
+.nav-link:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+  background: rgba(255, 140, 0, 0.2);
+}
+
+.hamburger:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* Additional text sharpening for all mobile menu text */
+.mobile-menu * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
+}
+
+/* Team Info Section */
+.team-info {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+.team-info .container {
+  max-width: 1200px;
+}
+
+.info-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.general-info h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.general-info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.team-selector {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.team-selector h3 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.team-selector > p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.selector-container {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+}
+
+.form-group select:hover {
+  border-color: #ff8c00;
+}
+
+.selector-group {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Enhanced spacing for travel selectors */
+#travel-selectors {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* Additional spacing when travel selectors are visible */
+.team-selector:has(#travel-selectors[style*="block"]) {
+  margin-bottom: 3rem;
+}
+
+/* Fallback for browsers that don't support :has() */
+.team-selector.travel-selected {
+  margin-bottom: 3rem;
+}
+
+/* Enhanced spacing for the entire team-info section when travel is selected */
+.team-info.travel-mode {
+  padding-bottom: 8rem;
+}
+
+/* Default enhanced spacing between team-info and schedules */
+.team-info {
+  margin-bottom: 2rem;
+}
+
 /* Enhanced tablet spacing for travel selectors */
 @media (max-width: 768px) {
   .info-content {
@@ -1910,310 +2434,5 @@ textarea:focus {
   #travel-selectors {
     margin-bottom: 1.8rem;
     padding-bottom: 1.8rem;
-  }
-}
-
-/* Team Schedule Display Styles */
-.team-schedule-display {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-top: 2rem;
-  border: 1px solid #e9ecef;
-}
-
-.schedule-header {
-  background: linear-gradient(135deg, #ff8c00, #e67c00);
-  color: white;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-}
-
-.schedule-header h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.team-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-left: 1rem;
-}
-
-.schedule-content {
-  padding: 2rem;
-}
-
-.schedule-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.schedule-section h4,
-.coach-contact h4 {
-  color: #000000;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.schedule-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.schedule-list li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e9ecef;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.schedule-list li:last-child {
-  border-bottom: none;
-}
-
-.schedule-list .label {
-  font-weight: 600;
-  color: #333;
-  flex-shrink: 0;
-}
-
-.schedule-list .value {
-  color: #666;
-  text-align: right;
-  flex: 1;
-  min-width: 0;
-  word-wrap: break-word;
-}
-
-.coach-info {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #ff8c00;
-}
-
-.coach-info p {
-  margin: 0.5rem 0;
-  color: #333;
-}
-
-.coach-info a {
-  color: #ff8c00;
-  text-decoration: none;
-  word-break: break-word;
-}
-
-.coach-info a:hover {
-  text-decoration: underline;
-}
-
-.contact-coach {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #ff8c00, #e67c00);
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.contact-coach:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-}
-
-.additional-info {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
-}
-
-.additional-info h4 {
-  color: #000000;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.additional-info p {
-  margin: 0;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Mobile responsive styles for team schedule display */
-@media (max-width: 768px) {
-  .schedule-header {
-    padding: 1.5rem 1rem;
-  }
-  
-  .schedule-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .team-badge {
-    display: block;
-    margin: 0.5rem auto 0 auto;
-    width: fit-content;
-  }
-  
-  .schedule-content {
-    padding: 1.5rem;
-  }
-  
-  .schedule-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .schedule-section h4,
-  .coach-contact h4 {
-    font-size: 1.2rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-  
-  .schedule-list li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-  
-  .schedule-list .value {
-    text-align: left;
-  }
-  
-  .coach-info {
-    padding: 1rem;
-  }
-  
-  .additional-info {
-    padding: 1rem;
-  }
-  
-  .additional-info h4 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .team-schedule-display {
-    margin: 1rem -1rem 0 -1rem;
-    border-radius: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .schedule-header {
-    padding: 1rem;
-  }
-  
-  .schedule-header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .schedule-content {
-    padding: 1rem;
-  }
-  
-  .schedule-grid {
-    gap: 1rem;
-  }
-  
-  .schedule-section h4,
-  .coach-contact h4,
-  .additional-info h4 {
-    font-size: 1.1rem;
-  }
-  
-  .coach-info {
-    padding: 0.75rem;
-  }
-  
-  .additional-info {
-    padding: 0.75rem;
-  }
-  
-  .contact-coach {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    width: 100%;
-    display: block;
-    text-align: center;
-    margin-top: 0.75rem;
-  }
-}
-
-/* Additional overflow prevention for schedules section on mobile */
-@media (max-width: 768px) {
-  .schedules .container {
-    overflow-x: hidden;
-  }
-  
-  .schedules {
-    overflow-x: hidden;
-  }
-}
-
-@media (max-width: 480px) {
-  .schedules .container {
-    padding: 0 0.5rem;
-    overflow-x: hidden;
-  }
-  
-  .schedules {
-    padding: 4rem 0;
-    overflow-x: hidden;
-  }
-  
-  /* Ensure team schedule display doesn't overflow on very small screens */
-  .team-schedule-display {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  .schedule-content {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  .schedule-grid {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  /* Prevent email addresses and long text from causing horizontal overflow */
-  .coach-info a,
-  .schedule-list .value,
-  .additional-info p {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
   }
 }
