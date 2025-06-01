@@ -1236,6 +1236,10 @@ p {
 
 .mobile-nav {
     padding: 1rem 0;
+    /* Optimize text rendering for all nav links */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .mobile-nav-link {
@@ -1252,6 +1256,10 @@ p {
     opacity: 0;
     transform: translateX(30px);
     animation-fill-mode: forwards;
+    /* Ensure crisp text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
 }
 
 .mobile-menu.active .mobile-nav-link {
@@ -1606,4 +1614,12 @@ textarea:focus {
 .hamburger:focus {
     outline: 2px solid #FF8C00;
     outline-offset: 2px;
+}
+
+/* Additional text sharpening for all mobile menu text */
+.mobile-menu * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    backface-visibility: hidden;
 }
