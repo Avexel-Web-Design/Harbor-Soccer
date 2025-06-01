@@ -2114,7 +2114,7 @@ textarea:focus {
   
   .selection-prompt {
     padding: 2rem;
-    margin: 0 0.5rem;
+    margin: 0 1rem;
   }
   
   .selection-prompt h3 {
@@ -2146,17 +2146,8 @@ textarea:focus {
 }
 
 @media (max-width: 480px) {
-  .schedules {
-    padding: 4rem 0;
-  }
-  
-  .no-selection {
-    padding: 3rem 1rem;
-  }
-  
   .selection-prompt {
-    padding: 2rem 1.5rem;
-    margin: 0;
+    padding: 1.5rem;
   }
   
   .schedule-content {
