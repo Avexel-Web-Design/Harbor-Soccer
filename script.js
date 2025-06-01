@@ -734,7 +734,6 @@ const teamData = {
           email: "mike.thompson@harborsoccer.org",
           phone: "(555) 123-4501"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Travel to nearby communities for games. Parent volunteers needed for game day support."
       },
       u12: {
@@ -753,7 +752,6 @@ const teamData = {
           email: "david.rodriguez@harborsoccer.org",
           phone: "(555) 123-4502"
         },
-        equipment: ["Cleats (no metal studs)", "Shin guards", "Practice jersey (provided)", "Game jersey (provided)", "Water bottle"],
         additionalInfo: "Higher level of competition with emphasis on player development and game strategy."
       },
       u14: {
@@ -1064,10 +1062,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const scheduleHTML = Object.entries(teamInfo.schedule)
         .map(([key, value]) => `<li><span class="label">${key}:</span> <span class="value">${value}</span></li>`)
         .join('');
-      
-      const equipmentHTML = teamInfo.equipment
-        .map(item => `<li>${item}</li>`)
-        .join('');
 
       // Hide the "no team selected" message
       noTeamSelected.style.display = 'none';
@@ -1097,13 +1091,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="mailto:${teamInfo.coach.email}?subject=Question about ${teamInfo.name}" class="contact-coach">Contact Coach</a>
               </div>
             </div>
-          </div>
-          
-          <div class="equipment-requirements">
-            <h4>⚽ Required Equipment</h4>
-            <ul class="equipment-list">
-              ${equipmentHTML}
-            </ul>
           </div>
           
           <div class="additional-info">
