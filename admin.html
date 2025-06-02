@@ -374,148 +374,6 @@
             max-height: 250px !important;
         }
 
-        .analytics-metrics {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .metrics-section {
-            background: var(--bg-primary);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .metrics-section:hover {
-            box-shadow: var(--shadow-hover);
-        }
-
-        .metrics-section h3 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .metric-card {
-            background: var(--bg-secondary);
-            border-radius: var(--border-radius-sm);
-            padding: 20px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-        }
-
-        .metric-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
-        }
-
-        .metric-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            color: white;
-            font-size: 20px;
-        }
-
-        .metric-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .metric-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .geographic-stats {
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .geo-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border-radius: var(--border-radius-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .geo-country {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .geo-flag {
-            font-size: 18px;
-        }
-
-        .geo-count {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .activity-feed {
-            max-height: 300px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border-radius: var(--border-radius-sm);
-            border: 1px solid var(--border-color);
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .activity-item i {
-            color: var(--primary-color);
-            width: 16px;
-        }
-
-        .activity-time {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-left: auto;
-        }
-
         /* Enhanced Submissions Styling */
         .submissions-container {
             background: var(--bg-primary);
@@ -1566,61 +1424,6 @@
                             <canvas id="weeklyChart"></canvas>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <h3><i class="fas fa-globe"></i> Geographic Distribution</h3>
-                        <div id="geographic-stats" class="geographic-stats">
-                            <div class="loading">
-                                <i class="fas fa-spinner"></i>
-                                Loading geographic data...
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="analytics-metrics">
-                    <div class="metrics-section">
-                        <h3><i class="fas fa-chart-bar"></i> Performance Metrics</h3>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <div id="page-views" class="metric-number">-</div>
-                                <div class="metric-label">Total Page Views</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div id="unique-visitors" class="metric-number">-</div>
-                                <div class="metric-label">Unique Visitors</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-icon">
-                                    <i class="fas fa-percentage"></i>
-                                </div>
-                                <div id="conversion-rate" class="metric-number">-</div>
-                                <div class="metric-label">Conversion Rate</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-icon">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                </div>
-                                <div id="avg-response-time" class="metric-number">-</div>
-                                <div class="metric-label">Avg Response Time</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="metrics-section">
-                        <h3><i class="fas fa-activity"></i> Real-time Activity</h3>
-                        <div id="real-time-activity" class="activity-feed">
-                            <div class="activity-item">
-                                <i class="fas fa-pulse"></i>
-                                <span>Monitoring real-time activity...</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -2055,13 +1858,10 @@
         }
 
         function loadAnalytics() {
-            // Load subject distribution chart
+            // Load real submission-based charts only
             updateSubjectChart();
             updateHourlyChart();
             updateWeeklyChart();
-            loadGeographicStats();
-            loadPerformanceMetrics();
-            loadRealTimeActivity();
         }
 
         function updateSubjectChart() {
@@ -2528,42 +2328,6 @@
                     }
                 }
             });
-        }
-
-        function loadGeographicStats() {
-            const container = document.getElementById('geographic-stats');
-            if (!container) return;
-            
-            container.innerHTML = `
-                <div class="geo-item">
-                    <div class="geo-country">
-                        <span class="geo-flag">🌍</span>
-                        <span>Geographic data not available</span>
-                    </div>
-                    <div class="geo-count">-</div>
-                </div>
-            `;
-        }
-
-        function loadPerformanceMetrics() {
-            // Set default values for performance metrics
-            document.getElementById('page-views').textContent = '-';
-            document.getElementById('unique-visitors').textContent = '-';
-            document.getElementById('conversion-rate').textContent = '-';
-            document.getElementById('avg-response-time').textContent = '-';
-        }
-
-        function loadRealTimeActivity() {
-            const container = document.getElementById('real-time-activity');
-            if (!container) return;
-            
-            container.innerHTML = `
-                <div class="activity-item">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Real-time activity monitoring not configured</span>
-                    <div class="activity-time">-</div>
-                </div>
-            `;
         }
 
         // Cleanup on page unload
