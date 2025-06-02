@@ -653,69 +653,75 @@ const menuObserver = new MutationObserver(function (mutations) {
 
 menuObserver.observe(mobileMenu, { attributes: true });
 
-// Contact form submission
+// Contact form submission handler
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  
+  const contactForm = e.target;
+  
+  // Clear any existing error messages
+  document.querySelectorAll('.field-error').forEach(error => error.remove());
+  
+  // Validate form fields
+  let isFormValid = true;
+  const formFields = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+  
+  formFields.forEach((field) => {
+    field.style.borderColor = "#e1e5e9"; // Reset border color
+    
+    if (!validateField(field)) {
+      isFormValid = false;
+    }
+  });
+  
+  if (!isFormValid) {
+    showFormMessage('error', 'Please fix the errors above and try again.');
+    return;
+  }
+  
+  const submitButton = contactForm.querySelector('.submit-button');
+  const originalText = submitButton.textContent;
+  
+  // Show loading state
+  submitButton.textContent = 'Sending...';
+  submitButton.disabled = true;
+  
+  // Create form data
+  const formData = new FormData(contactForm);
+  
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      // Show success message
+      showFormMessage('success', result.message);
+      contactForm.reset();
+    } else {
+      // Show error message
+      showFormMessage('error', result.error || 'An error occurred. Please try again.');
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
+    showFormMessage('error', 'Network error. Please check your connection and try again.');
+  } finally {
+    // Reset button state
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+  }
+}
+
+// Contact form initialization
 document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.querySelector('.contact-form');
   
   if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Clear any existing error messages
-      document.querySelectorAll('.field-error').forEach(error => error.remove());
-      
-      // Validate form fields
-      let isFormValid = true;
-      const formFields = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
-      
-      formFields.forEach((field) => {
-        field.style.borderColor = "#e1e5e9"; // Reset border color
-        
-        if (!validateField(field)) {
-          isFormValid = false;
-        }
-      });
-      
-      if (!isFormValid) {
-        showFormMessage('error', 'Please fix the errors above and try again.');
-        return;
-      }
-      
-      const submitButton = contactForm.querySelector('.submit-button');
-      const originalText = submitButton.textContent;
-      
-      // Show loading state
-      submitButton.textContent = 'Sending...';
-      submitButton.disabled = true;
-      
-      // Create form data
-      const formData = new FormData(contactForm);
-      
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          body: formData
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-          // Show success message
-          showFormMessage('success', result.message);
-          contactForm.reset();
-        } else {
-          // Show error message
-          showFormMessage('error', result.error || 'An error occurred. Please try again.');
-        }
-      } catch (error) {
-        console.error('Form submission error:', error);
-        showFormMessage('error', 'Network error. Please check your connection and try again.');
-      } finally {
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-      }
-    });
+    contactForm.addEventListener('submit', handleFormSubmit);
+    contactForm.dataset.listenerAttached = 'true';
   }
 });
 
@@ -727,6 +733,8 @@ function showFormMessage(type, message) {
     existingMessage.remove();
   }
   
+  const contactForm = document.querySelector('.contact-form');
+  
   // Create message element
   const messageDiv = document.createElement('div');
   messageDiv.className = `form-message form-message-${type}`;
@@ -737,21 +745,36 @@ function showFormMessage(type, message) {
     </div>
   `;
   
-  // Insert message before the form
-  const contactForm = document.querySelector('.contact-form');
-  contactForm.parentNode.insertBefore(messageDiv, contactForm);
-  
-  // Auto-remove success messages after 5 seconds
   if (type === 'success') {
+    // For success messages, replace form content temporarily
+    const originalContent = contactForm.innerHTML;
+    contactForm.innerHTML = '';
+    contactForm.appendChild(messageDiv);
+    contactForm.classList.add('form-success-state');
+    
+    // Restore form after 4 seconds
     setTimeout(() => {
-      if (messageDiv.parentNode) {
-        messageDiv.remove();
-      }
-    }, 5000);
+      contactForm.innerHTML = originalContent;
+      contactForm.classList.remove('form-success-state');
+      // Re-attach event listener after restoring form
+      attachFormEventListener();
+    }, 4000);
+  } else {
+    // For error messages, insert at the top of the form
+    contactForm.insertBefore(messageDiv, contactForm.firstChild);
   }
   
-  // Scroll message into view
-  messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Ensure the form area stays in view
+  contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Function to re-attach form event listener
+function attachFormEventListener() {
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm && !contactForm.dataset.listenerAttached) {
+    contactForm.addEventListener('submit', handleFormSubmit);
+    contactForm.dataset.listenerAttached = 'true';
+  }
 }
 // Team Information System
 const teamData = {
