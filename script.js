@@ -1151,19 +1151,28 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         
           <div class="additional-info">
-            <h4>Additional Information</h4>
+            <h4>ℹ️ Additional Information</h4>
             <p>${teamInfo.additionalInfo}</p>
           </div>
         </div>
       `;
 
+      // Add loading class for smooth animation
+      teamScheduleDisplay.classList.add('loading');
       teamScheduleDisplay.style.display = "block";
+      
+      // Remove loading class after a brief moment for smooth animation
+      setTimeout(() => {
+        teamScheduleDisplay.classList.remove('loading');
+      }, 50);
 
       // Smooth scroll to the schedules section
-      document.getElementById("schedules").scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      setTimeout(() => {
+        document.getElementById("schedules").scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 300);
     }
   }
 });
