@@ -956,6 +956,7 @@
             align-items: center;
             justify-content: center;
             opacity: 1;
+            position: fixed;
         }
 
         .modal-content {
@@ -2531,145 +2532,38 @@
 
         function loadGeographicStats() {
             const container = document.getElementById('geographic-stats');
-            if (!container || appState.submissions.length === 0) {
-                container.innerHTML = `
-                    <div class="geo-item">
-                        <div class="geo-country">
-                            <span class="geo-flag">🌍</span>
-                            <span>No geographic data available</span>
-                        </div>
-                        <div class="geo-count">-</div>
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div class="geo-item">
+                    <div class="geo-country">
+                        <span class="geo-flag">🌍</span>
+                        <span>Geographic data not available</span>
                     </div>
-                `;
-                return;
-            }
-
-            // Mock geographic data based on IP addresses
-            const countries = {};
-            appState.submissions.forEach(sub => {
-                if (sub.ip_address) {
-                    // Mock country detection based on IP patterns
-                    const ip = sub.ip_address;
-                    let country = 'Unknown';
-                    let flag = '🌍';
-                    
-                    if (ip.startsWith('192.') || ip.startsWith('10.') || ip.startsWith('172.')) {
-                        country = 'United States';
-                        flag = '🇺🇸';
-                    } else if (ip.includes('2001:')) {
-                        country = 'Canada';
-                        flag = '🇨🇦';
-                    } else {
-                        // Random assignment for demo
-                        const mockCountries = [
-                            { name: 'United States', flag: '🇺🇸' },
-                            { name: 'Canada', flag: '🇨🇦' },
-                            { name: 'United Kingdom', flag: '🇬🇧' },
-                            { name: 'Germany', flag: '🇩🇪' },
-                            { name: 'France', flag: '🇫🇷' },
-                            { name: 'Australia', flag: '🇦🇺' }
-                        ];
-                        const randomCountry = mockCountries[Math.floor(Math.random() * mockCountries.length)];
-                        country = randomCountry.name;
-                        flag = randomCountry.flag;
-                    }
-                    
-                    countries[country] = (countries[country] || 0) + 1;
-                }
-            });
-
-            const sortedCountries = Object.entries(countries)
-                .sort(([,a], [,b]) => b - a)
-                .slice(0, 5);
-
-            if (sortedCountries.length === 0) {
-                container.innerHTML = `
-                    <div class="geo-item">
-                        <div class="geo-country">
-                            <span class="geo-flag">🌍</span>
-                            <span>No geographic data available</span>
-                        </div>
-                        <div class="geo-count">-</div>
-                    </div>
-                `;
-                return;
-            }
-
-            const html = sortedCountries.map(([country, count]) => {
-                const flag = country === 'United States' ? '🇺🇸' :
-                           country === 'Canada' ? '🇨🇦' :
-                           country === 'United Kingdom' ? '🇬🇧' :
-                           country === 'Germany' ? '🇩🇪' :
-                           country === 'France' ? '🇫🇷' :
-                           country === 'Australia' ? '🇦🇺' : '🌍';
-                
-                return `
-                    <div class="geo-item">
-                        <div class="geo-country">
-                            <span class="geo-flag">${flag}</span>
-                            <span>${country}</span>
-                        </div>
-                        <div class="geo-count">${count}</div>
-                    </div>
-                `;
-            }).join('');
-
-            container.innerHTML = html;
+                    <div class="geo-count">-</div>
+                </div>
+            `;
         }
 
         function loadPerformanceMetrics() {
-            // Mock performance metrics - in a real app these would come from analytics APIs
-            const totalSubmissions = appState.submissions.length;
-            const mockPageViews = Math.floor(totalSubmissions * 50 + Math.random() * 1000);
-            const mockUniqueVisitors = Math.floor(mockPageViews * 0.3 + Math.random() * 100);
-            const mockConversionRate = totalSubmissions > 0 ? ((totalSubmissions / mockPageViews) * 100).toFixed(2) + '%' : '0%';
-            const mockResponseTime = (150 + Math.random() * 50).toFixed(0) + 'ms';
-
-            animateCounter('page-views', mockPageViews);
-            animateCounter('unique-visitors', mockUniqueVisitors);
-            document.getElementById('conversion-rate').textContent = mockConversionRate;
-            document.getElementById('avg-response-time').textContent = mockResponseTime;
+            // Set default values for performance metrics
+            document.getElementById('page-views').textContent = '-';
+            document.getElementById('unique-visitors').textContent = '-';
+            document.getElementById('conversion-rate').textContent = '-';
+            document.getElementById('avg-response-time').textContent = '-';
         }
 
         function loadRealTimeActivity() {
             const container = document.getElementById('real-time-activity');
-            const activities = [];
-
-            // Generate mock real-time activities
-            const now = new Date();
-            const activityTypes = [
-                { icon: 'fas fa-eye', action: 'Page view on homepage' },
-                { icon: 'fas fa-envelope', action: 'Contact form submitted' },
-                { icon: 'fas fa-user', action: 'New visitor from search' },
-                { icon: 'fas fa-click', action: 'Board member profile viewed' },
-                { icon: 'fas fa-download', action: 'Document downloaded' },
-                { icon: 'fas fa-share', action: 'Page shared on social media' }
-            ];
-
-            for (let i = 0; i < 8; i++) {
-                const activity = activityTypes[Math.floor(Math.random() * activityTypes.length)];
-                const timeAgo = Math.floor(Math.random() * 300); // 0-5 minutes ago
-                const time = new Date(now.getTime() - timeAgo * 1000);
-                
-                activities.push({
-                    icon: activity.icon,
-                    action: activity.action,
-                    time: timeAgo < 60 ? `${timeAgo}s ago` : `${Math.floor(timeAgo / 60)}m ago`
-                });
-            }
-
-            const html = activities.map(activity => `
+            if (!container) return;
+            
+            container.innerHTML = `
                 <div class="activity-item">
-                    <i class="${activity.icon}"></i>
-                    <span>${activity.action}</span>
-                    <div class="activity-time">${activity.time}</div>
+                    <i class="fas fa-info-circle"></i>
+                    <span>Real-time activity monitoring not configured</span>
+                    <div class="activity-time">-</div>
                 </div>
-            `).join('');
-
-            container.innerHTML = html;
-
-            // Update real-time activity every 10 seconds
-            setTimeout(loadRealTimeActivity, 10000);
+            `;
         }
 
         // Cleanup on page unload
