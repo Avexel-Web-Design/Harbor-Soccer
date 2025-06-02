@@ -66,6 +66,9 @@ p {
   padding-top: 0.2rem;
   font-weight: 700;
   color: #ff8c00;
+  text-decoration: none;
+  border: none;
+  outline: none;
 }
 
 /* Utility Classes */
@@ -80,6 +83,11 @@ p {
   color: #000000;
   margin-bottom: 3rem;
   position: relative;
+  text-decoration: none;
+}
+
+.section-title * {
+  text-decoration: none;
 }
 
 .section-title::after {
@@ -1967,6 +1975,7 @@ textarea:focus {
   margin-bottom: 2rem;
   color: #555;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .prompt-icon {
