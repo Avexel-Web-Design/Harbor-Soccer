@@ -1,5 +1,87 @@
-// Initialize AOS (Animate on Scroll)
-document.addEventListener("DOMContentLoaded", function () {
+// Page Preloader System
+function initializePagePreloader() {
+  return new Promise((resolve) => {
+    const preloader = document.getElementById('page-preloader');
+    const statusElement = document.getElementById('preloader-status');
+    const horizontalImages = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'];
+    const verticalImages = ['v1', 'v2'];
+    const allImages = [...horizontalImages, ...verticalImages];
+      let loadedImages = 0;
+    const totalImages = allImages.length;
+    let isResolved = false;
+    
+    function updateStatus(message) {
+      if (statusElement) {
+        statusElement.textContent = message;
+      }
+    }
+    
+    function finishLoading(reason = 'complete') {
+      if (isResolved) return;
+      isResolved = true;
+      
+      updateStatus(reason === 'timeout' ? 'Loading complete!' : 'Images loaded! Preparing page...');
+      
+      // Wait a moment for the status to update, then fade out preloader
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.classList.add('loaded');
+        
+        // Remove preloader from DOM after fade animation
+        setTimeout(() => {
+          preloader.remove();
+          resolve();
+        }, 800);
+      }, 300);
+    }
+    
+    function imageLoaded() {
+      loadedImages++;
+      const percentage = Math.round((loadedImages / totalImages) * 100);
+      updateStatus(`Loading images... ${loadedImages}/${totalImages} (${percentage}%)`);
+      
+      if (loadedImages === totalImages) {
+        finishLoading('complete');
+      }
+    }
+      function imageError(imageId) {
+      console.warn(`Failed to load image: ${imageId}.png`);
+      imageLoaded(); // Count as loaded to prevent hanging
+    }
+    
+    // Fallback timeout to prevent hanging (max 10 seconds)
+    const fallbackTimeout = setTimeout(() => {
+      console.warn('Image preloading timed out, proceeding with page load');
+      finishLoading('timeout');
+    }, 10000);
+    
+    // Clear timeout when loading finishes normally
+    const originalFinishLoading = finishLoading;
+    finishLoading = function(reason) {
+      clearTimeout(fallbackTimeout);
+      originalFinishLoading(reason);
+    };
+      // Preload all images
+    updateStatus('Starting image preload...');
+    
+    allImages.forEach((imageId, index) => {
+      const img = new Image();
+      img.onload = () => {
+        updateStatus(`Loading ${imageId}.png...`);
+        imageLoaded();
+      };
+      img.onerror = () => imageError(imageId);
+      img.src = `images/players/${imageId}.png`;
+    });
+  });
+}
+
+// Initialize AOS (Animate on Scroll) and page systems
+document.addEventListener("DOMContentLoaded", async function () {
+  // Initialize preloader first
+  await initializePagePreloader();
+  
+  // Initialize AOS after preloader is done
   AOS.init({
     duration: 800,
     easing: "ease-in-out",
@@ -61,8 +143,7 @@ function initializeHeroBackground() {
     
     console.log(`🌊 Harbor Soccer - Visit #${visitCount}, Image: ${selectedImage}`);
   }
-  
-  // Apply background on initial load
+    // Apply background on initial load
   applyHeroBackground();
   
   // Reapply background on window resize/orientation change
@@ -71,23 +152,10 @@ function initializeHeroBackground() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(applyHeroBackground, 150);
   });
-  
-  // Listen for orientation change events (mobile)
+    // Listen for orientation change events (mobile)
   window.addEventListener('orientationchange', function() {
     setTimeout(applyHeroBackground, 100);
   });
-  
-  // Preload images for better performance
-  function preloadImages() {
-    const allImages = [...horizontalImages, ...verticalImages];
-    allImages.forEach(imageId => {
-      const img = new Image();
-      img.src = `images/players/${imageId}.png`;
-    });
-  }
-  
-  // Preload images after a short delay to not block initial page load
-  setTimeout(preloadImages, 1000);
 }
 
 // Touch variables for swipe gestures (declare once at top level)
