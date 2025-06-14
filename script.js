@@ -1061,9 +1061,35 @@ const teamData = {
         name: "Coach Kevin O'Brien",
         email: "kevin.obrien@harborsoccer.org",
         phone: "(555) 123-4514",
+      },      additionalInfo:
+        "Focus on tactical understanding, defensive principles, and developing game intelligence.",
+    },
+  },
+  sailors: {
+    highschool: {
+      name: "Sailors",
+      badge: "sailors",
+      description:
+        "The Sailors travel soccer team was founded in 2019 and holds special meaning to our soccer program. Named after Gerry Chamberlin, who spent many years coaching for Harbor Springs Soccer Inc., this team honors his legacy. For high school girls to play while honoring his memory.",
+      schedule: {
+        "Practice Days": "Tuesday & Thursday",
+        "Practice Time": "6:00 PM - 7:30 PM",
+        "Game Day": "Saturday",
+        "Game Time": "Varies (10:00 AM - 4:00 PM)",
+        Season: "April - June",
+      },
+      coach: {
+        name: "Coach Madelaine McShannock",
+        email: "madelaine.mcshannock@harborsoccer.org",
+        phone: "(555) 123-4515",
+      },
+      assistantCoach: {
+        name: "Assistant Coach Gabrielle (Gabbi) Case",
+        email: "gabbi.case@harborsoccer.org",
+        phone: "(555) 123-4516",
       },
       additionalInfo:
-        "Focus on tactical understanding, defensive principles, and developing game intelligence.",
+        "A special team dedicated to honoring the legacy of Gerry Chamberlin, who always said if he could name a team something different, he would name it Sailors. The Black Forest Soccer Fields were dedicated in his name.",
     },
   },
 };
@@ -1092,13 +1118,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset all dependent selectors
     genderSelect.value = "";
     ageGroupSelect.value = "";
-    teamColorSelect.value = "";
-
-    // Show appropriate selectors
+    teamColorSelect.value = "";    // Show appropriate selectors
     if (selectedProgram === "travel") {
       travelSelectors.style.display = "block";
     } else if (selectedProgram === "rec") {
       recSelectors.style.display = "block";
+    } else if (selectedProgram === "sailors") {
+      // Sailors program doesn't need additional selectors, show team info directly
+      displayTeamInfo("sailors", "highschool");
     }
   });
 
@@ -1124,7 +1151,6 @@ document.addEventListener("DOMContentLoaded", function () {
       teamScheduleDisplay.style.display = "none";
     }
   });
-
   function displayTeamInfo(program, ...selectors) {
     let teamInfo;
 
@@ -1134,6 +1160,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (program === "rec") {
       const [teamColor] = selectors;
       teamInfo = teamData.rec[teamColor];
+    } else if (program === "sailors") {
+      const [level] = selectors;
+      teamInfo = teamData.sailors[level];
     }
 
     if (teamInfo) {
@@ -1161,13 +1190,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 ${scheduleHTML}
               </ul>
             </div>
-            
-            <div class="coach-contact">
+              <div class="coach-contact">
               <h4>👨‍🏫 Coach Contact</h4>
               <div class="coach-info">
                 <p><strong>${teamInfo.coach.name}</strong></p>
                 <p>📧 <a href="mailto:${teamInfo.coach.email}">${teamInfo.coach.email}</a></p>
                 <p>📞 ${teamInfo.coach.phone}</p>
+                ${teamInfo.assistantCoach ? `
+                  <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+                  <p><strong>${teamInfo.assistantCoach.name}</strong></p>
+                  <p>📧 <a href="mailto:${teamInfo.assistantCoach.email}">${teamInfo.assistantCoach.email}</a></p>
+                  <p>📞 ${teamInfo.assistantCoach.phone}</p>
+                ` : ''}
                 <a href="mailto:${teamInfo.coach.email}?subject=Question about ${teamInfo.name}" class="contact-coach">Contact Coach</a>
               </div>
             </div>

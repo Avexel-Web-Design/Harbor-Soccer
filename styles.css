@@ -416,7 +416,7 @@ p {
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
   margin-top: 2rem;
 }
@@ -1074,7 +1074,7 @@ p {
 
 .program-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -1143,6 +1143,17 @@ p {
   background: linear-gradient(135deg, #e67e00 0%, #ff9500 100%);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+.sailors-button {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+}
+
+.sailors-button:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
 }
 
 /* Mobile menu backdrop overlay */
