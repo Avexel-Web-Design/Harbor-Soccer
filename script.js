@@ -6,7 +6,89 @@ document.addEventListener("DOMContentLoaded", function () {
     once: true,
     offset: 100,
   });
+  
+  // Initialize hero background rotation
+  initializeHeroBackground();
 });
+
+// Hero Background Image Rotation System
+function initializeHeroBackground() {
+  const horizontalImages = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'];
+  const verticalImages = ['v1', 'v2'];
+  
+  // Get or initialize visit count for image rotation
+  let visitCount = 1;
+  try {
+    visitCount = parseInt(localStorage.getItem('harborsoccer_visit_count') || '0');
+    visitCount++;
+    localStorage.setItem('harborsoccer_visit_count', visitCount.toString());
+  } catch (e) {
+    // Fallback for browsers with localStorage disabled
+    // Use timestamp-based rotation instead
+    visitCount = Math.floor(Date.now() / (1000 * 60 * 60)) % 100; // Changes every hour
+  }
+  
+  // Select image based on visit count
+  function selectImageForOrientation(images) {
+    const index = (visitCount - 1) % images.length;
+    return images[index];
+  }
+  
+  // Function to apply background class based on screen orientation
+  function applyHeroBackground() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+    
+    // Remove any existing background classes
+    heroSection.className = heroSection.className.replace(/hero-bg-[hv]\d+/g, '').trim();
+    
+    // Determine if we should use vertical or horizontal images
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const isSmallScreen = window.innerWidth <= 768;
+    const isTabletPortrait = window.innerWidth <= 1024 && isPortrait;
+    
+    let selectedImage;
+    
+    if ((isPortrait && isSmallScreen) || isTabletPortrait) {
+      // Use vertical images for mobile portrait and tablet portrait
+      selectedImage = selectImageForOrientation(verticalImages);
+      heroSection.classList.add(`hero-bg-${selectedImage}`);
+    } else {
+      // Use horizontal images for desktop and landscape orientations
+      selectedImage = selectImageForOrientation(horizontalImages);
+      heroSection.classList.add(`hero-bg-${selectedImage}`);
+    }
+    
+    console.log(`🌊 Harbor Soccer - Visit #${visitCount}, Image: ${selectedImage}`);
+  }
+  
+  // Apply background on initial load
+  applyHeroBackground();
+  
+  // Reapply background on window resize/orientation change
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(applyHeroBackground, 150);
+  });
+  
+  // Listen for orientation change events (mobile)
+  window.addEventListener('orientationchange', function() {
+    setTimeout(applyHeroBackground, 100);
+  });
+  
+  // Preload images for better performance
+  function preloadImages() {
+    const allImages = [...horizontalImages, ...verticalImages];
+    allImages.forEach(imageId => {
+      const img = new Image();
+      img.src = `images/players/${imageId}.png`;
+    });
+  }
+  
+  // Preload images after a short delay to not block initial page load
+  setTimeout(preloadImages, 1000);
+}
 
 // Touch variables for swipe gestures (declare once at top level)
 let touchStartX = 0;
@@ -597,6 +679,10 @@ console.log(
 console.log(
   "%cBuilding character through community soccer",
   "color: #FF8C00; font-style: italic;"
+);
+console.log(
+  "%c⚽ Hero images rotate with each visit using local player photos",
+  "color: #666; font-style: italic; font-size: 12px;"
 );
 
 // Keyboard accessibility
