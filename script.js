@@ -791,11 +791,10 @@ const teamData = {
           "Game Day": "Sunday",
           "Game Time": "Varies (10:00 AM - 4:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach Mike Thompson",
-          email: "mike.thompson@harborsoccer.org",
-          phone: "(555) 123-4501",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Travel to nearby communities for games. Parent volunteers needed for game day support.",
@@ -811,11 +810,10 @@ const teamData = {
           "Game Day": "Sunday",
           "Game Time": "Varies (10:00 AM - 4:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach David Rodriguez",
-          email: "david.rodriguez@harborsoccer.org",
-          phone: "(555) 123-4502",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Higher level of competition with emphasis on player development and game strategy.",
@@ -831,11 +829,10 @@ const teamData = {
           "Game Day": "Sunday",
           "Game Time": "Varies (10:00 AM - 4:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach James Wilson",
-          email: "james.wilson@harborsoccer.org",
-          phone: "(555) 123-4503",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Premier level of travel soccer with potential for tournament play and advanced skill development.",
@@ -853,11 +850,10 @@ const teamData = {
           "Game Day": "Saturday",
           "Game Time": "Varies (9:00 AM - 3:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach Sarah Johnson",
-          email: "sarah.johnson@harborsoccer.org",
-          phone: "(555) 123-4504",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Travel to nearby communities for games. Focus on building confidence and fundamental skills.",
@@ -873,11 +869,10 @@ const teamData = {
           "Game Day": "Saturday",
           "Game Time": "Varies (9:00 AM - 3:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach Lisa Anderson",
-          email: "lisa.anderson@harborsoccer.org",
-          phone: "(555) 123-4505",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Competitive play with emphasis on skill development and sportsmanship.",
@@ -893,11 +888,10 @@ const teamData = {
           "Game Day": "Saturday",
           "Game Time": "Varies (9:00 AM - 3:00 PM)",
           Season: "April - June",
-        },
-        coach: {
-          name: "Coach Maria Garcia",
-          email: "maria.garcia@harborsoccer.org",
-          phone: "(555) 123-4506",
+        },        coach: {
+          name: "Coaches Name",
+          email: "Coach@email.com",
+          phone: "(123)-456-7890",
         },
         additionalInfo:
           "Premier level of travel soccer with advanced tactical training and tournament opportunities.",
@@ -916,11 +910,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "9:00 AM - 10:00 AM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Tom Mitchell",
-        email: "tom.mitchell@harborsoccer.org",
-        phone: "(555) 123-4507",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "All games are played locally at Harbor Springs Soccer Complex. Focus on fun and skill building.",
@@ -936,11 +929,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "10:15 AM - 11:15 AM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Jennifer Clark",
-        email: "jennifer.clark@harborsoccer.org",
-        phone: "(555) 123-4508",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Focus on developing passing skills and game awareness in a fun, encouraging environment.",
@@ -956,11 +948,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "11:30 AM - 12:30 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Robert Kim",
-        email: "robert.kim@harborsoccer.org",
-        phone: "(555) 123-4509",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Emphasis on speed, agility, and quick decision-making while maintaining a fun atmosphere.",
@@ -976,11 +967,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "12:45 PM - 1:45 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Amanda Foster",
-        email: "amanda.foster@harborsoccer.org",
-        phone: "(555) 123-4510",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Focus on cardiovascular fitness, speed training, and quick transitions between offense and defense.",
@@ -996,11 +986,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "2:00 PM - 3:00 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Daniel Martinez",
-        email: "daniel.martinez@harborsoccer.org",
-        phone: "(555) 123-4511",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Emphasis on creativity, ball control, and developing individual flair while working as a team.",
@@ -1016,11 +1005,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "3:15 PM - 4:15 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Michelle Taylor",
-        email: "michelle.taylor@harborsoccer.org",
-        phone: "(555) 123-4512",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Focus on possession-based soccer, team coordination, and understanding field positioning.",
@@ -1036,11 +1024,10 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "4:30 PM - 5:30 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Christina Davis",
-        email: "christina.davis@harborsoccer.org",
-        phone: "(555) 123-4513",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "Building confidence through positive reinforcement while developing competitive skills and determination.",
@@ -1056,12 +1043,11 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "5:45 PM - 6:45 PM",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Kevin O'Brien",
-        email: "kevin.obrien@harborsoccer.org",
-        phone: "(555) 123-4514",
-      },      additionalInfo:
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
+      },additionalInfo:
         "Focus on tactical understanding, defensive principles, and developing game intelligence.",
     },
   },
@@ -1077,16 +1063,15 @@ const teamData = {
         "Game Day": "Saturday",
         "Game Time": "Varies (10:00 AM - 4:00 PM)",
         Season: "April - June",
-      },
-      coach: {
-        name: "Coach Madelaine McShannock",
-        email: "madelaine.mcshannock@harborsoccer.org",
-        phone: "(555) 123-4515",
+      },      coach: {
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       assistantCoach: {
-        name: "Assistant Coach Gabrielle (Gabbi) Case",
-        email: "gabbi.case@harborsoccer.org",
-        phone: "(555) 123-4516",
+        name: "Coaches Name",
+        email: "Coach@email.com",
+        phone: "(123)-456-7890",
       },
       additionalInfo:
         "A special team dedicated to honoring the legacy of Gerry Chamberlin, who always said if he could name a team something different, he would name it Sailors. The Black Forest Soccer Fields were dedicated in his name.",
