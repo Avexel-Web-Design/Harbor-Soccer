@@ -1020,7 +1020,7 @@ p {
   border: none;
   border-radius: 15px;
   width: 90%;
-  max-width: 800px;
+  max-width: 1200px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   animation: modalSlideIn 0.3s ease-out;
   position: relative;
@@ -1560,16 +1560,16 @@ p {
     font-size: 3rem;
     line-height: 2.5rem;
   }
-
   /* Modal responsive styles for tablets */
   .modal-content {
-    margin: 10% auto;
-    padding: 1.5rem;
-    width: 95%;
+    margin: 8% auto;
+    padding: 2rem;
+    width: 85%;
+    max-width: 900px;
   }
 
   .modal-content h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .program-options {
@@ -1626,18 +1626,19 @@ p {
     width: 80px;
     height: 80px;
   }
-
   /* Modal responsive styles for mobile phones */
   .modal-content {
-    margin: 5% auto;
-    padding: 1rem;
-    width: 98%;
+    margin: 2% auto;
+    padding: 1.5rem;
+    width: 95%;
     border-radius: 10px;
+    max-height: 95vh;
+    overflow-y: auto;
   }
 
   .modal-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
   }
 
   .modal-content > p {
@@ -1646,16 +1647,16 @@ p {
   }
 
   .program-options {
-    gap: 1rem;
+    gap: 1.2rem;
     margin-top: 1rem;
   }
 
   .program-option {
-    padding: 1rem;
+    padding: 1.2rem;
   }
 
   .program-option h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 0.8rem;
   }
 
