@@ -416,9 +416,12 @@ p {
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   margin-top: 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .program-card {
@@ -1074,7 +1077,7 @@ p {
 
 .program-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -1453,6 +1456,30 @@ p {
 }
 
 /* Responsive Design */
+/* Medium desktop - reduce gap for tighter layouts */
+@media (max-width: 1200px) {
+  .programs-grid {
+    gap: 2rem;
+  }
+  
+  .program-options {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .program-options {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
