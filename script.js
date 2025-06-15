@@ -67,18 +67,26 @@ function initializePagePreloader() {
     allImages.forEach((imageId, index) => {
       const img = new Image();
       img.onload = () => {
-        updateStatus(`Loading ${imageId}.png...`);
+        updateStatus(`Loading ${imageId}.webp...`);
         imageLoaded();
       };
       img.onerror = () => imageError(imageId);
-      img.src = `images/players/${imageId}.png`;
+      img.src = `images/players/${imageId}.webp`;
     });
   });
 }
 
 // Initialize AOS (Animate on Scroll) and page systems
 document.addEventListener("DOMContentLoaded", async function () {
-  // Initialize preloader first
+  // Hero background is already applied instantly via inline script
+  // Just ensure it's also applied to the hero element directly
+  const heroSection = document.querySelector('.hero');
+  const heroClass = document.documentElement.getAttribute('data-hero-bg');
+  if (heroSection && heroClass) {
+    heroSection.classList.add(heroClass);
+  }
+  
+  // Initialize preloader (but hero background is already applied)
   await initializePagePreloader();
   
   // Initialize AOS after preloader is done
@@ -89,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     offset: 100,
   });
   
-  // Initialize hero background rotation
+  // Initialize the enhanced hero background system
   initializeHeroBackground();
 });
 

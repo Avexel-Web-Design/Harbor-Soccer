@@ -28,6 +28,72 @@ body.loaded {
   opacity: 1;
 }
 
+/* Ensure hero section is visible during preloader for instant image display */
+.hero {
+  opacity: 1 !important;
+  z-index: 1000;
+}
+
+/* Instant background application using data attributes */
+html[data-hero-bg="hero-bg-h1"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h2"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h3"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h4"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h4.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h5"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h5.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h6"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h6.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-h7"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h7.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-v1"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html[data-hero-bg="hero-bg-v2"] .hero { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-preloader {
+  z-index: 9999;
+}
+
 /* Page Preloader */
 .page-preloader {
   position: fixed;
@@ -368,28 +434,47 @@ p {
     );
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  color: white;
+  background-repeat: no-repeat;  color: white;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: background-image 0.8s ease-in-out;
+  /* Removed transition for instant hero image loading */
 }
 
-/* Loading state for hero background changes */
+/* Loading state for hero background changes - removed transition for instant loading */
 .hero.loading-bg {
-  opacity: 0.95;
-  transition: opacity 0.3s ease-in-out, background-image 0.8s ease-in-out;
+  opacity: 1;
 }
 
-/* Hero background image classes for rotation */
-.hero.hero-bg-h1 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h1.png"); }
-.hero.hero-bg-h2 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h2.png"); }
-.hero.hero-bg-h3 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h3.png"); }
-.hero.hero-bg-h4 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h4.png"); }
-.hero.hero-bg-h5 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h5.png"); }
-.hero.hero-bg-h6 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h6.png"); }
-.hero.hero-bg-h7 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h7.png"); }
+/* Hero background image classes for rotation - optimized for instant loading */
+.hero.hero-bg-h1 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h1.webp");
+  background-attachment: scroll; /* Better performance on mobile */
+}
+.hero.hero-bg-h2 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h2.webp");
+  background-attachment: scroll;
+}
+.hero.hero-bg-h3 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h3.webp");
+  background-attachment: scroll;
+}
+.hero.hero-bg-h4 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h4.webp");
+  background-attachment: scroll;
+}
+.hero.hero-bg-h5 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h5.webp");
+  background-attachment: scroll;
+}
+.hero.hero-bg-h6 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h6.webp");
+  background-attachment: scroll;
+}
+.hero.hero-bg-h7 { 
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/h7.webp");
+  background-attachment: scroll;
+}
 
 /* Use vertical images for portrait orientations and mobile devices */
 @media (orientation: portrait) and (max-width: 768px) {
@@ -398,13 +483,18 @@ p {
   .hero.hero-bg-h3,
   .hero.hero-bg-h4,
   .hero.hero-bg-h5,
-  .hero.hero-bg-h6,
-  .hero.hero-bg-h7 {
+  .hero.hero-bg-h6,  .hero.hero-bg-h7 {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2));
   }
   
-  .hero.hero-bg-v1 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.png"); }
-  .hero.hero-bg-v2 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.png"); }
+  .hero.hero-bg-v1 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.webp");
+    background-attachment: scroll;
+  }
+  .hero.hero-bg-v2 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.webp");
+    background-attachment: scroll;
+  }
 }
 
 /* Use vertical images for very tall aspect ratios (taller than 4:3) */
@@ -419,8 +509,14 @@ p {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2));
   }
   
-  .hero.hero-bg-v1 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.png"); }
-  .hero.hero-bg-v2 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.png"); }
+  .hero.hero-bg-v1 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.webp");
+    background-attachment: scroll;
+  }
+  .hero.hero-bg-v2 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.webp");
+    background-attachment: scroll;
+  }
 }
 
 /* Additional breakpoint for tablets in portrait mode */
@@ -435,8 +531,14 @@ p {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2));
   }
   
-  .hero.hero-bg-v1 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.png"); }
-  .hero.hero-bg-v2 { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.png"); }
+  .hero.hero-bg-v1 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v1.webp");
+    background-attachment: scroll;
+  }
+  .hero.hero-bg-v2 { 
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 140, 0, 0.2)), url("images/players/v2.webp");
+    background-attachment: scroll;
+  }
 }
 
 .hero-background {
