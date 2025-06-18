@@ -11,85 +11,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
-    />    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-      <!-- Preload hero images for instant loading -->
-    <link rel="preload" as="image" href="images/players/h1.webp" />
-    <link rel="preload" as="image" href="images/players/h2.webp" />
-    <link rel="preload" as="image" href="images/players/h3.webp" />
-    <link rel="preload" as="image" href="images/players/h4.webp" />
-    <link rel="preload" as="image" href="images/players/h5.webp" />
-    <link rel="preload" as="image" href="images/players/h6.webp" />
-    <link rel="preload" as="image" href="images/players/h7.webp" />
-    <link rel="preload" as="image" href="images/players/v1.webp" />
-    <link rel="preload" as="image" href="images/players/v2.webp" />
-    
-    <!-- Instant hero background loading script -->
-    <script>
-      // Apply hero background class immediately for instant loading
-      (function() {
-        const horizontalImages = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'];
-        const verticalImages = ['v1', 'v2'];
-        
-        // Get or initialize visit count for image rotation
-        let visitCount = 1;
-        try {
-          visitCount = parseInt(localStorage.getItem('harborsoccer_visit_count') || '0');
-          visitCount++;
-          localStorage.setItem('harborsoccer_visit_count', visitCount.toString());
-        } catch (e) {
-          visitCount = Math.floor(Date.now() / (1000 * 60 * 60)) % 100;
-        }
-        
-        function selectImageForOrientation(images) {
-          const index = (visitCount - 1) % images.length;
-          return images[index];
-        }
-        
-        // Apply background class as soon as possible
-        function applyHeroBackgroundInstant() {
-          const isPortrait = window.innerHeight > window.innerWidth;
-          const isSmallScreen = window.innerWidth <= 768;
-          const isTabletPortrait = window.innerWidth <= 1024 && isPortrait;
-          
-          let selectedImage;
-          let bgClass;
-          
-          if ((isPortrait && isSmallScreen) || isTabletPortrait) {
-            selectedImage = selectImageForOrientation(verticalImages);
-          } else {
-            selectedImage = selectImageForOrientation(horizontalImages);
-          }
-          
-          bgClass = `hero-bg-${selectedImage}`;
-          
-          // Apply class immediately to document body for CSS targeting
-          document.documentElement.setAttribute('data-hero-bg', bgClass);
-          
-          // Also apply to hero element if it exists
-          document.addEventListener('DOMContentLoaded', function() {
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) {
-              heroSection.classList.add(bgClass);
-            }
-          });
-        }
-        
-        // Execute immediately
-        applyHeroBackgroundInstant();
-      })();
-    </script>
-  </head><body>
-    <!-- Page Preloader -->
-    <div class="page-preloader" id="page-preloader">
-      <div class="preloader-content">
-        <img src="images/icon.png" alt="Harbor Soccer Logo" class="preloader-logo">
-        <h1 class="preloader-title">Harbor Soccer</h1>
-        <p class="preloader-subtitle">Loading player images...</p>
-        <div class="preloader-spinner"></div>
-        <div class="preloader-status" id="preloader-status">Preparing images...</div>
-      </div>
-    </div>
-
+    />    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />  </head><body>
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
@@ -104,8 +26,6 @@
       </div>
       <nav class="mobile-nav">
         <a href="#programs" class="mobile-nav-link">Programs</a>
-        <a href="#team-info" class="mobile-nav-link">Team Info</a>
-        <a href="#schedules" class="mobile-nav-link">Schedules</a>
         <a href="#registration" class="mobile-nav-link">Registration</a>
         <a href="#about" class="mobile-nav-link">About</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
@@ -195,7 +115,7 @@
             <h3 class="card-title">Recreational Soccer</h3>
             <h4 class="card-subtitle">Birth Years: 2018-21</h4>
             <p class="card-description">
-              <span class="drop-cap">D</span>evelopmental program for kids withs
+              <span class="drop-cap">D</span>evelopmental program for kids with
               an emphasis on skill building, game-style play, and most
               importantly fun! This program is meant to introduce the game of
               soccer to those who are excited, passionate, or maybe just curious
