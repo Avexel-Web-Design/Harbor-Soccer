@@ -1298,6 +1298,10 @@ p {
   border: 2px solid transparent;
   transition: all 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px; /* Ensure consistent height */
 }
 
 .program-option:hover {
@@ -1326,13 +1330,14 @@ p {
   font-weight: 600;
   text-align: center;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  margin-top: auto; /* Push buttons to bottom */
   font-size: 1rem;
   border: none;
   cursor: pointer;
   min-height: 44px; /* Ensure minimum touch target size */
-  min-width: 44px;
+  width: 100%; /* Make buttons full width of container */
   box-sizing: border-box;
+  align-self: stretch; /* Stretch to fill available width */
 }
 
 .rec-button {
@@ -1815,9 +1820,9 @@ p {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .program-option {
     padding: 1.5rem;
+    min-height: 260px; /* Medium size for tablets */
   }
 
   .close {
@@ -1889,9 +1894,9 @@ p {
     gap: 1.2rem;
     margin-top: 1rem;
   }
-
   .program-option {
     padding: 1.2rem;
+    min-height: 250px; /* Slightly smaller for mobile but still consistent */
   }
 
   .program-option h3 {
@@ -1903,13 +1908,13 @@ p {
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
   }
-
   .program-button {
     padding: 14px 20px;
     font-size: 1rem;
-    margin-top: 0.8rem;
+    margin-top: auto; /* Push buttons to bottom */
     width: 100%;
     display: block;
+    align-self: stretch; /* Stretch to fill available width */
   }
 
   .close {
