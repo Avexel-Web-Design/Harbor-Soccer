@@ -2701,3 +2701,309 @@ textarea:focus {
     height: 2px;
   }
 }
+
+/* Support Section */
+.support {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.support-content {
+  margin-top: 2rem;
+}
+
+.support-intro {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.support-intro h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.support-intro p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.support-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.donation-info {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.donation-info:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.donation-info h4 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.mailing-address {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #ff8c00;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.sponsorship-section {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.sponsorship-section:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.sponsorship-section h4 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.sponsorship-button {
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  min-height: 44px;
+  min-width: 200px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.sponsorship-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.support-impact {
+  text-align: center;
+}
+
+.support-impact h4 {
+  color: #000000;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.impact-item {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.impact-item:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.impact-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.impact-item h5 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.impact-item p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Sponsorship Modal Specific Styles */
+.sponsorship-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sponsorship-tier {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sponsorship-tier:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+}
+
+.sponsorship-tier h3 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sponsorship-benefits h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.sponsorship-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sponsorship-benefits li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.sponsorship-benefits li:before {
+  content: "✓";
+  color: #28a745;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.sponsorship-benefits li:last-child {
+  border-bottom: none;
+}
+
+.sponsorship-investment {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 2px solid #ff8c00;
+}
+
+.sponsorship-contact {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.sponsorship-contact h3 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-info p {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #ff8c00;
+  margin: 0;
+}
+
+/* Responsive Design for Support Section */
+@media (max-width: 768px) {
+  .support-actions {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .impact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .sponsorship-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .support-intro h3 {
+    font-size: 1.8rem;
+  }
+  
+  .sponsorship-button {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .support {
+    padding: 4rem 0;
+  }
+  
+  .donation-info,
+  .sponsorship-section {
+    padding: 1.5rem;
+  }
+  
+  .impact-item {
+    padding: 1.5rem;
+  }
+  
+  .sponsorship-tier {
+    padding: 1.5rem;
+  }
+  
+  .sponsorship-contact {
+    padding: 1.5rem;
+  }
+}

@@ -1222,3 +1222,99 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// Sponsorship Modal Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const sponsorshipModal = document.getElementById("sponsorship-modal");
+  const sponsorshipBtn = document.getElementById("sponsorship-btn");
+  const sponsorshipCloseBtn = sponsorshipModal.querySelector(".close");
+
+  // Open sponsorship modal when button is clicked
+  sponsorshipBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    sponsorshipModal.style.display = "block";
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+
+    // Focus trap for accessibility
+    const focusableElements = sponsorshipModal.querySelectorAll(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
+  });
+
+  // Close modal when X is clicked
+  sponsorshipCloseBtn.addEventListener("click", function () {
+    closeSponsorshipModal();
+  });
+
+  // Close modal when clicking outside of it
+  sponsorshipModal.addEventListener("click", function (e) {
+    if (e.target === sponsorshipModal) {
+      closeSponsorshipModal();
+    }
+  });
+
+  // Prevent modal from closing when clicking inside modal content
+  sponsorshipModal.querySelector(".modal-content").addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && sponsorshipModal.style.display === "block") {
+      closeSponsorshipModal();
+    }
+  });
+
+  // Handle touch events for better mobile interaction
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  sponsorshipModal.addEventListener(
+    "touchstart",
+    function (e) {
+      touchStartY = e.changedTouches[0].screenY;
+    },
+    { passive: true }
+  );
+
+  sponsorshipModal.addEventListener(
+    "touchend",
+    function (e) {
+      touchEndY = e.changedTouches[0].screenY;
+      handleSponsorshipSwipe();
+    },
+    { passive: true }
+  );
+
+  function handleSponsorshipSwipe() {
+    const swipeDistance = touchStartY - touchEndY;
+
+    // If swipe down is more than 100px, close modal
+    if (swipeDistance < -100) {
+      closeSponsorshipModal();
+    }
+  }
+
+  function closeSponsorshipModal() {
+    sponsorshipModal.style.display = "none";
+    document.body.style.overflow = "auto"; // Restore scrolling
+
+    // Return focus to the sponsorship button
+    sponsorshipBtn.focus();
+  }
+
+  // Add smooth scroll for mobile when modal is opened
+  function preventSponsorshipBackgroundScroll(e) {
+    if (sponsorshipModal.style.display === "block") {
+      e.preventDefault();
+    }
+  }
+
+  // Prevent background scrolling on iOS
+  sponsorshipModal.addEventListener("touchmove", preventSponsorshipBackgroundScroll, {
+    passive: false,
+  });
+});
