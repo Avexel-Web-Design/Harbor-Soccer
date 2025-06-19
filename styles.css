@@ -1837,6 +1837,657 @@ p {
   }
 }
 
+/* Sponsorship Contact Styles */
+.sponsorship-contact {
+  margin-top: 1.5rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #ff8c00;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-details h5 {
+  color: #2c5aa0;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.contact-name {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.contact-email {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #e67c00;
+  text-decoration: underline;
+}
+
+.contact-note {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive adjustments for contact card */
+@media (max-width: 480px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-details {
+    text-align: center;
+  }
+}
+
+/* Referee Section */
+.referee {
+  padding: 6rem 0;
+  background: #ffffff;
+  position: relative;
+}
+
+.referee-content {
+  margin-top: 2rem;
+}
+
+.referee-intro {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.referee-intro h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.referee-intro p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.referee-benefits {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.referee-benefits h4 {
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.referee-benefits > p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2c5aa0, #ff8c00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+  border-color: #ff8c00;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
+}
+
+.benefit-item:hover::before {
+  transform: scaleX(1);
+}
+
+.benefit-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+.benefit-item h5 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.benefit-item p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.referee-action {
+  text-align: center;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.referee-action:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.15);
+}
+
+.referee-action h4 {
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.referee-action p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.referee-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+  color: white;
+  text-decoration: none;
+  padding: 18px 40px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  min-width: 200px;
+}
+
+.referee-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.referee-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+  background: linear-gradient(135deg, #1e4080, #3a7bc8);
+}
+
+.referee-button:hover::before {
+  left: 100%;
+}
+
+.referee-action .contact-note {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.referee-action .contact-note a {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.referee-action .contact-note a:hover {
+  color: #e67c00;
+  text-decoration: underline;
+}
+
+/* Referee Section Responsive Design */
+@media (max-width: 768px) {
+  .referee {
+    padding: 4rem 0;
+  }
+  
+  .referee-intro h3 {
+    font-size: 1.8rem;
+  }
+  
+  .referee-benefits h4 {
+    font-size: 1.5rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .benefit-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+  }
+  
+  .referee-action {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .referee-action h4 {
+    font-size: 1.5rem;
+  }
+  
+  .referee-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .referee-intro p,
+  .referee-benefits > p,
+  .referee-action p {
+    font-size: 1rem;
+  }
+  
+  .benefit-item h5 {
+    font-size: 1.2rem;
+  }
+  
+  .referee-action {
+    padding: 1.5rem;
+  }
+}
+
+/* Support Section */
+.support {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.support-content {
+  margin-top: 2rem;
+}
+
+.support-intro {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.support-intro h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.support-intro p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.support-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.donation-info {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.donation-info:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.donation-info h4 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.mailing-address {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #ff8c00;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.sponsorship-section {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.sponsorship-section:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.sponsorship-section h4 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.sponsorship-button {
+  background: linear-gradient(135deg, #ff8c00, #ff6b35);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  min-height: 44px;
+  min-width: 200px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.sponsorship-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.support-impact {
+  text-align: center;
+}
+
+.support-impact h4 {
+  color: #000000;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.impact-item {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.impact-item:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+}
+
+.impact-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.impact-item h5 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.impact-item p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Sponsorship Modal Specific Styles */
+.sponsorship-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sponsorship-tier {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sponsorship-tier:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+}
+
+.sponsorship-tier h3 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sponsorship-benefits h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.sponsorship-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sponsorship-benefits li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.sponsorship-benefits li:before {
+  content: "✓";
+  color: #28a745;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.sponsorship-benefits li:last-child {
+  border-bottom: none;
+}
+
+.sponsorship-investment {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 2px solid #ff8c00;
+}
+
+.sponsorship-contact {
+  margin-top: 1.5rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #ff8c00;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-details h5 {
+  color: #2c5aa0;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.contact-name {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.contact-email {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #e67c00;
+  text-decoration: underline;
+}
+
+.contact-note {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive adjustments for contact card */
+@media (max-width: 480px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-details {
+    text-align: center;
+  }
+}
+
 /* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -2072,7 +2723,7 @@ textarea:focus {
 
 .form-group select {
   width: 100%;
-  padding: 12px 16px;
+  padding: 12px  16px;
   border: 2px solid #e9ecef;
   border-radius: 8px;
   font-size: 1rem;
@@ -2849,315 +3500,7 @@ textarea:focus {
   .schedules .section-title {
     margin-bottom: 2rem;
   }
-  
-  .schedules .section-title::after {
-    width: 40px;
-    height: 2px;
-  }
-}
-
-/* Support Section */
-.support {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  position: relative;
-}
-
-.support-content {
-  margin-top: 2rem;
-}
-
-.support-intro {
-  margin-bottom: 4rem;
-  text-align: center;
-}
-
-.support-intro h3 {
-  color: #000000;
-  margin-bottom: 1.5rem;
-  font-size: 2.2rem;
-}
-
-.support-intro p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto 1rem;
-}
-
-.support-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin-bottom: 4rem;
-}
-
-.donation-info {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.donation-info:hover {
-  border-color: #ff8c00;
-  transform: translateY(-5px);
-}
-
-.donation-info h4 {
-  color: #2c5aa0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.mailing-address {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border-left: 4px solid #ff8c00;
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.sponsorship-section {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.sponsorship-section:hover {
-  border-color: #ff8c00;
-  transform: translateY(-5px);
-}
-
-.sponsorship-section h4 {
-  color: #2c5aa0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.sponsorship-button {
-  background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  min-height: 44px;
-  min-width: 200px;
-  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-}
-
-.sponsorship-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
-}
-
-.support-impact {
-  text-align: center;
-}
-
-.support-impact h4 {
-  color: #000000;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-}
-
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.impact-item {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.impact-item:hover {
-  border-color: #ff8c00;
-  transform: translateY(-5px);
-}
-
-.impact-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.impact-item h5 {
-  color: #2c5aa0;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.impact-item p {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Sponsorship Modal Specific Styles */
-.sponsorship-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.sponsorship-tier {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.sponsorship-tier:hover {
-  border-color: #ff8c00;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
-}
-
-.sponsorship-tier h3 {
-  color: #2c5aa0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.sponsorship-benefits h4 {
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.sponsorship-benefits ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sponsorship-benefits li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.sponsorship-benefits li:before {
-  content: "✓";
-  color: #28a745;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-}
-
-.sponsorship-benefits li:last-child {
-  border-bottom: none;
-}
-
-.sponsorship-investment {
-  text-align: center;
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  border: 2px solid #ff8c00;
-}
-
-.sponsorship-contact {
-  margin-top: 3rem;
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.sponsorship-contact h3 {
-  color: #2c5aa0;
-  margin-bottom: 1rem;
-}
-
-.contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.contact-info p {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #ff8c00;
-  margin: 0;
-}
-
-/* Responsive Design for Support Section */
-@media (max-width: 768px) {
-  .support-actions {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .impact-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .sponsorship-options {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-info {
-    grid-template-columns: 1fr;
-  }
-  
-  .support-intro h3 {
-    font-size: 1.8rem;
-  }
-  
-  .sponsorship-button {
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .support {
-    padding: 4rem 0;
-  }
-  
-  .donation-info,
-  .sponsorship-section {
-    padding: 1.5rem;
-  }
-  
-  .impact-item {
-    padding: 1.5rem;
-  }
-  
-  .sponsorship-tier {
-    padding: 1.5rem;
-  }
-  
-  .sponsorship-contact {
-    padding: 1.5rem;
+    .schedules .section-title::after {
+    width: 40px;    height: 2px;
   }
 }
