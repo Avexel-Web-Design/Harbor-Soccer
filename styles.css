@@ -59,19 +59,6 @@ p {
   font-size: 1.1rem;
 }
 
-.drop-cap {
-  float: left;
-  font-size: 4rem;
-  line-height: 3rem;
-  padding-right: 0.5rem;
-  padding-top: 0.2rem;
-  font-weight: 700;
-  color: #ff8c00;
-  text-decoration: none;
-  border: none;
-  outline: none;
-}
-
 /* Utility Classes */
 .container {
   max-width: 1400px;
@@ -958,10 +945,21 @@ p {
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2rem;
+  text-align: center;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .contact-info h3 {
@@ -970,17 +968,52 @@ p {
 }
 
 .contact-details {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .contact-item {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-basis: 250px;
+  max-width: 280px;
+  min-width: 250px;
+}
+
+.contact-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2c5aa0, #ff8c00);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
+  border-color: rgba(255, 140, 0, 0.2);
+}
+
+.contact-item:hover::before {
+  opacity: 1;
 }
 
 .contact-icon {
@@ -1000,17 +1033,31 @@ p {
 }
 
 .contact-item h4 {
-  color: #000000;
-  margin-bottom: 0.5rem;
+  color: #2c5aa0;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contact-item p {
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .contact-item a {
-  color: #000000;
+  color: #2c5aa0;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
   color: #ff8c00;
+  text-decoration: underline;
 }
 
 .contact-form {
@@ -1672,11 +1719,17 @@ p {
   .registration-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }  .contact-grid {
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 100%;
   }
 
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .contact-item {
+    padding: 1.5rem;
+    flex-basis: 280px;
+    max-width: none;
+    min-width: 280px;
   }
 
   .values-grid {
@@ -1701,15 +1754,10 @@ p {
   h1 {
     font-size: 2.5rem;
   }
-
   h2 {
     font-size: 2rem;
   }
 
-  .drop-cap {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
   /* Modal responsive styles for tablets */
   .modal-content {
     margin: 8% auto;
