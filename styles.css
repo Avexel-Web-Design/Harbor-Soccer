@@ -74,9 +74,9 @@ p {
 
 /* Utility Classes */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .section-title {
@@ -358,25 +358,21 @@ p {
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-top: 2rem;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 2rem auto;
 }
 
 .program-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 140, 0, 0.1);
-}
-
-.program-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  min-width: 400px; /* Adjusted for better fit in 3-column layout */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-icon {
@@ -389,6 +385,10 @@ p {
   color: #000000;
   text-align: center;
   margin-bottom: 0.75rem;
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Shows ellipsis if text overflows */
+  font-size: 1.5rem;
 }
 
 .card-subtitle {
@@ -1423,10 +1423,27 @@ p {
 }
 
 /* Responsive Design */
+/* Large desktop - keep 3 columns with reduced gap */
+@media (max-width: 1400px) {
+  .programs-grid {
+    gap: 2rem;
+    max-width: 1200px;
+  }
+  
+  .program-card {
+    min-width: 350px;
+  }
+}
+
 /* Medium desktop - reduce gap for tighter layouts */
 @media (max-width: 1200px) {
   .programs-grid {
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: 1000px;
+  }
+  
+  .program-card {
+    min-width: 300px;
   }
   
   .program-options {
@@ -1434,11 +1451,28 @@ p {
   }
 }
 
-/* Tablet breakpoint */
+/* Small desktop - switch to 2 columns */
 @media (max-width: 1024px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+  }
+  
+  .program-card {
+    min-width: 350px;
+  }
+}
+
+/* Tablet breakpoint - single column */
+@media (max-width: 768px) {
   .programs-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  
+  .program-card {
+    min-width: unset;
   }
   
   .program-options {
@@ -1479,11 +1513,6 @@ p {
 
   .container {
     padding: 0 1rem;
-  }
-
-  .programs-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .registration-content {
