@@ -1,0 +1,30 @@
+/* Harbor Soccer Club - Main Stylesheet */
+/* This file imports all the modular CSS files for better organization and maintainability */
+
+/* Base Styles */
+@import './base/reset.css';
+@import './base/typography.css';
+@import './base/utilities.css';
+@import './base/responsive.css';
+@import './base/accessibility.css';
+
+/* Components */
+@import './components/navigation.css';
+@import './components/mobile-menu.css';
+@import './components/modal.css';
+@import './components/forms.css';
+@import './components/footer.css';
+
+/* Sections */
+@import './sections/hero.css';
+@import './sections/programs.css';
+@import './sections/registration.css';
+@import './sections/about.css';
+@import './sections/contact.css';
+@import './sections/referee.css';
+@import './sections/support.css';
+@import './sections/team-info.css';
+@import './sections/schedules.css';
+
+/* Note: In production, you might want to combine and minify these files */
+/* For development, this modular approach makes maintenance much easier */

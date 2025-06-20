@@ -1,0 +1,257 @@
+/* Referee Section */
+.referee {
+  padding: 6rem 0;
+  background: #ffffff;
+  position: relative;
+}
+
+.referee-content {
+  margin-top: 2rem;
+}
+
+.referee-intro {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.referee-intro h3 {
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.referee-intro p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.referee-benefits {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.referee-benefits h4 {
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.referee-benefits > p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2c5aa0, #ff8c00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+  border-color: #ff8c00;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
+}
+
+.benefit-item:hover::before {
+  transform: scaleX(1);
+}
+
+.benefit-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+.benefit-item h5 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.benefit-item p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.referee-action {
+  text-align: center;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.referee-action:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.15);
+}
+
+.referee-action h4 {
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.referee-action p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.referee-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+  color: white;
+  text-decoration: none;
+  padding: 18px 40px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  min-width: 200px;
+}
+
+.referee-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.referee-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+  background: linear-gradient(135deg, #1e4080, #3a7bc8);
+}
+
+.referee-button:hover::before {
+  left: 100%;
+}
+
+.referee-action .contact-note {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.referee-action .contact-note a {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.referee-action .contact-note a:hover {
+  color: #e67c00;
+  text-decoration: underline;
+}
+
+/* Referee Section Responsive Design */
+@media (max-width: 768px) {
+  .referee {
+    padding: 4rem 0;
+  }
+  
+  .referee-intro h3 {
+    font-size: 1.8rem;
+  }
+  
+  .referee-benefits h4 {
+    font-size: 1.5rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .benefit-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+  }
+  
+  .referee-action {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .referee-action h4 {
+    font-size: 1.5rem;
+  }
+  
+  .referee-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .referee-intro p,
+  .referee-benefits > p,
+  .referee-action p {
+    font-size: 1rem;
+  }
+  
+  .benefit-item h5 {
+    font-size: 1.2rem;
+  }
+  
+  .referee-action {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,24 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Junicode", Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+  color: #333;
+  background-color: #ffffff;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 140, 0, 0.05) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+  opacity: 1;
+}

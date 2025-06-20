@@ -1,0 +1,75 @@
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero {
+    background: #000000;
+  }
+
+  .program-card,
+  .contact-form,
+  .value-item,
+  .testimonial {
+    border: 2px solid #000000;
+  }
+}
+
+/* Menu state indicator for hamburger */
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Add subtle glow effect to active menu */
+.nav-menu.active {
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 140, 0, 0.1);
+}
+
+/* Smooth menu item hover effects */
+.nav-item:hover {
+  transform: translateX(5px);
+}
+
+/* Focus styles for better accessibility */
+.nav-link:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+  background: rgba(255, 140, 0, 0.2);
+}
+
+.hamburger:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* Additional text sharpening for all mobile menu text */
+.mobile-menu * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

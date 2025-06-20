@@ -1,0 +1,261 @@
+/* Responsive Design */
+/* Large desktop - keep 3 columns with reduced gap */
+@media (max-width: 1400px) {
+  .programs-grid {
+    gap: 2rem;
+    max-width: 1200px;
+  }
+  
+  .program-card {
+    min-width: 350px;
+  }
+}
+
+/* Medium desktop - reduce gap for tighter layouts */
+@media (max-width: 1200px) {
+  .programs-grid {
+    gap: 1.5rem;
+    max-width: 1000px;
+  }
+  
+  .program-card {
+    min-width: 300px;
+  }
+  
+  .program-options {
+    gap: 1.5rem;
+  }
+}
+
+/* Small desktop - switch to 2 columns */
+@media (max-width: 1024px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+  }
+  
+  .program-card {
+    min-width: 350px;
+  }
+}
+
+/* Tablet breakpoint - single column */
+@media (max-width: 768px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .program-card {
+    min-width: unset;
+  }
+  
+  .program-options {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+
+  .logo-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-link:hover::before {
+    width: 4px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .registration-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-grid {
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .contact-item {
+    padding: 1.5rem;
+    flex-basis: 280px;
+    max-width: none;
+    min-width: 280px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+
+  /* Modal responsive styles for tablets */
+  .modal-content {
+    margin: 8% auto;
+    padding: 2rem;
+    width: 85%;
+    max-width: 900px;
+  }
+
+  .modal-content h2 {
+    font-size: 2rem;
+  }
+
+  .program-options {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .program-option {
+    padding: 1.5rem;
+    min-height: 260px; /* Medium size for tablets */
+  }
+
+  .close {
+    font-size: 24px;
+    top: 0.8rem;
+    right: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .program-card {
+    padding: 1.5rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .travel-info {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .logo-icon img {
+    width: 80px;
+    height: 80px;
+  }
+  /* Modal responsive styles for mobile phones */
+  .modal-content {
+    margin: 2% auto;
+    padding: 1.5rem;
+    width: 95%;
+    border-radius: 10px;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .modal-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-content > p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .program-options {
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  .program-option {
+    padding: 1.2rem;
+    min-height: 250px; /* Slightly smaller for mobile but still consistent */
+  }
+
+  .program-option h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .program-option p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  .program-button {
+    padding: 14px 20px;
+    font-size: 1rem;
+    margin-top: auto; /* Push buttons to bottom */
+    width: 100%;
+    display: block;
+    align-self: stretch; /* Stretch to fill available width */
+  }
+
+  .close {
+    font-size: 20px;
+    top: 0.5rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
