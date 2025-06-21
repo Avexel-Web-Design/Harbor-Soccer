@@ -50,7 +50,6 @@
 .brand-logo:hover {
   color: #ff8c00;
   background: rgba(255, 140, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .brand-icon {
@@ -61,9 +60,6 @@
   transition: transform 0.3s ease;
 }
 
-.brand-logo:hover .brand-icon {
-  transform: rotate(10deg) scale(1.1);
-}
 
 .brand-icon img {
   width: 6rem;
