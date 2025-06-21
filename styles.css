@@ -87,7 +87,8 @@ p {
   margin: 1rem auto;
 }
 
-/* Navigation */
+/* Navigation - Moved to navbar.css */
+/*
 .navbar {
   position: fixed;
   top: 0;
@@ -151,7 +152,7 @@ p {
 .nav-link {
   color: #ffffff;
   text-decoration: none;
-  font-family: "Inter", sans-serif;
+  font-family: "Junicode", serif;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -179,7 +180,7 @@ p {
   color: #ff8c00;
 }
 
-/* Mobile Navigation */
+Mobile Navigation
 .hamburger {
   display: none;
   flex-direction: column;
@@ -220,7 +221,7 @@ p {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Enhanced Hamburger Animation */
+Enhanced Hamburger Animation
 .hamburger.active {
   background: rgba(255, 140, 0, 0.15);
   border-color: rgba(255, 140, 0, 0.4);
@@ -243,7 +244,7 @@ p {
   box-shadow: 0 2px 6px rgba(255, 140, 0, 0.4);
 }
 
-/* Menu state indicator for hamburger - accessibility */
+Menu state indicator for hamburger - accessibility
 .hamburger[aria-expanded="true"] .bar:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
   background: #ff8c00;
@@ -258,6 +259,7 @@ p {
   transform: rotate(-45deg) translate(8px, -8px);
   background: #ff8c00;
 }
+*/
 
 /* Hero Section */
 .hero {
@@ -2002,63 +2004,6 @@ p {
   margin: 0;
 }
 
-/* Responsive adjustments for contact card */
-@media (max-width: 480px) {
-  .contact-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .contact-icon {
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-  }
-  
-  .contact-details {
-    text-align: center;
-  }
-}
-
-/* Mobile menu adjustments for small screens */
-@media (max-width: 450px) {
-  .mobile-menu {
-    width: 90vw;
-    max-width: 90vw;
-  }
-  
-  .mobile-menu-header {
-    padding: 1.5rem 1.5rem 1rem;
-  }
-  
-  .mobile-nav {
-    padding: 1rem 0;
-  }
-  
-  .mobile-nav-link {
-    padding: 1.2rem 1.5rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .mobile-menu {
-    width: 95vw;
-    max-width: 95vw;
-  }
-  
-  .mobile-menu-header {
-    padding: 1.5rem 1rem 1rem;
-  }
-  
-  .mobile-nav {
-    padding: 1rem 0;
-  }
-  
-  .mobile-nav-link {
-    padding: 1.2rem 1rem;
-  }
-}
-
 /* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -2068,8 +2013,18 @@ p {
   }
 }
 
-/* Focus indicators */
-a:focus,
+/* Focus indicators - removing the orange box from clicked nav links */
+.nav-link:focus {
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* Regular focus styles for other interactive elements */
+a:focus:not(.nav-link),
 button:focus,
 input:focus,
 select:focus,
@@ -3104,7 +3059,7 @@ textarea:focus {
   font-size: 2.2rem;
 }
 
-Add commentMore actions .referee-intro p {
+.referee-intro p {
   font-size: 1.1rem;
 
   color: #555;
@@ -3370,7 +3325,7 @@ Add commentMore actions .referee-intro p {
 }
 
 /* Support Section */
-Add comment More actions .support {
+.support {
   padding: 6rem 0;
 
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);

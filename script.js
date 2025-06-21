@@ -25,21 +25,23 @@ window.addEventListener("scroll", function () {
 });
 
 // Mobile menu toggle with enhanced animations
-const hamburger = document.getElementById("hamburger");
+const mobileToggle = document.getElementById("hamburger");
+const navigationMenu = document.getElementById("nav-menu");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobileOverlay = document.getElementById("mobile-menu-overlay");
 const mobileClose = document.getElementById("mobile-close");
 const body = document.body;
 
-hamburger.addEventListener("click", function () {
-  const isActive = hamburger.classList.contains("active");
+mobileToggle.addEventListener("click", function () {
+  const isActive = mobileToggle.classList.contains("active");
 
-  hamburger.classList.toggle("active");
+  mobileToggle.classList.toggle("active");
+  navigationMenu.classList.toggle("active");
   mobileMenu.classList.toggle("active");
   mobileOverlay.classList.toggle("active");
 
   // Update accessibility attributes
-  hamburger.setAttribute("aria-expanded", !isActive);
+  mobileToggle.setAttribute("aria-expanded", !isActive);
 
   // Prevent body scroll when menu is open
   if (!isActive) {
@@ -87,10 +89,11 @@ mobileOverlay.addEventListener("click", function () {
 
 // Helper function to close mobile menu
 function closeMobileMenu() {
-  hamburger.classList.remove("active");
+  mobileToggle.classList.remove("active");
+  navigationMenu.classList.remove("active");
   mobileMenu.classList.remove("active");
   mobileOverlay.classList.remove("active");
-  hamburger.setAttribute("aria-expanded", "false");
+  mobileToggle.setAttribute("aria-expanded", "false");
   body.style.overflow = "";
   body.style.paddingRight = "";
 }
@@ -343,7 +346,7 @@ document.addEventListener("keydown", function (e) {
     // Close mobile menu if open
     if (mobileMenu.classList.contains("active")) {
       closeMobileMenu();
-      hamburger.focus(); // Return focus to hamburger button
+      mobileToggle.focus(); // Return focus to mobile toggle button
     }
   }
 
@@ -585,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
 if (mobileClose) {
   mobileClose.addEventListener("click", function () {
     closeMobileMenu();
-    hamburger.focus(); // Return focus to hamburger for accessibility
+    mobileToggle.focus(); // Return focus to mobile toggle for accessibility
   });
 }
 
@@ -610,8 +613,8 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// Add keyboard support for hamburger button
-hamburger.addEventListener("keydown", function (e) {
+// Add keyboard support for mobile toggle button
+mobileToggle.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
     this.click();
@@ -1764,4 +1767,13 @@ class WaveAnimation {
 // Initialize fluid simulation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   const fluidSim = new FluidSimulation('dither-canvas');
+});
+
+// Add click event listeners to navigation menu links
+const navigationLinks = document.querySelectorAll('.menu-link');
+navigationLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    // Close mobile menu when clicking on navigation link
+    closeMobileMenu();
+  });
 });

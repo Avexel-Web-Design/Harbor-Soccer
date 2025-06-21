@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>Harbor Soccer, Inc.</title>    <link rel="icon" type="image/png" href="images/icon.png" />    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="hero-logo.css" />
     <link rel="stylesheet" href="programs.css" />
     <link rel="stylesheet" href="sponsors.css" />
@@ -31,54 +32,52 @@
         <a href="#referee" class="mobile-nav-link">Referee</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </nav>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="nav-logo">
-          <span class="logo-icon"
+    </div>    <!-- Navigation -->
+    <nav class="main-navigation" id="navbar">
+      <div class="navigation-wrapper">
+        <a href="#home" class="brand-logo">
+          <span class="brand-icon"
             ><img
               src="images/icon.png"
               width="32"
               height="32"
               alt="Harbor Soccer Logo"
           /></span>
-          <span class="logo-text">Harbor Soccer</span>
-        </a>        <ul class="nav-menu" id="nav-menu">
-          <li class="nav-item">
-            <a href="#programs" class="nav-link">Programs</a>
+          <span class="brand-text">Harbor Soccer</span>
+        </a>        <ul class="navigation-menu" id="nav-menu">
+          <li class="menu-item">
+            <a href="#programs" class="menu-link">Programs</a>
           </li>
-          <li class="nav-item">
-            <a href="#registration" class="nav-link">Registration</a>
+          <li class="menu-item">
+            <a href="#registration" class="menu-link">Registration</a>
           </li>
-          <li class="nav-item">
-            <a href="#about" class="nav-link">About</a>
+          <li class="menu-item">
+            <a href="#about" class="menu-link">About</a>
           </li>
-          <li class="nav-item">
-            <a href="#support" class="nav-link">Support</a>
+          <li class="menu-item">
+            <a href="#support" class="menu-link">Support</a>
           </li>
-          <li class="nav-item">
-            <a href="#referee" class="nav-link">Referee</a>
+          <li class="menu-item">
+            <a href="#referee" class="menu-link">Referee</a>
           </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">Contact</a>
+          <li class="menu-item">
+            <a href="#contact" class="menu-link">Contact</a>
           </li>
         </ul>
         <div
-          class="hamburger"
+          class="mobile-toggle"
           id="hamburger"
           role="button"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
           tabindex="0"
         >
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
         </div>
       </div>
-    </nav>    <!-- Hero Section -->
+    </nav><!-- Hero Section -->
     <section id="home" class="hero">
       <canvas id="dither-canvas" class="dither-background"></canvas>
       <div class="hero-content" data-aos="fade-up">
@@ -137,8 +136,8 @@
             </p>
             <ul class="card-features">
               <li>Practices twice weekly</li>
-              <li>Girls games Saturdays</li>
-              <li>Boys games Sundays</li>
+              <li>Girls games on Saturdays</li>
+              <li>Boys games on Sundays</li>
               <li>Cleats and Shin Guards required</li>
               <li>Travel within Northern Michigan</li>
             </ul>
@@ -347,9 +346,12 @@
             <p>
                We are a 501(c)3 and our EIN is 38-2887596
             </p>
-          </div>          <div class="current-sponsors" data-aos="fade-up" data-aos-delay="150">
+          </div>          
+          <div class="current-sponsors" data-aos="fade-up" data-aos-delay="150">
             <h3>Current Sponsors</h3>
-            <p>Thank you to our generous sponsors who make Harbor Soccer possible!</p>
+            <div class="sponsor-intro" data-aos="fade-up" data-aos-delay="100">
+              <p>Thank you to our generous sponsors who make Harbor Soccer possible!</p>
+            </div>
             <div class="sponsors-grid">
               <div class="sponsor-item">
                 <img src="images/sponsors/captrust.png" alt="CAPTRUST Community Foundation" class="sponsor-logo">
@@ -492,7 +494,7 @@
         <span class="close">&times;</span>
          <div class="program-options">          <div class="program-option">
             <h3>Recreational Soccer</h3>
-            <p><strong>Ages:</strong> Birth Years: 2018-2021</p>
+            <p><strong>Birth Years:</strong> 2018-2021</p>
             <p><strong>Costs:</strong></p>
             <p><strong>Registration:</strong> Registration opens in July</p>
             <a
@@ -503,7 +505,7 @@
             >
           </div>          <div class="program-option">
             <h3>Travel Soccer</h3>
-            <p><strong>Ages:</strong> Birth Years: 2011-2017</p>
+            <p><strong>Birth Years:</strong> 2011-2017</p>
             <p><strong>Costs:</strong> $100 + $35 Jersey</p>
             <p><strong>Registration Deadline:</strong> July 1st (Late Fees will be imposed)</p>
             <a
