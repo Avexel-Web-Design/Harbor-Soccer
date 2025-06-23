@@ -381,6 +381,49 @@
   }
 }
 
+/* iPhone SE and very small screens (375px and below) */
+@media (max-width: 375px) {
+  .navigation-wrapper {
+    padding: 0 0.75rem;
+    gap: 1rem;
+  }
+  
+  .brand-logo {
+    font-size: 1.1rem;
+    padding: 0.25rem;
+  }
+  
+  .brand-icon {
+    margin-right: 0.5rem;
+  }
+  
+  .brand-icon img {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .brand-text {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  
+  .mobile-toggle {
+    padding: 10px;
+  }
+  
+  .toggle-line {
+    width: 24px;
+    height: 2px;
+    margin: 2px 0;
+  }
+  
+  .menu-link {
+    font-size: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 160px;
+  }
+}
+
 /* Enhanced Focus States for Better Accessibility */
 .menu-link:focus-visible {
   outline: 3px solid #ff8c00;
