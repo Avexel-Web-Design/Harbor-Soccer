@@ -66,10 +66,10 @@
 }
 
 .sponsor-item h4 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Junicode', serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--primary-color, #2c5f2d);
+  color: #000000;
   margin: 0;
   line-height: 1.4;
 }
@@ -146,7 +146,7 @@
   }
   
   .sponsor-item h4 {
-    color: var(--primary-color, #2c5f2d);
+    color: #000000;
   }
 }
 
