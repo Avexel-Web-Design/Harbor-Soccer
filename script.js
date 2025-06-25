@@ -30,7 +30,6 @@ window.addEventListener("scroll", function () {
 
 // Mobile menu toggle with enhanced animations
 const mobileToggle = document.getElementById("hamburger");
-const navigationMenu = document.getElementById("nav-menu");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobileOverlay = document.getElementById("mobile-menu-overlay");
 const mobileClose = document.getElementById("mobile-close");
@@ -40,7 +39,6 @@ mobileToggle.addEventListener("click", function () {
   const isActive = mobileToggle.classList.contains("active");
 
   mobileToggle.classList.toggle("active");
-  navigationMenu.classList.toggle("active");
   mobileMenu.classList.toggle("active");
   mobileOverlay.classList.toggle("active");
 
@@ -94,7 +92,6 @@ mobileOverlay.addEventListener("click", function () {
 // Helper function to close mobile menu
 function closeMobileMenu() {
   mobileToggle.classList.remove("active");
-  navigationMenu.classList.remove("active");
   mobileMenu.classList.remove("active");
   mobileOverlay.classList.remove("active");
   mobileToggle.setAttribute("aria-expanded", "false");
