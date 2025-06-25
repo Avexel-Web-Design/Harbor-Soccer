@@ -687,22 +687,39 @@
             </p>
           </div>
         </div>
-      </div>    </footer>
-
-    <!-- Cookie Consent Popup -->
+      </div>    </footer>    <!-- Cookie Consent Popup -->
     <div id="cookie-consent" class="cookie-consent">
-      <div class="cookie-consent-content">
-        <div class="cookie-consent-text">
-          <h4>🍪 Cookie Notice</h4>
-          <p>We use cookies to display our Google Calendar and improve your experience. Essential cookies are required for the calendar to function properly.</p>
+      <div class="cookie-consent-modal">
+        <div class="cookie-consent-header">
+          <span class="cookie-consent-icon">🍪</span>
+          <h3>Cookie Consent Required</h3>
+          <p>This website uses essential cookies to provide calendar functionality</p>
         </div>
-        <div class="cookie-consent-actions">
-          <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
-            Accept All
-          </button>
-          <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">
-            Decline
-          </button>
+        <div class="cookie-consent-body">
+          <h4>Why do we need cookies?</h4>
+          <p>To display our event calendar and practice schedules, we need to load content from Google Calendar which requires functional cookies.</p>
+          
+          <div class="cookie-features">
+            <ul>
+              <li>📅 Display upcoming games and practices</li>
+              <li>🔄 Real-time schedule updates</li>
+              <li>📱 Mobile-friendly calendar view</li>
+              <li>🔒 No tracking or advertising cookies</li>
+            </ul>
+          </div>
+          
+          <div class="cookie-consent-actions">
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
+              Accept & View Calendar
+            </button>
+            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">
+              Decline
+            </button>
+          </div>
+          
+          <div class="required-notice">
+            ⚠️ Calendar functionality requires cookie acceptance
+          </div>
         </div>
       </div>
     </div>

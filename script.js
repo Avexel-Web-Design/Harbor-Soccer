@@ -1797,10 +1797,11 @@ function checkCookieConsent() {
     // Show blocked message
     showCalendarBlocked();
   } else {
-    // Show cookie consent popup
+    // Show cookie consent popup immediately and prevent body scroll
+    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       cookiePopup.classList.add('show');
-    }, 2000); // Show after 2 seconds
+    }, 1000); // Show after 1 second to let page load
   }
 }
 
@@ -1857,7 +1858,38 @@ function acceptCalendarCookies() {
 function hideCookiePopup() {
   const cookiePopup = document.getElementById('cookie-consent');
   cookiePopup.classList.remove('show');
+  // Restore body scrolling
+  document.body.style.overflow = '';
 }
+
+// Prevent closing cookie popup by clicking outside (make it required)
+document.addEventListener('DOMContentLoaded', function() {
+  const cookiePopup = document.getElementById('cookie-consent');
+  const cookieModal = cookiePopup.querySelector('.cookie-consent-modal');
+  
+  cookiePopup.addEventListener('click', function(e) {
+    // Don't close if clicking inside the modal
+    if (e.target === cookiePopup) {
+      // Optional: add a shake animation to emphasize it's required
+      cookieModal.style.animation = 'shake 0.5s ease-in-out';
+      setTimeout(() => {
+        cookieModal.style.animation = '';
+      }, 500);
+    }
+  });
+  
+  // Prevent escape key from closing
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && cookiePopup.classList.contains('show')) {
+      e.preventDefault();
+      // Optional: add shake animation
+      cookieModal.style.animation = 'shake 0.5s ease-in-out';
+      setTimeout(() => {
+        cookieModal.style.animation = '';
+      }, 500);
+    }
+  });
+});
 
 // Initialize cookie check when page loads
 document.addEventListener('DOMContentLoaded', function() {
