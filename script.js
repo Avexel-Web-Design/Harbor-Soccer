@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     duration: 800,
     easing: "ease-in-out",
     once: true,
-    offset: 100,  });
+    offset: 100,
+  });
+
+  // Check cookie consent for calendar
+  checkCookieConsent();
 });
 
 // Touch variables for swipe gestures (declare once at top level)
@@ -1776,4 +1780,86 @@ navigationLinks.forEach(link => {
     // Close mobile menu when clicking on navigation link
     closeMobileMenu();
   });
+});
+
+// Cookie and Calendar Management
+function checkCookieConsent() {
+  const consent = localStorage.getItem('cookie-consent');
+  const calendarIframe = document.getElementById('calendar-iframe');
+  const calendarBlocked = document.getElementById('calendar-blocked');
+  const calendarLoading = document.getElementById('calendar-loading');
+  const cookiePopup = document.getElementById('cookie-consent');
+
+  if (consent === 'accepted') {
+    // Load calendar immediately
+    loadCalendar();
+  } else if (consent === 'declined') {
+    // Show blocked message
+    showCalendarBlocked();
+  } else {
+    // Show cookie consent popup
+    setTimeout(() => {
+      cookiePopup.classList.add('show');
+    }, 2000); // Show after 2 seconds
+  }
+}
+
+function loadCalendar() {
+  const calendarIframe = document.getElementById('calendar-iframe');
+  const calendarBlocked = document.getElementById('calendar-blocked');
+  const calendarLoading = document.getElementById('calendar-loading');
+
+  // Hide blocked message and loading
+  calendarBlocked.style.display = 'none';
+  
+  // Set iframe source and show it
+  calendarIframe.src = 'https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit';
+  calendarIframe.style.display = 'block';
+
+  // Hide loading after iframe loads
+  calendarIframe.onload = function() {
+    calendarLoading.classList.add('hidden');
+  };
+
+  // Fallback: hide loading after 3 seconds
+  setTimeout(() => {
+    calendarLoading.classList.add('hidden');
+  }, 3000);
+}
+
+function showCalendarBlocked() {
+  const calendarIframe = document.getElementById('calendar-iframe');
+  const calendarBlocked = document.getElementById('calendar-blocked');
+  const calendarLoading = document.getElementById('calendar-loading');
+
+  calendarLoading.classList.add('hidden');
+  calendarIframe.style.display = 'none';
+  calendarBlocked.style.display = 'block';
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookie-consent', 'accepted');
+  hideCookiePopup();
+  loadCalendar();
+}
+
+function declineCookies() {
+  localStorage.setItem('cookie-consent', 'declined');
+  hideCookiePopup();
+  showCalendarBlocked();
+}
+
+function acceptCalendarCookies() {
+  localStorage.setItem('cookie-consent', 'accepted');
+  loadCalendar();
+}
+
+function hideCookiePopup() {
+  const cookiePopup = document.getElementById('cookie-consent');
+  cookiePopup.classList.remove('show');
+}
+
+// Initialize cookie check when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  checkCookieConsent();
 });
