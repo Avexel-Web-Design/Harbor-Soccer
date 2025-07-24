@@ -459,11 +459,150 @@ if ("IntersectionObserver" in window) {
   });
 }
 
+/*
+================================================================================
+HARBOR SOCCER - REGISTRATION MANAGEMENT SYSTEM
+================================================================================
+
+HOW TO TOGGLE REGISTRATION:
+
+To open/close registration for individual programs, simply change the values below:
+
+PROGRAM_STATUS = {
+  recreational: true,   // ← Change to false to close Rec Soccer registration
+  travel: true,         // ← Change to false to close Travel Soccer registration  
+  sailors: true         // ← Change to false to close Sailors registration
+};
+
+EXAMPLES:
+- All programs open: Set all to true
+- Only Rec open: recreational: true, travel: false, sailors: false
+- Only Travel and Sailors: recreational: false, travel: true, sailors: true
+- All closed: Set all to false
+
+The page will automatically update to reflect the changes!
+
+================================================================================
+*/
+
+// Registration Configuration - EASY TO TOGGLE!
+// Set each program individually to true (open) or false (closed)
+const PROGRAM_STATUS = {
+  recreational: true,   // Rec Soccer (Birth Years: 2018-2021)
+  travel: false,        // Travel Soccer (Birth Years: 2011-2017)
+  sailors: false        // Sailors (High School Girls)
+};
+
+// Overall registration status (automatically determined from individual programs)
+const REGISTRATION_OPEN = Object.values(PROGRAM_STATUS).some(status => status);
+
 // Registration Modal Functionality
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("registration-modal");
   const registerBtn = document.getElementById("register-btn");
   const closeBtn = document.querySelector(".close");
+  
+  // Update registration status based on configuration
+  updateRegistrationStatus();
+
+  // Function to update registration status throughout the page
+  function updateRegistrationStatus() {
+    const registrationSection = document.querySelector('.registration');
+    const registrationHero = document.querySelector('.registration-hero');
+    const registerBtn = document.getElementById('register-btn');
+    const heroTitle = registrationHero.querySelector('h3');
+    const heroDescription = registrationHero.querySelector('.registration-intro');
+    
+    // Count how many programs are open
+    const openPrograms = Object.values(PROGRAM_STATUS).filter(status => status).length;
+    const totalPrograms = Object.keys(PROGRAM_STATUS).length;
+    
+    if (REGISTRATION_OPEN) {
+      // At least one program is OPEN
+      registrationSection.classList.remove('registration-closed');
+      registrationSection.classList.add('registration-open');
+      
+      if (openPrograms === totalPrograms) {
+        heroTitle.textContent = 'Fall 2025 Registration Open Now';
+        heroDescription.textContent = 'Registration is now open for the Fall 2025 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
+        registerBtn.textContent = 'Register Now';
+      } else {
+        heroTitle.textContent = 'Fall 2025 Registration Open';
+        heroDescription.textContent = `Registration is currently open for ${openPrograms} of ${totalPrograms} programs. Click below to see which programs are accepting registrations.`;
+        registerBtn.textContent = 'View Available Programs';
+      }
+      
+      registerBtn.classList.remove('registration-closed-btn');
+      registerBtn.classList.add('registration-open-btn');
+      
+    } else {
+      // All programs are CLOSED
+      registrationSection.classList.remove('registration-open');
+      registrationSection.classList.add('registration-closed');
+      
+      heroTitle.textContent = 'Registration Currently Closed';
+      heroDescription.textContent = 'Registration for the Fall 2025 season is currently closed. Stay tuned for updates on when registration will reopen for future seasons.';
+      
+      registerBtn.textContent = 'View Program Details';
+      registerBtn.classList.remove('registration-open-btn');
+      registerBtn.classList.add('registration-closed-btn');
+    }
+    
+    // Update individual program buttons
+    updateModalButtons();
+  }
+  
+  // Function to update modal program buttons individually
+  function updateModalButtons() {
+    const recButton = document.querySelector('.rec-button');
+    const travelButton = document.querySelector('.travel-button');
+    const sailorsButton = document.querySelector('.sailors-button');
+    
+    // Update Recreational Soccer button
+    if (PROGRAM_STATUS.recreational) {
+      recButton.textContent = 'Register for Rec Soccer';
+      recButton.href = 'https://system.gotsport.com/programs/C26712908';
+      recButton.classList.remove('closed-state');
+      recButton.classList.add('open-state');
+      recButton.onclick = null; // Remove any click prevention
+    } else {
+      recButton.textContent = 'Registration Closed';
+      recButton.href = '#';
+      recButton.classList.remove('open-state');
+      recButton.classList.add('closed-state');
+      recButton.onclick = function(e) { e.preventDefault(); };
+    }
+    
+    // Update Travel Soccer button
+    if (PROGRAM_STATUS.travel) {
+      travelButton.textContent = 'Register for Travel Soccer';
+      travelButton.href = 'https://system.gotsport.com/programs/517Z58281?reg_role=player';
+      travelButton.classList.remove('closed-state');
+      travelButton.classList.add('open-state');
+      travelButton.onclick = null; // Remove any click prevention
+    } else {
+      travelButton.textContent = 'Registration Closed';
+      travelButton.href = '#';
+      travelButton.classList.remove('open-state');
+      travelButton.classList.add('closed-state');
+      travelButton.onclick = function(e) { e.preventDefault(); };
+    }
+    
+    // Update Sailors button
+    if (PROGRAM_STATUS.sailors) {
+      sailorsButton.textContent = 'Register for Sailors';
+      sailorsButton.href = 'https://system.gotsport.com/programs/407080D76?reg_role=player';
+      sailorsButton.classList.remove('closed-state');
+      sailorsButton.classList.add('open-state');
+      sailorsButton.onclick = null; // Remove any click prevention
+    } else {
+      sailorsButton.textContent = 'Registration Closed';
+      sailorsButton.href = '#';
+      sailorsButton.classList.remove('open-state');
+      sailorsButton.classList.add('closed-state');
+      sailorsButton.onclick = function(e) { e.preventDefault(); };
+    }
+  }
 
   // Open modal when register button is clicked
   registerBtn.addEventListener("click", function (e) {
