@@ -26,8 +26,10 @@
 
 /* Sponsors Grid */
 .sponsors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   gap: 2rem;
   margin-top: 2rem;
   padding: 0 1rem;
@@ -48,6 +50,8 @@
   align-items: center;
   justify-content: center;
   min-height: 180px;
+  flex: 1 1 280px;
+  max-width: 350px;
 }
 
 .sponsor-item:hover {
@@ -63,6 +67,8 @@
   height: auto;
   margin-bottom: 1rem;
   object-fit: contain;
+  flex-shrink: 0;
+  display: block;
 }
 
 .sponsor-item h4 {
@@ -73,6 +79,7 @@
   margin: 0;
   line-height: 1.4;
   padding: 0.5rem 0.5rem;
+  flex-shrink: 0;
 }
 
 /* Responsive Design */
@@ -92,7 +99,8 @@
   }
   
   .sponsors-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     padding: 0;
   }
@@ -100,6 +108,9 @@
   .sponsor-item {
     padding: 1.5rem;
     min-height: 150px;
+    width: 100%;
+    max-width: 400px;
+    flex: none;
   }
   
   .sponsor-logo {
@@ -172,11 +183,12 @@
 
 /* Special styling for when there's only one sponsor */
 .sponsors-grid:has(> .sponsor-item:only-child) {
-  justify-items: center;
+  justify-content: center;
 }
 
 .sponsors-grid:has(> .sponsor-item:only-child) .sponsor-item {
   max-width: 400px;
+  flex: none;
 }
 
 /* Accessibility improvements */
