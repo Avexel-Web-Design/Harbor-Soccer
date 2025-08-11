@@ -8,8 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
     offset: 100,
   });
 
-  // Check cookie consent for calendar
-  checkCookieConsent();
+  // Hide calendar loading indicator once the iframe loads
+  const calendarIframe = document.getElementById('calendar-iframe');
+  const calendarLoading = document.getElementById('calendar-loading');
+
+  if (calendarIframe && calendarLoading) {
+    calendarIframe.onload = function() {
+      calendarLoading.classList.add('hidden');
+    };
+
+    // Fallback: hide loading after 3 seconds
+    setTimeout(() => {
+      calendarLoading.classList.add('hidden');
+    }, 3000);
+  }
 });
 
 // Touch variables for swipe gestures (declare once at top level)
@@ -1916,118 +1928,4 @@ navigationLinks.forEach(link => {
     // Close mobile menu when clicking on navigation link
     closeMobileMenu();
   });
-});
-
-// Cookie and Calendar Management
-function checkCookieConsent() {
-  const consent = localStorage.getItem('cookie-consent');
-  const calendarIframe = document.getElementById('calendar-iframe');
-  const calendarBlocked = document.getElementById('calendar-blocked');
-  const calendarLoading = document.getElementById('calendar-loading');
-  const cookiePopup = document.getElementById('cookie-consent');
-
-  if (consent === 'accepted') {
-    // Load calendar immediately
-    loadCalendar();
-  } else if (consent === 'declined') {
-    // Show blocked message
-    showCalendarBlocked();
-  } else {
-    // Show cookie consent popup immediately and prevent body scroll
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      cookiePopup.classList.add('show');
-    }, 1000); // Show after 1 second to let page load
-  }
-}
-
-function loadCalendar() {
-  const calendarIframe = document.getElementById('calendar-iframe');
-  const calendarBlocked = document.getElementById('calendar-blocked');
-  const calendarLoading = document.getElementById('calendar-loading');
-
-  // Hide blocked message and loading
-  calendarBlocked.style.display = 'none';
-  
-  // Set iframe source and show it
-  calendarIframe.src = 'https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit';
-  calendarIframe.style.display = 'block';
-
-  // Hide loading after iframe loads
-  calendarIframe.onload = function() {
-    calendarLoading.classList.add('hidden');
-  };
-
-  // Fallback: hide loading after 3 seconds
-  setTimeout(() => {
-    calendarLoading.classList.add('hidden');
-  }, 3000);
-}
-
-function showCalendarBlocked() {
-  const calendarIframe = document.getElementById('calendar-iframe');
-  const calendarBlocked = document.getElementById('calendar-blocked');
-  const calendarLoading = document.getElementById('calendar-loading');
-
-  calendarLoading.classList.add('hidden');
-  calendarIframe.style.display = 'none';
-  calendarBlocked.style.display = 'block';
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookie-consent', 'accepted');
-  hideCookiePopup();
-  loadCalendar();
-}
-
-function declineCookies() {
-  localStorage.setItem('cookie-consent', 'declined');
-  hideCookiePopup();
-  showCalendarBlocked();
-}
-
-function acceptCalendarCookies() {
-  localStorage.setItem('cookie-consent', 'accepted');
-  loadCalendar();
-}
-
-function hideCookiePopup() {
-  const cookiePopup = document.getElementById('cookie-consent');
-  cookiePopup.classList.remove('show');
-  // Restore body scrolling
-  document.body.style.overflow = '';
-}
-
-// Prevent closing cookie popup by clicking outside (make it required)
-document.addEventListener('DOMContentLoaded', function() {
-  const cookiePopup = document.getElementById('cookie-consent');
-  const cookieModal = cookiePopup.querySelector('.cookie-consent-modal');
-  
-  cookiePopup.addEventListener('click', function(e) {
-    // Don't close if clicking inside the modal
-    if (e.target === cookiePopup) {
-      // Optional: add a shake animation to emphasize it's required
-      cookieModal.style.animation = 'shake 0.5s ease-in-out';
-      setTimeout(() => {
-        cookieModal.style.animation = '';
-      }, 500);
-    }
-  });
-  
-  // Prevent escape key from closing
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && cookiePopup.classList.contains('show')) {
-      e.preventDefault();
-      // Optional: add shake animation
-      cookieModal.style.animation = 'shake 0.5s ease-in-out';
-      setTimeout(() => {
-        cookieModal.style.animation = '';
-      }, 500);
-    }
-  });
-});
-
-// Initialize cookie check when page loads
-document.addEventListener('DOMContentLoaded', function() {
-  checkCookieConsent();
 });

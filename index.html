@@ -342,21 +342,13 @@
             <div class="calendar-loading" id="calendar-loading">
               Loading calendar...
             </div>
-            <div id="calendar-blocked" class="calendar-blocked" style="display: none;">
-              <h3>📅 Calendar Requires Cookies</h3>
-              <p>To display our event calendar, we need to load content from Google Calendar which requires cookies for functionality.</p>
-              <button class="enable-calendar-btn" onclick="acceptCalendarCookies()">
-                Enable Calendar
-              </button>
-            </div>
             <iframe 
               id="calendar-iframe"
-              src="" 
+              src="https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit" 
               class="calendar-iframe"
               frameborder="0" 
               scrolling="no"
-              title="Harbor Soccer Calendar"
-              style="display: none;">
+              title="Harbor Soccer Calendar">
             </iframe>
           </div>
         </div>
@@ -722,43 +714,6 @@
             </p>
           </div>
         </div>
-      </div>    </footer>    <!-- Cookie Consent Popup -->
-    <div id="cookie-consent" class="cookie-consent">
-      <div class="cookie-consent-modal">
-        <div class="cookie-consent-header">
-          <span class="cookie-consent-icon">🍪</span>
-          <h3>Cookie Consent Required</h3>
-          <p>This website uses essential cookies to provide calendar functionality</p>
-        </div>
-        <div class="cookie-consent-body">
-          <h4>Why do we need cookies?</h4>
-          <p>To display our event calendar and practice schedules, we need to load content from Google Calendar which requires functional cookies.</p>
-          
-          <div class="cookie-features">
-            <ul>
-              <li>📅 Display upcoming games and practices</li>
-              <li>🔄 Real-time schedule updates</li>
-              <li>📱 Mobile-friendly calendar view</li>
-              <li>🔒 No tracking or advertising cookies</li>
-            </ul>
-          </div>
-          
-          <div class="cookie-consent-actions">
-            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
-              Accept & View Calendar
-            </button>
-            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">
-              Decline
-            </button>
-          </div>
-          
-          <div class="required-notice">
-            ⚠️ Calendar functionality requires cookie acceptance
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="script.js"></script>
+      </div>    </footer>    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="script.js"></script>
   </body>
 </html>
