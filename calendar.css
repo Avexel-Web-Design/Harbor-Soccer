@@ -144,3 +144,64 @@
 .calendar-loading.hidden {
   display: none;
 }
+
+/* Schedules download panel */
+.schedules-panel {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #eef3f7;
+  background: #fbfeff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.schedules-panel h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a365d;
+}
+
+.schedules-note {
+  margin: 0.25rem 0 0 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.schedules-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.schedule-btn {
+  background: #1a365d;
+  color: #fff;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(26,54,93,0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.schedule-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26,54,93,0.12);
+}
+
+@media (max-width: 480px) {
+  .schedules-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .schedules-buttons {
+    width: 100%;
+  }
+  .schedule-btn {
+    flex: 1 1 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
