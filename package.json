@@ -1,22 +1,12 @@
 {
   "name": "harbor-soccer",
   "version": "1.0.0",
-  "description": "Harbor Soccer Inc. website with admin console",
+  "description": "Harbor Soccer Inc. website",
   "scripts": {
-    "dev": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy .",
-    "db:create": "wrangler d1 create harbor-soccer-db",
-    "db:migrate": "wrangler d1 execute harbor-soccer-db --file=./schema.sql",
-    "db:migrate-local": "wrangler d1 execute harbor-soccer-db --local --file=./schema.sql",
-    "db:query": "wrangler d1 execute harbor-soccer-db --command",
-    "db:query-local": "wrangler d1 execute harbor-soccer-db --local --command",
-    "logs": "wrangler pages deployment tail",
-    "secret:set": "wrangler secret put"
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
   },
-  "keywords": ["cloudflare", "pages", "d1", "admin-console", "contact-form"],
+  "keywords": ["soccer", "youth-sports", "harbor-springs"],
   "author": "Harbor Soccer Inc.",
-  "license": "MIT",
-  "devDependencies": {
-    "wrangler": "^3.0.0"
-  }
+  "license": "MIT"
 }
