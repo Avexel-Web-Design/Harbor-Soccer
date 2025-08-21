@@ -338,7 +338,7 @@
         <div class="calendar-content" data-aos="fade-up" data-aos-delay="100">
           <p class="calendar-intro">
             Stay up to date with all Harbor Soccer events, games, and practices. View our complete schedule below.
-          </p>          <div class="calendar-container">
+          </p>          <div class="calendar-container" data-aos="fade-up" data-aos-delay="100">
             <div class="calendar-loading" id="calendar-loading">
               Loading calendar...
             </div>
@@ -348,12 +348,15 @@
               class="calendar-iframe"
               frameborder="0" 
               scrolling="no"
-              title="Harbor Soccer Calendar">
+              title="Harbor Soccer Calendar"
+              loading="lazy">
             </iframe>
             <!-- Schedules Download Panel -->
-            <div class="schedules-panel" data-aos="fade-up" data-aos-delay="150">
-              <h4>Download Schedules</h4>
-              <p class="schedules-note">PDF versions of our season schedules — click to download.</p>
+            <div class="schedules-panel">
+              <div class="schedules-info">
+                <h4>Download Schedules</h4>
+                <p class="schedules-note">PDF versions of our season schedules — click to download.</p>
+              </div>
               <div class="schedules-buttons">
                 <a class="schedule-btn" href="schedules/U10 Girls.pdf" download>U10 Girls</a>
                 <a class="schedule-btn" href="schedules/U12 Girls.pdf" download>U12 Girls</a>
