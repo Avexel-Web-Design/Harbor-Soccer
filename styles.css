@@ -1136,6 +1136,7 @@ p {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   animation: modalSlideIn 0.3s ease-out;
   position: relative;
+  overflow: visible; /* Ensure close button isn't clipped */
 }
 
 @keyframes modalSlideIn {
@@ -1150,27 +1151,36 @@ p {
 }
 
 .close {
-  color: #aaa;
+  color: #666;
   float: right;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   position: absolute;
   top: 1rem;
   right: 1.5rem;
   cursor: pointer;
-  transition: color 0.3s ease;
-  min-width: 44px; /* Minimum touch target */
-  min-height: 44px;
+  transition: all 0.3s ease;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+  z-index: 1000; /* Ensure it's above other content */
+  pointer-events: auto; /* Ensure it can be clicked */
+  background: rgba(255, 255, 255, 0.9); /* More visible background */
+  border: 2px solid rgba(170, 170, 170, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close:hover,
 .close:focus {
-  color: #333;
+  color: #fff;
+  background: #ff4757;
+  border-color: #ff4757;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
 }
 
 .modal-content h2 {
@@ -3758,6 +3768,9 @@ textarea:focus {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
 .sponsorship-tier:hover {
@@ -3776,6 +3789,11 @@ textarea:focus {
   position: relative;
 }
 
+.sponsorship-benefits {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
 .sponsorship-benefits h4 {
   color: #333;
   margin-bottom: 1.2rem;
@@ -3784,11 +3802,6 @@ textarea:focus {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.sponsorship-benefits h4::before {
-  content: '🎯';
-  font-size: 1.2rem;
 }
 
 .sponsorship-benefits ul {
@@ -3801,7 +3814,7 @@ textarea:focus {
   padding: 0.8rem 0;
   border-bottom: 1px solid #f0f0f0;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1rem;
   transition: all 0.3s ease;
   line-height: 1.6;
 }
@@ -3809,27 +3822,9 @@ textarea:focus {
 .sponsorship-benefits li:hover {
   background: rgba(255, 140, 0, 0.05);
   border-radius: 6px;
-  padding-left: 2.2rem;
+  padding-left: 1.2rem;
   margin: 0 -0.5rem;
   padding-right: 0.5rem;
-}
-
-.sponsorship-benefits li:before {
-  content: "✓";
-  color: #28a745;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 0.8rem;
-  background: #f8f9fa;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  border: 2px solid #28a745;
 }
 
 .sponsorship-benefits li:last-child {
@@ -3837,8 +3832,7 @@ textarea:focus {
 }
 
 .sponsorship-investment {
-  text-align: center;
-  margin-top: 2rem;
+  margin-top: auto;
   padding: 1.5rem;
   background: linear-gradient(135deg, #fff7e6 0%, #fffbf0 100%);
   border-radius: 12px;
@@ -3847,6 +3841,7 @@ textarea:focus {
   color: #e67300;
   font-size: 1.1rem;
   box-shadow: inset 0 2px 4px rgba(255, 140, 0, 0.1);
+  text-align: center;
 }
 
 .sponsorship-contact {
@@ -3933,11 +3928,12 @@ textarea:focus {
 
   .sponsorship-tier {
     padding: 2rem;
+    min-height: 350px;
   }
 
-  .sponsorship-tier h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
+  .sponsorship-benefits {
+    flex-grow: 1;
+    margin-bottom: 1rem;
   }
 
   .sponsorship-benefits h4 {
@@ -3947,19 +3943,12 @@ textarea:focus {
 
   .sponsorship-benefits li {
     padding: 0.6rem 0;
-    padding-left: 1.8rem;
+    padding-left: 0.8rem;
     font-size: 0.95rem;
   }
 
-  .sponsorship-benefits li:before {
-    width: 16px;
-    height: 16px;
-    font-size: 0.7rem;
-    top: 0.7rem;
-  }
-
   .sponsorship-investment {
-    margin-top: 1.5rem;
+    margin-top: auto;
     padding: 1.2rem;
     font-size: 1rem;
   }
@@ -3990,6 +3979,12 @@ textarea:focus {
 
   .sponsorship-tier {
     padding: 1.5rem;
+    min-height: 320px;
+  }
+
+  .sponsorship-benefits {
+    flex-grow: 1;
+    margin-bottom: 1rem;
   }
 
   .sponsorship-tier h3 {
@@ -3998,15 +3993,8 @@ textarea:focus {
 
   .sponsorship-benefits li {
     padding: 0.5rem 0;
-    padding-left: 1.6rem;
+    padding-left: 0.6rem;
     font-size: 0.9rem;
-  }
-
-  .sponsorship-benefits li:before {
-    width: 14px;
-    height: 14px;
-    font-size: 0.6rem;
-    top: 0.6rem;
   }
 
   .sponsorship-investment {

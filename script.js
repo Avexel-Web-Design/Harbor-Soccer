@@ -752,7 +752,19 @@ menuObserver.observe(mobileMenu, { attributes: true });
 document.addEventListener("DOMContentLoaded", function () {
   const sponsorshipModal = document.getElementById("sponsorship-modal");
   const sponsorshipBtn = document.getElementById("sponsorship-btn");
+  
+  // Check if elements exist before adding event listeners
+  if (!sponsorshipModal || !sponsorshipBtn) {
+    console.log("Sponsorship modal elements not found");
+    return;
+  }
+  
   const sponsorshipCloseBtn = sponsorshipModal.querySelector(".close");
+  
+  if (!sponsorshipCloseBtn) {
+    console.log("Sponsorship modal close button not found");
+    return;
+  }
 
   // Open sponsorship modal when button is clicked
   sponsorshipBtn.addEventListener("click", function (e) {
@@ -770,7 +782,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close modal when X is clicked
-  sponsorshipCloseBtn.addEventListener("click", function () {
+  sponsorshipCloseBtn.addEventListener("click", function (e) {
+    console.log("Close button clicked"); // Debug log
+    e.preventDefault();
+    e.stopPropagation();
     closeSponsorshipModal();
   });
 
