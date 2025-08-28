@@ -1303,7 +1303,12 @@ class WaveAnimation {
 
 // Initialize fluid simulation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  const fluidSim = new FluidSimulation('dither-canvas');
+  // Initialize background animation (renamed to existing WaveAnimation class)
+  try {
+    const waves = new WaveAnimation('dither-canvas');
+  } catch (e) {
+    console.warn('Wave animation failed to initialize:', e);
+  }
 });
 
 // Add click event listeners to navigation menu links

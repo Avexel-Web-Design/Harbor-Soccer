@@ -6,7 +6,14 @@
     "dev": "python3 -m http.server 8000",
     "serve": "python3 -m http.server 8000"
   },
-  "keywords": ["soccer", "youth-sports", "harbor-springs"],
+  "keywords": [
+    "soccer",
+    "youth-sports",
+    "harbor-springs"
+  ],
   "author": "Harbor Soccer Inc.",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^4.1.12"
+  }
 }

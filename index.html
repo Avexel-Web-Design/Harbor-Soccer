@@ -2,30 +2,222 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>Harbor Soccer, Inc.</title>    <link rel="icon" type="image/png" href="images/icon.png" />    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="hero-logo.css" />
-    <link rel="stylesheet" href="programs.css" />
-    <link rel="stylesheet" href="sponsors.css" />
-    <link rel="stylesheet" href="calendar.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbor Soccer, Inc.</title>
+    <link rel="icon" type="image/png" href="images/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
-    />    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />  </head><body>
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Legacy standalone CSS files replaced by Tailwind utility classes + minimal in-page custom styles -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'junicode': ['Junicode', 'serif'],
+              'inter': ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'harbor-blue': '#2c5aa0',
+              'harbor-orange': '#ff8c00',
+            },
+            animation: {
+              'hero-float': 'heroFloat 6s ease-in-out infinite',
+            },
+            keyframes: {
+              heroFloat: {
+                '0%, 100%': { transform: 'translateY(0px) scale(1)', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' },
+                '50%': { transform: 'translateY(-10px) scale(1.02)', textShadow: '4px 4px 8px rgba(0, 0, 0, 0.4)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Junicode', Georgia, 'Times New Roman', serif;
+        line-height: 1.7;
+        color: #333;
+        background-color: #ffffff;
+        background-image: radial-gradient(circle at 1px 1px, rgba(255, 140, 0, 0.05) 1px, transparent 0);
+        background-size: 20px 20px;
+      }
+      /* Minimal custom CSS replacing large legacy files while leveraging Tailwind utility classes */
+      .main-navigation {
+        background: rgba(0,0,0,0.10);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        transition: all .35s cubic-bezier(.25,.46,.45,.94);
+      }
+      .main-navigation.scrolled {
+        background: rgba(0,0,0,0.92);
+        border-bottom-color: rgba(255,140,0,0.25);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .menu-link { position: relative; }
+      .menu-link::before { content:""; position:absolute; left:50%; bottom:0; width:0; height:2px; background:linear-gradient(90deg,#ff8c00,#ffa733); transform:translateX(-50%); transition:width .3s ease; border-radius:1px; }
+      .menu-link:hover::before, .menu-link.nav-link.active::before { width:70%; }
+      .menu-link.nav-link.active { color:#ff8c00 !important; }
+      /* Mobile hamburger animation */
+      .mobile-toggle.active .toggle-line:nth-child(1){transform:rotate(45deg) translate(5px,5px);} 
+      .mobile-toggle.active .toggle-line:nth-child(2){opacity:0;} 
+      .mobile-toggle.active .toggle-line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);} 
+      /* Registration state styles */
+      .registration-open .registration-hero { transition:all .35s ease; }
+      .registration-open .registration-hero:hover { transform:translateY(-5px); box-shadow:0 10px 30px rgba(255,140,0,.25); }
+      .registration-closed .registration-hero { opacity:.9; border:2px solid #d6d6d6; }
+      .register-button.registration-open-btn { background:linear-gradient(135deg,#ff8c00,#e67c00); box-shadow:0 6px 20px rgba(255,140,0,.35); }
+      .register-button.registration-open-btn:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(255,140,0,.45); }
+      .register-button.registration-closed-btn { background:linear-gradient(135deg,#6c757d,#5a6268); opacity:.85; }
+      .register-button.registration-closed-btn:hover { transform:none; }
+      /* Modal program buttons open/closed */
+      .program-button { transition:all .3s ease; }
+      .program-button.open-state:hover { transform:translateY(-2px); }
+      .program-button.closed-state { background:linear-gradient(135deg,#6c757d,#5a6268)!important; cursor:not-allowed; opacity:.7; }
+      .rec-button.open-state { background:linear-gradient(135deg,#28a745,#20c997); }
+      .rec-button.open-state:hover { background:linear-gradient(135deg,#218838,#1ca085); }
+      .travel-button.open-state { background:linear-gradient(135deg,#ff8c00,#ffa500); }
+      .travel-button.open-state:hover { background:linear-gradient(135deg,#e67e00,#ff9500); }
+      .sailors-button.open-state { background:linear-gradient(135deg,#1e3a8a,#3b82f6); }
+      .sailors-button.open-state:hover { background:linear-gradient(135deg,#1e40af,#2563eb); }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 5rem;
+        height: 0.25rem;
+        background: linear-gradient(to right, #000, #fb923c);
+        margin: 1rem auto 0;
+      }
+      .shape-fill { fill: #2c5aa0; }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100%;
+        background-color: white;
+        z-index: 1000;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .mobile-menu.active { right: 0; }
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .mobile-close {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .mobile-close span {
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        margin: 3px 0;
+        transition: 0.3s;
+        transform-origin: center;
+      }
+      .mobile-close.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+      .mobile-close.active span:nth-child(2) { opacity: 0; }
+      .mobile-close.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+      .mobile-nav { padding: 1rem; }
+      .mobile-nav-link {
+        display: block;
+        padding: 0.75rem 0;
+        color: #374151;
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid #e5e7eb;
+        transition: color 0.3s ease;
+      }
+      .mobile-nav-link:hover { color: #ff8c00; }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal.active { display: flex; align-items: center; justify-content: center; }
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+      }
+      .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #6b7280;
+      }
+      .close:hover { color: #000; }
+      @media (max-width: 768px) {
+        .mobile-toggle { display: flex; }
+        .navigation-menu { display: none; }
+      }
+      @media (min-width: 769px) {
+        .mobile-toggle { display: none; }
+      }
+    </style>
+  </head>
+  <body class="font-junicode text-gray-800 bg-white">
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu-header">
-        <h3 class="mobile-menu-title">Menu</h3>
+        <h3 class="mobile-menu-title text-xl font-semibold text-gray-900">Menu</h3>
         <button class="mobile-close" id="mobile-close" aria-label="Close menu">
           <span></span>
           <span></span>
+          <span></span>
         </button>
-      </div>      <nav class="mobile-nav">        <a href="#programs" class="mobile-nav-link">Programs</a>
+      </div>
+      <nav class="mobile-nav">
+        <a href="#programs" class="mobile-nav-link">Programs</a>
         <a href="#registration" class="mobile-nav-link">Registration</a>
         <a href="#about" class="mobile-nav-link">About</a>
         <a href="#calendar" class="mobile-nav-link">Calendar</a>
@@ -33,68 +225,71 @@
         <a href="#referee" class="mobile-nav-link">Referee</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </nav>
-    </div>    <!-- Navigation -->
-    <nav class="main-navigation" id="navbar">
-      <div class="navigation-wrapper">
-        <a href="#home" class="brand-logo">
-          <span class="brand-icon"
-            ><img
-              src="images/icon.png"
-              width="32"
-              height="32"
-              alt="Harbor Soccer Logo"
-          /></span>
-          <span class="brand-text">Harbor Soccer</span>
-        </a>        <ul class="navigation-menu">          <li class="menu-item">
-            <a href="#programs" class="menu-link">Programs</a>
-          </li>
-          <li class="menu-item">
-            <a href="#registration" class="menu-link">Registration</a>
-          </li>
-          <li class="menu-item">
-            <a href="#about" class="menu-link">About</a>
-          </li>
-          <li class="menu-item">
-            <a href="#calendar" class="menu-link">Calendar</a>
-          </li>
-          <li class="menu-item">
-            <a href="#support" class="menu-link">Support</a>
-          </li>
-          <li class="menu-item">
-            <a href="#referee" class="menu-link">Referee</a>
-          </li>
-          <li class="menu-item">
-            <a href="#contact" class="menu-link">Contact</a>
-          </li>
-        </ul>
-        <div
-          class="mobile-toggle"
-          id="hamburger"
-          role="button"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          tabindex="0"
-        >
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-navigation fixed top-0 left-0 right-0 z-50 bg-white shadow-lg" id="navbar">
+      <div class="navigation-wrapper max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <a href="#home" class="brand-logo flex items-center space-x-2">
+            <span class="brand-icon">
+              <img
+                src="images/icon.png"
+                width="32"
+                height="32"
+                alt="Harbor Soccer Logo"
+                class="w-8 h-8"
+              />
+            </span>
+            <span class="brand-text text-xl font-bold text-gray-900">Harbor Soccer</span>
+          </a>
+          <ul class="navigation-menu hidden md:flex space-x-8">
+            <li class="menu-item">
+              <a href="#programs" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Programs</a>
+            </li>
+            <li class="menu-item">
+              <a href="#registration" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Registration</a>
+            </li>
+            <li class="menu-item">
+              <a href="#about" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">About</a>
+            </li>
+            <li class="menu-item">
+              <a href="#calendar" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Calendar</a>
+            </li>
+            <li class="menu-item">
+              <a href="#support" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Support</a>
+            </li>
+            <li class="menu-item">
+              <a href="#referee" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Referee</a>
+            </li>
+            <li class="menu-item">
+              <a href="#contact" class="menu-link nav-link text-gray-200 hover:text-harbor-orange transition-colors duration-300 font-medium">Contact</a>
+            </li>
+          </ul>
+          <div class="mobile-toggle md:hidden flex flex-col cursor-pointer p-2" id="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
+            <span class="toggle-line w-6 h-0.5 bg-gray-900 mb-1 transition-all duration-300"></span>
+            <span class="toggle-line w-6 h-0.5 bg-gray-900 mb-1 transition-all duration-300"></span>
+            <span class="toggle-line w-6 h-0.5 bg-gray-900 transition-all duration-300"></span>
+          </div>
         </div>
       </div>
-    </nav><!-- Hero Section -->
-    <section id="home" class="hero">
-      <canvas id="dither-canvas" class="dither-background"></canvas>
-      <div class="hero-content" data-aos="fade-up">
-        <div class="hero-logo">
-          <img src="images/icon.png" alt="Harbor Soccer Logo" class="hero-logo-image">
+    </nav>
+
+    <!-- Hero Section -->
+  <section id="home" class="hero relative min-h-screen flex items-center justify-center bg-black pt-20">
+      <canvas id="dither-canvas" class="dither-background absolute inset-0"></canvas>
+      <div class="hero-content text-center z-10 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        <div class="hero-logo mb-8">
+          <img src="images/icon.png" alt="Harbor Soccer Logo" class="hero-logo-image w-24 h-24 sm:w-32 sm:h-32 mx-auto">
         </div>
-        <h1 class="hero-title">Harbor Soccer</h1>
-        <p class="hero-subtitle">
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-hero-float">Harbor Soccer</h1>
+        <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto">
           Promoting soccer and enhancing each child's skill development
         </p>
-        <a href="#programs" class="cta-button">Explore Our Programs</a>
+        <a href="#programs" class="cta-button inline-block px-8 py-4 bg-gradient-to-r from-harbor-orange to-orange-500 text-white font-semibold text-lg sm:text-xl rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Explore Our Programs</a>
       </div>
-      <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <div class="wave-divider absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -114,54 +309,57 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="programs">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
+    <section id="programs" class="programs py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Our Programs</h2>
 
-        <div class="programs-grid">          <div class="program-card" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="card-title">Recreational Soccer</h3>
-            <h4 class="card-subtitle">Birth Years: 2018-2021</h4><br />
-            <p class="card-description">
+        <div class="programs-grid grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div class="program-card bg-white rounded-lg shadow-lg p-6 sm:p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="card-title text-xl sm:text-2xl font-bold text-gray-900 mb-2">Recreational Soccer</h3>
+            <h4 class="card-subtitle text-lg font-semibold text-harbor-blue mb-4">Birth Years: 2018-2021</h4>
+            <p class="card-description text-gray-700 mb-6 leading-relaxed">
               Rec Soccer is a fun, developmental program focused on building skills and learning through game-style play. Perfect for kids who are excited or just curious about soccer.
             </p>
-            <ul class="card-features">
-              <li>Fall and Spring season</li>
-              <li>Registration will be available in July</li>
-              <li>Cleats and Shin Guards Required</li>
-              <li>No Travel</LI>
+            <ul class="card-features space-y-2 text-gray-600">
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Fall and Spring season</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Registration will be available in July</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Cleats and Shin Guards Required</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>No Travel</li>
             </ul>
-          </div>          <div class="program-card" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="card-title">Travel Soccer</h3>
-            <h4 class="card-subtitle">Birth Years: 2011-2017</h4><br />
-            <p class="card-description">
+          </div>
+          <div class="program-card bg-white rounded-lg shadow-lg p-6 sm:p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="card-title text-xl sm:text-2xl font-bold text-gray-900 mb-2">Travel Soccer</h3>
+            <h4 class="card-subtitle text-lg font-semibold text-harbor-blue mb-4">Birth Years: 2011-2017</h4>
+            <p class="card-description text-gray-700 mb-6 leading-relaxed">
               Travel Soccer is a player development program designed to provide a competitive soccer experience in a supportive, recreational setting.
             </p>
-            <ul class="card-features">
-              <li>Fall and Spring seasons</li>
-              <li>Practices twice weekly</li>
-              <li>Girls games on Saturdays</li>
-              <li>Boys games on Sundays</li>
-              <li>Cleats and Shin Guards required</li>
-              <li>Travel within Northern Michigan</li>
+            <ul class="card-features space-y-2 text-gray-600 mb-4">
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Fall and Spring seasons</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Practices twice weekly</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Girls games on Saturdays</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Boys games on Sundays</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Cleats and Shin Guards required</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Travel within Northern Michigan</li>
             </ul>
-            <p style="font-style: italic; color: #666; text-align: center; margin: 1rem 0 0 0;">
-              <em>Learn more about who we play on the <a href="https://northernmichigansoccer.com/our-clubs">Northern Michigan Alliance</a> website.</em>
+            <p class="text-sm text-gray-500 italic text-center">
+              <em>Learn more about who we play on the <a href="https://northernmichigansoccer.com/our-clubs" class="text-harbor-blue hover:text-harbor-orange transition-colors">Northern Michigan Alliance</a> website.</em>
             </p>
-          </div><div class="program-card" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="card-title">Sailors</h3>
-            <h4 class="card-subtitle">High School Girls</h4><br />
-            <p class="card-description">
+          </div>
+          <div class="program-card bg-white rounded-lg shadow-lg p-6 sm:p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="card-title text-xl sm:text-2xl font-bold text-gray-900 mb-2">Sailors</h3>
+            <h4 class="card-subtitle text-lg font-semibold text-harbor-blue mb-4">High School Girls</h4>
+            <p class="card-description text-gray-700 mb-6 leading-relaxed">
               Sailors is a high school girls' travel soccer team that competes in games and tournaments in the fall.
             </p>
-            <div class="contact-info-box">
-              <h5>Contact Ms. McShannock for more information</h5>
-              <p><a href="mailto:mmcshannock02@harborps.org">mmcshannock02@harborps.org</a></p>
+            <div class="contact-info-box bg-gray-50 p-4 rounded-lg">
+              <h5 class="font-semibold text-gray-900 mb-2">Contact Ms. McShannock for more information</h5>
+              <p class="text-harbor-blue"><a href="mailto:mmcshannock02@harborps.org" class="hover:text-harbor-orange transition-colors">mmcshannock02@harborps.org</a></p>
             </div>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -179,22 +377,23 @@
         </svg>
       </div>
     </section>
+
     <!-- Registration Section -->
-    <section id="registration" class="registration registration-open">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Registration</h2>        <div class="registration-content" data-aos="fade-up" data-aos-delay="100">
-          <!-- Main Registration CTA -->
-          <div class="registration-hero">
-            <h3>Limited Registration Open</h3>            <p class="registration-intro">
+    <section id="registration" class="registration py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Registration</h2>
+        <div class="registration-content max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          <div class="registration-hero bg-white rounded-lg shadow-lg p-6 sm:p-8 text-center">
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Limited Registration Open</h3>
+            <p class="registration-intro text-lg text-gray-700 mb-6">
               Registration is currently open for 1 of 3 programs. Click below to see which programs are accepting registrations.
             </p>
-            <a id="register-btn" href="#" class="register-button registration-open-btn">Register Now</a>
-          </div>
+            <a id="register-btn" href="#" class="register-button inline-block px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold text-lg rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Register Now</a>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -214,15 +413,16 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">
+    <section id="about" class="about py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">
           About Harbor Soccer, Inc.
         </h2>
 
-        <div class="about-content">
+        <div class="about-content space-y-12">
           <div class="about-story" data-aos="fade-up" data-aos-delay="100">
-            <h3>Our Mission</h3>            <p>
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Our Mission</h3>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
               The mission of Harbor Soccer, Inc.
               is to promote the game of soccer and enhance each child's skill
               development. Harbor Soccer, Inc. will promote fair play in a fun,
@@ -230,90 +430,81 @@
               development of camaraderie, encouragement of teamwork, and
               nurturing the skills of each individual player.
             </p>
-            <p>
+            <p class="text-lg text-gray-700 leading-relaxed">
               Harbor Soccer, Inc. is the governing board, which serves to
               organize and oversee soccer teams in the Harbor Springs area.
             </p>
           </div>
 
-          <div
-            class="about-memberships"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <h3>We Are Proud Members Of</h3>
-            <div class="memberships-grid">
-              <a href="https://northernmichigansoccer.com/" class="membership-item" target="_blank" rel="noopener noreferrer">
-                <h4>NMSA</h4>
-                <p>Northern Michigan Soccer Alliance</p>
+          <div class="about-memberships" data-aos="fade-up" data-aos-delay="150">
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">We Are Proud Members Of</h3>
+            <div class="memberships-grid grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <a href="https://northernmichigansoccer.com/" class="membership-item bg-gray-50 p-6 rounded-lg text-center hover:bg-gray-100 transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+                <h4 class="text-xl font-bold text-harbor-blue mb-2">NMSA</h4>
+                <p class="text-gray-700">Northern Michigan Soccer Alliance</p>
               </a>
-              <a href="https://www.michiganyouthsoccer.org/" class="membership-item" target="_blank" rel="noopener noreferrer">
-                <h4>MSYSA</h4>
-                <p>Michigan State Youth Soccer Association</p>
+              <a href="https://www.michiganyouthsoccer.org/" class="membership-item bg-gray-50 p-6 rounded-lg text-center hover:bg-gray-100 transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+                <h4 class="text-xl font-bold text-harbor-blue mb-2">MSYSA</h4>
+                <p class="text-gray-700">Michigan State Youth Soccer Association</p>
               </a>
             </div>
           </div>
+
           <div class="about-board" data-aos="fade-up" data-aos-delay="250">
-            <h3>Meet the Board</h3>
-            <div class="board-grid">
-              <div class="board-member">
-                <h4>President</h4>
-                <p>Ashley Price</p>
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Meet the Board</h3>
+            <div class="board-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">President</h4>
+                <p class="text-harbor-blue font-medium">Ashley Price</p>
               </div>
-              <div class="board-member">
-                <h4>Treasurer</h4>
-                <p>Robert Latimer</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Treasurer</h4>
+                <p class="text-harbor-blue font-medium">Robert Latimer</p>
               </div>
-              <div class="board-member">
-                <h4>Facilities & Secretary</h4>
-                <p>Amanda Kughn</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Facilities & Secretary</h4>
+                <p class="text-harbor-blue font-medium">Amanda Kughn</p>
               </div>
-              <div class="board-member">
-                <h4>Registrar</h4>
-                <p>Ashley Brainerd</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Registrar</h4>
+                <p class="text-harbor-blue font-medium">Ashley Brainerd</p>
               </div>
-              <div class="board-member">
-                <h4>Rec Soccer Coordinator</h4>
-                <p>Madelaine McShannock</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Rec Soccer Coordinator</h4>
+                <p class="text-harbor-blue font-medium">Madelaine McShannock</p>
               </div>
-              <div class="board-member">
-                <h4>Board Member</h4>
-                <p>Alicia Weber</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Board Member</h4>
+                <p class="text-harbor-blue font-medium">Alicia Weber</p>
               </div>
-              <div class="board-member">
-                <h4>Board Member</h4>
-                <p>Gabbi Case</p>
+              <div class="board-member bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Board Member</h4>
+                <p class="text-harbor-blue font-medium">Gabbi Case</p>
               </div>
             </div>
           </div>
 
           <div class="testimonials" data-aos="fade-up" data-aos-delay="300">
-            <h3>What Our Players Say</h3>
-            <div class="testimonial-grid">
-              <blockquote class="testimonial">
-                <p>
-                  "It's fun. I have learned how to juggle. I like playing for Harbor Soccer."
-                </p>
-                <cite>— Jai (Rec Soccer)</cite>
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">What Our Players Say</h3>
+            <div class="testimonial-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+              <blockquote class="testimonial bg-gray-50 p-6 rounded-lg italic text-gray-700">
+                <p class="mb-4">"It's fun. I have learned how to juggle. I like playing for Harbor Soccer."</p>
+                <cite class="text-harbor-blue font-medium not-italic">— Jai (Rec Soccer)</cite>
               </blockquote>
-              <blockquote class="testimonial">
-                <p>
-                  "It is really fun. You get to play games and all positions. Sometimes you get to play goalie. It feels good to score!"
-                </p>
-                <cite>— Henry (Travel Soccer)</cite>
+              <blockquote class="testimonial bg-gray-50 p-6 rounded-lg italic text-gray-700">
+                <p class="mb-4">"It is really fun. You get to play games and all positions. Sometimes you get to play goalie. It feels good to score!"</p>
+                <cite class="text-harbor-blue font-medium not-italic">— Henry (Travel Soccer)</cite>
               </blockquote>
-              <blockquote class="testimonial">
-                <p>
-                  "It is really fun. A great way to get your exercise. It is a really good sport to play!"
-                </p>
-                <cite>— Whitley (Travel Soccer)</cite>
+              <blockquote class="testimonial bg-gray-50 p-6 rounded-lg italic text-gray-700">
+                <p class="mb-4">"It is really fun. A great way to get your exercise. It is a really good sport to play!"</p>
+                <cite class="text-harbor-blue font-medium not-italic">— Whitley (Travel Soccer)</cite>
               </blockquote>
             </div>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -328,47 +519,48 @@
             d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
             class="shape-fill"
           ></path>
-        </svg>      </div>
+        </svg>
+      </div>
     </section>
 
     <!-- Calendar Section -->
-    <section id="calendar" class="calendar">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Calendar</h2>
+    <section id="calendar" class="calendar py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Calendar</h2>
         <div class="calendar-content" data-aos="fade-up" data-aos-delay="100">
-          <p class="calendar-intro">
+          <p class="calendar-intro text-lg text-gray-700 text-center mb-8 max-w-3xl mx-auto">
             Stay up to date with all Harbor Soccer events, games, and practices. View our complete schedule below.
-          </p>          <div class="calendar-container" data-aos="fade-up" data-aos-delay="100">
-            <div class="calendar-loading" id="calendar-loading">
+          </p>
+          <div class="calendar-container bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="calendar-loading text-center py-8" id="calendar-loading">
               Loading calendar...
             </div>
-            <iframe 
+            <iframe
               id="calendar-iframe"
-              src="https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit" 
-              class="calendar-iframe"
-              frameborder="0" 
+              src="https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit"
+              class="calendar-iframe w-full h-96 sm:h-[500px] lg:h-[600px]"
+              frameborder="0"
               scrolling="no"
               title="Harbor Soccer Calendar"
               loading="lazy">
             </iframe>
-            <!-- Schedules Download Panel -->
-            <div class="schedules-panel">
-              <div class="schedules-info">
-                <h4>Download Schedules</h4>
-                <p class="schedules-note">PDF versions of our season schedules — click to download.</p>
+            <div class="schedules-panel p-6 bg-gray-50 border-t">
+              <div class="schedules-info mb-4">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">Download Schedules</h4>
+                <p class="schedules-note text-gray-600">PDF versions of our season schedules — click to download.</p>
               </div>
-              <div class="schedules-buttons">
-                <a class="schedule-btn" href="schedules/U10 Girls.pdf" download>U10 Girls</a>
-                <a class="schedule-btn" href="schedules/U12 Girls.pdf" download>U12 Girls</a>
-                <a class="schedule-btn" href="schedules/Boys Middle School.pdf" download>Boys Middle School</a>
-                <a class="schedule-btn" href="schedules/Girls Middle School.pdf" download>Girls Middle School</a>
+              <div class="schedules-buttons grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <a class="schedule-btn inline-block px-4 py-2 bg-harbor-blue text-white text-center rounded-lg hover:bg-blue-700 transition-colors duration-300" href="schedules/U10 Girls.pdf" download>U10 Girls</a>
+                <a class="schedule-btn inline-block px-4 py-2 bg-harbor-blue text-white text-center rounded-lg hover:bg-blue-700 transition-colors duration-300" href="schedules/U12 Girls.pdf" download>U12 Girls</a>
+                <a class="schedule-btn inline-block px-4 py-2 bg-harbor-blue text-white text-center rounded-lg hover:bg-blue-700 transition-colors duration-300" href="schedules/Boys Middle School.pdf" download>Boys Middle School</a>
+                <a class="schedule-btn inline-block px-4 py-2 bg-harbor-blue text-white text-center rounded-lg hover:bg-blue-700 transition-colors duration-300" href="schedules/Girls Middle School.pdf" download>Girls Middle School</a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -388,94 +580,95 @@
     </section>
 
     <!-- Support Section -->
-    <section id="support" class="support">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Support Harbor Soccer</h2>
+    <section id="support" class="support py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Support Harbor Soccer</h2>
 
-        <div class="support-content">
-          <div class="support-intro" data-aos="fade-up" data-aos-delay="100">
-            <p>
+        <div class="support-content space-y-12">
+          <div class="support-intro text-center" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
               Each season, Harbor Soccer serves hundred of young athletes in our community. The costs of maintaining our fields, providing equipment, hiring referees, and ensuring access to safe facilities are significant. The impact from your support in helping our players is immeasurable.
-            <p>
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
               Your support makes a difference. Each donation helps us continue offereing a fun, safe, and engaging soccer experience for kids in the Harbor Springs area. Thank you for being a supporter of our community.
             </p>
-            <p>
+            <p class="text-lg text-gray-700 leading-relaxed">
                We are a 501(c)3 and our EIN is 38-2887596
             </p>
           </div>
-          <div class="current-sponsors" data-aos="fade-up" data-aos-delay="150">
-            <h3>Current Sponsors</h3>
-            <div class="support-intro" data-aos="fade-up" data-aos-delay="100">
-              <p>Thank you to our generous sponsors who make Harbor Soccer possible!</p>
-            </div>
-            <div class="sponsors-grid">
-              <a href="https://www.captrustcommunityfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/captrust.png" alt="CAPTRUST Community Foundation" class="sponsor-logo">
-                <h4>CAPTRUST Community Foundation</h4>
-              </a>
-              <div class="sponsor-item">
-                <h4>Triford Foundation</h4>
-              </div>
-              <a href="https://dreimershearingclinic.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/Dr. Eimer Logo Final.png" alt="Dr. Eimer Hearing Clinic" class="sponsor-logo">
-                <h4>Dr. Eimer Hearing Clinic</h4>
-              </a>
-              <a href="https://www.gypsydistillery.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/Gypsy Distillery Color Logo.svg" alt="Gypsy Distillery" class="sponsor-logo">
-                <h4>Gypsy Distillery</h4>
-              </a>
-              <a href="https://northern-endodontics.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/NorthernEndodonticsLOGO.JPG" alt="Northern Endodontics" class="sponsor-logo">
-                <h4>Northern Endodontics</h4>
-              </a>
-              <a href="https://northlandsm.com" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/NSM.png" alt="Northland Surveying Mapping" class="sponsor-logo">
-                <h4>Northland Surveying Mapping</h4>
-              </a>
-              <div class="sponsor-item">
-                <img src="images/sponsors/Baywater Builders.png" alt="Baywater Builders" class="sponsor-logo">
-                <h4>Bay Water Builders</h4>
-              </div>
-              <a href="https://outfitterharborsprings.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/Outfitter.avif" alt="The Outfitter Harbor Springs" class="sponsor-logo">
-                <h4>The Outfitter Harbor Springs</h4>
-              </a>
-              <a href="https://www.avexel.co/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/Avexel.png" alt="Avexel Web Design" class="sponsor-logo">
-                <h4>Avexel Web Design</h4>
-              </a>
-              <a href="" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/jl-construction.png" alt="JL Construction" class="sponsor-logo">
-                <h4>JL Construction</h4>
-              </a>
-              <a href="" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                <img src="images/sponsors/mi-property.jpeg" alt="MI Property Improvement" class="sponsor-logo">
-                <h4>MI Property Improvement</h4>
-              </a>
 
-          </div>
+          <div class="current-sponsors" data-aos="fade-up" data-aos-delay="150">
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Current Sponsors</h3>
+            <div class="support-intro text-center mb-8" data-aos="fade-up" data-aos-delay="100">
+              <p class="text-lg text-gray-700">Thank you to our generous sponsors who make Harbor Soccer possible!</p>
+            </div>
+            <div class="sponsors-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <a href="https://www.captrustcommunityfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/captrust.png" alt="CAPTRUST Community Foundation" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">CAPTRUST Community Foundation</h4>
+              </a>
+              <div class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-lg font-bold text-gray-900">Triford Foundation</h4>
+              </div>
+              <a href="https://dreimershearingclinic.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/Dr. Eimer Logo Final.png" alt="Dr. Eimer Hearing Clinic" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Dr. Eimer Hearing Clinic</h4>
+              </a>
+              <a href="https://www.gypsydistillery.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/Gypsy Distillery Color Logo.svg" alt="Gypsy Distillery" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Gypsy Distillery</h4>
+              </a>
+              <a href="https://northern-endodontics.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/NorthernEndodonticsLOGO.JPG" alt="Northern Endodontics" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Northern Endodontics</h4>
+              </a>
+              <a href="https://northlandsm.com" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/NSM.png" alt="Northland Surveying Mapping" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Northland Surveying Mapping</h4>
+              </a>
+              <div class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center">
+                <img src="images/sponsors/Baywater Builders.png" alt="Baywater Builders" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Bay Water Builders</h4>
+              </div>
+              <a href="https://outfitterharborsprings.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/Outfitter.avif" alt="The Outfitter Harbor Springs" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">The Outfitter Harbor Springs</h4>
+              </a>
+              <a href="https://www.avexel.co/" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/Avexel.png" alt="Avexel Web Design" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">Avexel Web Design</h4>
+              </a>
+              <a href="" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/jl-construction.png" alt="JL Construction" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">JL Construction</h4>
+              </a>
+              <a href="" target="_blank" rel="noopener noreferrer" class="sponsor-item bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300">
+                <img src="images/sponsors/mi-property.jpeg" alt="MI Property Improvement" class="sponsor-logo w-16 h-16 mx-auto mb-4 object-contain">
+                <h4 class="text-lg font-bold text-gray-900">MI Property Improvement</h4>
+              </a>
+            </div>
           </div>
 
           <div class="support-actions" data-aos="fade-up" data-aos-delay="200">
-           <div class="sponsorship-section">
-              <h4>Become a Sponsor</h4>
-              <p>Learn about our sponsorship opportunities and how your business can support youth soccer in our community.</p>
-              <button id="sponsorship-btn" class="sponsorship-button">View Sponsorship Details</button>
-              
-              <div class="sponsorship-contact-simple">
+           <div class="sponsorship-section bg-gray-50 p-8 rounded-lg text-center">
+              <h4 class="text-2xl font-bold text-gray-900 mb-4">Become a Sponsor</h4>
+              <p class="text-lg text-gray-700 mb-6">Learn about our sponsorship opportunities and how your business can support youth soccer in our community.</p>
+              <button id="sponsorship-btn" class="sponsorship-button inline-block px-8 py-4 bg-gradient-to-r from-harbor-orange to-orange-500 text-white font-semibold text-lg rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">View Sponsorship Details</button>
+
+              <div class="sponsorship-contact-simple mt-8 p-6 bg-white rounded-lg">
                 <div class="coordinator-card-simple">
-                  <h5>Sponsorship Coordinator</h5>
-                  <h4>Alicia Weber</h4>
-                  <a href="mailto:harborsoccerinc2943@gmail.com" class="coordinator-email">harborsoccerinc2943@gmail.com</a>
+                  <h5 class="text-lg font-bold text-gray-900 mb-2">Sponsorship Coordinator</h5>
+                  <h4 class="text-xl font-semibold text-harbor-blue mb-2">Alicia Weber</h4>
+                  <a href="mailto:harborsoccerinc2943@gmail.com" class="coordinator-email text-harbor-orange hover:text-orange-600 transition-colors font-medium">harborsoccerinc2943@gmail.com</a>
                 </div>
-                <p class="contact-note-simple">Reach out to discuss sponsorship packages and opportunities</p>
+                <p class="contact-note-simple text-gray-600 mt-4">Reach out to discuss sponsorship packages and opportunities</p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -495,33 +688,34 @@
     </section>
 
     <!-- Referee Section -->
-    <section id="referee" class="referee">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Become a Referee</h2>
+    <section id="referee" class="referee py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Become a Referee</h2>
 
-        <div class="referee-content">          <div class="referee-intro" data-aos="fade-up" data-aos-delay="100">
-            <p>
+        <div class="referee-content max-w-4xl mx-auto space-y-8">
+          <div class="referee-intro text-center" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
               There is currently a shortage of referees in youth soccer across Michigan, and Harbor Soccer is feeling this impact. We need dedicated individuals who are passionate about the game and want to give back to the community by officiating our matches.
             </p>
-            <p>
+            <p class="text-lg text-gray-700 leading-relaxed">
               Refereeing is a great way to stay involved in soccer, earn some extra income, and help ensure that our young athletes have quality officiating for their games.
             </p>
           </div>
 
-          <div class="referee-action" data-aos="fade-up" data-aos-delay="300">
-            <h4>Get Started Today</h4>
-            <p>Visit the Michigan State Referee Association to learn more about certification requirements and begin your journey as a youth soccer referee.</p>
-            <a href="https://www.michiganrefs.org/" target="_blank" class="referee-button">
+          <div class="referee-action text-center" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="text-2xl font-bold text-gray-900 mb-4">Get Started Today</h4>
+            <p class="text-lg text-gray-700 mb-6">Visit the Michigan State Referee Association to learn more about certification requirements and begin your journey as a youth soccer referee.</p>
+            <a href="https://www.michiganrefs.org/" target="_blank" class="referee-button inline-block px-8 py-4 bg-gradient-to-r from-harbor-blue to-blue-600 text-white font-semibold text-lg rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Visit Michigan Refs →
             </a>
-            <p class="contact-note">
-              Questions about becoming a referee? Contact us at <a href="mailto:harborsoccer1@gmail.com">harborsoccer1@gmail.com</a>
+            <p class="contact-note text-gray-600 mt-4">
+              Questions about becoming a referee? Contact us at <a href="mailto:harborsoccer1@gmail.com" class="text-harbor-blue hover:text-harbor-orange transition-colors font-medium">harborsoccer1@gmail.com</a>
             </p>
           </div>
         </div>
       </div>
       <div class="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 sm:h-16 lg:h-20">
           <path
             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
             opacity=".25"
@@ -541,34 +735,38 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <section id="contact" class="contact py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center relative mb-12" data-aos="fade-up">Contact Us</h2>
 
         <div class="contact-content">
-          <div class="contact-grid" data-aos="fade-up" data-aos-delay="150">            <div class="contact-item">
+          <div class="contact-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="contact-item bg-gray-50 p-6 rounded-lg text-center">
               <div class="contact-details">
-                <h4>Location</h4>
-                <p>2943 Quick Road<br />Harbor Springs, MI 49740</p>
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Location</h4>
+                <p class="text-gray-700">2943 Quick Road<br />Harbor Springs, MI 49740</p>
               </div>
-            </div>            <div class="contact-item">
+            </div>
+            <div class="contact-item bg-gray-50 p-6 rounded-lg text-center">
               <div class="contact-details">
-                <h4>Mailing Address</h4>
-                <p>
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Mailing Address</h4>
+                <p class="text-gray-700">
                   Harbor Soccer, Inc.<br />PO Box 223<br />Harbor Springs, MI
                   49740
                 </p>
               </div>
-            </div>            <div class="contact-item">
+            </div>
+            <div class="contact-item bg-gray-50 p-6 rounded-lg text-center">
               <div class="contact-details">
-                <h4>Email</h4>
-                <p>harborsoccer1@gmail.com</p>
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Email</h4>
+                <p class="text-harbor-blue font-medium">harborsoccer1@gmail.com</p>
               </div>
-            </div>            <div class="contact-item">
+            </div>
+            <div class="contact-item bg-gray-50 p-6 rounded-lg text-center">
               <div class="contact-details">
-                <h4>Follow us on
-                  <a href="https://www.facebook.com/people/Harbor-Soccer-Inc/100063346320884/">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: 8px;">
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Follow us on
+                  <a href="https://www.facebook.com/people/Harbor-Soccer-Inc/100063346320884/" class="inline-block ml-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-blue-600 hover:text-blue-800 transition-colors">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                   </a>
@@ -584,39 +782,39 @@
     <div id="registration-modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-         <div class="program-options">          <div class="program-option">
-            <h3>Recreational Soccer</h3>
-            <p><strong>Birth Years:</strong> 2018-2021</p>
-            <p><strong>Costs:</strong> $60</p>
-            <p><strong>Registration Deadline:</strong> September 2nd</p>
+         <div class="program-options space-y-6">
+          <div class="program-option bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Recreational Soccer</h3>
+            <p class="text-gray-700 mb-2"><strong>Birth Years:</strong> 2018-2021</p>
+            <p class="text-gray-700 mb-2"><strong>Costs:</strong> $60</p>
+            <p class="text-gray-700 mb-4"><strong>Registration Deadline:</strong> September 2nd</p>
             <a
               href="https://system.gotsport.com/programs/C26712908"
               target="_blank"
-              class="program-button rec-button open-state"
-              >Register for Rec Soccer</a
-            >
-          </div>          <div class="program-option">
-            <h3>Travel Soccer</h3>
-            <p><strong>Birth Years:</strong> 2011-2017</p>
-            <p><strong>Costs:</strong> $100 + $35 Jersey</p>
-            <p><strong>Registration Deadline:</strong> July 1st (Late Fees will be imposed)</p>
+              class="program-button rec-button open-state inline-block px-6 py-3 text-white font-semibold rounded-lg transition-colors duration-300"
+              >Register for Rec Soccer</a>
+          </div>
+          <div class="program-option bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Travel Soccer</h3>
+            <p class="text-gray-700 mb-2"><strong>Birth Years:</strong> 2011-2017</p>
+            <p class="text-gray-700 mb-2"><strong>Costs:</strong> $100 + $35 Jersey</p>
+            <p class="text-gray-700 mb-4"><strong>Registration Deadline:</strong> July 1st (Late Fees will be imposed)</p>
             <a
               href="#"
               target="_blank"
-              class="program-button travel-button closed-state"
-              >Registration Closed</a
-            >
-          </div>          <div class="program-option">
-            <h3>Sailors</h3>
-            <p><strong>Ages:</strong> High School Girls</p>
-            <p><strong>Costs:</strong> $300</p>
-            <p><strong>Registration Deadline:</strong> July 1st (Late Fees will be imposed)</p>
+              class="program-button travel-button closed-state inline-block px-6 py-3 text-white font-semibold rounded-lg cursor-not-allowed"
+              >Registration Closed</a>
+          </div>
+          <div class="program-option bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Sailors</h3>
+            <p class="text-gray-700 mb-2"><strong>Ages:</strong> High School Girls</p>
+            <p class="text-gray-700 mb-2"><strong>Costs:</strong> $300</p>
+            <p class="text-gray-700 mb-4"><strong>Registration Deadline:</strong> July 1st (Late Fees will be imposed)</p>
             <a
               href="#"
               target="_blank"
-              class="program-button sailors-button closed-state"
-              >Registration Closed</a
-            >
+              class="program-button sailors-button closed-state inline-block px-6 py-3 text-white font-semibold rounded-lg cursor-not-allowed"
+              >Registration Closed</a>
           </div>
         </div>
       </div>
@@ -626,80 +824,86 @@
     <div id="sponsorship-modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Sponsorship Opportunities</h2>
-        <p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Sponsorship Opportunities</h2>
+        <p class="text-lg text-gray-700 mb-8">
           Partner with Harbor Soccer and help support youth athletics in our community!
         </p>
-        
-        <div class="sponsorship-options">
-          <div class="sponsorship-tier">
-            <h3>Business Sponsorship</h3>
-            <div class="sponsorship-benefits">
-              <h4>Benefits Include:</h4>
-              <ul>
-                <li>Company banner displayed at sponsored field</li>
-                <li>Recognition on our website</li>
+
+        <div class="sponsorship-options space-y-6">
+          <div class="sponsorship-tier bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Business Sponsorship</h3>
+            <div class="sponsorship-benefits mb-4">
+              <h4 class="font-semibold text-gray-900 mb-2">Benefits Include:</h4>
+              <ul class="space-y-1 text-gray-700">
+                <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Company banner displayed at sponsored field</li>
+                <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Recognition on our website</li>
               </ul>
             </div>
-            <p class="sponsorship-investment"><strong>$300</strong></p>
+            <p class="sponsorship-investment text-2xl font-bold text-harbor-blue">$300</p>
           </div>
 
-          <div class="sponsorship-tier">
-            <h3>General Donation</h3>
-            <div class="sponsorship-benefits">
-              <h4>Any Amount Helps:</h4>
-              <ul>
-                <li>Support field maintenance and equipment</li>
-                <li>Help keep registration costs affordable for families</li>
-                <li>Contribute to referee fees and facility upkeep</li>
+          <div class="sponsorship-tier bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">General Donation</h3>
+            <div class="sponsorship-benefits mb-4">
+              <h4 class="font-semibold text-gray-900 mb-2">Any Amount Helps:</h4>
+              <ul class="space-y-1 text-gray-700">
+                <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Support field maintenance and equipment</li>
+                <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Help keep registration costs affordable for families</li>
+                <li class="flex items-center"><span class="w-2 h-2 bg-harbor-orange rounded-full mr-3"></span>Contribute to referee fees and facility upkeep</li>
               </ul>
             </div>
-            <p class="sponsorship-investment"><strong>All donations welcome!</strong></p>
+            <p class="sponsorship-investment text-2xl font-bold text-harbor-blue">All donations welcome!</p>
           </div>
         </div>
-        <div class="sponsorship-contact">
-          <h3>Ready to Support?</h3>
-          <p>Contact us to discuss sponsorship opportunities or to make a donation:</p>
-          <div class="contact-info">
-            <p><strong>Mail donations to:</strong><br>
+        <div class="sponsorship-contact mt-8 p-6 bg-white border rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Ready to Support?</h3>
+          <p class="text-gray-700 mb-4">Contact us to discuss sponsorship opportunities or to make a donation:</p>
+          <div class="contact-info space-y-2">
+            <p class="text-gray-700"><strong>Mail donations to:</strong><br>
             Harbor Soccer, Inc.<br>
             PO Box 223<br>
             Harbor Springs, MI 49740</p>
-            <p><strong>Email:</strong> harborsoccerinc2943@gmail.com</p>
-            <p><strong>EIN:</strong> 38-2887596</p>
+            <p class="text-gray-700"><strong>Email:</strong> harborsoccerinc2943@gmail.com</p>
+            <p class="text-gray-700"><strong>EIN:</strong> 38-2887596</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <span class="logo-icon"
-              ><img
+    <footer class="footer bg-gray-900 text-white py-12">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="footer-content grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div class="footer-logo flex items-center space-x-2">
+            <span class="logo-icon">
+              <img
                 src="images/icon.png"
                 width="32"
                 height="32"
                 alt="Harbor Soccer Logo"
-            /></span>
-            <span class="logo-text">Harbor Soccer, Inc.</span>
-          </div>          <div class="footer-links">
-            <a href="#programs">Programs</a>
-            <a href="#registration">Registration</a>
-            <a href="#about">About</a>
-            <a href="#support">Support</a>
-            <a href="#referee">Referee</a>
-            <a href="#contact">Contact</a>
+                class="w-8 h-8"
+              />
+            </span>
+            <span class="logo-text text-xl font-bold">Harbor Soccer, Inc.</span>
           </div>
-          <div class="footer-info">
-            <p>&copy; 2025 Harbor Soccer, Inc. All rights reserved.</p>
-            <p>
+          <div class="footer-links flex flex-wrap justify-center space-x-6">
+            <a href="#programs" class="text-gray-300 hover:text-white transition-colors duration-300">Programs</a>
+            <a href="#registration" class="text-gray-300 hover:text-white transition-colors duration-300">Registration</a>
+            <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+            <a href="#support" class="text-gray-300 hover:text-white transition-colors duration-300">Support</a>
+            <a href="#referee" class="text-gray-300 hover:text-white transition-colors duration-300">Referee</a>
+            <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+          </div>
+          <div class="footer-info text-center md:text-right">
+            <p class="text-gray-300 mb-2">&copy; 2025 Harbor Soccer, Inc. All rights reserved.</p>
+            <p class="text-gray-300">
               Promoting soccer and enhancing each child's skill development.
             </p>
           </div>
         </div>
-      </div>    </footer>    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="script.js"></script>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
