@@ -462,7 +462,7 @@ const REGISTRATION_OPEN = Object.values(PROGRAM_STATUS).some(status => status);
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("registration-modal");
   const registerBtn = document.getElementById("register-btn");
-  const closeBtn = document.querySelector(".close");
+  const closeBtn = modal?.querySelector(".cursor-pointer");
   
   // Update registration status based on configuration
   updateRegistrationStatus();
@@ -569,7 +569,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Open modal when register button is clicked
   registerBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    modal.style.display = "block";
+    modal.classList.remove("hidden");
     document.body.style.overflow = "hidden"; // Prevent background scrolling
 
     // Focus trap for accessibility
@@ -594,13 +594,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Prevent modal from closing when clicking inside modal content
-  modal.querySelector(".modal-content").addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
+  const modalContent = modal.querySelector(".bg-white");
+  if (modalContent) {
+    modalContent.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
 
   // Close modal with Escape key
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.style.display === "block") {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
       closeModal();
     }
   });
@@ -636,7 +639,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closeModal() {
-    modal.style.display = "none";
+    modal.classList.add("hidden");
     document.body.style.overflow = "auto"; // Restore scrolling
 
     // Return focus to the register button
@@ -645,7 +648,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add smooth scroll for mobile when modal is opened
   function preventBackgroundScroll(e) {
-    if (modal.style.display === "block") {
+    if (!modal.classList.contains("hidden")) {
       e.preventDefault();
     }
   }
@@ -656,7 +659,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Add visual feedback for button taps on mobile
-  const programButtons = modal.querySelectorAll(".program-button");
+  const programButtons = modal.querySelectorAll("a[href*='gotsport'], a[href='#']");
   programButtons.forEach((button) => {
     // Add touch feedback
     button.addEventListener(
@@ -1210,12 +1213,15 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const sponsorshipModal = document.getElementById("sponsorship-modal");
   const sponsorshipBtn = document.getElementById("sponsorship-btn");
-  const sponsorshipCloseBtn = sponsorshipModal.querySelector(".close");
+  const sponsorshipCloseBtn = sponsorshipModal?.querySelector(".cursor-pointer");
+
+  // Only proceed if elements exist
+  if (!sponsorshipModal || !sponsorshipBtn) return;
 
   // Open sponsorship modal when button is clicked
   sponsorshipBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    sponsorshipModal.style.display = "block";
+    sponsorshipModal.classList.remove("hidden");
     document.body.style.overflow = "hidden"; // Prevent background scrolling
 
     // Focus trap for accessibility
@@ -1228,9 +1234,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close modal when X is clicked
-  sponsorshipCloseBtn.addEventListener("click", function () {
-    closeSponsorshipModal();
-  });
+  if (sponsorshipCloseBtn) {
+    sponsorshipCloseBtn.addEventListener("click", function () {
+      closeSponsorshipModal();
+    });
+  }
 
   // Close modal when clicking outside of it
   sponsorshipModal.addEventListener("click", function (e) {
@@ -1240,13 +1248,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Prevent modal from closing when clicking inside modal content
-  sponsorshipModal.querySelector(".modal-content").addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
+  const modalContent = sponsorshipModal.querySelector(".bg-white");
+  if (modalContent) {
+    modalContent.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
 
   // Close modal with Escape key
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && sponsorshipModal.style.display === "block") {
+    if (e.key === "Escape" && !sponsorshipModal.classList.contains("hidden")) {
       closeSponsorshipModal();
     }
   });
@@ -1282,16 +1293,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closeSponsorshipModal() {
-    sponsorshipModal.style.display = "none";
+    sponsorshipModal.classList.add("hidden");
     document.body.style.overflow = "auto"; // Restore scrolling
 
     // Return focus to the sponsorship button
-    sponsorshipBtn.focus();
+    if (sponsorshipBtn) {
+      sponsorshipBtn.focus();
+    }
   }
 
   // Add smooth scroll for mobile when modal is opened
   function preventSponsorshipBackgroundScroll(e) {
-    if (sponsorshipModal.style.display === "block") {
+    if (!sponsorshipModal.classList.contains("hidden")) {
       e.preventDefault();
     }
   }
