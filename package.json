@@ -4,9 +4,20 @@
   "description": "Harbor Soccer Inc. website",
   "scripts": {
     "dev": "python3 -m http.server 8000",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
   },
-  "keywords": ["soccer", "youth-sports", "harbor-springs"],
+  "keywords": [
+    "soccer",
+    "youth-sports",
+    "harbor-springs"
+  ],
   "author": "Harbor Soccer Inc.",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^3.4.17"
+  }
 }
