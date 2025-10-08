@@ -1,0 +1,459 @@
+/* Modern Navigation Styles */
+
+/* Main Navigation Container */
+.main-navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1002;
+  padding: 0.5rem 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.main-navigation.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+  padding: 0.25rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Wrapper */
+.navigation-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.brand-logo:hover {
+  color: #ff8c00;
+  background: rgba(255, 140, 0, 0.1);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;
+  color: #ff8c00;
+  transition: transform 0.3s ease;
+}
+
+
+.brand-icon img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.brand-logo:hover .brand-icon img {
+  filter: drop-shadow(0 4px 8px rgba(255, 140, 0, 0.4));
+}
+
+.brand-text {
+  font-family: "Junicode", serif;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Menu */
+.navigation-menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Junicode", serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.3px;
+  border: 1px solid transparent;
+}
+
+.menu-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff8c00, #ffa500);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.menu-link:hover {
+  color: #ff8c00;
+  background: rgba(255, 140, 0, 0.1);
+  border-color: rgba(255, 140, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.2);
+}
+
+.menu-link:hover::before {
+  width: 80%;
+}
+
+.menu-link:focus {
+  outline: none;
+  background: transparent;
+}
+
+.menu-link:active {
+  transform: translateY(0);
+  box-shadow: none;
+  outline: none;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.menu-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Remove default browser focus outlines and borders for menu links */
+.menu-link:focus,
+.menu-link:active,
+.menu-link:visited {
+  outline: none;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+/* Only show focus outline when using keyboard navigation */
+.menu-link:focus-visible {
+  outline: 2px solid #ff8c00;
+  outline-offset: 3px;
+  border: 1px solid transparent;
+  background: rgba(255, 140, 0, 0.1);
+}
+
+/* Ensure no borders or backgrounds on any interaction states */
+.menu-link,
+.menu-link:hover,
+.menu-link:active,
+.menu-link:focus {
+  border: 1px solid transparent;
+}
+
+.menu-link:active,
+.menu-link:focus:not(:focus-visible) {
+  background: transparent;
+}
+
+/* Remove borders and outlines from brand logo as well */
+.brand-logo:focus,
+.brand-logo:active,
+.brand-logo:visited {
+  outline: none;
+  border: none;
+  background: transparent;
+  transform: none;
+}
+
+.brand-logo:focus:not(:focus-visible) {
+  outline: none;
+  background: transparent;
+  transform: none;
+}
+
+.brand-logo:focus-visible {
+  outline: 2px solid #ff8c00;
+  outline-offset: 3px;
+  background: rgba(255, 140, 0, 0.1);
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 1003;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mobile-toggle:hover {
+  background: rgba(255, 140, 0, 0.15);
+  border-color: rgba(255, 140, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.2);
+}
+
+.mobile-toggle:active {
+  transform: scale(0.95);
+  outline: none;
+}
+
+.mobile-toggle:focus {
+  outline: none;
+  background: rgba(255, 140, 0, 0.15);
+}
+
+.mobile-toggle:focus:not(:focus-visible) {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mobile-toggle:focus-visible {
+  outline: 2px solid #ff8c00;
+  outline-offset: 3px;
+  background: rgba(255, 140, 0, 0.15);
+}
+
+.toggle-line {
+  width: 28px;
+  height: 3px;
+  background: #ffffff;
+  margin: 3px 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-radius: 3px;
+  transform-origin: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Mobile Toggle Animation */
+.mobile-toggle.active {
+  background: rgba(255, 140, 0, 0.2);
+  border-color: rgba(255, 140, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+}
+
+.mobile-toggle.active .toggle-line:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+  background: #ff8c00;
+  box-shadow: 0 2px 6px rgba(255, 140, 0, 0.4);
+}
+
+.mobile-toggle.active .toggle-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+}
+
+.mobile-toggle.active .toggle-line:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
+  background: #ff8c00;
+  box-shadow: 0 2px 6px rgba(255, 140, 0, 0.4);
+}
+
+/* Accessibility Enhancement */
+.mobile-toggle[aria-expanded="true"] .toggle-line:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+  background: #ff8c00;
+}
+
+.mobile-toggle[aria-expanded="true"] .toggle-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+}
+
+.mobile-toggle[aria-expanded="true"] .toggle-line:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
+  background: #ff8c00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navigation-wrapper {
+    padding: 0 1.5rem;
+  }
+  
+  .brand-logo {
+    font-size: 1.3rem;
+  }
+  
+  .brand-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .navigation-menu {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .brand-logo {
+    font-size: 1.2rem;
+  }
+  
+  .brand-text {
+    font-size: 0.9rem;
+  }
+  
+  .menu-link {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+    min-width: 180px;
+  }
+}
+
+/* iPhone SE and very small screens (375px and below) */
+@media (max-width: 375px) {
+  .navigation-wrapper {
+    padding: 0 0.75rem;
+    gap: 1rem;
+  }
+  
+  .brand-logo {
+    font-size: 1.1rem;
+    padding: 0.25rem;
+  }
+  
+  .brand-icon {
+    margin-right: 0.5rem;
+  }
+  
+  .brand-icon img {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .brand-text {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  
+  .mobile-toggle {
+    padding: 10px;
+  }
+  
+  .toggle-line {
+    width: 24px;
+    height: 2px;
+    margin: 2px 0;
+  }
+  
+  .menu-link {
+    font-size: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 160px;
+  }
+}
+
+/* Enhanced Focus States for Better Accessibility */
+.menu-link:focus-visible {
+  outline: 3px solid #ff8c00;
+  outline-offset: 4px;
+  background: rgba(255, 140, 0, 0.15);
+}
+
+.brand-logo:focus-visible {
+  outline: 3px solid #ff8c00;
+  outline-offset: 4px;
+  background: rgba(255, 140, 0, 0.15);
+}
+
+/* Smooth Scrolling Enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  .main-navigation,
+  .brand-logo,
+  .menu-link,
+  .mobile-toggle {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .main-navigation {
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  .menu-link {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .menu-link:hover {
+    border-color: #ff8c00;
+    background: rgba(255, 140, 0, 0.3);
+  }
+}
+
+/* Additional rules to completely remove click effects */
+.brand-logo,
+.brand-logo *,
+.menu-link,
+.menu-link * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Remove any browser default button styles */
+.brand-logo {
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Ensure no outline on any click or focus for brand elements */
+.brand-logo,
+.brand-logo:active,
+.brand-logo:focus,
+.brand-text,
+.brand-icon,
+.brand-icon img {
+  outline: none !important;
+  border: none !important;
+}

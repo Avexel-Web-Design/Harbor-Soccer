@@ -42,3 +42,4 @@ logs/
 # Verification and setup scripts output
 setup.log
 verify.log
+.DS_Store

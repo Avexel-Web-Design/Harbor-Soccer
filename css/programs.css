@@ -1,0 +1,54 @@
+/* ...existing code... */
+.division p {
+  color: #555;
+  margin: 0;
+}
+
+/* Contact Info Box for Sailors Program */
+.contact-info-box {
+  background: #f8f9fa;
+  border: 2px solid #ff8c00;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+}
+
+.contact-info-box h5 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.contact-info-box p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contact-info-box a {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  display: inline-block;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.contact-info-box a:hover {
+  background: #ff8c00;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/*# sourceMappingURL=programs.css.map */

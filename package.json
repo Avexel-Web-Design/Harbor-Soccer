@@ -4,9 +4,18 @@
   "description": "Harbor Soccer Inc. website",
   "scripts": {
     "dev": "python3 -m http.server 8000",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "sass": "sass --watch scss/:css/",
+    "sass:build": "sass scss/:css/"
   },
-  "keywords": ["soccer", "youth-sports", "harbor-springs"],
+  "keywords": [
+    "soccer",
+    "youth-sports",
+    "harbor-springs"
+  ],
   "author": "Harbor Soccer Inc.",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
 }
