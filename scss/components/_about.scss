@@ -1,0 +1,183 @@
+@use '../abstracts/variables' as *;
+
+/* About Section */
+.about {
+    padding: 6rem 0;
+    background: $color-white;
+    position: relative;
+}
+
+.about-content {
+    margin-top: 2rem;
+}
+
+.about-story {
+    margin-bottom: 4rem;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.about-values {
+    margin-bottom: 4rem;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 2rem;
+    }
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    h4 {
+        color: $color-black;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $color-text-lighter;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-memberships {
+    margin-bottom: 4rem;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 2rem;
+    }
+}
+
+.memberships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.membership-item {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg,
+            rgba($color-primary, 0.1),
+            rgba($color-primary, 0.05));
+    border-radius: 10px;
+    border: 2px solid rgba($color-primary, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        border-color: rgba($color-primary, 0.4);
+    }
+
+    h4 {
+        color: $color-primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: $color-text;
+        font-weight: 500;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+}
+
+.about-board {
+    margin-bottom: 4rem;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 2rem;
+    }
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.board-member {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    h4 {
+        color: $color-primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    p {
+        color: $color-text;
+        font-weight: 500;
+        margin: 0;
+    }
+}
+
+.testimonials {
+    h3 {
+        color: $color-black;
+        margin-bottom: 2rem;
+    }
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid $color-primary;
+    font-style: italic;
+
+    p {
+        color: $color-text-light;
+        margin-bottom: 1rem;
+    }
+
+    cite {
+        color: $color-black;
+        font-weight: 600;
+        font-style: normal;
+    }
+}

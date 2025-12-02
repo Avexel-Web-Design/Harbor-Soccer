@@ -1,0 +1,314 @@
+@use '../abstracts/variables' as *;
+
+/* Support Section (from styles.scss) */
+.support {
+    padding: 6rem 0;
+    background: $color-white;
+    position: relative;
+}
+
+.support-content {
+    margin-top: 2rem;
+}
+
+.support-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    p {
+        color: $color-text-light;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.support-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.sponsorship-section {
+    text-align: center;
+    background: $color-bg-light;
+    padding: 3rem;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h4 {
+        color: $color-black;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $color-text-light;
+        margin-bottom: 2rem;
+    }
+}
+
+.sponsorship-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    color: $color-white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($color-primary, 0.4);
+    }
+}
+
+.sponsorship-contact-simple {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.coordinator-card-simple {
+    margin-bottom: 1rem;
+
+    h5 {
+        color: $color-text-lighter;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+    }
+
+    h4 {
+        color: $color-secondary;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.coordinator-email {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $color-primary-dark;
+        text-decoration: underline;
+    }
+}
+
+.contact-note-simple {
+    font-size: 0.95rem;
+    color: $color-text-lighter;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* ===== SPONSORS SECTION STYLING (from sponsors.scss) ===== */
+
+.current-sponsors {
+    margin: 2rem 0 4rem 0;
+
+    h3 {
+        font-family: $font-primary;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    >p {
+        font-family: $font-primary;
+        font-size: 1.1rem;
+        color: $color-text-lighter;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        margin: 2rem 0;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        >p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        >p {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+/* Sponsors Grid */
+.sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+
+    &:has(> .sponsor-item:only-child) {
+        justify-content: center;
+
+        .sponsor-item {
+            max-width: 400px;
+            flex: none;
+        }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+    }
+}
+
+.sponsor-item {
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    flex: 1 1 280px;
+    max-width: 350px;
+
+    /* Animation for sponsor items when they come into view */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+        border-color: #3498db;
+    }
+
+    &:focus-within {
+        outline: 2px solid #3498db;
+        outline-offset: 2px;
+    }
+
+    h4 {
+        font-family: $font-primary;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $color-black;
+        margin: 0;
+        line-height: 1.4;
+        padding: 0.5rem 0.5rem;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1.5rem;
+        min-height: 150px;
+        width: 100%;
+        max-width: 400px;
+        flex: none;
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.2rem 0.8rem;
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: #fff;
+        border-color: #e5e5e5;
+        color: #333;
+
+        &:hover {
+            border-color: #3498db;
+        }
+
+        h4 {
+            color: $color-black;
+        }
+    }
+
+    @media print {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+.sponsor-logo {
+    max-width: 120px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100px;
+        max-height: 60px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        max-height: 50px;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

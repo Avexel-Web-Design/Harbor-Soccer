@@ -1,0 +1,20 @@
+// Colors
+$color-primary: #ff8c00;
+$color-primary-dark: #e67c00;
+$color-secondary: #2c5aa0;
+$color-text: #333333;
+$color-text-light: #555555;
+$color-text-lighter: #666666;
+$color-text-muted: #777777;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-bg-light: #f8f9fa;
+
+// Fonts
+$font-primary: "Junicode", Georgia, "Times New Roman", serif;
+$font-sans: "Inter", sans-serif; // Assuming Inter is used based on Google Fonts link, though styles.scss mostly uses Junicode.
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;

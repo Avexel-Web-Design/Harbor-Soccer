@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-primary;
+    line-height: 1.7;
+    color: $color-text;
+    background-color: $color-white;
+    background-image: radial-gradient(circle at 1px 1px,
+            rgba(255, 140, 0, 0.05) 1px,
+            transparent 0);
+    background-size: 20px 20px;
+    opacity: 1;
+}

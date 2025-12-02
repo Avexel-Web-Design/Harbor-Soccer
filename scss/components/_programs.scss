@@ -1,0 +1,201 @@
+@use '../abstracts/variables' as *;
+
+/* Programs Section */
+.programs {
+    padding: 6rem 0;
+    background: $color-white;
+    position: relative;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+
+    @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.program-card {
+    min-width: 400px;
+    /* Adjusted for better fit in 3-column layout */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @media (max-width: $breakpoint-tablet) {
+        min-width: auto;
+    }
+}
+
+.card-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    color: $color-black;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    white-space: nowrap;
+    /* Prevents wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Shows ellipsis if text overflows */
+    font-size: 1.5rem;
+}
+
+.card-subtitle {
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.card-description {
+    margin-bottom: 2rem;
+    color: $color-text-light;
+}
+
+.card-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+
+    li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &::before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+            color: $color-primary;
+        }
+    }
+}
+
+.travel-info {
+    margin-top: 1.5rem;
+
+    p {
+        font-style: italic;
+        color: $color-text-lighter;
+        text-align: center;
+        margin: 1rem 0 0 0;
+    }
+
+    a {
+        color: $color-primary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.travel-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+
+    li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &::before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+            color: $color-primary;
+        }
+    }
+}
+
+.travel-divisions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.division {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+
+    h4 {
+        color: $color-black;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: $color-text-lighter;
+        margin: 0;
+    }
+}
+
+/* Contact Info Box for Sailors Program */
+.contact-info-box {
+    background: $color-bg-light;
+    border: 2px solid $color-primary;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba($color-primary, 0.2);
+    }
+
+    h5 {
+        color: $color-secondary;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    a {
+        color: $color-primary;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        background: rgba($color-primary, 0.1);
+        border: 1px solid rgba($color-primary, 0.3);
+        display: inline-block;
+        margin-top: 0.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $color-primary;
+            color: $color-white;
+            transform: translateY(-1px);
+        }
+    }
+}

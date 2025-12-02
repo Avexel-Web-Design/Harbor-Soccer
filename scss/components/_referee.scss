@@ -1,0 +1,192 @@
+@use '../abstracts/variables' as *;
+
+/* Referee Section */
+.referee {
+    padding: 6rem 0;
+    background: $color-white;
+    position: relative;
+}
+
+.referee-content {
+    margin-top: 2rem;
+}
+
+.referee-intro {
+    margin-bottom: 4rem;
+    text-align: center;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 1.5rem;
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: $color-text-light;
+        max-width: 800px;
+        margin: 0 auto 1rem;
+    }
+}
+
+.referee-benefits {
+    margin-bottom: 4rem;
+    text-align: center;
+
+    h4 {
+        color: $color-secondary;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    >p {
+        font-size: 1.1rem;
+        color: $color-text-light;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+    }
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-item {
+    background: $color-white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, $color-secondary, $color-primary);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        border-color: $color-primary;
+        transform: translateY(-8px);
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+
+    h5 {
+        color: $color-secondary;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    p {
+        color: $color-text-lighter;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+.referee-action {
+    text-align: center;
+    background: $color-white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    max-width: 800px;
+    margin: 0 auto;
+
+    &:hover {
+        border-color: $color-primary;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(255, 140, 0, 0.15);
+    }
+
+    h4 {
+        color: $color-secondary;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: $color-text-light;
+        margin-bottom: 2rem;
+    }
+
+    .contact-note {
+        font-size: 1rem;
+        color: $color-text-lighter;
+        margin: 0;
+
+        a {
+            color: $color-primary;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $color-primary-dark;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.referee-button {
+    display: inline-block;
+    background: linear-gradient(135deg, $color-secondary, lighten($color-secondary, 10%));
+    color: $color-white;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    min-width: 200px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent);
+        transition: left 0.5s ease;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+        background: linear-gradient(135deg, darken($color-secondary, 5%), lighten($color-secondary, 5%));
+
+        &::before {
+            left: 100%;
+        }
+    }
+}

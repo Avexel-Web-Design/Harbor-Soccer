@@ -1,0 +1,198 @@
+@use '../abstracts/variables' as *;
+
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(255, 140, 0, 0.05));
+    position: relative;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (max-width: $breakpoint-tablet) {
+        justify-content: center;
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+}
+
+.contact-info h3 {
+    color: $color-black;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
+    background: $color-white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-basis: 250px;
+    max-width: 280px;
+    min-width: 250px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $color-secondary, $color-primary);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
+        border-color: rgba($color-primary, 0.2);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    h4 {
+        color: $color-secondary;
+        margin-bottom: 0.8rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    p {
+        color: $color-text-light;
+        margin: 0;
+        line-height: 1.6;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    a {
+        color: $color-secondary;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1.5rem;
+        flex-basis: 280px;
+        max-width: none;
+        min-width: 280px;
+    }
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: $color-primary;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+        color: $color-primary;
+    }
+}
+
+.contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.5rem;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $color-black;
+        font-weight: 600;
+        font-family: $font-sans;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e1e5e9;
+        border-radius: 5px;
+        font-family: $font-sans;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+        }
+    }
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    color: $color-white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: $font-sans;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+    }
+}

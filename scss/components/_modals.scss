@@ -1,0 +1,440 @@
+@use '../abstracts/variables' as *;
+
+/* Registration Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1005;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    /* Ensure full viewport height on mobile */
+    height: 100dvh;
+    /* Use dynamic viewport height when supported */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+}
+
+.modal-content {
+    background-color: $color-white;
+    margin: 5% auto;
+    padding: 2rem;
+    border: none;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
+    position: relative;
+    overflow: visible;
+    /* Ensure close button isn't clipped */
+
+    h2 {
+        color: $color-secondary;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 2.2rem;
+        font-family: $font-primary;
+        font-weight: 700;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, $color-primary, #ff6b35);
+            border-radius: 2px;
+        }
+    }
+
+    >p {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: $color-text-lighter;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        margin: 8% auto;
+        padding: 2rem;
+        width: 85%;
+        max-width: 900px;
+
+        h2 {
+            font-size: 2rem;
+
+            &::after {
+                width: 50px;
+                height: 2px;
+                bottom: -6px;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        margin: 2% auto;
+        padding: 1.5rem;
+        width: 95%;
+        border-radius: 10px;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: $color-text-lighter;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove tap highlight on iOS */
+    z-index: 1000;
+    /* Ensure it's above other content */
+    pointer-events: auto;
+    /* Ensure it can be clicked */
+    background: rgba(255, 255, 255, 0.9);
+    /* More visible background */
+    border: 2px solid rgba(170, 170, 170, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &:hover,
+    &:focus {
+        color: $color-white;
+        background: #ff4757;
+        border-color: #ff4757;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 24px;
+        top: 0.8rem;
+        right: 1.2rem;
+    }
+}
+
+.program-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        gap: 1.2rem;
+        margin-top: 1rem;
+    }
+}
+
+.program-option {
+    background: linear-gradient(135deg, $color-bg-light 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    /* Ensure consistent height */
+
+    &:hover {
+        border-color: $color-primary;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 140, 0, 0.1);
+    }
+
+    h3 {
+        color: $color-secondary;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        color: $color-text-light;
+        line-height: 1.6;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1.5rem;
+        min-height: 260px;
+        /* Medium size for tablets */
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.2rem;
+        min-height: 250px;
+        /* Slightly smaller for mobile but still consistent */
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+    }
+}
+
+.program-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    /* Push buttons to bottom */
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    min-height: 44px;
+    /* Ensure minimum touch target size */
+    width: 100%;
+    /* Make buttons full width of container */
+    box-sizing: border-box;
+    align-self: stretch;
+    /* Stretch to fill available width */
+
+    /* Open State Buttons */
+    &.open-state {
+        opacity: 1;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    /* Closed State Buttons */
+    &.closed-state {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%) !important;
+        color: $color-white !important;
+        opacity: 0.7;
+        cursor: not-allowed;
+
+        &:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%) !important;
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin-top: auto;
+        /* Push buttons to bottom */
+        width: 100%;
+        display: block;
+        align-self: stretch;
+        /* Stretch to fill available width */
+    }
+}
+
+/* Program-specific styling for open state */
+.rec-button {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: $color-white;
+
+    &.open-state {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: $color-white;
+
+        &:hover {
+            background: linear-gradient(135deg, #218838 0%, #1ca085 100%);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+    }
+
+    /* Legacy support */
+    &:hover {
+        background: linear-gradient(135deg, #218838 0%, #1ca085 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+    }
+}
+
+.travel-button {
+    background: linear-gradient(135deg, $color-primary 0%, #ffa500 100%);
+    color: $color-white;
+
+    &.open-state {
+        background: linear-gradient(135deg, $color-primary 0%, #ffa500 100%);
+        color: $color-white;
+
+        &:hover {
+            background: linear-gradient(135deg, #e67e00 0%, #ff9500 100%);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+        }
+    }
+
+    /* Legacy support */
+    &:hover {
+        background: linear-gradient(135deg, #e67e00 0%, #ff9500 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+    }
+}
+
+.sailors-button {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: $color-white;
+
+    &.open-state {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        color: $color-white;
+
+        &:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+    }
+
+    /* Legacy support */
+    &:hover {
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+    }
+}
+
+/* Sponsorship Modal Specific Styles */
+.sponsorship-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+
+    @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        gap: 1.2rem;
+    }
+}
+
+.sponsorship-tier {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 2rem;
+        min-height: 350px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.5rem;
+        min-height: 320px;
+
+        h3 {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.sponsorship-benefits {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+
+    h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        padding: 0.6rem 0;
+        padding-left: 0.8rem;
+        font-size: 0.95rem;
+
+        @media (max-width: $breakpoint-mobile) {
+            padding: 0.5rem 0;
+            padding-left: 0.6rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.sponsorship-investment {
+    margin-top: auto;
+    padding: 1.2rem;
+    font-size: 1rem;
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+.sponsorship-contact {
+    margin-top: 1.5rem;
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.contact-info {
+    @media (max-width: $breakpoint-mobile) {
+        padding: 1.2rem;
+    }
+}
