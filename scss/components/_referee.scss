@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as *;
+@use 'sass:color';
 
 /* Referee Section */
 .referee {
@@ -8,16 +9,16 @@
 }
 
 .referee-content {
-    margin-top: 2rem;
+    margin-top: $spacing-lg;
 }
 
 .referee-intro {
-    margin-bottom: 4rem;
+    margin-bottom: $spacing-2xl;
     text-align: center;
 
     h3 {
         color: $color-black;
-        margin-bottom: 1.5rem;
+        margin-bottom: $spacing-md;
         font-size: 2.2rem;
     }
 
@@ -25,7 +26,7 @@
         font-size: 1.1rem;
         color: $color-text-light;
         max-width: 800px;
-        margin: 0 auto 1rem;
+        margin: 0 auto $spacing-sm;
     }
 }
 
@@ -151,15 +152,15 @@
 
 .referee-button {
     display: inline-block;
-    background: linear-gradient(135deg, $color-secondary, lighten($color-secondary, 10%));
+    background: linear-gradient(135deg, $color-secondary, color.adjust($color-secondary, $lightness: 10%));
     color: $color-white;
     text-decoration: none;
     padding: 18px 40px;
-    border-radius: 30px;
+    border-radius: $radius-xl;
     font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
+    font-weight: $font-weight-semibold;
+    transition: all $transition-base;
+    margin-bottom: $spacing-lg;
     box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
     position: relative;
     overflow: hidden;
@@ -183,10 +184,15 @@
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
-        background: linear-gradient(135deg, darken($color-secondary, 5%), lighten($color-secondary, 5%));
+        background: linear-gradient(135deg, color.adjust($color-secondary, $lightness: -5%), color.adjust($color-secondary, $lightness: 5%));
 
         &::before {
             left: 100%;
         }
+    }
+
+    &:focus-visible {
+        outline: 3px solid $color-secondary;
+        outline-offset: 3px;
     }
 }

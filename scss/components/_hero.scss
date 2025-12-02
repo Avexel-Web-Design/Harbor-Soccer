@@ -63,15 +63,15 @@
 /* Hero Logo Styles */
 .hero-logo {
     text-align: center;
-    margin-bottom: -3rem;
+    margin-bottom: -2.5rem;
 }
 
 .hero-logo-image {
-    width: 475px;
-    height: 475px;
+    width: 400px;
+    height: 400px;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s ease;
+    transition: transform $transition-base;
 
     &:hover {
         transform: scale(1.05);
@@ -80,23 +80,39 @@
 
 /* Responsive adjustments */
 @media (max-width: $breakpoint-tablet) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
     .hero-logo {
-        margin-bottom: 1.5rem;
+        margin-bottom: -1.5rem;
     }
 
     .hero-logo-image {
-        width: 80vw;
-        height: auto;
+        width: 300px;
+        height: 300px;
     }
 }
 
 @media (max-width: $breakpoint-mobile) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
     .hero-logo {
-        margin-bottom: 1rem;
+        margin-bottom: -1rem;
     }
 
     .hero-logo-image {
-        width: 80vw;
-        height: auto;
+        width: 250px;
+        height: 250px;
     }
 }

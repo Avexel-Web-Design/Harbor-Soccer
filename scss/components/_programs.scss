@@ -12,28 +12,31 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     max-width: 1400px;
-    margin: 2rem auto;
+    margin: $spacing-lg auto;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+    }
 
     @media (max-width: $breakpoint-tablet) {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: $spacing-md;
     }
 }
 
 .program-card {
-    min-width: 400px;
-    /* Adjusted for better fit in 3-column layout */
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: $color-white;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    padding: $spacing-lg;
+    transition: transform $transition-base, box-shadow $transition-base;
 
-    @media (max-width: $breakpoint-tablet) {
-        min-width: auto;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-xl;
     }
 }
 
@@ -71,19 +74,23 @@
 
 .card-features {
     list-style: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: $spacing-md;
 
     li {
-        padding: 0.5rem 0;
+        padding: $spacing-xs 0;
         border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 1.5rem;
+        padding-left: $spacing-md;
 
         &::before {
             content: "⚽";
             position: absolute;
             left: 0;
             color: $color-primary;
+        }
+
+        &:last-child {
+            border-bottom: none;
         }
     }
 }
@@ -157,11 +164,11 @@
 .contact-info-box {
     background: $color-bg-light;
     border: 2px solid $color-primary;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
+    border-radius: $radius-md;
+    padding: $spacing-md;
+    margin-top: $spacing-md;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all $transition-base;
 
     &:hover {
         transform: translateY(-3px);
@@ -170,9 +177,9 @@
 
     h5 {
         color: $color-secondary;
-        margin-bottom: 1rem;
+        margin-bottom: $spacing-sm;
         font-size: 1.2rem;
-        font-weight: 600;
+        font-weight: $font-weight-semibold;
     }
 
     p {
@@ -183,19 +190,24 @@
     a {
         color: $color-primary;
         text-decoration: none;
-        font-weight: 600;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
+        font-weight: $font-weight-semibold;
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $radius-xl;
         background: rgba($color-primary, 0.1);
         border: 1px solid rgba($color-primary, 0.3);
         display: inline-block;
-        margin-top: 0.5rem;
-        transition: all 0.3s ease;
+        margin-top: $spacing-xs;
+        transition: all $transition-base;
 
         &:hover {
             background: $color-primary;
             color: $color-white;
             transform: translateY(-1px);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-primary;
+            outline-offset: 2px;
         }
     }
 }

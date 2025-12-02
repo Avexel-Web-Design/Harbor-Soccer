@@ -346,95 +346,204 @@
 .sponsorship-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2.5rem;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
 
     @media (max-width: $breakpoint-tablet) {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        gap: 1.2rem;
+        gap: $spacing-md;
+        margin-top: $spacing-lg;
     }
 }
 
 .sponsorship-tier {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 2px solid transparent;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    border: 2px solid #e1e8ed;
+    transition: all $transition-smooth;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 420px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, $color-primary, $color-secondary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform $transition-smooth;
+    }
+
+    &:hover {
+        border-color: $color-primary;
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba($color-primary, 0.15);
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+
+    h3 {
+        color: $color-secondary;
+        font-size: 1.8rem;
+        margin-bottom: $spacing-md;
+        font-weight: $font-weight-bold;
+        position: relative;
+    }
 
     @media (max-width: $breakpoint-tablet) {
-        padding: 2rem;
-        min-height: 350px;
+        padding: $spacing-lg;
+        min-height: 380px;
     }
 
     @media (max-width: $breakpoint-mobile) {
-        padding: 1.5rem;
-        min-height: 320px;
+        padding: $spacing-md;
+        min-height: 350px;
 
         h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
     }
 }
 
 .sponsorship-benefits {
     flex-grow: 1;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
 
     h4 {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: $spacing-md;
+        color: $color-text;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     li {
-        padding: 0.6rem 0;
-        padding-left: 0.8rem;
-        font-size: 0.95rem;
+        padding: $spacing-sm 0;
+        padding-left: $spacing-lg;
+        font-size: 1rem;
+        color: $color-text-light;
+        position: relative;
+        line-height: 1.6;
+
+        &::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: $color-success;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        &+li {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
         @media (max-width: $breakpoint-mobile) {
-            padding: 0.5rem 0;
-            padding-left: 0.6rem;
-            font-size: 0.9rem;
+            padding: $spacing-xs 0;
+            padding-left: $spacing-md;
+            font-size: 0.95rem;
         }
     }
 }
 
 .sponsorship-investment {
     margin-top: auto;
-    padding: 1.2rem;
-    font-size: 1rem;
+    padding: $spacing-md;
+    background: linear-gradient(135deg, rgba($color-primary, 0.08), rgba($color-secondary, 0.08));
+    border-radius: $radius-sm;
+    text-align: center;
+    border: 2px solid rgba($color-primary, 0.2);
+
+    strong {
+        font-size: 2rem;
+        color: $color-secondary;
+        font-weight: $font-weight-bold;
+        display: block;
+    }
 
     @media (max-width: $breakpoint-mobile) {
-        padding: 1rem;
-        font-size: 0.95rem;
+        padding: $spacing-sm;
+
+        strong {
+            font-size: 1.6rem;
+        }
     }
 }
 
 .sponsorship-contact {
-    margin-top: 1.5rem;
+    margin-top: $spacing-xl;
+    padding: $spacing-xl;
+    background: linear-gradient(135deg, rgba($color-primary, 0.05), rgba($color-secondary, 0.05));
+    border-radius: $radius-md;
+    border: 2px solid rgba($color-primary, 0.15);
+
+    h3 {
+        color: $color-secondary;
+        margin-bottom: $spacing-md;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        color: $color-text-light;
+        margin-bottom: $spacing-lg;
+    }
 
     @media (max-width: $breakpoint-mobile) {
-        padding: 1.5rem;
+        padding: $spacing-lg;
+        margin-top: $spacing-lg;
 
         h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
     }
 }
 
 .contact-info {
+    background: $color-white;
+    padding: $spacing-lg;
+    border-radius: $radius-sm;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 0 auto;
+
+    p {
+        margin-bottom: $spacing-md;
+        color: $color-text;
+        line-height: 1.8;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: $color-secondary;
+            font-weight: $font-weight-semibold;
+            display: block;
+            margin-bottom: $spacing-xs;
+        }
+    }
+
     @media (max-width: $breakpoint-mobile) {
-        padding: 1.2rem;
+        padding: $spacing-md;
     }
 }

@@ -1,20 +1,83 @@
-// Colors
+// ============================================
+// Color Palette
+// ============================================
+
+// Primary Colors
 $color-primary: #ff8c00;
 $color-primary-dark: #e67c00;
+$color-primary-light: #ffa31a;
+$color-primary-lighter: #ffb84d;
+
+// Secondary Colors
 $color-secondary: #2c5aa0;
+$color-secondary-dark: #234880;
+$color-secondary-light: #3d6bb3;
+
+// Neutral Colors
+$color-black: #000000;
+$color-white: #ffffff;
 $color-text: #333333;
 $color-text-light: #555555;
 $color-text-lighter: #666666;
 $color-text-muted: #777777;
-$color-black: #000000;
-$color-white: #ffffff;
 $color-bg-light: #f8f9fa;
 
-// Fonts
-$font-primary: "Junicode", Georgia, "Times New Roman", serif;
-$font-sans: "Inter", sans-serif; // Assuming Inter is used based on Google Fonts link, though styles.scss mostly uses Junicode.
+// Utility Colors
+$color-success: #28a745;
+$color-error: #ff4757;
+$color-warning: #ffa500;
 
+// ============================================
+// Typography
+// ============================================
+$font-primary: "Junicode", Georgia, "Times New Roman", serif;
+$font-sans: "Inter", sans-serif;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ============================================
+// Spacing Scale
+// ============================================
+$spacing-xs: 0.5rem; // 8px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 1.5rem; // 24px
+$spacing-lg: 2rem; // 32px
+$spacing-xl: 3rem; // 48px
+$spacing-2xl: 4rem; // 64px
+$spacing-3xl: 6rem; // 96px
+
+// ============================================
+// Shadows
+// ============================================
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.15);
+$shadow-xl: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+// ============================================
+// Transitions
+// ============================================
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.4s ease;
+$transition-smooth: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// ============================================
 // Breakpoints
+// ============================================
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1200px;
+
+// ============================================
+// Border Radius
+// ============================================
+$radius-sm: 8px;
+$radius-md: 10px;
+$radius-lg: 15px;
+$radius-xl: 20px;
+$radius-pill: 50px;
