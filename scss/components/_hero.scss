@@ -11,6 +11,8 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    padding-top: 80px; // Account for fixed navbar height
+    box-sizing: border-box;
 }
 
 .dither-background {
