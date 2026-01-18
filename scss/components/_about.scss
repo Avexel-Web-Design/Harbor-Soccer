@@ -149,6 +149,79 @@
     }
 }
 
+/* Code of Conduct Section */
+.about-conduct {
+    margin-bottom: 4rem;
+
+    h3 {
+        color: $color-black;
+        margin-bottom: 1rem;
+    }
+
+    .conduct-intro {
+        color: $color-text-light;
+        margin-bottom: 2rem;
+        max-width: 700px;
+    }
+}
+
+.conduct-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.conduct-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg,
+            rgba($color-secondary, 0.08),
+            rgba($color-secondary, 0.03));
+    border-radius: 12px;
+    border: 2px solid rgba($color-secondary, 0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: rgba($color-secondary, 0.4);
+        box-shadow: 0 8px 25px rgba($color-secondary, 0.15);
+
+        .conduct-icon {
+            color: $color-primary;
+            transform: scale(1.1);
+        }
+
+        .conduct-link {
+            color: $color-primary;
+        }
+    }
+
+    .conduct-icon {
+        color: $color-secondary;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    h4 {
+        color: $color-black;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .conduct-link {
+        color: $color-secondary;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+}
+
 .testimonials {
     h3 {
         color: $color-black;

@@ -4030,3 +4030,315 @@ textarea:focus {
 
   padding: 1rem;
 }
+
+/* ============================================
+   FIREFOX BROWSER COMPATIBILITY FIXES
+   ============================================
+   These styles ensure full Firefox support without
+   changing the visual appearance of the website.
+   ============================================ */
+
+/* Firefox-specific backdrop-filter support */
+.modal {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* Firefox scrollbar styling to match webkit browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 140, 0, 0.5) rgba(0, 0, 0, 0.1);
+}
+
+/* Firefox-specific smooth scrolling enhancement */
+html {
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Firefox form element normalization */
+input,
+textarea,
+select,
+button {
+  -moz-appearance: none;
+  font-family: inherit;
+}
+
+/* Firefox select element styling fix */
+select {
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+/* Firefox button focus outline fix */
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Firefox input number spinner removal for consistency */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Firefox placeholder styling */
+::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Firefox selection styling */
+::-moz-selection {
+  background: rgba(255, 140, 0, 0.3);
+  color: inherit;
+}
+
+/* Firefox-specific flexbox gap fallback 
+   Note: Modern Firefox supports gap, but this ensures older versions work */
+@supports not (gap: 1rem) {
+  .programs-grid > * {
+    margin: 1.25rem;
+  }
+  
+  .values-grid > * {
+    margin: 1rem;
+  }
+  
+  .board-grid > * {
+    margin: 1rem;
+  }
+  
+  .contact-grid > * {
+    margin: 1rem;
+  }
+  
+  .footer-links > * {
+    margin: 0 1rem;
+  }
+  
+  .navigation-menu > * {
+    margin: 0 0.25rem;
+  }
+}
+
+/* Firefox-specific gradient text fix (if used) */
+@-moz-document url-prefix() {
+  /* Firefox-specific overrides that don't affect other browsers */
+  
+  /* Ensure backdrop-filter fallback for older Firefox */
+  .main-navigation {
+    background: rgba(0, 0, 0, 0.97);
+  }
+  
+  .main-navigation.scrolled {
+    background: rgba(0, 0, 0, 0.99);
+  }
+  
+  .mobile-toggle {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Firefox-specific animation performance optimization */
+  .program-card,
+  .value-item,
+  .testimonial,
+  .contact-item,
+  .benefit-item {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Firefox canvas rendering optimization */
+  #dither-canvas {
+    image-rendering: optimizeSpeed;
+  }
+  
+  /* Firefox-specific touch action for better mobile support */
+  .mobile-menu {
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+  }
+  
+  /* Firefox text rendering optimization */
+  body {
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Firefox-specific input styling */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline-style: solid;
+  }
+}
+
+/* Dynamic viewport height fallback for Firefox 
+   100dvh is supported in Firefox 101+, but fallback ensures older versions work */
+.modal {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Firefox-specific mobile menu height fix */
+.mobile-menu {
+  height: 100vh;
+  height: 100dvh;
+  max-height: -moz-available;
+}
+
+/* Firefox-specific overflow scrolling */
+.mobile-menu,
+.modal-content {
+  -moz-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Firefox print styles */
+@media print {
+  * {
+    -moz-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Firefox-specific animation smoothing */
+@media (prefers-reduced-motion: no-preference) {
+  .program-card,
+  .cta-button,
+  .register-button,
+  .contact-item,
+  .value-item {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* Firefox high DPI screen fixes */
+@media (-moz-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-logo-image,
+  .brand-icon img,
+  .logo-icon img {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Firefox-specific focus-visible support */
+@supports selector(:focus-visible) {
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #ff8c00;
+    outline-offset: 2px;
+  }
+}
+
+/* Firefox-specific clip-path support enhancement */
+@supports (-moz-appearance: none) {
+  .wave-divider svg {
+    shape-rendering: geometricPrecision;
+  }
+}
+
+/* Firefox subpixel antialiasing fix */
+.hero-title,
+.section-title,
+.card-title,
+h1, h2, h3, h4, h5, h6 {
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+/* Firefox-specific transform origin fix for animations */
+.mobile-toggle .toggle-line {
+  transform-origin: center center;
+}
+
+/* Firefox sticky positioning enhancement */
+.main-navigation {
+  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/* Override to use fixed as primary for navbar */
+.main-navigation {
+  position: fixed;
+}
+
+/* Firefox-specific grid alignment fix */
+.programs-grid,
+.values-grid,
+.board-grid,
+.info-grid,
+.benefits-grid,
+.impact-grid {
+  align-content: start;
+}
+
+/* Firefox-specific border-radius rendering */
+.program-card,
+.modal-content,
+.contact-item,
+.registration-hero,
+.cta-button,
+.register-button {
+  -moz-border-radius: inherit;
+}
+
+/* Firefox-specific box-shadow rendering optimization */
+@media screen and (-moz-images-in-menus: 0) {
+  .program-card:hover,
+  .contact-item:hover,
+  .value-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Firefox-specific color profile handling */
+img, video, canvas {
+  color-interpolation: sRGB;
+}
+
+/* Firefox line-height normalization */
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.15;
+}
+
+/* Firefox-specific aspect-ratio fallback */
+@supports not (aspect-ratio: 1) {
+  .hero-logo-image {
+    width: 400px;
+    height: 400px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-logo-image {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-logo-image {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}

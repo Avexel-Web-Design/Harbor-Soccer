@@ -859,13 +859,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Simple Wave Pattern Background Effect
-class WaveAnimation {
+// Fluid Simulation - Interactive particle animation with Firefox compatibility
+// Cross-browser compatible canvas animation class
+class FluidSimulation {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
     
-    this.ctx = this.canvas.getContext('2d');
+    // Get 2D context with Firefox-compatible options
+    this.ctx = this.canvas.getContext('2d', {
+      alpha: true,
+      desynchronized: false, // Better Firefox compatibility
+      willReadFrequently: false
+    });
+    
+    // Fallback for older browsers
+    if (!this.ctx) {
+      this.ctx = this.canvas.getContext('2d');
+    }
+    
     this.time = 0;
     this.animationId = null;
     
@@ -876,47 +888,115 @@ class WaveAnimation {
     this.pixelSize = 3;
     this.pixelSpacing = 6;
     
+    // Particle system parameters
+    this.particles = [];
+    this.metaballs = [];
+    this.particleCount = 80;
+    this.metaballCount = 5;
+    
+    // Flow field parameters
+    this.noiseScale = 0.005;
+    this.flowSpeed = 2;
+    
+    // Mouse interaction
+    this.mouse = { x: -1000, y: -1000, prevX: -1000, prevY: -1000 };
+    this.mouseInfluence = 150;
+    this.turbulence = 1.5;
+    this.viscosity = 0.97;
+    
+    // Color palette for particles
+    this.colors = [
+      'rgba(255, 140, 0, 0.8)',
+      'rgba(255, 100, 50, 0.8)',
+      'rgba(255, 180, 50, 0.8)',
+      'rgba(255, 120, 20, 0.8)',
+      'rgba(255, 160, 80, 0.8)'
+    ];
+    
+    // Firefox detection for specific optimizations
+    this.isFirefox = typeof InstallTrigger !== 'undefined' || 
+                     navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    
     this.init();
   }
-    init() {
+  
+  init() {
     this.setupCanvas();
     this.createParticles();
     this.createMetaballs();
     this.setupEventListeners();
     this.animate();
   }
-    setupCanvas() {
+  
+  setupCanvas() {
+    const self = this;
     const updateSize = () => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.canvas.width = rect.width;
-      this.canvas.height = rect.height;
+      const rect = self.canvas.getBoundingClientRect();
+      // Use devicePixelRatio for sharper rendering on high DPI screens
+      const dpr = window.devicePixelRatio || 1;
+      
+      // Set display size
+      self.canvas.style.width = rect.width + 'px';
+      self.canvas.style.height = rect.height + 'px';
+      
+      // Set actual size in memory (scaled for retina displays)
+      // Firefox handles this well but we keep it simple for compatibility
+      self.canvas.width = rect.width;
+      self.canvas.height = rect.height;
       
       // Recreate particles and metaballs when canvas resizes
-      if (this.particles.length > 0) {
-        this.createParticles();
-        this.createMetaballs();
+      if (self.particles && self.particles.length > 0) {
+        self.createParticles();
+        self.createMetaballs();
       }
     };
     
     updateSize();
-    window.addEventListener('resize', updateSize);
+    
+    // Debounced resize handler for better performance
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateSize, 100);
+    });
   }
   
   setupEventListeners() {
+    const self = this;
+    
+    // Mouse move handler with Firefox compatibility
     this.canvas.addEventListener('mousemove', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.mouse.prevX = this.mouse.x;
-      this.mouse.prevY = this.mouse.y;
-      this.mouse.x = e.clientX - rect.left;
-      this.mouse.y = e.clientY - rect.top;
-    });
+      const rect = self.canvas.getBoundingClientRect();
+      self.mouse.prevX = self.mouse.x;
+      self.mouse.prevY = self.mouse.y;
+      self.mouse.x = e.clientX - rect.left;
+      self.mouse.y = e.clientY - rect.top;
+    }, { passive: true });
     
     this.canvas.addEventListener('mouseleave', () => {
-      this.mouse.x = -1000;
-      this.mouse.y = -1000;
-    });
+      self.mouse.x = -1000;
+      self.mouse.y = -1000;
+    }, { passive: true });
+    
+    // Touch support for mobile Firefox
+    this.canvas.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        const rect = self.canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        self.mouse.prevX = self.mouse.x;
+        self.mouse.prevY = self.mouse.y;
+        self.mouse.x = touch.clientX - rect.left;
+        self.mouse.y = touch.clientY - rect.top;
+      }
+    }, { passive: true });
+    
+    this.canvas.addEventListener('touchend', () => {
+      self.mouse.x = -1000;
+      self.mouse.y = -1000;
+    }, { passive: true });
   }
-    createParticles() {
+  
+  createParticles() {
     this.particles = [];
     const { width, height } = this.canvas;
     
