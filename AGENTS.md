@@ -24,50 +24,12 @@ npm run sass:build
 ## Code Style Guidelines
 
 ### JavaScript
-
-#### Naming Conventions
-- **Variables**: camelCase (e.g., `mobileToggle`, `calendarIframe`, `touchStartX`)
-- **Functions**: camelCase (e.g., `closeMobileMenu()`, `handleSwipe()`, `showMessage()`)
-- **Constants**: UPPER_SNAKE_CASE (e.g., `PROGRAM_STATUS`, `REGISTRATION_OPEN`)
-- **DOM Elements**: descriptive names using camelCase (e.g., `mobileMenu`, `calendarLoading`)
-- **Event Handlers**: descriptive with context (e.g., `mobileToggle.addEventListener`)
-
-#### Code Structure
-- Declare event listeners and helper functions at the top level
-- Group related functionality with comment sections
-- Use `document.addEventListener("DOMContentLoaded", ...)` for initialization
-- Separate touch handling variables at top level (`touchStartX`, `touchStartY`, etc.)
-
-#### Modern JavaScript Patterns
-- Use `const` and `let` (no `var`)
-- Use arrow functions for callbacks: `() => { }`
-- Use template literals: `` `${variable}` ``
-- Use optional chaining: `element?.classList`
-- Use `classList` methods: `add()`, `remove()`, `toggle()`, `contains()`
-
-#### Event Handling
-- Always use `addEventListener`, never inline `onclick`
-- Use `{ passive: true }` for touch events when possible
-- Use `{ passive: false }` when preventing default on touch events
-- Handle keyboard events (Escape key) for modals and menus
-- Return focus after closing modals/menus for accessibility
-
-#### Error Handling & Safety
-- Check for null/undefined before accessing properties:
-  ```javascript
-  if (element && otherElement) {
-    element.addEventListener(...);
-  }
-  ```
-- Use optional chaining when appropriate
-- Remove event listeners and observers when no longer needed
-
-#### Accessibility
-- Always include `aria-label` on buttons without text
-- Use `aria-expanded` attributes for toggles
-- Manage focus with `element.focus()` after UI changes
-- Support keyboard navigation (Escape to close, etc.)
-- Use semantic HTML elements
+**Naming**: camelCase for vars/funcs (e.g., `mobileToggle`, `handleSwipe()`), UPPER_SNAKE_CASE for constants (`PROGRAM_STATUS`)
+**Structure**: Declare event listeners at top level, use `DOMContentLoaded` for init
+**Patterns**: Use `const`/`let`, arrow functions, template literals, `classList` methods
+**Events**: Always use `addEventListener`, use `{ passive: true }` for touch when possible
+**Safety**: Check null/undefined before accessing properties, use optional chaining
+**Accessibility**: Include `aria-label`, `aria-expanded`, manage focus, support keyboard (Escape)
 
 ---
 
@@ -78,16 +40,8 @@ npm run sass:build
 scss/
 ├── abstracts/_variables.scss    # Colors, fonts, spacing, shadows
 ├── base/                         # Reset, typography, base styles
-│   ├── _base.scss
-│   ├── _reset.scss
-│   └── _typography.scss
 ├── layout/                       # Grid systems
-│   └── _grid.scss
 ├── components/                   # UI components
-│   ├── _navbar.scss
-│   ├── _hero.scss
-│   ├── _buttons.scss
-│   └── ...
 └── styles.scss                   # Main entry point
 ```
 
