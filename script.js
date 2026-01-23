@@ -450,9 +450,9 @@ The page will automatically update to reflect the changes!
 // Registration Configuration - EASY TO TOGGLE!
 // Set each program individually to true (open) or false (closed)
 const PROGRAM_STATUS = {
-  recreational: true,   // Rec Soccer (Birth Years: 2018-2021)
-  travel: false,        // Travel Soccer (Birth Years: 2011-2017)
-  sailors: false        // Sailors (High School Girls)
+  recreational: false,   // Rec Soccer (Birth Years: 2018-2021)
+  travel: true,          // Travel Soccer (Birth Years: 2011-2017)
+  sailors: false         // Sailors (High School Girls)
 };
 
 // Overall registration status (automatically determined from individual programs)
@@ -487,6 +487,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (openPrograms === totalPrograms) {
         heroTitle.textContent = 'Fall 2025 Registration Open Now';
         heroDescription.textContent = 'Registration is now open for the Fall 2025 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
+        registerBtn.textContent = 'Register Now';
+      } else if (openPrograms === 1 && PROGRAM_STATUS.travel) {
+        // Only Travel Soccer is open
+        heroTitle.textContent = '2026 Travel Soccer Registration Now Open';
+        heroDescription.textContent = 'Registration is now open for the 2026 Travel Spring Soccer season! Join our competitive travel program and take your soccer skills to the next level.';
         registerBtn.textContent = 'Register Now';
       } else {
         heroTitle.textContent = 'Fall 2025 Registration Open';
@@ -538,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update Travel Soccer button
     if (PROGRAM_STATUS.travel) {
       travelButton.textContent = 'Register for Travel Soccer';
-      travelButton.href = 'https://system.gotsport.com/programs/517Z58281?reg_role=player';
+      travelButton.href = 'https://system.gotsport.com/programs/804B78035?reg_role=player';
       travelButton.classList.remove('closed-state');
       travelButton.classList.add('open-state');
       travelButton.onclick = null; // Remove any click prevention
