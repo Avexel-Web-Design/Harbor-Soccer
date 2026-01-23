@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
         heroTitle.textContent = 'Fall 2025 Registration Open Now';
         heroDescription.textContent = 'Registration is now open for the Fall 2025 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
         registerBtn.textContent = 'Register Now';
-      } else if (openPrograms === 1 && PROGRAM_STATUS.travel) {
+      } else if (openPrograms === 1 && PROGRAM_STATUS.travel && !PROGRAM_STATUS.recreational && !PROGRAM_STATUS.sailors) {
         // Only Travel Soccer is open
         heroTitle.textContent = '2026 Travel Soccer Registration Now Open';
         heroDescription.textContent = 'Registration is now open for the 2026 Travel Spring Soccer season! Join our competitive travel program and take your soccer skills to the next level.';
