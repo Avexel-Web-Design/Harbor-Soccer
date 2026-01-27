@@ -450,8 +450,8 @@ The page will automatically update to reflect the changes!
 // Registration Configuration - EASY TO TOGGLE!
 // Set each program individually to true (open) or false (closed)
 const PROGRAM_STATUS = {
-  recreational: true,   // Rec Soccer (Birth Years: 2018-2021)
-  travel: false,        // Travel Soccer (Birth Years: 2011-2017)
+  recreational: false,  // Rec Soccer (Birth Years: 2018-2021)
+  travel: true,         // Travel Soccer (Birth Years: 2011-2017)
   sailors: false        // Sailors (High School Girls)
 };
 
@@ -485,11 +485,11 @@ document.addEventListener("DOMContentLoaded", function () {
       registrationSection.classList.add('registration-open');
       
       if (openPrograms === totalPrograms) {
-        heroTitle.textContent = 'Fall 2025 Registration Open Now';
-        heroDescription.textContent = 'Registration is now open for the Fall 2025 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
+        heroTitle.textContent = 'Spring 2026 Registration Open Now';
+        heroDescription.textContent = 'Registration is now open for the Spring 2026 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
         registerBtn.textContent = 'Register Now';
       } else {
-        heroTitle.textContent = 'Fall 2025 Registration Open';
+        heroTitle.textContent = 'Spring 2026 Registration Open';
         heroDescription.textContent = `Registration is currently open for ${openPrograms} of ${totalPrograms} programs. Click below to see which programs are accepting registrations.`;
         registerBtn.textContent = 'View Available Programs';
       }
@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
       registrationSection.classList.add('registration-closed');
       
       heroTitle.textContent = 'Registration Currently Closed';
-      heroDescription.textContent = 'Registration for the Fall 2025 season is currently closed. Stay tuned for updates on when registration will reopen for future seasons.';
+      heroDescription.textContent = 'Registration for the Spring 2026 season is currently closed. Stay tuned for updates on when registration will reopen for future seasons.';
       
       registerBtn.textContent = 'View Program Details';
       registerBtn.classList.remove('registration-open-btn');
@@ -538,7 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update Travel Soccer button
     if (PROGRAM_STATUS.travel) {
       travelButton.textContent = 'Register for Travel Soccer';
-      travelButton.href = 'https://system.gotsport.com/programs/517Z58281?reg_role=player';
+      travelButton.href = 'https://system.gotsport.com/programs/804B78035?reg_role=player';
       travelButton.classList.remove('closed-state');
       travelButton.classList.add('open-state');
       travelButton.onclick = null; // Remove any click prevention
