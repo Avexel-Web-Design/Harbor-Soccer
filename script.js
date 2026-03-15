@@ -450,8 +450,8 @@ The page will automatically update to reflect the changes!
 // Registration Configuration - EASY TO TOGGLE!
 // Set each program individually to true (open) or false (closed)
 const PROGRAM_STATUS = {
-  recreational: false,  // Rec Soccer (Birth Years: 2018-2021)
-  travel: true,         // Travel Soccer (Birth Years: 2011-2017)
+  recreational: true,   // Rec Soccer (Birth Years: 2018-2021)
+  travel: false,        // Travel Soccer (Birth Years: 2011-2017)
   sailors: false        // Sailors (High School Girls)
 };
 
@@ -488,6 +488,10 @@ document.addEventListener("DOMContentLoaded", function () {
         heroTitle.textContent = 'Spring 2026 Registration Open Now';
         heroDescription.textContent = 'Registration is now open for the Spring 2026 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.';
         registerBtn.textContent = 'Register Now';
+      } else if (openPrograms === 1 && PROGRAM_STATUS.recreational) {
+        heroTitle.textContent = 'Spring 2026 Registration Open';
+        heroDescription.textContent = 'Rec registration is open through April 13. Click below to see which programs are currently accepting registrations.';
+        registerBtn.textContent = 'View Available Programs';
       } else {
         heroTitle.textContent = 'Spring 2026 Registration Open';
         heroDescription.textContent = `Registration is currently open for ${openPrograms} of ${totalPrograms} programs. Click below to see which programs are accepting registrations.`;
@@ -523,7 +527,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update Recreational Soccer button
     if (PROGRAM_STATUS.recreational) {
       recButton.textContent = 'Register for Rec Soccer';
-      recButton.href = 'https://system.gotsport.com/programs/C26712908';
+      recButton.href = 'https://system.gotsport.com/programs/55034K959?reg_role=player';
       recButton.classList.remove('closed-state');
       recButton.classList.add('open-state');
       recButton.onclick = null; // Remove any click prevention
