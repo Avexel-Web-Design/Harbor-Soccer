@@ -32,13 +32,15 @@
     padding: 0 2rem;
     z-index: 10;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@keyframes heroFloat {
-
+@keyframes hero-float {
     0%,
     100% {
-        transform: translateY(0px) scale(1);
+        transform: translateY(0) scale(1);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
@@ -77,6 +79,12 @@
 
     &:hover {
         transform: scale(1.05);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-logo-image {
+        transition: none;
     }
 }
 

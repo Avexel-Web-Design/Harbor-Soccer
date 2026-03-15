@@ -14,6 +14,8 @@
     box-shadow: 0 4px 15px rgba($color-primary, 0.3);
     position: relative;
     overflow: hidden;
+    border: none;
+    cursor: pointer;
 
     &::before {
         content: "";
@@ -56,6 +58,8 @@
     transition: all $transition-base;
     box-shadow: 0 6px 20px rgba($color-primary, 0.3);
     margin-top: $spacing-sm;
+    border: none;
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-3px);
@@ -82,7 +86,6 @@
         background: linear-gradient(135deg, #6c757d, #5a6268);
         box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
         opacity: 0.8;
-        cursor: not-allowed;
 
         &:hover {
             background: linear-gradient(135deg, #5a6268, #495057);

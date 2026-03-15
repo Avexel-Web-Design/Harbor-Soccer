@@ -116,7 +116,7 @@
 /* ===== SPONSORS SECTION STYLING (from sponsors.scss) ===== */
 
 .current-sponsors {
-    margin: 2rem 0 4rem 0;
+    margin: 2rem 0 4rem;
 
     h3 {
         font-family: $font-primary;
@@ -173,15 +173,6 @@
     margin-top: 2rem;
     padding: 0 1rem;
 
-    &:has(> .sponsor-item:only-child) {
-        justify-content: center;
-
-        .sponsor-item {
-            max-width: 400px;
-            flex: none;
-        }
-    }
-
     @media (max-width: $breakpoint-tablet) {
         flex-direction: column;
         align-items: center;
@@ -207,11 +198,9 @@
     min-height: 180px;
     flex: 1 1 280px;
     max-width: 350px;
-
-    /* Animation for sponsor items when they come into view */
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
+    animation: fade-in-up 0.6s ease forwards;
 
     @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
@@ -237,7 +226,7 @@
         color: $color-black;
         margin: 0;
         line-height: 1.4;
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem;
         flex-shrink: 0;
     }
 
@@ -286,6 +275,19 @@
     }
 }
 
+.sponsors-grid:has(> .sponsor-item:only-child) {
+    justify-content: center;
+
+    >.sponsor-item {
+        max-width: 400px;
+        flex: none;
+    }
+}
+
+.sponsor-item--static {
+    cursor: default;
+}
+
 .sponsor-logo {
     max-width: 120px;
     max-height: 80px;
@@ -306,7 +308,7 @@
     }
 }
 
-@keyframes fadeInUp {
+@keyframes fade-in-up {
     to {
         opacity: 1;
         transform: translateY(0);

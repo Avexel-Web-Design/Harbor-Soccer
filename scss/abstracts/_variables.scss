@@ -14,13 +14,19 @@ $color-secondary-dark: #234880;
 $color-secondary-light: #3d6bb3;
 
 // Neutral Colors
-$color-black: #000000;
-$color-white: #ffffff;
-$color-text: #333333;
-$color-text-light: #555555;
-$color-text-lighter: #666666;
-$color-text-muted: #777777;
+$color-black: #000;
+$color-white: #fff;
+$color-text: #333;
+$color-text-light: #555;
+$color-text-lighter: #666;
+$color-text-muted: #777;
 $color-bg-light: #f8f9fa;
+$color-surface-soft: #fafbfc;
+$color-surface-muted: #e9ecef;
+$color-border: #e1e5e9;
+$color-border-strong: #d6d6d6;
+$color-overlay: rgba(0, 0, 0, 0.68);
+$color-facebook: #1877f2;
 
 // Utility Colors
 $color-success: #28a745;
@@ -30,7 +36,7 @@ $color-warning: #ffa500;
 // ============================================
 // Typography
 // ============================================
-$font-primary: "Junicode", Georgia, "Times New Roman", serif;
+$font-primary: "Junicode", georgia, "Times New Roman", serif;
 $font-sans: "Inter", sans-serif;
 
 // Font Weights

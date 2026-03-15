@@ -1,5 +1,15 @@
+@use '../abstracts/variables' as *;
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 3rem;
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 0 1.5rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 0 1rem;
+    }
 }

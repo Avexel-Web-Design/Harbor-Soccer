@@ -19,8 +19,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.75rem;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+
+    img {
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: contain;
+    }
+}
+
+.logo-text {
+    font-family: $font-primary;
 }
 
 .footer-links {
@@ -46,4 +62,26 @@
     margin: 0.5rem 0;
     font-size: 0.9rem;
     color: #ccc;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-icon img {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
 }
