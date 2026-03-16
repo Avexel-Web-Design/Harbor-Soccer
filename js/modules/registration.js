@@ -35,10 +35,14 @@ const REGISTRATION_COPY = {
       'Registration is now open for the Spring 2026 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.',
     buttonLabel: 'Register Now',
   },
-  partialOpen: {
+  recOnlyOpen: {
     title: 'Spring 2026 Registration Open',
     description:
       'Rec registration is open through April 13. Click below to see which programs are currently accepting registrations.',
+    buttonLabel: 'View Available Programs',
+  },
+  partialOpen: {
+    title: 'Spring 2026 Registration Open',
     buttonLabel: 'View Available Programs',
   },
   closed: {
@@ -49,9 +53,29 @@ const REGISTRATION_COPY = {
   },
 };
 
+function getRegistrationCopy(openPrograms, totalPrograms) {
+  if (openPrograms === 0) {
+    return REGISTRATION_COPY.closed;
+  }
+
+  if (openPrograms === totalPrograms) {
+    return REGISTRATION_COPY.allOpen;
+  }
+
+  if (openPrograms === 1 && PROGRAM_STATUS.recreational.isOpen) {
+    return REGISTRATION_COPY.recOnlyOpen;
+  }
+
+  return {
+    ...REGISTRATION_COPY.partialOpen,
+    description: `Registration is currently open for ${openPrograms} of ${totalPrograms} programs. Click below to see which programs are currently accepting registrations.`,
+  };
+}
+
 export function initRegistration() {
   const registrationSection = document.querySelector('.registration');
-  const registrationHero = registrationSection?.querySelector('.registration-hero');
+  const registrationHero =
+    registrationSection?.querySelector('.registration-hero');
   const registerButton = document.getElementById('register-btn');
 
   if (!registrationSection || !registrationHero || !registerButton) {
@@ -62,16 +86,14 @@ export function initRegistration() {
   const heroDescription = registrationHero.querySelector('.registration-intro');
   const programButtons = $$('[data-program-key]');
 
-  const openPrograms = Object.values(PROGRAM_STATUS).filter((program) => program.isOpen).length;
+  const openPrograms = Object.values(PROGRAM_STATUS).filter(
+    (program) => program.isOpen,
+  ).length;
   const totalPrograms = Object.keys(PROGRAM_STATUS).length;
   const isRegistrationOpen = openPrograms > 0;
 
   if (heroTitle && heroDescription) {
-    const activeCopy = !isRegistrationOpen
-      ? REGISTRATION_COPY.closed
-      : openPrograms === totalPrograms
-        ? REGISTRATION_COPY.allOpen
-        : REGISTRATION_COPY.partialOpen;
+    const activeCopy = getRegistrationCopy(openPrograms, totalPrograms);
 
     heroTitle.textContent = activeCopy.title;
     heroDescription.textContent = activeCopy.description;
@@ -79,9 +101,15 @@ export function initRegistration() {
   }
 
   registrationSection.classList.toggle('registration-open', isRegistrationOpen);
-  registrationSection.classList.toggle('registration-closed', !isRegistrationOpen);
+  registrationSection.classList.toggle(
+    'registration-closed',
+    !isRegistrationOpen,
+  );
   registerButton.classList.toggle('registration-open-btn', isRegistrationOpen);
-  registerButton.classList.toggle('registration-closed-btn', !isRegistrationOpen);
+  registerButton.classList.toggle(
+    'registration-closed-btn',
+    !isRegistrationOpen,
+  );
 
   programButtons.forEach((button) => {
     const programKey = button.dataset.programKey;
@@ -91,7 +119,9 @@ export function initRegistration() {
       return;
     }
 
-    button.textContent = program.isOpen ? program.actionLabel : program.closedLabel;
+    button.textContent = program.isOpen
+      ? program.actionLabel
+      : program.closedLabel;
     button.classList.toggle('open-state', program.isOpen);
     button.classList.toggle('closed-state', !program.isOpen);
     button.classList.toggle('is-disabled', !program.isOpen);
