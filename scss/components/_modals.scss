@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as *;
+@use 'sass:color';
 
 .modal {
     position: fixed;
@@ -6,13 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: $spacing-lg $spacing-sm;
     background-color: rgba($color-black, 0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity $transition-base, visibility $transition-base;
+    transition:
+        opacity $transition-base,
+        visibility $transition-base;
     z-index: 1005;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -26,15 +30,15 @@
 
 .modal-content {
     background-color: $color-white;
-    padding: 2rem;
+    padding: $spacing-xl;
     border: none;
     border-radius: $radius-lg;
-    width: min(90%, 1200px);
+    width: min(90%, 1100px);
     max-height: min(90vh, 90dvh);
-    box-shadow: 0 20px 40px rgba($color-black, 0.2);
+    box-shadow: $shadow-xl;
     position: relative;
     overflow: auto;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     transition: transform $transition-base;
 
     .modal.is-active & {
@@ -44,8 +48,8 @@
     h2 {
         color: $color-secondary;
         text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 2.2rem;
+        margin-bottom: $spacing-md;
+        font-size: 2rem;
         font-family: $font-primary;
         font-weight: $font-weight-bold;
         position: relative;
@@ -53,160 +57,161 @@
         &::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, $color-primary, #ff6b35);
+            background: linear-gradient(
+                90deg,
+                $color-primary,
+                $color-secondary
+            );
             border-radius: 2px;
         }
     }
 
-    >p {
+    > p {
         text-align: center;
-        margin-bottom: 2rem;
-        color: $color-text-lighter;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        max-width: 640px;
+        margin-bottom: $spacing-lg;
+        color: $color-text-light;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
 
     @media (max-width: $breakpoint-tablet) {
         width: min(92%, 900px);
-        padding: 2rem;
+        padding: $spacing-lg;
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.75rem;
 
             &::after {
-                width: 50px;
+                width: 40px;
                 height: 2px;
-                bottom: -6px;
+                bottom: -5px;
             }
         }
     }
 
     @media (max-width: $breakpoint-mobile) {
         width: 95%;
-        padding: 1.5rem;
+        padding: $spacing-md;
         border-radius: $radius-md;
 
         h2 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: $spacing-sm;
         }
 
-        >p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+        > p {
+            font-size: 0.95rem;
+            margin-bottom: $spacing-md;
         }
     }
 }
 
 .modal-close {
     color: $color-text-lighter;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: $font-weight-bold;
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
+    top: 0.75rem;
+    right: 1rem;
     cursor: pointer;
-    transition: transform $transition-base, background-color $transition-base, color $transition-base, box-shadow $transition-base;
-    width: 44px;
-    height: 44px;
+    transition:
+        transform $transition-base,
+        background-color $transition-base,
+        color $transition-base;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     -webkit-tap-highlight-color: transparent;
     z-index: 2;
-    background: rgba($color-white, 0.92);
-    border: 2px solid rgba(170, 170, 170, 0.3);
-    box-shadow: 0 2px 8px rgba($color-black, 0.1);
+    background: $color-bg-light;
+    border: 1px solid $color-border;
 
     &:hover,
     &:focus-visible {
         color: $color-white;
         background: $color-error;
         border-color: $color-error;
-        transform: scale(1.1);
-        box-shadow: 0 4px 12px rgba($color-error, 0.3);
+        transform: scale(1.05);
         outline: none;
     }
 
     @media (max-width: $breakpoint-tablet) {
         font-size: 24px;
-        top: 0.8rem;
-        right: 1.2rem;
+        width: 36px;
+        height: 36px;
+        top: 0.6rem;
+        right: 0.8rem;
     }
 }
 
 .program-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
 
     @media (max-width: $breakpoint-tablet) {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        gap: 1.2rem;
-        margin-top: 1rem;
+        gap: $spacing-sm;
     }
 }
 
 .program-option {
-    background: linear-gradient(135deg, $color-bg-light 0%, $color-surface-muted 100%);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 2px solid transparent;
-    transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+    background: $color-bg-light;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
     text-align: center;
     display: flex;
     flex-direction: column;
-    min-height: 280px;
+    min-height: 260px;
 
     &:hover {
-        border-color: $color-primary;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba($color-primary, 0.1);
+        border-color: rgba($color-primary, 0.2);
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
     }
 
     h3 {
         color: $color-secondary;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.35rem;
     }
 
     p {
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
         color: $color-text-light;
         line-height: 1.6;
+        font-size: 0.95rem;
     }
 
     @media (max-width: $breakpoint-tablet) {
-        padding: 1.5rem;
-        min-height: 260px;
+        padding: $spacing-md;
+        min-height: auto;
     }
 
     @media (max-width: $breakpoint-mobile) {
-        padding: 1.2rem;
-        min-height: 250px;
-
         h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
         }
 
         p {
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
         }
     }
 }
@@ -215,26 +220,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
-    border-radius: 25px;
+    padding: 0.7rem $spacing-md;
+    border-radius: $radius-pill;
     text-decoration: none;
     font-weight: $font-weight-semibold;
+    font-family: $font-sans;
     text-align: center;
-    transition: transform $transition-base, box-shadow $transition-base, background-color $transition-base, opacity $transition-base;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
     margin-top: auto;
-    font-size: 1rem;
+    font-size: 0.95rem;
     border: none;
     cursor: pointer;
     min-height: 44px;
     width: 100%;
     box-sizing: border-box;
-    align-self: stretch;
     color: $color-white;
 
     &.is-disabled,
     &[aria-disabled='true'] {
-        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
-        opacity: 0.72;
+        background: $color-disabled;
+        opacity: 0.7;
         cursor: not-allowed;
         box-shadow: none;
 
@@ -243,68 +251,66 @@
             box-shadow: none;
         }
     }
-
-    @media (max-width: $breakpoint-mobile) {
-        padding: 14px 20px;
-        font-size: 1rem;
-    }
 }
 
 .rec-button {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    background: $color-success;
 
     &:hover {
-        background: linear-gradient(135deg, #218838 0%, #1ca085 100%);
+        background: color.adjust($color-success, $lightness: -8%);
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        box-shadow: 0 4px 12px rgba($color-success, 0.25);
     }
 }
 
 .travel-button {
-    background: linear-gradient(135deg, $color-primary 0%, #ffa500 100%);
+    background: $color-primary;
 
     &:hover {
-        background: linear-gradient(135deg, #e67e00 0%, #ff9500 100%);
+        background: $color-primary-dark;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba($color-primary, 0.3);
+        box-shadow: 0 4px 12px rgba($color-primary, 0.25);
     }
 }
 
 .sailors-button {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    background: $color-secondary;
 
     &:hover {
-        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        background: $color-secondary-dark;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+        box-shadow: 0 4px 12px rgba($color-secondary, 0.25);
     }
 }
 
 .sponsorship-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: $spacing-lg;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-md;
     margin-top: $spacing-xl;
 
     @media (max-width: $breakpoint-tablet) {
         grid-template-columns: 1fr;
-        gap: $spacing-md;
+        gap: $spacing-sm;
         margin-top: $spacing-lg;
     }
 }
 
 .sponsorship-tier {
-    background: linear-gradient(135deg, $color-white 0%, $color-surface-soft 100%);
+    background: $color-white;
     padding: $spacing-xl;
     border-radius: $radius-lg;
-    border: 2px solid $color-border;
-    transition: all $transition-smooth;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba($color-black, 0.08);
+    box-shadow: $shadow-sm;
     display: flex;
     flex-direction: column;
-    min-height: 420px;
+    min-height: 380px;
 
     &::before {
         content: '';
@@ -312,41 +318,33 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
+        height: 3px;
         background: linear-gradient(90deg, $color-primary, $color-secondary);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform $transition-smooth;
     }
 
     &:hover {
-        border-color: $color-primary;
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba($color-primary, 0.15);
-
-        &::before {
-            transform: scaleX(1);
-        }
+        border-color: rgba($color-primary, 0.2);
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
     }
 
     h3 {
         color: $color-secondary;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: $spacing-md;
         font-weight: $font-weight-bold;
     }
 
     @media (max-width: $breakpoint-tablet) {
         padding: $spacing-lg;
-        min-height: 380px;
+        min-height: auto;
     }
 
     @media (max-width: $breakpoint-mobile) {
         padding: $spacing-md;
-        min-height: 350px;
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
         }
     }
 }
@@ -356,12 +354,13 @@
     margin-bottom: $spacing-md;
 
     h4 {
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-sm;
         color: $color-text;
         font-weight: $font-weight-semibold;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        font-size: 0.85rem;
+        font-family: $font-sans;
     }
 
     ul {
@@ -371,30 +370,30 @@
     }
 
     li {
-        padding: $spacing-sm 0;
+        padding: $spacing-xs 0;
         padding-left: $spacing-lg;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: $color-text-light;
         position: relative;
         line-height: 1.6;
 
         &::before {
-            content: '✓';
+            content: '\2713';
             position: absolute;
             left: 0;
             color: $color-success;
             font-weight: $font-weight-bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        &+li {
-            border-top: 1px solid rgba($color-black, 0.05);
+        & + li {
+            border-top: 1px solid rgba($color-black, 0.04);
         }
 
         @media (max-width: $breakpoint-mobile) {
             padding: $spacing-xs 0;
             padding-left: $spacing-md;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
     }
 }
@@ -402,13 +401,13 @@
 .sponsorship-investment {
     margin-top: auto;
     padding: $spacing-md;
-    background: linear-gradient(135deg, rgba($color-primary, 0.08), rgba($color-secondary, 0.08));
+    background: $color-bg-light;
     border-radius: $radius-sm;
     text-align: center;
-    border: 2px solid rgba($color-primary, 0.2);
+    border: 1px solid $color-border;
 
     strong {
-        font-size: 2rem;
+        font-size: 1.75rem;
         color: $color-secondary;
         font-weight: $font-weight-bold;
         display: block;
@@ -418,7 +417,7 @@
         padding: $spacing-sm;
 
         strong {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
     }
 }
@@ -426,29 +425,29 @@
 .sponsorship-contact {
     margin-top: $spacing-xl;
     padding: $spacing-xl;
-    background: linear-gradient(135deg, rgba($color-primary, 0.05), rgba($color-secondary, 0.05));
+    background: $color-bg-light;
     border-radius: $radius-md;
-    border: 2px solid rgba($color-primary, 0.15);
+    border: 1px solid $color-border;
 
     h3 {
         color: $color-secondary;
-        margin-bottom: $spacing-md;
-        font-size: 1.6rem;
+        margin-bottom: $spacing-sm;
+        font-size: 1.4rem;
         text-align: center;
     }
 
     p {
         text-align: center;
         color: $color-text-light;
-        margin-bottom: $spacing-lg;
+        margin-bottom: $spacing-md;
     }
 
     @media (max-width: $breakpoint-mobile) {
-        padding: $spacing-lg;
+        padding: $spacing-md;
         margin-top: $spacing-lg;
 
         h3 {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
         }
     }
 }
@@ -457,12 +456,12 @@
     background: $color-white;
     padding: $spacing-lg;
     border-radius: $radius-sm;
-    border: 1px solid rgba($color-black, 0.08);
-    max-width: 600px;
+    border: 1px solid $color-border;
+    max-width: 550px;
     margin: 0 auto;
 
     p {
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-sm;
         color: $color-text;
         line-height: 1.8;
 
@@ -474,7 +473,7 @@
             color: $color-secondary;
             font-weight: $font-weight-semibold;
             display: block;
-            margin-bottom: $spacing-xs;
+            margin-bottom: 0.25rem;
         }
     }
 

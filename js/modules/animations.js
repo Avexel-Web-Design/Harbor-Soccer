@@ -6,10 +6,10 @@ export function initAos() {
   }
 
   window.AOS.init({
-    duration: prefersReducedMotion() ? 1 : 800,
-    easing: 'ease-in-out',
+    duration: prefersReducedMotion() ? 1 : 600,
+    easing: 'ease-out',
     once: true,
-    offset: 100,
+    offset: 60,
     disable: prefersReducedMotion(),
   });
 }

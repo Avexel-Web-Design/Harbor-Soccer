@@ -2,10 +2,8 @@
 
 /* Contact Section */
 .contact {
-    padding: 6rem 0;
-    background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.05),
-            rgba(255, 140, 0, 0.05));
+    padding: $spacing-3xl 0;
+    background: $color-bg-light;
     position: relative;
 }
 
@@ -13,29 +11,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: $spacing-lg;
     text-align: center;
 }
 
 .contact-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+    max-width: 1100px;
     margin: 0 auto;
     width: 100%;
 
-    @media (max-width: $breakpoint-tablet) {
-        justify-content: center;
-        gap: 1.5rem;
-        max-width: 100%;
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
     }
-}
 
-.contact-info h3 {
-    color: $color-black;
-    margin-bottom: 1.5rem;
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
 }
 
 .contact-details {
@@ -51,46 +47,38 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 2rem;
-    padding: 2rem 1.5rem;
+    padding: $spacing-lg $spacing-md;
     background: $color-white;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
     position: relative;
-    overflow: hidden;
-    flex-basis: 250px;
-    max-width: 280px;
-    min-width: 250px;
 
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         height: 3px;
         background: linear-gradient(90deg, $color-secondary, $color-primary);
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        border-radius: $radius-md $radius-md 0 0;
     }
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
-        border-color: rgba($color-primary, 0.2);
-
-        &::before {
-            opacity: 1;
-        }
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+        border-color: rgba($color-primary, 0.15);
     }
 
     h4 {
         color: $color-secondary;
-        margin-bottom: 0.8rem;
-        font-size: 1.3rem;
-        font-weight: 600;
+        margin-bottom: 0.6rem;
+        font-size: 1.15rem;
+        font-weight: $font-weight-semibold;
         text-align: center;
     }
 
@@ -98,15 +86,20 @@
         color: $color-text-light;
         margin: 0;
         line-height: 1.6;
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-align: center;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
     }
 
     a {
         color: $color-secondary;
         text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
+        font-weight: $font-weight-medium;
+        transition: color $transition-base;
+        overflow-wrap: break-word;
+        word-break: break-word;
 
         &:hover {
             color: $color-primary;
@@ -115,10 +108,7 @@
     }
 
     @media (max-width: $breakpoint-tablet) {
-        padding: 1.5rem;
-        flex-basis: 280px;
-        max-width: none;
-        min-width: 280px;
+        padding: $spacing-md;
     }
 }
 
@@ -126,20 +116,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 2.75rem;
+    height: 2.75rem;
     margin-top: 0.5rem;
-    border-radius: 999px;
-    background: rgba($color-facebook, 0.12);
+    border-radius: $radius-full;
+    background: rgba($color-facebook, 0.1);
     color: $color-facebook !important;
-    transition: transform $transition-base, background-color $transition-base, box-shadow $transition-base;
+    transition:
+        transform $transition-base,
+        background-color $transition-base,
+        box-shadow $transition-base;
 
     &:hover {
-        background: rgba($color-facebook, 0.18);
+        background: rgba($color-facebook, 0.15);
         color: $color-facebook !important;
         transform: translateY(-2px);
         text-decoration: none !important;
-        box-shadow: 0 10px 20px rgba($color-facebook, 0.18);
+        box-shadow: 0 6px 16px rgba($color-facebook, 0.15);
     }
 
     &:focus-visible {
@@ -149,6 +142,6 @@
 }
 
 .social-link-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.2rem;
+    height: 1.2rem;
 }

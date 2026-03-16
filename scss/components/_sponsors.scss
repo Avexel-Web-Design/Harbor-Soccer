@@ -1,104 +1,111 @@
 @use '../abstracts/variables' as *;
 
-/* Support Section (from styles.scss) */
+/* Support Section */
 .support {
-    padding: 6rem 0;
+    padding: $spacing-3xl 0;
     background: $color-white;
     position: relative;
 }
 
 .support-content {
-    margin-top: 2rem;
+    margin-top: $spacing-lg;
 }
 
 .support-intro {
     text-align: center;
-    margin-bottom: 4rem;
-    max-width: 800px;
+    margin-bottom: $spacing-2xl;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
 
     p {
         color: $color-text-light;
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+        margin-bottom: $spacing-sm;
+        line-height: 1.75;
     }
 }
 
 .support-actions {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: $spacing-lg;
     flex-wrap: wrap;
 }
 
 .sponsorship-section {
     text-align: center;
     background: $color-bg-light;
-    padding: 3rem;
-    border-radius: 15px;
-    max-width: 800px;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border;
+    max-width: 700px;
     margin: 0 auto;
 
     h4 {
         color: $color-black;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     p {
         color: $color-text-light;
-        margin-bottom: 2rem;
+        margin-bottom: $spacing-lg;
     }
 }
 
 .sponsorship-button {
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    padding: 0.9rem 2rem;
+    background: $color-primary;
     color: $color-white;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: $radius-pill;
+    font-size: 1.05rem;
+    font-weight: $font-weight-semibold;
+    font-family: $font-sans;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.2);
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba($color-primary, 0.4);
+        box-shadow: 0 6px 20px rgba($color-primary, 0.3);
+        background: $color-primary-dark;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 3px;
     }
 }
 
 .sponsorship-contact-simple {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-border;
 }
 
 .coordinator-card-simple {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 
     h5 {
         color: $color-text-lighter;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 0.5rem;
-    }
-
-    h4 {
-        color: $color-secondary;
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.35rem;
+        font-family: $font-sans;
     }
 }
 
 .coordinator-email {
     color: $color-primary;
-    font-weight: 600;
+    font-weight: $font-weight-semibold;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.2s ease;
+    font-size: 1rem;
+    transition: color $transition-base;
 
     &:hover {
         color: $color-primary-dark;
@@ -107,180 +114,106 @@
 }
 
 .contact-note-simple {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: $color-text-lighter;
     font-style: italic;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
 }
 
-/* ===== SPONSORS SECTION STYLING (from sponsors.scss) ===== */
+/* ===== SPONSORS GRID ===== */
 
 .current-sponsors {
-    margin: 2rem 0 4rem;
+    margin: $spacing-lg 0 $spacing-2xl;
+    text-align: center;
 
     h3 {
         font-family: $font-primary;
-        font-size: 1.75rem;
-        font-weight: 600;
-        color: #000;
-        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: $font-weight-semibold;
+        color: $color-black;
+        margin-bottom: 0.75rem;
         text-align: center;
     }
 
-    >p {
-        font-family: $font-primary;
-        font-size: 1.1rem;
-        color: $color-text-lighter;
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.6;
-    }
-
     @media (max-width: $breakpoint-tablet) {
-        margin: 2rem 0;
+        margin: $spacing-lg 0;
 
         h3 {
-            font-size: 1.5rem;
-        }
-
-        >p {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            padding: 0 1rem;
-        }
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        h3 {
-            font-size: 1.6rem;
-        }
-
-        >p {
-            font-size: 0.95rem;
+            font-size: 1.35rem;
         }
     }
 }
 
-/* Sponsors Grid */
+/* Sponsors Grid — proper grid, no overlap */
 .sponsors-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     @media (max-width: $breakpoint-tablet) {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-sm;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 .sponsor-item {
-    background: #fff;
-    border: 2px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 2rem;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: $spacing-md;
     text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
+    box-shadow: $shadow-sm;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 180px;
-    flex: 1 1 280px;
-    max-width: 350px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade-in-up 0.6s ease forwards;
-
-    @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-            animation-delay: #{$i * 0.1}s;
-        }
-    }
+    min-height: 160px;
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
-        border-color: #3498db;
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+        border-color: rgba($color-secondary, 0.2);
     }
 
     &:focus-within {
-        outline: 2px solid #3498db;
+        outline: 2px solid $color-secondary;
         outline-offset: 2px;
     }
 
     h4 {
-        font-family: $font-primary;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: $color-black;
+        font-family: $font-sans;
+        font-size: 0.9rem;
+        font-weight: $font-weight-semibold;
+        color: $color-text;
         margin: 0;
         line-height: 1.4;
-        padding: 0.5rem;
-        flex-shrink: 0;
     }
 
     @media (max-width: $breakpoint-tablet) {
-        padding: 1.5rem;
-        min-height: 150px;
-        width: 100%;
-        max-width: 400px;
-        flex: none;
+        padding: $spacing-sm;
+        min-height: 140px;
 
         h4 {
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        padding: 1.2rem 0.8rem;
-
-        h4 {
-            font-size: 1rem;
-        }
-    }
-
-    @media (prefers-color-scheme: dark) {
-        background: #fff;
-        border-color: #e5e5e5;
-        color: #333;
-
-        &:hover {
-            border-color: #3498db;
-        }
-
-        h4 {
-            color: $color-black;
-        }
-    }
-
-    @media print {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-
-        &:hover {
-            transform: none;
-        }
-    }
-}
-
-.sponsors-grid:has(> .sponsor-item:only-child) {
-    justify-content: center;
-
-    >.sponsor-item {
-        max-width: 400px;
-        flex: none;
     }
 }
 
@@ -289,11 +222,11 @@
 }
 
 .sponsor-logo {
-    max-width: 120px;
-    max-height: 80px;
+    max-width: 110px;
+    max-height: 70px;
     width: auto;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     object-fit: contain;
     flex-shrink: 0;
     display: block;
@@ -305,12 +238,5 @@
 
     @media (max-width: $breakpoint-mobile) {
         max-height: 50px;
-    }
-}
-
-@keyframes fade-in-up {
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

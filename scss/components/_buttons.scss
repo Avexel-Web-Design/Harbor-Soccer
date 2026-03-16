@@ -1,43 +1,40 @@
 @use '../abstracts/variables' as *;
 @use 'sass:color';
 
+/* ============================================
+   Unified Button System
+   ============================================ */
+
+// Primary Button — main CTAs (registration, hero)
 .cta-button {
     display: inline-block;
-    padding: $spacing-sm $spacing-lg;
-    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    padding: 1rem 2.5rem;
+    background: $color-primary;
     color: $color-black;
     text-decoration: none;
     border-radius: $radius-pill;
     font-weight: $font-weight-semibold;
-    font-size: 1.2rem;
-    transition: all $transition-base;
-    box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+    font-size: 1.1rem;
+    font-family: $font-sans;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
+    box-shadow: 0 4px 16px rgba($color-primary, 0.25);
     position: relative;
     overflow: hidden;
     border: none;
     cursor: pointer;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent);
-        transition: left 0.6s ease;
-    }
+    letter-spacing: 0.01em;
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba($color-primary, 0.4);
+        box-shadow: 0 6px 24px rgba($color-primary, 0.35);
+        background: color.adjust($color-primary, $lightness: 4%);
+    }
 
-        &::before {
-            left: 100%;
-        }
+    &:active {
+        transform: translateY(0);
     }
 
     &:focus-visible {
@@ -46,24 +43,34 @@
     }
 }
 
+// Register Button — large CTA for registration section
 .register-button {
     display: inline-block;
-    padding: 1.2rem 3rem;
-    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    padding: 1.1rem 3rem;
+    background: $color-primary;
     color: $color-white;
     text-decoration: none;
     border-radius: $radius-pill;
     font-weight: $font-weight-semibold;
-    font-size: 1.3rem;
-    transition: all $transition-base;
-    box-shadow: 0 6px 20px rgba($color-primary, 0.3);
+    font-size: 1.2rem;
+    font-family: $font-sans;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
+    box-shadow: 0 6px 20px rgba($color-primary, 0.25);
     margin-top: $spacing-sm;
     border: none;
     cursor: pointer;
 
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba($color-primary, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba($color-primary, 0.35);
+        background: $color-primary-dark;
+    }
+
+    &:active {
+        transform: translateY(0);
     }
 
     &:focus-visible {
@@ -72,25 +79,22 @@
     }
 
     &.registration-open-btn {
-        background: linear-gradient(135deg, $color-primary, $color-primary-dark);
-        box-shadow: 0 6px 20px rgba($color-primary, 0.3);
+        background: $color-primary;
 
         &:hover {
-            background: linear-gradient(135deg, $color-primary-dark, color.adjust($color-primary-dark, $lightness: -5%));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba($color-primary, 0.4);
+            background: $color-primary-dark;
         }
     }
 
     &.registration-closed-btn {
-        background: linear-gradient(135deg, #6c757d, #5a6268);
-        box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
-        opacity: 0.8;
+        background: $color-disabled;
+        box-shadow: 0 4px 12px rgba($color-disabled, 0.2);
+        opacity: 0.85;
 
         &:hover {
-            background: linear-gradient(135deg, #5a6268, #495057);
+            background: $color-disabled-dark;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+            box-shadow: 0 6px 16px rgba($color-disabled, 0.3);
         }
     }
 }

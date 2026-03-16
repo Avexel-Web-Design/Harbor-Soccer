@@ -2,7 +2,7 @@
 
 /* Programs Section */
 .programs {
-    padding: 6rem 0;
+    padding: $spacing-3xl 0;
     background: $color-white;
     position: relative;
 }
@@ -10,17 +10,13 @@
 .programs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    max-width: 1400px;
+    gap: $spacing-lg;
     margin: $spacing-lg auto;
 
-    @media (width <=1000px) {
+    @media (max-width: 1000px) {
         grid-template-columns: 1fr;
         gap: $spacing-md;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-        gap: $spacing-md;
+        max-width: 600px;
     }
 }
 
@@ -32,40 +28,71 @@
     border-radius: $radius-md;
     box-shadow: $shadow-md;
     padding: $spacing-lg;
-    transition: transform $transition-base, box-shadow $transition-base;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base;
+    border: 1px solid rgba($color-black, 0.04);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $color-primary;
+        transform: scaleX(0);
+        transition: transform $transition-base;
+    }
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: $shadow-xl;
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+
+    // Unique accent colors per program
+    &:nth-child(1)::before {
+        background: $color-primary;
+    }
+
+    &:nth-child(2)::before {
+        background: $color-secondary;
+    }
+
+    &:nth-child(3)::before {
+        background: linear-gradient(90deg, $color-secondary, $color-primary);
     }
 }
 
 .card-title {
     color: $color-black;
     text-align: center;
-    margin-bottom: 0.75rem;
-    white-space: nowrap;
-
-    /* Prevents wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    /* Shows ellipsis if text overflows */
+    margin-bottom: 0.5rem;
     font-size: 1.5rem;
+    font-family: $font-primary;
 }
 
 .card-subtitle {
     color: $color-primary;
     text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 500;
+    margin-bottom: $spacing-md;
+    font-size: 1.05rem;
+    font-weight: $font-weight-medium;
+    font-family: $font-sans;
     font-style: italic;
 }
 
 .card-description {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: $color-text-light;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 .card-features {
@@ -74,15 +101,17 @@
 
     li {
         padding: $spacing-xs 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $color-border-light;
         position: relative;
         padding-left: $spacing-md;
+        font-size: 0.95rem;
+        color: $color-text;
 
         &::before {
-            content: "⚽";
+            content: '\26BD';
             position: absolute;
             left: 0;
-            color: $color-primary;
+            font-size: 0.85rem;
         }
 
         &:last-child {
@@ -96,10 +125,12 @@
     color: $color-text-lighter;
     text-align: center;
     margin: 1rem 0 0;
+    font-size: 0.95rem;
 
     a {
         color: $color-primary;
         text-decoration: none;
+        font-weight: $font-weight-medium;
 
         &:hover {
             text-decoration: underline;
@@ -110,28 +141,30 @@
 /* Contact Info Box for Sailors Program */
 .contact-info-box {
     background: $color-bg-light;
-    border: 2px solid $color-primary;
+    border: 2px solid rgba($color-primary, 0.2);
     border-radius: $radius-md;
     padding: $spacing-md;
-    margin-top: $spacing-md;
+    margin-top: auto;
     text-align: center;
-    transition: all $transition-base;
+    transition:
+        border-color $transition-base,
+        box-shadow $transition-base;
 
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba($color-primary, 0.2);
+        border-color: rgba($color-primary, 0.4);
+        box-shadow: 0 4px 16px rgba($color-primary, 0.1);
     }
 
     h5 {
         color: $color-secondary;
         margin-bottom: $spacing-sm;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: $font-weight-semibold;
     }
 
     p {
         margin: 0;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     a {
@@ -139,17 +172,21 @@
         text-decoration: none;
         font-weight: $font-weight-semibold;
         padding: $spacing-xs $spacing-sm;
-        border-radius: $radius-xl;
-        background: rgba($color-primary, 0.1);
-        border: 1px solid rgba($color-primary, 0.3);
+        border-radius: $radius-sm;
+        background: rgba($color-primary, 0.08);
+        border: 1px solid rgba($color-primary, 0.2);
         display: inline-block;
         margin-top: $spacing-xs;
-        transition: all $transition-base;
+        transition:
+            background-color $transition-base,
+            color $transition-base;
+        word-break: break-all;
+        max-width: 100%;
+        font-size: 0.9rem;
 
         &:hover {
             background: $color-primary;
             color: $color-white;
-            transform: translateY(-1px);
         }
 
         &:focus-visible {

@@ -2,186 +2,257 @@
 
 /* About Section */
 .about {
-    padding: 6rem 0;
+    padding: $spacing-3xl 0;
     background: $color-white;
     position: relative;
 }
 
 .about-content {
-    margin-top: 2rem;
+    margin-top: $spacing-lg;
 }
 
+/* Sub-section shared spacing */
+.about-story,
+.about-memberships,
+.about-board,
+.about-bylaws,
+.about-conduct,
+.testimonials {
+    margin-bottom: $spacing-3xl;
+    padding-bottom: $spacing-2xl;
+    border-bottom: 1px solid $color-border-light;
+
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    // Center all sub-section headings
+    > h3 {
+        text-align: center;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+/* Mission */
 .about-story {
-    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 
-    h3 {
-        color: $color-black;
-        margin-bottom: 1.5rem;
+    p {
+        color: $color-text-light;
+        line-height: 1.8;
+        text-align: left;
     }
 }
 
-.about-memberships {
-    margin-bottom: 4rem;
-
-    h3 {
-        color: $color-black;
-        margin-bottom: 2rem;
-    }
-}
-
+/* Memberships */
 .memberships-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+    max-width: 700px;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .membership-item {
     text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg,
-            rgba($color-primary, 0.1),
-            rgba($color-primary, 0.05));
-    border-radius: 10px;
-    border: 2px solid rgba($color-primary, 0.2);
-    transition: transform 0.3s ease;
+    padding: $spacing-lg;
+    background: $color-bg-light;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        border-color $transition-base,
+        box-shadow $transition-base;
+    text-decoration: none;
 
     &:hover {
-        transform: translateY(-3px);
-        border-color: rgba($color-primary, 0.4);
+        transform: translateY(-4px);
+        border-color: rgba($color-primary, 0.3);
+        box-shadow: $shadow-md;
     }
 
     h4 {
         color: $color-primary;
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-
-    p {
-        color: $color-text;
-        font-weight: 500;
-        margin: 0;
-        font-size: 1.1rem;
-    }
-}
-
-.about-board {
-    margin-bottom: 4rem;
-
-    h3 {
-        color: $color-black;
-        margin-bottom: 2rem;
-    }
-}
-
-.about-bylaws {
-    background: linear-gradient(135deg, $color-bg-light 0%, #e9ecef 100%);
-    border-radius: $radius-lg;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 4rem;
-
-    h3 {
-        color: $color-black;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
+        margin-bottom: 0.35rem;
+        font-size: 1.4rem;
+        font-weight: $font-weight-bold;
     }
 
     p {
         color: $color-text-light;
-        margin-bottom: 1.5rem;
-        font-size: 1.05rem;
+        font-weight: $font-weight-medium;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+/* Board Members */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.board-member {
+    text-align: center;
+    padding: $spacing-md;
+    background: $color-white;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-md;
+    }
+
+    h4 {
+        color: $color-secondary;
+        margin-bottom: 0.35rem;
+        font-size: 1rem;
+        font-weight: $font-weight-semibold;
+    }
+
+    p {
+        color: $color-text;
+        font-weight: $font-weight-medium;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .board-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        padding: 0.4rem 1rem;
+        color: $color-secondary;
+        font-size: 0.85rem;
+        text-decoration: none;
+        border-radius: $radius-pill;
+        border: 1px solid $color-border;
+        transition:
+            color $transition-base,
+            border-color $transition-base,
+            background-color $transition-base;
+        font-weight: $font-weight-medium;
+        background: transparent;
+
+        &:hover {
+            color: $color-primary;
+            border-color: $color-primary;
+            background: rgba($color-primary, 0.04);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-primary;
+            outline-offset: 2px;
+        }
+    }
+}
+
+/* Bylaws */
+.about-bylaws {
+    background: $color-bg-light;
+    border-radius: $radius-lg;
+    padding: $spacing-xl;
+    text-align: center;
+    border: 1px solid $color-border;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
+    }
+
+    p {
+        color: $color-text-light;
+        margin-bottom: $spacing-md;
+        font-size: 1rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 .bylaws-button {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+    padding: 0.7rem 1.8rem;
+    background: $color-primary;
     color: $color-white;
     text-decoration: none;
     border-radius: $radius-pill;
     font-weight: $font-weight-semibold;
-    font-size: 1.1rem;
-    transition: all $transition-base;
-    box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+    font-size: 1rem;
+    font-family: $font-sans;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.2);
 
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba($color-primary, 0.4);
-    }
-}
-
-.board-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.board-member {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($color-primary, 0.3);
+        background: $color-primary-dark;
     }
 
-    h4 {
-        color: $color-primary;
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-    }
-
-    p {
-        color: $color-text;
-        font-weight: 500;
-        margin: 0;
-    }
-
-    .board-link {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.6rem 1.2rem;
-        background-color: $color-primary;
-        color: $color-white;
-        font-size: 0.9rem;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color $transition-base, transform $transition-base;
-        font-weight: $font-weight-semibold;
-
-        &:hover {
-            background-color: $color-primary-dark;
-            transform: scale(1.05);
-        }
+    &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 3px;
     }
 }
 
 /* Code of Conduct Section */
 .about-conduct {
-    margin-bottom: 4rem;
-
-    h3 {
-        color: $color-black;
-        margin-bottom: 1rem;
-    }
-
     .conduct-intro {
         color: $color-text-light;
-        margin-bottom: 2rem;
+        margin-bottom: $spacing-lg;
         max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 }
 
 .conduct-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
 }
 
 .conduct-item {
@@ -189,40 +260,43 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2rem 1.5rem;
-    background: linear-gradient(135deg,
-            rgba($color-secondary, 0.08),
-            rgba($color-secondary, 0.03));
-    border-radius: 12px;
-    border: 2px solid rgba($color-secondary, 0.15);
-    transition: all 0.3s ease;
+    padding: $spacing-lg $spacing-md;
+    background: $color-bg-light;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        border-color $transition-base,
+        box-shadow $transition-base;
     text-decoration: none;
     cursor: pointer;
 
     .conduct-icon {
         color: $color-secondary;
-        margin-bottom: 1rem;
-        transition: all 0.3s ease;
+        margin-bottom: 0.75rem;
+        transition:
+            color $transition-base,
+            transform $transition-base;
     }
 
     h4 {
         color: $color-black;
-        margin-bottom: 0.75rem;
-        font-size: 1.1rem;
-        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+        font-weight: $font-weight-semibold;
     }
 
     .conduct-link {
         color: $color-secondary;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: color 0.3s ease;
+        font-size: 0.85rem;
+        font-weight: $font-weight-medium;
+        transition: color $transition-base;
     }
 
     &:hover {
         transform: translateY(-4px);
-        border-color: rgba($color-secondary, 0.4);
-        box-shadow: 0 8px 25px rgba($color-secondary, 0.15);
+        border-color: rgba($color-secondary, 0.3);
+        box-shadow: $shadow-md;
 
         .conduct-icon {
             color: $color-primary;
@@ -233,37 +307,57 @@
             color: $color-primary;
         }
     }
-}
 
-.testimonials {
-    h3 {
-        color: $color-black;
-        margin-bottom: 2rem;
+    &:focus-visible {
+        outline: 2px solid $color-secondary;
+        outline-offset: 2px;
     }
 }
 
+/* Testimonials */
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
 
 .testimonial {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid $color-primary;
-    font-style: italic;
+    background: $color-white;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    border-left: 3px solid $color-primary;
+    position: relative;
+
+    &::before {
+        content: '\201C';
+        position: absolute;
+        top: 0.5rem;
+        left: 1.25rem;
+        font-size: 3rem;
+        color: rgba($color-primary, 0.15);
+        font-family: georgia, serif;
+        line-height: 1;
+    }
 
     p {
         color: $color-text-light;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
+        font-style: italic;
+        padding-top: 0.5rem;
+        line-height: 1.7;
     }
 
     cite {
         color: $color-black;
-        font-weight: 600;
+        font-weight: $font-weight-semibold;
         font-style: normal;
+        font-size: 0.95rem;
     }
 }

@@ -11,7 +11,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    padding-top: 80px; // Account for fixed navbar height
+    padding-top: 80px;
     box-sizing: border-box;
 }
 
@@ -22,9 +22,33 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(135deg,
-            rgba(44, 90, 160, 0.1),
-            rgba($color-primary, 0.1));
+    background:
+        radial-gradient(
+            ellipse at 20% 50%,
+            rgba($color-secondary, 0.12) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 80% 50%,
+            rgba($color-primary, 0.08) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba($color-secondary, 0.06) 0%,
+            transparent 50%
+        );
+    animation: hero-ambient 12s ease-in-out infinite alternate;
+}
+
+@keyframes hero-ambient {
+    0% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .hero-content {
@@ -37,48 +61,42 @@
     align-items: center;
 }
 
-@keyframes hero-float {
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    50% {
-        transform: translateY(-10px) scale(1.02);
-        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-    }
-}
-
 .hero-title {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-top: 1rem; // From hero-logo.scss
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 0.5rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
     color: $color-primary;
+    font-family: $font-sans;
+    font-weight: $font-weight-normal;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    max-width: 550px;
+    line-height: 1.6;
 }
 
 /* Hero Logo Styles */
 .hero-logo {
     text-align: center;
-    margin-bottom: -2.5rem;
+    margin-bottom: -2rem;
 }
 
 .hero-logo-image {
-    width: 400px;
-    height: 400px;
+    width: 340px;
+    height: 340px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4));
     transition: transform $transition-base;
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
 }
 
@@ -86,16 +104,20 @@
     .hero-logo-image {
         transition: none;
     }
+
+    .dither-background {
+        animation: none;
+    }
 }
 
 /* Responsive adjustments */
 @media (max-width: $breakpoint-tablet) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
 
     .hero-logo {
@@ -103,18 +125,19 @@
     }
 
     .hero-logo-image {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 }
 
 @media (max-width: $breakpoint-mobile) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
     }
 
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
 
     .hero-logo {
@@ -122,7 +145,7 @@
     }
 
     .hero-logo-image {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
 }

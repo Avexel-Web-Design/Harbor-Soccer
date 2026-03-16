@@ -5,19 +5,22 @@ html {
 }
 
 main section[id] {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 5rem;
 }
 
 body {
-    font-family: $font-primary;
+    font-family: $font-sans;
     line-height: 1.7;
     color: $color-text;
     background-color: $color-white;
-    background-image: radial-gradient(circle at 1px 1px,
-            rgba(255, 140, 0, 0.05) 1px,
-            transparent 0);
-    background-size: 20px 20px;
-    opacity: 1;
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 0
+    );
+    background-size: 24px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body.is-scroll-locked {
@@ -43,6 +46,7 @@ body.is-scroll-locked.is-scroll-locked--compensated {
     border-radius: $radius-sm;
     box-shadow: $shadow-md;
     text-decoration: none;
+    font-weight: $font-weight-medium;
     transform: translateY(-160%);
     transition: transform $transition-base;
 

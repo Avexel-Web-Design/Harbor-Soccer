@@ -3,72 +3,76 @@
 
 /* Referee Section */
 .referee {
-    padding: 6rem 0;
+    padding: $spacing-3xl 0;
     background: $color-white;
     position: relative;
 }
 
 .referee-content {
     margin-top: $spacing-lg;
+    text-align: center;
 }
 
 .referee-intro {
     margin-bottom: $spacing-2xl;
     text-align: center;
-
-    h3 {
-        color: $color-black;
-        margin-bottom: $spacing-md;
-        font-size: 2.2rem;
-    }
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 
     p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: $color-text-light;
-        max-width: 800px;
-        margin: 0 auto $spacing-sm;
+        margin-bottom: $spacing-sm;
+        line-height: 1.75;
     }
 }
 
 .referee-action {
     text-align: center;
     background: $color-white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    max-width: 800px;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    border: 1px solid $color-border;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
+    max-width: 700px;
     margin: 0 auto;
 
     &:hover {
-        border-color: $color-primary;
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(255, 140, 0, 0.15);
+        border-color: rgba($color-primary, 0.2);
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
     }
 
     h4 {
         color: $color-secondary;
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
+        margin-bottom: $spacing-sm;
+        font-size: 1.5rem;
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: $color-text-light;
-        margin-bottom: 2rem;
+        margin-bottom: $spacing-lg;
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .contact-note {
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: $color-text-lighter;
         margin: 0;
 
         a {
             color: $color-primary;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: $font-weight-semibold;
+            transition: color $transition-base;
 
             &:hover {
                 color: $color-primary-dark;
@@ -80,43 +84,30 @@
 
 .referee-button {
     display: inline-block;
-    background: linear-gradient(135deg, $color-secondary, color.adjust($color-secondary, $lightness: 10%));
+    background: $color-secondary;
     color: $color-white;
     text-decoration: none;
-    padding: 18px 40px;
-    border-radius: $radius-xl;
-    font-size: 1.2rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: $radius-pill;
+    font-size: 1.1rem;
     font-weight: $font-weight-semibold;
-    transition: all $transition-base;
+    font-family: $font-sans;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        background-color $transition-base;
     margin-bottom: $spacing-lg;
-    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 4px 16px rgba($color-secondary, 0.2);
     min-height: 44px;
-    min-width: 200px;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent);
-        transition: left 0.5s ease;
-    }
 
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
-        background: linear-gradient(135deg, color.adjust($color-secondary, $lightness: -5%), color.adjust($color-secondary, $lightness: 5%));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba($color-secondary, 0.3);
+        background: $color-secondary-dark;
+    }
 
-        &::before {
-            left: 100%;
-        }
+    &:active {
+        transform: translateY(0);
     }
 
     &:focus-visible {
