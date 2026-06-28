@@ -438,12 +438,12 @@ a {
 }
 
 .hero-inner {
-  min-height: 640px;
-  padding-block: clamp(4rem, 8vw, 7rem);
+  min-height: 500px;
+  padding-block: clamp(3.5rem, 6vw, 5rem);
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
   align-items: center;
-  gap: clamp(3rem, 8vw, 7rem);
+  gap: clamp(3rem, 6vw, 5rem);
 }
 
 .hero-content {
@@ -452,11 +452,12 @@ a {
 
 .hero-title {
   margin-bottom: 1.5rem;
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
 }
 
 .hero-subtitle {
-  max-width: 620px;
-  margin-bottom: 2rem;
+  max-width: 680px;
+  margin-bottom: 1.5rem;
   color: #525252;
   font-size: clamp(1.15rem, 2vw, 1.35rem);
   line-height: 1.6;
@@ -470,27 +471,30 @@ a {
 }
 
 .hero-mark {
-  min-height: 420px;
+  min-height: 340px;
   display: grid;
-  place-items: center;
-  padding: 3rem;
+  place-items: center end;
+  padding-block: 2rem;
+  padding-left: clamp(2.5rem, 5vw, 4.5rem);
   background: #fff;
+  border-left: 1px solid #e5e7eb;
 }
 
 .hero-logo-image {
-  width: min(100%, 340px);
+  width: min(100%, 360px);
   height: auto;
+  transform: scale(1.25);
 }
 
 @media (max-width: 1024px) {
   .hero-inner {
     min-height: auto;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
     gap: 3rem;
   }
   .hero-mark {
-    min-height: 340px;
-    padding: 2rem;
+    min-height: 300px;
+    padding-left: 2rem;
   }
 }
 @media (max-width: 768px) {
@@ -501,9 +505,13 @@ a {
   .hero-mark {
     min-height: 300px;
     order: -1;
+    place-items: center;
+    padding: 2rem;
+    border-left: 0;
   }
   .hero-logo-image {
     width: 240px;
+    transform: none;
   }
 }
 @media (max-width: 480px) {

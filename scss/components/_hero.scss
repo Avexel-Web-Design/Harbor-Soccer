@@ -6,12 +6,12 @@
 }
 
 .hero-inner {
-    min-height: 640px;
-    padding-block: clamp(4rem, 8vw, 7rem);
+    min-height: 500px;
+    padding-block: clamp(3.5rem, 6vw, 5rem);
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
     align-items: center;
-    gap: clamp(3rem, 8vw, 7rem);
+    gap: clamp(3rem, 6vw, 5rem);
 }
 
 .hero-content {
@@ -20,11 +20,12 @@
 
 .hero-title {
     margin-bottom: $spacing-md;
+    font-size: clamp(2.75rem, 5vw, 4.25rem);
 }
 
 .hero-subtitle {
-    max-width: 620px;
-    margin-bottom: $spacing-lg;
+    max-width: 680px;
+    margin-bottom: $spacing-md;
     color: $color-text-light;
     font-size: clamp(1.15rem, 2vw, 1.35rem);
     line-height: 1.6;
@@ -38,28 +39,31 @@
 }
 
 .hero-mark {
-    min-height: 420px;
+    min-height: 340px;
     display: grid;
-    place-items: center;
-    padding: $spacing-xl;
+    place-items: center end;
+    padding-block: $spacing-lg;
+    padding-left: clamp(2.5rem, 5vw, 4.5rem);
     background: $color-white;
+    border-left: 1px solid $color-border;
 }
 
 .hero-logo-image {
-    width: min(100%, 340px);
+    width: min(100%, 360px);
     height: auto;
+    transform: scale(1.25);
 }
 
 @media (max-width: $breakpoint-nav) {
     .hero-inner {
         min-height: auto;
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
         gap: $spacing-xl;
     }
 
     .hero-mark {
-        min-height: 340px;
-        padding: $spacing-lg;
+        min-height: 300px;
+        padding-left: $spacing-lg;
     }
 }
 
@@ -72,10 +76,14 @@
     .hero-mark {
         min-height: 300px;
         order: -1;
+        place-items: center;
+        padding: $spacing-lg;
+        border-left: 0;
     }
 
     .hero-logo-image {
         width: 240px;
+        transform: none;
     }
 }
 
