@@ -6,69 +6,34 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-primary;
-    font-weight: $font-weight-semibold;
-    line-height: 1.3;
     margin-bottom: $spacing-sm;
-    letter-spacing: -0.02em;
     color: $color-black;
+    font-family: $font-sans;
+    font-weight: $font-weight-bold;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
 }
 
 h1 {
-    font-size: 3.5rem;
-    font-weight: $font-weight-bold;
-    line-height: 1.15;
-
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 2.75rem;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 2.25rem;
-    }
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    line-height: 1.02;
 }
 
 h2 {
-    font-size: 2.5rem;
-
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 2rem;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 1.75rem;
-    }
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 
 h3 {
-    font-size: 2rem;
-
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 1.65rem;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 1.4rem;
-    }
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
 }
 
 h4 {
-    font-size: 1.5rem;
-
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 1.25rem;
-    }
+    font-size: 1.2rem;
 }
 
 p {
     margin-bottom: $spacing-sm;
-    line-height: 1.75;
-    font-size: 1.1rem;
-
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
+    font-size: 1.05rem;
 }
 
 a {
@@ -76,24 +41,18 @@ a {
 }
 
 .section-title {
-    text-align: center;
-    color: $color-black;
+    max-width: 760px;
     margin-bottom: $spacing-xl;
-    position: relative;
-    text-decoration: none;
-    font-family: $font-primary;
+    color: $color-black;
+    text-align: left;
+}
 
-    * {
-        text-decoration: none;
+@media (max-width: $breakpoint-mobile) {
+    p {
+        font-size: 1rem;
     }
 
-    &::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, $color-primary, $color-secondary);
-        margin: $spacing-md auto 0;
-        border-radius: 2px;
+    .section-title {
+        margin-bottom: $spacing-lg;
     }
 }

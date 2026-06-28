@@ -1,100 +1,61 @@
 @use '../abstracts/variables' as *;
-@use 'sass:color';
 
-/* ============================================
-   Unified Button System
-   ============================================ */
-
-// Primary Button — main CTAs (registration, hero)
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: $color-primary;
-    color: $color-black;
-    text-decoration: none;
-    border-radius: $radius-pill;
-    font-weight: $font-weight-semibold;
-    font-size: 1.1rem;
+.cta-button,
+.secondary-button,
+.register-button {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: $radius-sm;
     font-family: $font-sans;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        background-color $transition-base;
-    box-shadow: 0 4px 16px rgba($color-primary, 0.25);
-    position: relative;
-    overflow: hidden;
-    border: none;
+    font-size: 1rem;
+    font-weight: $font-weight-semibold;
+    line-height: 1.2;
+    text-decoration: none;
     cursor: pointer;
-    letter-spacing: 0.01em;
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba($color-primary, 0.35);
-        background: color.adjust($color-primary, $lightness: 4%);
-    }
-
-    &:active {
-        transform: translateY(0);
-    }
+    transition:
+        color $transition-base,
+        background-color $transition-base,
+        border-color $transition-base;
 
     &:focus-visible {
-        outline: 3px solid $color-primary;
+        outline: 3px solid rgba($color-primary, 0.28);
         outline-offset: 3px;
     }
 }
 
-// Register Button — large CTA for registration section
+.cta-button,
 .register-button {
-    display: inline-block;
-    padding: 1.1rem 3rem;
-    background: $color-primary;
     color: $color-white;
-    text-decoration: none;
-    border-radius: $radius-pill;
-    font-weight: $font-weight-semibold;
-    font-size: 1.2rem;
-    font-family: $font-sans;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        background-color $transition-base;
-    box-shadow: 0 6px 20px rgba($color-primary, 0.25);
-    margin-top: $spacing-sm;
-    border: none;
-    cursor: pointer;
+    background: $color-primary;
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba($color-primary, 0.35);
         background: $color-primary-dark;
     }
+}
 
-    &:active {
-        transform: translateY(0);
+.secondary-button {
+    color: $color-black;
+    background: $color-white;
+    border-color: $color-border-strong;
+
+    &:hover {
+        color: $color-primary-dark;
+        border-color: $color-primary;
     }
+}
 
-    &:focus-visible {
-        outline: 3px solid $color-primary;
-        outline-offset: 3px;
-    }
-
-    &.registration-open-btn {
-        background: $color-primary;
-
-        &:hover {
-            background: $color-primary-dark;
-        }
-    }
+.register-button {
+    padding-inline: 1.5rem;
 
     &.registration-closed-btn {
         background: $color-disabled;
-        box-shadow: 0 4px 12px rgba($color-disabled, 0.2);
-        opacity: 0.85;
 
         &:hover {
             background: $color-disabled-dark;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba($color-disabled, 0.3);
         }
     }
 }

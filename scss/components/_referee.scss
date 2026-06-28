@@ -1,117 +1,66 @@
 @use '../abstracts/variables' as *;
-@use 'sass:color';
 
-/* Referee Section */
 .referee {
-    padding: $spacing-3xl 0;
+    padding-block: $spacing-3xl;
     background: $color-white;
-    position: relative;
 }
 
 .referee-content {
-    margin-top: $spacing-lg;
-    text-align: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+    gap: $spacing-xl;
+    align-items: start;
 }
 
 .referee-intro {
-    margin-bottom: $spacing-2xl;
-    text-align: center;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 720px;
 
     p {
-        font-size: 1.05rem;
         color: $color-text-light;
-        margin-bottom: $spacing-sm;
-        line-height: 1.75;
     }
 }
 
 .referee-action {
-    text-align: center;
-    background: $color-white;
-    padding: $spacing-xl;
-    border-radius: $radius-lg;
-    box-shadow: $shadow-md;
+    padding: $spacing-lg;
+    background: $color-bg-light;
     border: 1px solid $color-border;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        border-color $transition-base;
-    max-width: 700px;
-    margin: 0 auto;
-
-    &:hover {
-        border-color: rgba($color-primary, 0.2);
-        transform: translateY(-4px);
-        box-shadow: $shadow-lg;
-    }
-
-    h4 {
-        color: $color-secondary;
-        margin-bottom: $spacing-sm;
-        font-size: 1.5rem;
-    }
+    border-radius: $radius-md;
 
     p {
-        font-size: 1.05rem;
         color: $color-text-light;
-        margin-bottom: $spacing-lg;
-        max-width: 550px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .contact-note {
-        font-size: 0.95rem;
-        color: $color-text-lighter;
-        margin: 0;
-
-        a {
-            color: $color-primary;
-            text-decoration: none;
-            font-weight: $font-weight-semibold;
-            transition: color $transition-base;
-
-            &:hover {
-                color: $color-primary-dark;
-                text-decoration: underline;
-            }
-        }
     }
 }
 
-.referee-button {
-    display: inline-block;
-    background: $color-secondary;
-    color: $color-white;
-    text-decoration: none;
-    padding: 0.9rem 2.5rem;
-    border-radius: $radius-pill;
-    font-size: 1.1rem;
-    font-weight: $font-weight-semibold;
-    font-family: $font-sans;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        background-color $transition-base;
-    margin-bottom: $spacing-lg;
-    box-shadow: 0 4px 16px rgba($color-secondary, 0.2);
-    min-height: 44px;
+.contact-note {
+    margin: $spacing-md 0 0;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-border;
+    color: $color-text-muted !important;
+    font-size: 0.9rem;
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba($color-secondary, 0.3);
-        background: $color-secondary-dark;
+    a {
+        color: $color-primary-dark;
+        font-weight: $font-weight-semibold;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .referee {
+        padding-block: $spacing-2xl;
     }
 
-    &:active {
-        transform: translateY(0);
+    .referee-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .referee-action {
+        padding: $spacing-md;
     }
 
-    &:focus-visible {
-        outline: 3px solid $color-secondary;
-        outline-offset: 3px;
+    .referee-button {
+        width: 100%;
     }
 }

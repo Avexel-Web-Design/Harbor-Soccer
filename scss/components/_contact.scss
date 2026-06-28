@@ -1,147 +1,108 @@
 @use '../abstracts/variables' as *;
 
-/* Contact Section */
 .contact {
-    padding: $spacing-3xl 0;
+    padding-block: $spacing-3xl;
     background: $color-bg-light;
-    position: relative;
-}
-
-.contact-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: $spacing-lg;
-    text-align: center;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-md;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-
-    @media (max-width: 1000px) {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 600px;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-}
-
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
 }
 
 .contact-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    min-width: 0;
     padding: $spacing-lg $spacing-md;
-    background: $color-white;
-    border-radius: $radius-md;
-    border: 1px solid $color-border;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        border-color $transition-base;
-    position: relative;
+    border-right: 1px solid $color-border;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, $color-secondary, $color-primary);
-        border-radius: $radius-md $radius-md 0 0;
-    }
-
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: $shadow-lg;
-        border-color: rgba($color-primary, 0.15);
+    &:last-child {
+        border-right: 0;
     }
 
     h4 {
-        color: $color-secondary;
         margin-bottom: 0.6rem;
-        font-size: 1.15rem;
-        font-weight: $font-weight-semibold;
-        text-align: center;
+        font-size: 1rem;
     }
 
     p {
-        color: $color-text-light;
         margin: 0;
-        line-height: 1.6;
-        font-size: 0.95rem;
-        text-align: center;
-        overflow-wrap: break-word;
-        word-break: break-word;
-        max-width: 100%;
+        color: $color-text-light;
+        font-size: 0.92rem;
+        overflow-wrap: anywhere;
     }
 
-    a {
-        color: $color-secondary;
-        text-decoration: none;
-        font-weight: $font-weight-medium;
-        transition: color $transition-base;
-        overflow-wrap: break-word;
-        word-break: break-word;
-
-        &:hover {
-            color: $color-primary;
-            text-decoration: underline;
-        }
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-        padding: $spacing-md;
+    a:not(.social-link) {
+        color: $color-primary-dark;
+        font-weight: $font-weight-semibold;
     }
 }
 
 .social-link {
+    width: 44px;
+    height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-top: 0.5rem;
-    border-radius: $radius-full;
-    background: rgba($color-facebook, 0.1);
-    color: $color-facebook !important;
-    transition:
-        transform $transition-base,
-        background-color $transition-base,
-        box-shadow $transition-base;
+    color: $color-facebook;
+    background: $color-white;
+    border: 1px solid $color-border-strong;
+    border-radius: $radius-sm;
 
     &:hover {
-        background: rgba($color-facebook, 0.15);
-        color: $color-facebook !important;
-        transform: translateY(-2px);
-        text-decoration: none !important;
-        box-shadow: 0 6px 16px rgba($color-facebook, 0.15);
+        border-color: $color-facebook;
     }
 
     &:focus-visible {
-        outline: 2px solid $color-facebook;
-        outline-offset: 3px;
+        outline: 3px solid rgba($color-facebook, 0.25);
+        outline-offset: 2px;
     }
 }
 
 .social-link-icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-item {
+        border-bottom: 1px solid $color-border;
+
+        &:nth-child(even) {
+            border-right: 0;
+        }
+
+        &:nth-last-child(-n + 2) {
+            border-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .contact {
+        padding-block: $spacing-2xl;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-item {
+        padding: $spacing-md;
+        border-right: 0;
+        border-bottom: 1px solid $color-border !important;
+
+        &:last-child {
+            border-bottom: 0 !important;
+        }
+    }
 }

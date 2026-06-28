@@ -1,363 +1,323 @@
 @use '../abstracts/variables' as *;
 
-/* About Section */
 .about {
-    padding: $spacing-3xl 0;
-    background: $color-white;
-    position: relative;
+    padding-block: $spacing-3xl;
+    background: $color-bg-light;
 }
 
 .about-content {
-    margin-top: $spacing-lg;
+    display: grid;
+    gap: $spacing-2xl;
 }
 
-/* Sub-section shared spacing */
 .about-story,
 .about-memberships,
 .about-board,
 .about-bylaws,
 .about-conduct,
 .testimonials {
-    margin-bottom: $spacing-3xl;
-    padding-bottom: $spacing-2xl;
-    border-bottom: 1px solid $color-border-light;
-
-    &:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-    }
-
-    // Center all sub-section headings
-    > h3 {
-        text-align: center;
-        margin-bottom: $spacing-lg;
-    }
+    max-width: 100%;
 }
 
-/* Mission */
 .about-story {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    max-width: 760px;
 
     p {
         color: $color-text-light;
-        line-height: 1.8;
-        text-align: left;
     }
 }
 
-/* Memberships */
 .memberships-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-lg;
-    max-width: 700px;
-    margin: 0 auto;
-
-    @media (max-width: $breakpoint-mobile) {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
 }
 
 .membership-item {
-    text-align: center;
-    padding: $spacing-lg;
-    background: $color-bg-light;
-    border-radius: $radius-md;
-    border: 1px solid $color-border;
-    transition:
-        transform $transition-base,
-        border-color $transition-base,
-        box-shadow $transition-base;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacing-md;
+    background: $color-white;
     text-decoration: none;
 
-    &:hover {
-        transform: translateY(-4px);
-        border-color: rgba($color-primary, 0.3);
-        box-shadow: $shadow-md;
+    & + & {
+        border-left: 1px solid $color-border;
     }
 
     h4 {
-        color: $color-primary;
-        margin-bottom: 0.35rem;
-        font-size: 1.4rem;
-        font-weight: $font-weight-bold;
+        margin-bottom: 0.25rem;
+        color: $color-primary-dark;
     }
 
     p {
-        color: $color-text-light;
-        font-weight: $font-weight-medium;
         margin: 0;
-        font-size: 1rem;
+        color: $color-text-light;
+        font-size: 0.95rem;
+    }
+
+    &:hover h4 {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 3px solid rgba($color-primary, 0.28);
+        outline-offset: -3px;
     }
 }
 
-/* Board Members */
 .board-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-md;
-
-    @media (max-width: 1000px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
 }
 
 .board-member {
-    text-align: center;
+    display: grid;
+    grid-template-columns: minmax(140px, 0.8fr) minmax(150px, 1fr) auto;
+    align-items: center;
+    gap: $spacing-sm;
     padding: $spacing-md;
-    background: $color-white;
-    border-radius: $radius-md;
-    border: 1px solid $color-border;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base;
+    border-bottom: 1px solid $color-border;
 
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: $shadow-md;
+    &:nth-child(odd) {
+        border-right: 1px solid $color-border;
     }
 
-    h4 {
-        color: $color-secondary;
-        margin-bottom: 0.35rem;
-        font-size: 1rem;
-        font-weight: $font-weight-semibold;
+    &:nth-last-child(-n + 2) {
+        border-bottom: 0;
     }
 
+    h4,
     p {
-        color: $color-text;
-        font-weight: $font-weight-medium;
         margin: 0;
         font-size: 0.95rem;
     }
 
-    .board-link {
-        display: inline-block;
-        margin-top: 0.75rem;
-        padding: 0.4rem 1rem;
-        color: $color-secondary;
-        font-size: 0.85rem;
-        text-decoration: none;
-        border-radius: $radius-pill;
-        border: 1px solid $color-border;
-        transition:
-            color $transition-base,
-            border-color $transition-base,
-            background-color $transition-base;
-        font-weight: $font-weight-medium;
-        background: transparent;
-
-        &:hover {
-            color: $color-primary;
-            border-color: $color-primary;
-            background: rgba($color-primary, 0.04);
-        }
-
-        &:focus-visible {
-            outline: 2px solid $color-primary;
-            outline-offset: 2px;
-        }
+    h4 {
+        color: $color-text-muted;
+        font-weight: $font-weight-semibold;
     }
 }
 
-/* Bylaws */
-.about-bylaws {
-    background: $color-bg-light;
-    border-radius: $radius-lg;
-    padding: $spacing-xl;
-    text-align: center;
-    border: 1px solid $color-border;
+.board-link,
+.conduct-link {
+    color: $color-primary-dark;
+    font-size: 0.88rem;
+    font-weight: $font-weight-semibold;
+    white-space: nowrap;
+}
 
+.about-bylaws {
     h3 {
-        text-align: center;
-        margin-bottom: 0.75rem;
-        font-size: 1.5rem;
+        margin-bottom: $spacing-sm;
     }
+}
+
+.bylaws-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: $spacing-lg;
+    padding: $spacing-md $spacing-lg;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
 
     p {
+        max-width: 720px;
+        margin: 0;
         color: $color-text-light;
-        margin-bottom: $spacing-md;
-        font-size: 1rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
-.bylaws-button {
-    display: inline-block;
-    padding: 0.7rem 1.8rem;
-    background: $color-primary;
+.bylaws-button,
+.sponsorship-button,
+.referee-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
     color: $color-white;
-    text-decoration: none;
-    border-radius: $radius-pill;
+    background: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: $radius-sm;
     font-weight: $font-weight-semibold;
-    font-size: 1rem;
-    font-family: $font-sans;
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        background-color $transition-base;
-    box-shadow: 0 4px 12px rgba($color-primary, 0.2);
+    text-decoration: none;
+    cursor: pointer;
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba($color-primary, 0.3);
         background: $color-primary-dark;
+        border-color: $color-primary-dark;
     }
 
     &:focus-visible {
-        outline: 2px solid $color-primary;
+        outline: 3px solid rgba($color-primary, 0.28);
         outline-offset: 3px;
     }
 }
 
-/* Code of Conduct Section */
-.about-conduct {
-    .conduct-intro {
-        color: $color-text-light;
-        margin-bottom: $spacing-lg;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
+.conduct-intro {
+    max-width: 720px;
+    color: $color-text-light;
 }
 
 .conduct-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-md;
-    max-width: 900px;
-    margin: 0 auto;
-
-    @media (max-width: $breakpoint-tablet) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        grid-template-columns: 1fr;
-        max-width: 350px;
-    }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
 }
 
 .conduct-item {
-    display: flex;
-    flex-direction: column;
+    min-height: 88px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    text-align: center;
-    padding: $spacing-lg $spacing-md;
-    background: $color-bg-light;
-    border-radius: $radius-md;
-    border: 1px solid $color-border;
-    transition:
-        transform $transition-base,
-        border-color $transition-base,
-        box-shadow $transition-base;
+    gap: $spacing-sm;
+    padding: $spacing-md;
     text-decoration: none;
-    cursor: pointer;
+    border-bottom: 1px solid $color-border;
 
-    .conduct-icon {
-        color: $color-secondary;
-        margin-bottom: 0.75rem;
-        transition:
-            color $transition-base,
-            transform $transition-base;
+    &:nth-child(odd) {
+        border-right: 1px solid $color-border;
+    }
+
+    &:nth-last-child(-n + 2) {
+        border-bottom: 0;
     }
 
     h4 {
-        color: $color-black;
-        margin-bottom: 0.5rem;
-        font-size: 1.05rem;
-        font-weight: $font-weight-semibold;
+        margin: 0;
     }
 
-    .conduct-link {
-        color: $color-secondary;
-        font-size: 0.85rem;
-        font-weight: $font-weight-medium;
-        transition: color $transition-base;
-    }
-
-    &:hover {
-        transform: translateY(-4px);
-        border-color: rgba($color-secondary, 0.3);
-        box-shadow: $shadow-md;
-
-        .conduct-icon {
-            color: $color-primary;
-            transform: scale(1.1);
-        }
-
-        .conduct-link {
-            color: $color-primary;
-        }
+    &:hover .conduct-link {
+        text-decoration: underline;
     }
 
     &:focus-visible {
-        outline: 2px solid $color-secondary;
-        outline-offset: 2px;
+        outline: 3px solid rgba($color-primary, 0.28);
+        outline-offset: -3px;
     }
 }
 
-/* Testimonials */
+.conduct-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: $color-primary-dark;
+    background: $color-primary-soft;
+    border-radius: $radius-sm;
+
+    svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-lg;
-
-    @media (max-width: 1000px) {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $spacing-md;
 }
 
 .testimonial {
+    margin: 0;
+    padding: $spacing-md;
     background: $color-white;
-    padding: $spacing-lg;
-    border-radius: $radius-md;
     border: 1px solid $color-border;
     border-left: 3px solid $color-primary;
-    position: relative;
-
-    &::before {
-        content: '\201C';
-        position: absolute;
-        top: 0.5rem;
-        left: 1.25rem;
-        font-size: 3rem;
-        color: rgba($color-primary, 0.15);
-        font-family: georgia, serif;
-        line-height: 1;
-    }
+    border-radius: 0 $radius-sm $radius-sm 0;
 
     p {
         color: $color-text-light;
-        margin-bottom: 0.75rem;
-        font-style: italic;
-        padding-top: 0.5rem;
-        line-height: 1.7;
     }
 
     cite {
-        color: $color-black;
-        font-weight: $font-weight-semibold;
+        color: $color-text-muted;
+        font-size: 0.9rem;
         font-style: normal;
-        font-size: 0.95rem;
+        font-weight: $font-weight-semibold;
+    }
+}
+
+@media (max-width: 1000px) {
+    .board-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .board-member {
+        border-right: 0 !important;
+        border-bottom: 1px solid $color-border !important;
+
+        &:last-child {
+            border-bottom: 0 !important;
+        }
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .about {
+        padding-block: $spacing-2xl;
+    }
+
+    .about-content {
+        gap: $spacing-xl;
+    }
+
+    .conduct-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .conduct-item {
+        border-right: 0 !important;
+        border-bottom: 1px solid $color-border !important;
+
+        &:last-child {
+            border-bottom: 0 !important;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .memberships-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .membership-item + .membership-item {
+        border-top: 1px solid $color-border;
+        border-left: 0;
+    }
+
+    .board-member {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+
+    .bylaws-panel {
+        grid-template-columns: 1fr;
+        padding: $spacing-md;
+    }
+
+    .conduct-item {
+        grid-template-columns: auto 1fr;
+    }
+
+    .conduct-link {
+        grid-column: 2;
     }
 }

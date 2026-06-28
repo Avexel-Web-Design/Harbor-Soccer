@@ -4,7 +4,6 @@ import { lockScroll, unlockScroll } from '../utils/scroll-lock.js';
 const ACTIVE_CLASS = 'is-active';
 
 export function initNavigation() {
-  const navbar = $('#navbar');
   const mobileToggle = $('#hamburger');
   const mobileMenu = $('#mobile-menu');
   const mobileOverlay = $('#mobile-menu-overlay');
@@ -13,7 +12,7 @@ export function initNavigation() {
   const primaryLinks = $$('.menu-link');
   const allNavLinks = [...primaryLinks, ...mobileLinks];
 
-  if (!navbar || !mobileToggle || !mobileMenu || !mobileOverlay || !mobileClose) {
+  if (!mobileToggle || !mobileMenu || !mobileOverlay || !mobileClose) {
     return;
   }
 
@@ -22,10 +21,6 @@ export function initNavigation() {
   let isSwipeActive = false;
   let lastFocusedElement = null;
   let hideMenuTimer = 0;
-
-  const setScrolledState = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 100);
-  };
 
   const setMenuState = (isOpen, { restoreFocus = true, immediate = false } = {}) => {
     window.clearTimeout(hideMenuTimer);
@@ -189,6 +184,4 @@ export function initNavigation() {
   });
 
   setMenuState(false, { restoreFocus: false, immediate: true });
-  setScrolledState();
-  window.addEventListener('scroll', setScrolledState, { passive: true });
 }
