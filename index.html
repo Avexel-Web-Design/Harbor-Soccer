@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,10 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Junicode:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -96,7 +95,7 @@
           <li class="menu-item">
             <a
               href="#registration"
-              class="menu-link"
+              class="menu-link menu-link--registration"
               data-nav-target="registration"
               >Registration</a
             >
@@ -142,32 +141,37 @@
 
     <main id="main-content">
       <section id="home" class="hero">
-        <div class="dither-background" aria-hidden="true"></div>
-        <div class="hero-content" data-aos="fade-up">
-          <div class="hero-logo">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1 class="hero-title">Harbor Soccer</h1>
+            <p class="hero-subtitle">
+              Promoting soccer and enhancing each child's skill development
+            </p>
+            <div class="hero-actions">
+              <a href="#registration" class="cta-button">View registration</a>
+              <a href="#programs" class="secondary-button"
+                >Explore programs</a
+              >
+            </div>
+          </div>
+          <div class="hero-mark">
             <img
               src="images/icon.png"
-              alt="Harbor Soccer Logo"
+              alt="Harbor Soccer crest"
               class="hero-logo-image"
-              width="220"
-              height="220"
+              width="340"
+              height="266"
             />
           </div>
-          <h1 class="hero-title">Harbor Soccer</h1>
-          <p class="hero-subtitle">
-            Promoting soccer and enhancing each child's skill development
-          </p>
-          <a href="#programs" class="cta-button">Explore Our Programs</a>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="programs" class="programs">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
+          <h2 class="section-title">Our Programs</h2>
 
           <div class="programs-grid">
-            <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="program-card">
               <h3 class="card-title">Recreational Soccer</h3>
               <h4 class="card-subtitle">Birth Years: 2018-2021</h4>
               <p class="card-description">
@@ -182,7 +186,7 @@
                 <li>No Travel</li>
               </ul>
             </div>
-            <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="program-card">
               <h3 class="card-title">Travel Soccer</h3>
               <h4 class="card-subtitle">Birth Years: 2011-2017</h4>
               <p class="card-description">
@@ -208,7 +212,7 @@
                 >
               </p>
             </div>
-            <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="program-card">
               <h3 class="card-title">Sailors</h3>
               <h4 class="card-subtitle">High School Girls</h4>
               <p class="card-description">
@@ -226,23 +230,20 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="registration" class="registration registration-open">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Registration</h2>
-          <div
-            class="registration-content"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
+          <h2 class="section-title">Registration</h2>
+          <div class="registration-content">
             <div class="registration-hero">
-              <h3>Limited Registration Open</h3>
-              <p class="registration-intro">
-                Rec registration is open through April 13. Click below to see
-                which programs are currently accepting registrations.
-              </p>
+              <div class="registration-copy">
+                <h3>Limited Registration Open</h3>
+                <p class="registration-intro">
+                  Rec registration is open through April 13. Click below to see
+                  which programs are currently accepting registrations.
+                </p>
+              </div>
               <button
                 id="register-btn"
                 class="register-button registration-open-btn"
@@ -255,17 +256,14 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="about" class="about">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">
-            About Harbor Soccer, Inc.
-          </h2>
+          <h2 class="section-title">About Harbor Soccer, Inc.</h2>
 
           <div class="about-content">
-            <div class="about-story" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-story">
               <h3>Our Mission</h3>
               <p>
                 The mission of Harbor Soccer, Inc. is to promote the game of
@@ -281,11 +279,7 @@
               </p>
             </div>
 
-            <div
-              class="about-memberships"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
+            <div class="about-memberships">
               <h3>We Are Proud Members Of</h3>
               <div class="memberships-grid">
                 <a
@@ -308,7 +302,7 @@
                 </a>
               </div>
             </div>
-            <div class="about-board" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-board">
               <h3>Meet the Board</h3>
               <div class="board-grid">
                 <div class="board-member">
@@ -402,22 +396,24 @@
               </div>
             </div>
 
-            <div class="about-bylaws" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-bylaws">
               <h3>Bylaws</h3>
-              <p>
-                View and download the official bylaws that govern Harbor Soccer,
-                Inc.
-              </p>
-              <a
-                href="documents/2025-BYLAWS.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="bylaws-button"
-                >View 2025 Bylaws</a
-              >
+              <div class="bylaws-panel">
+                <p>
+                  View and download the official bylaws that govern Harbor
+                  Soccer, Inc.
+                </p>
+                <a
+                  href="documents/2025-BYLAWS.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bylaws-button"
+                  >View 2025 Bylaws</a
+                >
+              </div>
             </div>
 
-            <div class="about-conduct" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-conduct">
               <h3>Code of Conduct</h3>
               <p class="conduct-intro">
                 Harbor Soccer is committed to providing a positive, respectful,
@@ -541,7 +537,7 @@
               </div>
             </div>
 
-            <div class="testimonials" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonials">
               <h3>What Our Players Say</h3>
               <div class="testimonial-grid">
                 <blockquote class="testimonial">
@@ -569,22 +565,17 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="calendar" class="calendar">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Calendar</h2>
-          <div class="calendar-content" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="section-title">Calendar</h2>
+          <div class="calendar-content">
             <p class="calendar-intro">
               Stay up to date with all Harbor Soccer events, games, and
               practices. View our complete schedule below.
             </p>
-            <div
-              class="calendar-container"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
+            <div class="calendar-container">
               <div class="calendar-loading" id="calendar-loading">
                 Loading calendar...
               </div>
@@ -633,17 +624,14 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="support" class="support">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">
-            Support Harbor Soccer
-          </h2>
+          <h2 class="section-title">Support Harbor Soccer</h2>
 
           <div class="support-content">
-            <div class="support-intro" data-aos="fade-up" data-aos-delay="100">
+            <div class="support-intro">
               <p>
                 Each season, Harbor Soccer serves hundreds of young athletes in
                 our community. The costs of maintaining our fields, providing
@@ -659,17 +647,9 @@
               </p>
               <p>We are a 501(c)(3) and our EIN is 38-2887596.</p>
             </div>
-            <div
-              class="current-sponsors"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
+            <div class="current-sponsors">
               <h3>Current Sponsors</h3>
-              <div
-                class="support-intro"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
+              <div class="support-intro">
                 <p>
                   Thank you to our generous sponsors who make Harbor Soccer
                   possible!
@@ -832,11 +812,7 @@
               </div>
             </div>
 
-            <div
-              class="support-actions"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+            <div class="support-actions">
               <div class="sponsorship-section">
                 <h4>Become a Sponsor</h4>
                 <p>
@@ -870,15 +846,14 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="referee" class="referee">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Become a Referee</h2>
+          <h2 class="section-title">Become a Referee</h2>
 
           <div class="referee-content">
-            <div class="referee-intro" data-aos="fade-up" data-aos-delay="100">
+            <div class="referee-intro">
               <p>
                 There is currently a shortage of referees in youth soccer across
                 Michigan, and Harbor Soccer is feeling this impact. We need
@@ -892,7 +867,7 @@
               </p>
             </div>
 
-            <div class="referee-action" data-aos="fade-up" data-aos-delay="150">
+            <div class="referee-action">
               <h4>Get Started Today</h4>
               <p>
                 Visit the Michigan State Referee Association to learn more about
@@ -916,15 +891,14 @@
             </div>
           </div>
         </div>
-        <div class="wave-divider" aria-hidden="true"></div>
       </section>
 
       <section id="contact" class="contact">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+          <h2 class="section-title">Contact Us</h2>
 
           <div class="contact-content">
-            <div class="contact-grid" data-aos="fade-up" data-aos-delay="150">
+            <div class="contact-grid">
               <div class="contact-item">
                 <div class="contact-details">
                   <h4>Location</h4>
@@ -1146,7 +1120,6 @@
         </div>
       </div>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="js/script.js"></script>
   </body>
 </html>

@@ -5,20 +5,14 @@ html {
 }
 
 main section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
 }
 
 body {
     font-family: $font-sans;
-    line-height: 1.7;
+    line-height: 1.65;
     color: $color-text;
-    background-color: $color-white;
-    background-image: radial-gradient(
-        circle at 1px 1px,
-        rgba(0, 0, 0, 0.03) 1px,
-        transparent 0
-    );
-    background-size: 24px 24px;
+    background: $color-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -36,24 +30,24 @@ body.is-scroll-locked.is-scroll-locked--compensated {
 }
 
 .skip-link {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
     z-index: 2000;
-    padding: 0.85rem 1.15rem;
+    padding: 0.75rem 1rem;
     background: $color-white;
-    color: $color-secondary;
+    color: $color-primary-dark;
+    border: 2px solid $color-primary;
     border-radius: $radius-sm;
-    box-shadow: $shadow-md;
     text-decoration: none;
-    font-weight: $font-weight-medium;
-    transform: translateY(-160%);
+    font-weight: $font-weight-semibold;
+    transform: translateY(-150%);
     transition: transform $transition-base;
 
     &:focus {
         transform: translateY(0);
-        outline: 2px solid $color-primary;
-        outline-offset: 3px;
+        outline: 3px solid rgba($color-primary, 0.25);
+        outline-offset: 2px;
     }
 }
 
@@ -72,5 +66,12 @@ body.is-scroll-locked.is-scroll-locked--compensated {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

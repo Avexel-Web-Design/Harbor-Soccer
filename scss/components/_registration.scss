@@ -1,105 +1,67 @@
 @use '../abstracts/variables' as *;
 
-/* Registration Section */
 .registration {
-    padding: $spacing-3xl 0;
-    background: linear-gradient(135deg, $color-bg-light 0%, $color-white 100%);
-    position: relative;
-    transition: background 0.5s ease;
-}
-
-.registration.registration-open {
-    .registration-hero {
-        background: $color-white;
-        border: 1px solid rgba($color-primary, 0.15);
-
-        h3 {
-            color: $color-secondary;
-        }
-    }
-}
-
-.registration.registration-closed {
-    background: linear-gradient(
-        135deg,
-        $color-bg-light 0%,
-        $color-surface-muted 100%
-    );
-
-    .registration-hero {
-        background: $color-bg-light;
-        border: 1px solid $color-border-strong;
-        opacity: 0.9;
-
-        h3 {
-            color: $color-text-lighter;
-        }
-    }
-
-    .registration-intro {
-        color: $color-text-muted;
-    }
+    padding-block: $spacing-3xl;
+    background: $color-white;
 }
 
 .registration-content {
-    margin-top: $spacing-lg;
-    display: flex;
-    justify-content: center;
+    width: 100%;
 }
 
 .registration-hero {
-    text-align: center;
-    padding: $spacing-2xl $spacing-xl;
-    background: $color-white;
-    border-radius: $radius-lg;
-    box-shadow: $shadow-md;
-    border: 1px solid rgba($color-black, 0.05);
-    transition:
-        transform $transition-base,
-        box-shadow $transition-base,
-        border-color $transition-base;
-    max-width: 700px;
-    width: 100%;
-
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: $shadow-lg;
-        border-color: rgba($color-primary, 0.2);
-    }
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: $spacing-xl;
+    padding: $spacing-xl;
+    background: $color-primary-soft;
+    border: 1px solid #fed7aa;
+    border-radius: $radius-md;
 
     h3 {
-        color: $color-secondary;
-        margin-bottom: $spacing-sm;
-        font-size: 2rem;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-        padding: $spacing-lg $spacing-md;
-
-        h3 {
-            font-size: 1.75rem;
-        }
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-        padding: $spacing-md;
-
-        h3 {
-            font-size: 1.5rem;
-        }
+        margin-bottom: $spacing-xs;
+        font-size: 1.7rem;
     }
 }
 
-.registration-intro {
-    margin-bottom: $spacing-lg;
-    color: $color-text-light;
-    font-size: 1.1rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
+.registration-copy {
+    min-width: 0;
+    max-width: 720px;
+}
 
-    @media (max-width: $breakpoint-mobile) {
-        font-size: 1rem;
+.registration-intro {
+    margin: 0;
+    color: $color-text-light;
+}
+
+.registration.registration-closed .registration-hero {
+    background: $color-bg-light;
+    border-color: $color-border;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .registration {
+        padding-block: $spacing-2xl;
+    }
+
+    .registration-hero {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+        padding: $spacing-lg;
+    }
+
+    .register-button {
+        justify-self: start;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .registration-hero {
+        padding: $spacing-md;
+    }
+
+    .register-button {
+        width: 100%;
     }
 }
