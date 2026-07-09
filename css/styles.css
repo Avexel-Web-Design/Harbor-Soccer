@@ -831,10 +831,10 @@ a {
 }
 
 .board-member {
-  display: grid;
-  grid-template-columns: minmax(140px, 0.8fr) minmax(150px, 1fr) auto;
-  align-items: center;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
   padding: 1.5rem;
   border-bottom: 1px solid #e5e7eb;
 }
@@ -847,11 +847,21 @@ a {
 .board-member h4,
 .board-member p {
   margin: 0;
-  font-size: 0.95rem;
 }
 .board-member h4 {
   color: #6b7280;
+  font-size: 0.85rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.board-member p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #404040;
+}
+.board-member .board-link {
+  margin-top: 0.25rem;
 }
 
 .board-link,
@@ -1032,7 +1042,6 @@ a {
     border-left: 0;
   }
   .board-member {
-    grid-template-columns: 1fr;
     gap: 0.3rem;
   }
   .bylaws-panel {

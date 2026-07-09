@@ -79,10 +79,10 @@
 }
 
 .board-member {
-    display: grid;
-    grid-template-columns: minmax(140px, 0.8fr) minmax(150px, 1fr) auto;
-    align-items: center;
-    gap: $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
     padding: $spacing-md;
     border-bottom: 1px solid $color-border;
 
@@ -97,12 +97,24 @@
     h4,
     p {
         margin: 0;
-        font-size: 0.95rem;
     }
 
     h4 {
         color: $color-text-muted;
+        font-size: 0.85rem;
         font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    p {
+        font-size: 1.05rem;
+        font-weight: $font-weight-semibold;
+        color: $color-text;
+    }
+
+    .board-link {
+        margin-top: 0.25rem;
     }
 }
 
@@ -304,7 +316,6 @@
     }
 
     .board-member {
-        grid-template-columns: 1fr;
         gap: 0.3rem;
     }
 
