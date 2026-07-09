@@ -7,7 +7,7 @@ const PROGRAM_STATUS = {
     label: 'Recreational Soccer',
     actionLabel: 'Register for Rec Soccer',
     closedLabel: 'Registration Closed',
-    url: 'https://system.gotsport.com/programs/55034K959?reg_role=player',
+    url: 'https://system.gotsport.com/programs/404E95977?reg_role=player',
     buttonClass: 'rec-button',
   },
   travel: {
@@ -30,25 +30,25 @@ const PROGRAM_STATUS = {
 
 const REGISTRATION_COPY = {
   allOpen: {
-    title: 'Spring 2026 Registration Open Now',
+    title: 'Fall 2026 Registration Open Now',
     description:
-      'Registration is now open for the Spring 2026 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.',
+      'Registration is now open for the Fall 2026 season! Join our community of young athletes and experience the joy of soccer in a supportive environment.',
     buttonLabel: 'Register Now',
   },
   recOnlyOpen: {
-    title: 'Spring 2026 Registration Open',
+    title: 'Fall 2026 Rec Registration Open',
     description:
-      'Rec registration is open through April 13. Click below to see which programs are currently accepting registrations.',
+      'Rec registration is open now. Regular registration closes September 1, with late registration available September 1-8 at midnight.',
     buttonLabel: 'View Available Programs',
   },
   partialOpen: {
-    title: 'Spring 2026 Registration Open',
+    title: 'Fall 2026 Registration Open',
     buttonLabel: 'View Available Programs',
   },
   closed: {
     title: 'Registration Currently Closed',
     description:
-      'Registration for the Spring 2026 season is currently closed. Stay tuned for updates on when registration will reopen for future seasons.',
+      'Registration for the Fall 2026 season is currently closed. Stay tuned for updates on when registration will reopen for future seasons.',
     buttonLabel: 'View Program Details',
   },
 };
