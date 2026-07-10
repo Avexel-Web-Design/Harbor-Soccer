@@ -11,11 +11,11 @@ const PROGRAM_STATUS = {
     buttonClass: 'rec-button',
   },
   travel: {
-    isOpen: false,
+    isOpen: true,
     label: 'Travel Soccer',
     actionLabel: 'Register for Travel Soccer',
     closedLabel: 'Registration Closed',
-    url: 'https://system.gotsport.com/programs/804B78035?reg_role=player',
+    url: 'https://system.gotsport.com/programs/7Q6587827?reg_role=player',
     buttonClass: 'travel-button',
   },
   sailors: {
@@ -41,6 +41,18 @@ const REGISTRATION_COPY = {
       'Rec registration is open now. Regular registration closes September 1, with late registration available September 1-8 at midnight.',
     buttonLabel: 'View Available Programs',
   },
+  travelOnlyOpen: {
+    title: 'Fall Travel Soccer Registration Open',
+    description:
+      'Fall travel soccer registration is open now. Regular deadline is July 22; a late fee applies from July 23 through August 1 at midnight. Click below to register.',
+    buttonLabel: 'Register Now',
+  },
+  recAndTravelOpen: {
+    title: 'Fall 2026 Registration Open',
+    description:
+      'Rec and travel soccer registration are open now. Click below to see program details, deadlines, and register.',
+    buttonLabel: 'View Available Programs',
+  },
   partialOpen: {
     title: 'Fall 2026 Registration Open',
     buttonLabel: 'View Available Programs',
@@ -62,8 +74,20 @@ function getRegistrationCopy(openPrograms, totalPrograms) {
     return REGISTRATION_COPY.allOpen;
   }
 
+  if (
+    openPrograms === 2 &&
+    PROGRAM_STATUS.recreational.isOpen &&
+    PROGRAM_STATUS.travel.isOpen
+  ) {
+    return REGISTRATION_COPY.recAndTravelOpen;
+  }
+
   if (openPrograms === 1 && PROGRAM_STATUS.recreational.isOpen) {
     return REGISTRATION_COPY.recOnlyOpen;
+  }
+
+  if (openPrograms === 1 && PROGRAM_STATUS.travel.isOpen) {
+    return REGISTRATION_COPY.travelOnlyOpen;
   }
 
   return {
