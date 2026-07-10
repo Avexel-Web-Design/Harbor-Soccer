@@ -966,7 +966,7 @@
       aria-labelledby="registration-modal-title"
       hidden
     >
-      <div class="modal-content">
+      <div class="modal-content modal-content--registration">
         <button
           type="button"
           class="modal-close"
@@ -981,12 +981,34 @@
           each Harbor Soccer offering.
         </p>
         <div class="program-options">
-          <div class="program-option">
-            <h3>Recreational Soccer</h3>
-            <p><strong>Birth Years:</strong> 2018-2021</p>
-            <p><strong>Costs:</strong> $60</p>
-            <p><strong>Regular Registration Closes:</strong> September 1</p>
-            <p><strong>Late Registration:</strong> September 1&#8209;8 at midnight</p>
+          <article class="program-option program-option--open">
+            <div class="program-option__header">
+              <h3>Recreational Soccer</h3>
+              <span class="program-status program-status--open">Open</span>
+            </div>
+            <dl class="program-details">
+              <div class="program-details__item">
+                <dt>Birth Years</dt>
+                <dd>2018&ndash;2021</dd>
+              </div>
+              <div class="program-details__item">
+                <dt>Cost</dt>
+                <dd>$60</dd>
+              </div>
+            </dl>
+            <div class="program-deadlines">
+              <p class="program-deadlines__heading">Deadlines</p>
+              <ul>
+                <li>
+                  <span>Regular closes</span>
+                  <strong>September 1</strong>
+                </li>
+                <li>
+                  <span>Late fee through</span>
+                  <strong>September 8</strong> at midnight
+                </li>
+              </ul>
+            </div>
             <button
               type="button"
               class="program-button rec-button open-state"
@@ -994,13 +1016,35 @@
             >
               Register for Rec Soccer
             </button>
-          </div>
-          <div class="program-option">
-            <h3>Travel Soccer</h3>
-            <p><strong>Birth Years:</strong> 2011-2017</p>
-            <p><strong>Costs:</strong> $100 + $35 Jersey</p>
-            <p><strong>Regular Deadline:</strong> July 22</p>
-            <p><strong>Late Fee Window:</strong> July 23&#8209;August 1 at midnight</p>
+          </article>
+          <article class="program-option program-option--open">
+            <div class="program-option__header">
+              <h3>Travel Soccer</h3>
+              <span class="program-status program-status--open">Open</span>
+            </div>
+            <dl class="program-details">
+              <div class="program-details__item">
+                <dt>Birth Years</dt>
+                <dd>2011&ndash;2017</dd>
+              </div>
+              <div class="program-details__item">
+                <dt>Cost</dt>
+                <dd>$100 + $35 jersey</dd>
+              </div>
+            </dl>
+            <div class="program-deadlines">
+              <p class="program-deadlines__heading">Deadlines</p>
+              <ul>
+                <li>
+                  <span>Regular closes</span>
+                  <strong>July 22</strong>
+                </li>
+                <li>
+                  <span>Late fee through</span>
+                  <strong>August 1</strong> at midnight
+                </li>
+              </ul>
+            </div>
             <button
               type="button"
               class="program-button travel-button open-state"
@@ -1008,11 +1052,25 @@
             >
               Register for Travel Soccer
             </button>
-          </div>
-          <div class="program-option">
-            <h3>Sailors</h3>
-            <p><strong>Ages:</strong> High School Girls</p>
-            <p><strong>Costs:</strong> $300</p>
+          </article>
+          <article class="program-option program-option--closed">
+            <div class="program-option__header">
+              <h3>Sailors</h3>
+              <span class="program-status program-status--closed">Closed</span>
+            </div>
+            <dl class="program-details">
+              <div class="program-details__item">
+                <dt>Ages</dt>
+                <dd>High school girls</dd>
+              </div>
+              <div class="program-details__item">
+                <dt>Cost</dt>
+                <dd>$300</dd>
+              </div>
+            </dl>
+            <div class="program-deadlines program-deadlines--closed">
+              <p>Not currently accepting registrations.</p>
+            </div>
             <button
               type="button"
               class="program-button sailors-button closed-state"
@@ -1020,7 +1078,7 @@
             >
               Registration Closed
             </button>
-          </div>
+          </article>
         </div>
       </div>
     </div>
