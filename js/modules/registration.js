@@ -143,9 +143,6 @@ export function initRegistration() {
       return;
     }
 
-    const programOption = button.closest('.program-option');
-    const statusBadge = programOption?.querySelector('.program-status');
-
     button.textContent = program.isOpen
       ? program.actionLabel
       : program.closedLabel;
@@ -153,15 +150,6 @@ export function initRegistration() {
     button.classList.toggle('closed-state', !program.isOpen);
     button.classList.toggle('is-disabled', !program.isOpen);
     button.setAttribute('aria-disabled', String(!program.isOpen));
-
-    programOption?.classList.toggle('program-option--open', program.isOpen);
-    programOption?.classList.toggle('program-option--closed', !program.isOpen);
-
-    if (statusBadge) {
-      statusBadge.textContent = program.isOpen ? 'Open' : 'Closed';
-      statusBadge.classList.toggle('program-status--open', program.isOpen);
-      statusBadge.classList.toggle('program-status--closed', !program.isOpen);
-    }
 
     button.addEventListener('click', () => {
       if (!program.isOpen) {
