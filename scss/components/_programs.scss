@@ -106,7 +106,7 @@
 
 .announcement-box {
     margin-bottom: $spacing-lg;
-    padding: $spacing-md;
+    padding: $spacing-md $spacing-lg;
     background: $color-primary-soft;
     border: 2px solid #fed7aa;
     border-radius: $radius-sm;
@@ -114,15 +114,15 @@
     text-align: center;
 
     h5 {
-        margin-bottom: 0.4rem;
-        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        font-size: 1.25rem;
         font-weight: $font-weight-bold;
         color: $color-primary-dark;
     }
 
     p {
         margin: 0;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
     }
 }
 
