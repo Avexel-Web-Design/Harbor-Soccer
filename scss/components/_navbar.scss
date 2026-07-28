@@ -199,6 +199,12 @@
     }
 }
 
+// Keep the fixed sidebar aligned with the navbar when scroll-lock
+// compensation adds padding-right to the body.
+body.is-scroll-locked--compensated .mobile-menu {
+    right: var(--scrollbar-compensation, 0);
+}
+
 .mobile-menu-header {
     min-height: 72px;
     display: flex;
@@ -237,7 +243,7 @@
 
     span {
         position: absolute;
-        width: 19px;
+        width: 21px;
         height: 2px;
         background: currentcolor;
     }
@@ -306,6 +312,12 @@
 @media (max-width: $breakpoint-mobile) {
     .navigation-wrapper {
         width: min(100% - 2rem, 1180px);
+    }
+
+    // Match the navbar's 1rem inline margin so the close button
+    // lines up exactly with the hamburger it replaces.
+    .mobile-menu-header {
+        padding-inline: $spacing-sm;
     }
 
     .brand-text {

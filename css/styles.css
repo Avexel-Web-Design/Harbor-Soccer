@@ -334,6 +334,10 @@ a {
   transform: translateX(0);
 }
 
+body.is-scroll-locked--compensated .mobile-menu {
+  right: var(--scrollbar-compensation, 0);
+}
+
 .mobile-menu-header {
   min-height: 72px;
   display: flex;
@@ -370,7 +374,7 @@ a {
 }
 .mobile-close span {
   position: absolute;
-  width: 19px;
+  width: 21px;
   height: 2px;
   background: currentcolor;
 }
@@ -427,6 +431,9 @@ a {
 @media (max-width: 480px) {
   .navigation-wrapper {
     width: min(100% - 2rem, 1180px);
+  }
+  .mobile-menu-header {
+    padding-inline: 1rem;
   }
   .brand-text {
     font-size: 0.95rem;
