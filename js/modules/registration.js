@@ -3,7 +3,7 @@ import { createModalController } from './modal-controller.js';
 
 const PROGRAM_STATUS = {
   recreational: {
-    isOpen: true,
+    isOpen: false,
     label: 'Recreational Soccer',
     actionLabel: 'Register for Rec Soccer',
     closedLabel: 'Registration Closed',
@@ -11,7 +11,7 @@ const PROGRAM_STATUS = {
     buttonClass: 'rec-button',
   },
   travel: {
-    isOpen: true,
+    isOpen: false,
     label: 'Travel Soccer',
     actionLabel: 'Register for Travel Soccer',
     closedLabel: 'Registration Closed',
