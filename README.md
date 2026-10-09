@@ -1,28 +1,25 @@
 # Harbor Soccer
 
-Static website for Harbor Soccer, Inc., built with HTML, SCSS, and vanilla JavaScript modules.
+Static website for Harbor Soccer, Inc., built with HTML, vanilla CSS, and vanilla JavaScript modules.
 
 ## Development
 
 - `npm run serve` - start a local server on port 8000
-- `npm run sass` - watch and compile SCSS into `css/`
-- `npm run sass:build` - compile SCSS once for production output
-- `npm run format` - format HTML, JS, SCSS, CSS, and JSON
-- `npm run check` - run JavaScript, SCSS, and HTML validation, then rebuild CSS
+- `npm run format` - format HTML, JS, CSS, and JSON
+- `npm run check` - run JavaScript, CSS, and HTML validation
 
 ## Structure
 
 - `index.html` - main site page
 - `404.html` - custom not found page
-- `scss/` - source styles, organized by base/layout/components
-- `css/` - compiled CSS output used by the site
+- `css/` - site styles; `styles.css` is vanilla CSS edited directly (no build step)
 - `js/` - browser JavaScript modules
 
 ## Content updates
 
 - Registration program status and destination links live in `js/modules/registration.js`
 - Shared interaction logic for navigation and modals lives in `js/modules/`
-- Visual tokens live in `scss/abstracts/_variables.scss`
+- Visual tokens live in the `:root` block at the top of `css/styles.css`
 
 ## Manual QA checklist
 

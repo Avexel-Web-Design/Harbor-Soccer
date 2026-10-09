@@ -6,13 +6,11 @@
   "scripts": {
     "dev": "python3 -m http.server 8000",
     "serve": "python3 -m http.server 8000",
-    "sass": "sass --watch scss/:css/",
-    "sass:build": "sass scss/:css/ --style=expanded --no-source-map",
-    "format": "prettier --write \"**/*.{html,js,json,scss,css,md}\"",
-    "lint:js": "eslint . --ext .js",
-    "lint:scss": "stylelint \"scss/**/*.scss\"",
+    "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
+    "lint:js": "eslint js/",
+    "lint:css": "stylelint \"css/**/*.css\"",
     "lint:html": "html-validate \"*.html\"",
-    "check": "npm run lint:js && npm run lint:scss && npm run lint:html && npm run sass:build"
+    "check": "npm run lint:js && npm run lint:css && npm run lint:html"
   },
   "keywords": [
     "soccer",
@@ -25,8 +23,7 @@
     "eslint": "^9.22.0",
     "html-validate": "^10.1.2",
     "prettier": "^3.5.3",
-    "sass": "^1.98.0",
     "stylelint": "^16.16.0",
-    "stylelint-config-standard-scss": "^14.0.0"
+    "stylelint-config-standard": "^39.0.1"
   }
 }

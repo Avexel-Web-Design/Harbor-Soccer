@@ -1,24 +1,22 @@
 # AGENTS.md
 
 ## Project Overview
-Harbor Soccer Inc. website - a static website built with HTML, SCSS, and vanilla JavaScript for a youth soccer organization in Harbor Springs, Michigan.
+Harbor Soccer Inc. website - a static website built with HTML, vanilla CSS, and vanilla JavaScript (ES modules) for a youth soccer organization in Harbor Springs, Michigan.
 
 ## Project Structure
 ```
 Harbor-Soccer/
 ├── index.html              # Main entry point
-├── css/                   # Compiled CSS output
-├── scss/                  # SCSS source files
-│   ├── styles.scss        # Main entry point
-│   ├── abstracts/         # Variables, mixins, functions
-│   ├── base/              # Reset, typography, base styles
-│   ├── layout/            # Grid systems, containers
-│   └── components/         # UI components (buttons, cards, modals)
+├── 404.html                # Custom not found page
+├── css/
+│   └── styles.css          # Site styles (vanilla CSS, edited directly — no build step)
 ├── js/
-│   └── script.js          # Main JavaScript file
-├── assets/
-│   ├── images/            # Images and icons
-│   └── fonts/             # Custom fonts
+│   ├── script.js           # Entry point (imports modules)
+│   ├── modules/            # Navigation, modals, registration, calendar, scroll-spy
+│   └── utils/              # DOM helpers, scroll-lock
+├── images/                 # Images, player photos, sponsor logos
+├── documents/              # Board docs, bylaws (PDF)
+├── schedules/              # Season schedules (PDF)
 └── README.md              # Project documentation
 ```
 
@@ -29,14 +27,11 @@ Harbor-Soccer/
 npm run dev
 npm run serve
 
-# Watch and compile SCSS files automatically (during development)
-npm run sass
-
-# Compile SCSS files once (for production builds)
-npm run sass:build
+# Watch and edit CSS directly (no build step — save and refresh)
+# No Sass compilation needed
 ```
 
-**Testing & Linting**: This is a static website project with no automated tests or linting tools configured. Manual browser testing is required (see Testing Checklist below).
+**Testing & Linting**: No automated tests. Linting is configured (`npm run check` runs ESLint, Stylelint, and html-validate). Manual browser testing is still required (see Testing Checklist below).
 
 ---
 
@@ -51,8 +46,8 @@ npm run sass:build
 
 **Code Structure**
 ```javascript
-// Constants at top
-const PROGRAM_STATUS = 'open';
+// Constants at top (see js/modules/registration.js PROGRAM_STATUS map)
+const CALENDAR_FALLBACK_DELAY = 3000;
 
 // DOM elements
 const mobileToggle = document.querySelector('.mobile-toggle');
@@ -95,33 +90,9 @@ function init() { /* ... */ }
 
 ---
 
-### SCSS/CSS
+### CSS
 
-#### File Organization
-```
-scss/
-├── abstracts/
-│   ├── _variables.scss    # Colors, fonts, spacing, shadows
-│   └── _mixins.scss       # Reusable SCSS mixins
-├── base/
-│   ├── _reset.scss        # CSS reset
-│   └── _typography.scss   # Font styles
-├── layout/
-│   └── _grid.scss         # Grid system
-├── components/
-│   ├── _buttons.scss      # Button styles
-│   ├── _cards.scss        # Card components
-│   └── _modals.scss       # Modal styles
-└── styles.scss            # Main entry point (imports others)
-```
-
-#### Importing
-Use modern `@use` syntax (not `@import`):
-```scss
-@use '../abstracts/variables' as *;
-@use 'sass:color';
-@use '../components/buttons';
-```
+`css/styles.css` is vanilla CSS with section banners (tokens → base → components A → components B). Edit it directly; there is no preprocessor or build step.
 
 #### Naming Conventions
 - **Classes**: kebab-case (`.main-navigation`, `.menu-link`)
@@ -129,48 +100,24 @@ Use modern `@use` syntax (not `@import`):
 - **States**: `.element.active`, `.element.disabled`, `.element[hidden]`
 - **JavaScript hooks**: `.js-nav-toggle` (never style these)
 
-#### SCSS Variables
-Use semantic prefixes:
-```scss
-// Colors
-$color-primary, $color-secondary, $color-error, $color-success
-
-// Spacing
-$spacing-xs, $spacing-sm, $spacing-md, $spacing-lg, $spacing-xl
-
-// Typography
-$font-primary, $font-sans, $font-weight-bold
-
-// Effects
-$shadow-sm, $shadow-md, $shadow-lg
-$transition-fast, $transition-base, $transition-slow
-
-// Layout
-$radius-sm, $radius-md, $radius-lg
-$breakpoint-mobile, $breakpoint-tablet, $breakpoint-desktop
-```
-
-#### Nesting
-- Maximum 2-3 levels deep
-- Use `&` for parent selector
-```scss
-.button {
-  &:hover { }
-  &:focus-visible { }
-  &.active { }
-  &--primary { }
+#### Custom properties
+Design tokens live in `:root` at the top of `styles.css`:
+```css
+:root {
+  --color-primary: #b45309;
+  --spacing-md: 1.5rem;
 }
 ```
+Use `var(--token-name)` instead of hardcoding values. Breakpoints cannot use `var()` in media queries — use literal values (`480px`, `768px`, `1024px`, `1200px`).
 
 #### Responsive Design
-```scss
-@media (max-width: $breakpoint-tablet) { }
-@media (max-width: $breakpoint-mobile) { }
+```css
+@media (max-width: 768px) { }
+@media (max-width: 480px) { }
 ```
 
 #### Best Practices
-- Use `color.adjust()` and `color.scale()` for color manipulation
-- Use variables instead of magic numbers
+- Use custom properties instead of magic numbers
 - Include vendor prefixes for older browsers (`-webkit-`, `-ms-`)
 - Add `focus-visible` styles for keyboard accessibility
 - Use `backdrop-filter: blur()` for glass effects
@@ -211,8 +158,8 @@ $breakpoint-mobile, $breakpoint-tablet, $breakpoint-desktop
 - Smooth scroll to anchor links via `scroll-behavior: smooth`
 
 ### Registration System
-- Configure program status via `PROGRAM_STATUS` constant in script.js
-- Values: `'open'`, `'closed'`, or `'waitlist'`
+- Configure program status via the `PROGRAM_STATUS` map in `js/modules/registration.js`
+- Per-program `isOpen` flags plus display copy in `REGISTRATION_COPY`
 - Automatically updates UI based on status
 - Modal with program selection
 - Keyboard and touch accessible
