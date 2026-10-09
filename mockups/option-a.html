@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option A · Harbor Soccer redesign · Harbor Soccer mockup</title>
+    <link rel="icon" type="image/png" href="../images/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #f26a1b;
+        --orange-dark: #c2410c;
+        --orange-soft: #fff1e7;
+        --black: #161412;
+        --ink: #2e2a27;
+        --muted: #67615c;
+        --line: #e4e0dc;
+        --bg-alt: #f5f5f4;
+        --white: #fff;
+        --radius: 8px;
+        --wrap: min(100% - 3rem, 1160px);
+        --display: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+        --body: 'Barlow', -apple-system, 'Segoe UI', sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--white);
+        font-family: var(--body);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: var(--orange-dark);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        color: var(--black);
+        font-family: var(--display);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0 0 1rem;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        width: var(--wrap);
+        margin-inline: auto;
+      }
+
+      .section {
+        padding-block: clamp(3.5rem, 7vw, 5.5rem);
+      }
+
+      .section--alt {
+        background: var(--bg-alt);
+      }
+
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-head h2 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+      }
+
+      .section-head p {
+        margin: 0.75rem 0 0;
+        color: var(--muted);
+        font-size: 1.125rem;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 1.4rem;
+        border: 2px solid transparent;
+        border-radius: var(--radius);
+        font-family: var(--body);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+
+      .btn--primary {
+        color: var(--black);
+        background: var(--orange);
+      }
+
+      .btn--primary:hover {
+        background: #ff8a3d;
+      }
+
+      .btn--ghost {
+        color: var(--black);
+        border-color: var(--black);
+      }
+
+      .btn--ghost:hover {
+        background: rgba(22, 20, 18, 0.08);
+      }
+
+      .btn--dark {
+        color: var(--white);
+        background: var(--black);
+      }
+
+      .btn--dark:hover {
+        background: #3a3532;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-header .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        height: 72px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--black);
+        font-family: var(--display);
+        font-size: 1.35rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: auto;
+        height: 44px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .nav a {
+        padding: 0.5rem 0.75rem;
+        color: var(--ink);
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        color: var(--black);
+        background: var(--bg-alt);
+      }
+
+      .nav a.btn--dark,
+      .nav a.btn--dark:hover {
+        color: var(--white);
+        background: var(--black);
+      }
+
+      .nav .btn {
+        margin-left: 0.75rem;
+        min-height: 42px;
+        padding-inline: 1.1rem;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      /* Hero */
+      .hero {
+        color: var(--ink);
+        background: var(--white);
+      }
+
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+        gap: 3rem;
+        padding-block: clamp(3.5rem, 8vw, 6rem);
+      }
+
+      .hero-crest {
+        justify-self: end;
+        width: min(100%, 320px);
+        height: auto;
+      }
+
+      .hero h1 {
+        color: var(--black);
+        font-size: clamp(3.25rem, 9vw, 6.5rem);
+        line-height: 0.95;
+      }
+
+      .hero p {
+        max-width: 540px;
+        margin: 1rem 0 1.75rem;
+        font-size: clamp(1.125rem, 2vw, 1.375rem);
+        line-height: 1.45;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      /* Announcement */
+      .announcement {
+        color: var(--white);
+        background: var(--black);
+      }
+
+      .announcement .wrap {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 1.5rem 2.5rem;
+        padding-block: 1.5rem;
+      }
+
+      .announcement h2 {
+        color: var(--orange);
+        font-size: 1.5rem;
+      }
+
+      .announcement p {
+        margin: 0;
+        color: #d6d1cc;
+      }
+
+      .announcement strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      .announcement-when {
+        font-size: 1.125rem;
+        text-align: right;
+      }
+
+      /* Programs */
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .program {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--orange);
+        border-radius: var(--radius);
+      }
+
+      .program-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 1.75rem;
+      }
+
+      .program h3 {
+        font-size: 1.75rem;
+      }
+
+      .program-ages {
+        margin: 0.25rem 0 1rem;
+        color: var(--orange-dark);
+        font-weight: 600;
+      }
+
+      .program ul {
+        margin: 0 0 1rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .program li {
+        padding: 0.45rem 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.975rem;
+      }
+
+      .program-note {
+        margin-top: auto;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        color: #8a2c0a;
+        background: var(--orange-soft);
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      /* Registration */
+      .registration {
+        color: #d6d1cc;
+        background: var(--black);
+      }
+
+      .registration h2 {
+        color: var(--white);
+      }
+
+      .registration .wrap {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        align-items: center;
+        gap: 2rem 4rem;
+      }
+
+      .registration h2 {
+        margin-top: 0.75rem;
+        font-size: clamp(2rem, 4vw, 2.75rem);
+      }
+
+      .registration p {
+        max-width: 560px;
+        margin: 0.75rem 0 0;
+        font-size: 1.125rem;
+      }
+
+      .registration-card {
+        padding: 1.75rem;
+        background: var(--white);
+        border-radius: var(--radius);
+        color: var(--ink);
+      }
+
+      .registration-card dl {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.6rem 1rem;
+        margin: 0 0 1.5rem;
+      }
+
+      .registration-card dt {
+        font-weight: 600;
+      }
+
+      .registration-card dd {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .registration-card .btn {
+        width: 100%;
+      }
+
+      /* About */
+      .about-intro {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .about-intro p {
+        max-width: 640px;
+        font-size: 1.125rem;
+      }
+
+      .memberships h3,
+      .subhead {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .membership {
+        display: block;
+        padding: 1rem 1.25rem;
+        margin-bottom: 0.75rem;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        text-decoration: none;
+      }
+
+      .membership:hover {
+        border-color: var(--orange);
+      }
+
+      .membership strong {
+        display: block;
+        color: var(--black);
+        font-family: var(--display);
+        font-size: 1.25rem;
+      }
+
+      .board-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin-bottom: 4rem;
+        overflow: hidden;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .board-member {
+        padding: 1.25rem;
+        background: var(--white);
+      }
+
+      .board-member span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.925rem;
+      }
+
+      .board-member strong {
+        display: block;
+        margin: 0.15rem 0 0.5rem;
+        color: var(--black);
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      .board-member--vacant strong {
+        color: var(--muted);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .board-member a {
+        font-size: 0.925rem;
+      }
+
+      .docs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .doc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .doc-list a {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 0.25rem;
+        color: var(--black);
+        border-bottom: 1px solid var(--line);
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .doc-list a:hover {
+        color: var(--orange-dark);
+      }
+
+      .doc-list small {
+        color: var(--muted);
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+
+      .quotes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .quote {
+        margin: 0;
+        padding: 1.5rem;
+        background: var(--bg-alt);
+        border-left: 4px solid var(--orange);
+        border-radius: 0 var(--radius) var(--radius) 0;
+      }
+
+      .quote p {
+        color: var(--black);
+        font-size: 1.125rem;
+      }
+
+      .quote cite {
+        color: var(--muted);
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      /* Calendar */
+      .calendar-frame {
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .calendar-frame iframe {
+        display: block;
+        width: 100%;
+        height: 620px;
+        border: 0;
+      }
+
+      /* Support */
+      .support-intro {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .support-intro p {
+        max-width: 640px;
+      }
+
+      .ein {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .sponsor-cta {
+        align-self: start;
+        padding: 1.75rem;
+        background: var(--black);
+        border-radius: var(--radius);
+        color: #d6d1cc;
+      }
+
+      .sponsor-cta h3 {
+        margin-bottom: 0.5rem;
+        color: var(--white);
+        font-size: 1.5rem;
+      }
+
+      .sponsor-cta .btn {
+        width: 100%;
+        margin: 0.5rem 0 1rem;
+      }
+
+      .sponsor-cta a:not(.btn) {
+        color: var(--orange);
+      }
+
+      .sponsors {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 1rem;
+      }
+
+      .sponsor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        min-height: 150px;
+        padding: 1.25rem 1rem;
+        color: var(--ink);
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      a.sponsor:hover {
+        border-color: var(--orange);
+      }
+
+      .sponsor img {
+        width: auto;
+        max-width: 130px;
+        max-height: 64px;
+        object-fit: contain;
+      }
+
+      /* Referee */
+      .referee .wrap {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .referee-panel {
+        padding: 2rem;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .referee-panel h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .referee h2 {
+        margin-bottom: 1rem;
+        font-size: clamp(2rem, 4vw, 2.75rem);
+      }
+
+      .referee .btn {
+        margin: 0.5rem 0 1.25rem;
+      }
+
+      .small-note {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      .contact-grid h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .contact-grid p {
+        color: var(--muted);
+      }
+
+      /* Footer */
+      .footer {
+        padding-block: 3rem;
+        color: #a8a29e;
+        background: var(--black);
+        font-size: 0.95rem;
+      }
+
+      .footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      .footer .brand {
+        color: var(--white);
+      }
+
+      .footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+      }
+
+      .footer nav a {
+        color: #e7e5e4;
+        text-decoration: none;
+      }
+
+      .footer nav a:hover {
+        color: var(--orange);
+      }
+
+      .footer p {
+        width: 100%;
+        margin: 1rem 0 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid #36312d;
+      }
+
+      @media (max-width: 1024px) {
+        .nav {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+          min-height: 44px;
+          padding: 0 1rem;
+          color: var(--black);
+          background: var(--white);
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          font: 600 1rem var(--body);
+        }
+
+        .programs-grid,
+        .quotes {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .board-grid,
+        .contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .announcement .wrap,
+        .registration .wrap,
+        .about-intro,
+        .docs,
+        .support-intro,
+        .referee .wrap,
+        .programs-grid,
+        .quotes {
+          grid-template-columns: 1fr;
+        }
+
+        .announcement-when {
+          text-align: left;
+        }
+
+        .hero .wrap {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .hero-crest {
+          order: -1;
+          justify-self: start;
+          width: 120px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .board-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions .btn {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="#top" class="brand">
+          <img src="crest.png" alt="" width="42" height="44" />
+          Harbor Soccer
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#programs">Programs</a>
+          <a href="#about">About</a>
+          <a href="#calendar">Calendar</a>
+          <a href="#support">Support</a>
+          <a href="#referee">Referee</a>
+          <a href="#contact">Contact</a>
+          <a href="#registration" class="btn btn--dark">Registration</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <h1>Harbor Soccer</h1>
+            <p>
+              Promoting soccer and enhancing each child's skill development in
+              Harbor Springs, Michigan.
+            </p>
+            <div class="hero-actions">
+              <a href="#registration" class="btn btn--primary"
+                >View registration</a
+              >
+              <a href="#programs" class="btn btn--ghost">Explore programs</a>
+            </div>
+          </div>
+          <img
+            class="hero-crest"
+            src="crest.png"
+            alt="Harbor Springs soccer crest"
+            width="320"
+            height="338"
+          />
+        </div>
+      </section>
+
+      <aside class="announcement" aria-label="Upcoming event">
+        <div class="wrap">
+          <h2>Fall Fundraiser</h2>
+          <p>
+            Join us for food, entertainment, games, a silent auction, and a
+            raffle.
+          </p>
+          <p class="announcement-when">
+            <strong>Thursday, November 12</strong><br />
+            5:00–8:00pm at Gypsy Distillery
+          </p>
+        </div>
+      </aside>
+
+      <section id="programs" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Our programs</h2>
+            <p>
+              Three programs for players from their first season through high
+              school.
+            </p>
+          </div>
+          <div class="programs-grid">
+            <article class="program">
+              <div class="program-body">
+                <h3>Recreational Soccer</h3>
+                <p class="program-ages">Birth years 2018–2021</p>
+                <p>
+                  A fun, developmental program focused on building skills and
+                  learning through game-style play. Perfect for kids who are
+                  excited or just curious about soccer.
+                </p>
+                <ul>
+                  <li>Fall and spring seasons</li>
+                  <li>Cleats and shin guards required</li>
+                  <li>No travel</li>
+                </ul>
+                <p class="program-note">
+                  <span class="status">Fall registration closed</span>
+                </p>
+              </div>
+            </article>
+            <article class="program">
+              <div class="program-body">
+                <h3>Travel Soccer</h3>
+                <p class="program-ages">Birth years 2011–2017</p>
+                <p>
+                  A player development program with a competitive soccer
+                  experience in a supportive, recreational setting.
+                </p>
+                <ul>
+                  <li>Fall and spring seasons, practices twice weekly</li>
+                  <li>Girls play Saturdays, boys play Sundays</li>
+                  <li>Travel within Northern Michigan</li>
+                  <li>Cleats and shin guards required</li>
+                </ul>
+                <p class="program-note">
+                  <span class="status">Fall registration closed</span><br />
+                  See who we play on the
+                  <a href="https://northernmichigansoccer.com/our-clubs"
+                    >Northern Michigan Alliance</a
+                  >
+                  website.
+                </p>
+              </div>
+            </article>
+            <article class="program">
+              <div class="program-body">
+                <h3>Sailors</h3>
+                <p class="program-ages">High school girls</p>
+                <p>
+                  A high school girls' travel soccer team that competes in
+                  games and tournaments in the fall.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="registration" class="section registration">
+        <div class="wrap">
+          <div>
+            <h2>Registration is closed</h2>
+            <p>
+              Registration for the Fall 2026 season is closed. Check back here
+              for spring dates, or follow us on Facebook for updates.
+            </p>
+          </div>
+          <div class="registration-card">
+            <dl>
+              <dt>Recreational</dt>
+              <dd>$60</dd>
+              <dt>Travel</dt>
+              <dd>$100 + $35 jersey</dd>
+              <dt>Sailors</dt>
+              <dd>$300</dd>
+            </dl>
+            <button type="button" class="btn btn--primary">
+              View program details
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="wrap">
+          <div class="about-intro">
+            <div>
+              <div class="section-head">
+                <h2>About Harbor Soccer, Inc.</h2>
+              </div>
+              <p>
+                The mission of Harbor Soccer, Inc. is to promote the game of
+                soccer and enhance each child's skill development. We promote
+                fair play in a fun, safe and recreational environment while
+                encouraging camaraderie, teamwork, and the skills of each
+                individual player.
+              </p>
+              <p>
+                Harbor Soccer, Inc. is the governing board that organizes and
+                oversees soccer teams in the Harbor Springs area.
+              </p>
+            </div>
+            <div class="memberships">
+              <h3>Proud members of</h3>
+              <a
+                class="membership"
+                href="https://northernmichigansoccer.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>NMSA</strong>
+                Northern Michigan Soccer Alliance
+              </a>
+              <a
+                class="membership"
+                href="https://www.michiganyouthsoccer.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>MSYSA</strong>
+                Michigan State Youth Soccer Association
+              </a>
+            </div>
+          </div>
+
+          <h3 class="subhead">Board of directors</h3>
+          <div class="board-grid">
+            <div class="board-member">
+              <span>President</span><strong>Scott MacDonald</strong
+              ><a href="../documents/President.pdf">Job description</a>
+            </div>
+            <div class="board-member">
+              <span>Vice President</span><strong>Madelaine McShannock</strong
+              ><a href="../documents/Vice President.pdf">Job description</a>
+            </div>
+            <div class="board-member">
+              <span>Treasurer</span><strong>Isabel Gracy</strong
+              ><a href="../documents/Treasurer.pdf">Job description</a>
+            </div>
+            <div class="board-member">
+              <span>Secretary</span><strong>Amanda Kughn</strong
+              ><a href="../documents/Secretary.pdf">Job description</a>
+            </div>
+            <div class="board-member">
+              <span>Registrar</span><strong>Gabrielle Case</strong
+              ><a href="../documents/Registrar.pdf">Job description</a>
+            </div>
+            <div class="board-member board-member--vacant">
+              <span>Fundraising Coordinator</span><strong>Open position</strong
+              ><a href="../documents/Fundraiser Coordinator.pdf"
+                >Job description</a
+              >
+            </div>
+            <div class="board-member">
+              <span>Facilities Coordinator</span><strong>Amanda Kughn</strong
+              ><a href="../documents/Facilities Coordinator.pdf"
+                >Job description</a
+              >
+            </div>
+            <div class="board-member">
+              <span>Rec Soccer Coordinator</span
+              ><strong>Madelaine McShannock</strong
+              ><a href="../documents/Rec Soccer Coordinator.pdf"
+                >Job description</a
+              >
+            </div>
+          </div>
+
+          <div class="docs">
+            <div>
+              <h3 class="subhead">Code of conduct</h3>
+              <p>
+                We're committed to a positive, respectful, and safe environment
+                for everyone. Please review the code for your role.
+              </p>
+              <ul class="doc-list">
+                <li>
+                  <a href="../code-of-conduct/parent-code-of-conduct.pdf"
+                    >Parents <small>PDF</small></a
+                  >
+                </li>
+                <li>
+                  <a href="../code-of-conduct/coach-code-of-conduct.pdf"
+                    >Coaches <small>PDF</small></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../code-of-conduct/player-code-of-conduct-u10-plus.pdf"
+                    >Players (U10 and up) <small>PDF</small></a
+                  >
+                </li>
+                <li>
+                  <a href="../code-of-conduct/board-member-code-of-conduct.pdf"
+                    >Board members <small>PDF</small></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="subhead">Bylaws</h3>
+              <p>The official bylaws that govern Harbor Soccer, Inc.</p>
+              <ul class="doc-list">
+                <li>
+                  <a href="../documents/2025-BYLAWS.pdf"
+                    >2025 Bylaws <small>PDF</small></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="subhead">What our players say</h3>
+          <div class="quotes">
+            <blockquote class="quote">
+              <p>
+                “It's fun. I have learned how to juggle. I like playing for
+                Harbor Soccer.”
+              </p>
+              <cite>Jai, Rec Soccer</cite>
+            </blockquote>
+            <blockquote class="quote">
+              <p>
+                “You get to play games and all positions. Sometimes you get to
+                play goalie. It feels good to score!”
+              </p>
+              <cite>Henry, Travel Soccer</cite>
+            </blockquote>
+            <blockquote class="quote">
+              <p>
+                “It is really fun. A great way to get your exercise. It is a
+                really good sport to play!”
+              </p>
+              <cite>Whitley, Travel Soccer</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="calendar" class="section section--alt">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Calendar</h2>
+            <p>Games, practices, and club events for the season.</p>
+          </div>
+          <div class="calendar-frame">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=harborsoccerinc2943%40gmail.com&ctz=America%2FDetroit"
+              title="Harbor Soccer calendar"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" class="section">
+        <div class="wrap">
+          <div class="support-intro">
+            <div>
+              <div class="section-head">
+                <h2>Support Harbor Soccer</h2>
+              </div>
+              <p>
+                Each season, Harbor Soccer serves hundreds of young athletes in
+                our community. Maintaining fields, providing equipment, hiring
+                referees, and keeping facilities safe all cost money, and your
+                support goes straight to the players.
+              </p>
+              <p>
+                Every donation helps keep soccer fun, safe, and affordable for
+                kids in the Harbor Springs area.
+              </p>
+              <p class="ein">
+                Harbor Soccer, Inc. is a 501(c)(3). EIN 38-2887596.
+              </p>
+            </div>
+            <div class="sponsor-cta">
+              <h3>Become a sponsor</h3>
+              <p>
+                A $300 business sponsorship puts your banner at a field and
+                your name on this site. Donations of any amount are welcome.
+              </p>
+              <button type="button" class="btn btn--primary">
+                See sponsorship options
+              </button>
+              <a href="mailto:harborsoccerinc2943@gmail.com"
+                >harborsoccerinc2943@gmail.com</a
+              >
+            </div>
+          </div>
+
+          <h3 class="subhead">Thank you to our sponsors</h3>
+          <div class="sponsors">
+            <a class="sponsor" href="https://www.captrustcommunityfoundation.org/"
+              ><img src="../images/sponsors/captrust.png" alt="" />CAPTRUST
+              Community Foundation</a
+            >
+            <div class="sponsor">Triford Foundation</div>
+            <a class="sponsor" href="https://dreimershearingclinic.com/"
+              ><img
+                src="../images/sponsors/Dr. Eimer Logo Final.png"
+                alt=""
+              />Dr. Eimer Hearing Clinic</a
+            >
+            <a class="sponsor" href="https://www.gypsydistillery.com/"
+              ><img
+                src="../images/sponsors/Gypsy Distillery Color Logo.svg"
+                alt=""
+              />Gypsy Distillery</a
+            >
+            <a class="sponsor" href="https://northern-endodontics.com/"
+              ><img
+                src="../images/sponsors/NorthernEndodonticsLOGO.JPG"
+                alt=""
+              />Northern Endodontics</a
+            >
+            <a class="sponsor" href="https://northlandsm.com"
+              ><img src="../images/sponsors/NSM.png" alt="" />Northland
+              Surveying Mapping</a
+            >
+            <div class="sponsor">
+              <img src="../images/sponsors/Baywater Builders.png" alt="" />Bay
+              Water Builders
+            </div>
+            <a class="sponsor" href="https://outfitterharborsprings.com/"
+              ><img src="../images/sponsors/Outfitter.avif" alt="" />The
+              Outfitter Harbor Springs</a
+            >
+            <a class="sponsor" href="https://www.avexel.co/"
+              ><img src="../images/sponsors/Avexel.png" alt="" />Avexel Web
+              Design</a
+            >
+            <div class="sponsor">
+              <img src="../images/sponsors/jl-construction.png" alt="" />JL
+              Construction
+            </div>
+            <div class="sponsor">
+              <img src="../images/sponsors/mi-property.jpeg" alt="" />MI
+              Property Improvement
+            </div>
+            <a class="sponsor" href="https://www.turkeyspizzeria.com/"
+              ><img src="../images/sponsors/turkeys.png" alt="" />Turkey's
+              Pizzeria</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="referee" class="section section--alt referee">
+        <div class="wrap">
+          <div>
+            <h2>Become a referee</h2>
+            <p>
+              Youth soccer across Michigan is short on referees, and Harbor
+              Soccer feels it. If you love the game, refereeing is a way to
+              stay involved, earn extra income, and make sure our players get
+              good officiating.
+            </p>
+          </div>
+          <div class="referee-panel">
+            <h3>Get started</h3>
+            <p>
+              The Michigan State Referee Association handles certification.
+              Start there to see the requirements.
+            </p>
+            <a
+              href="https://www.michiganrefs.org/"
+              class="btn btn--dark"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Visit Michigan Refs</a
+            >
+            <p class="small-note">
+              Questions? Email
+              <a href="mailto:harborsoccerinc2943@gmail.com"
+                >harborsoccerinc2943@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Contact us</h2>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <h3>Fields</h3>
+              <p>2943 Quick Road<br />Harbor Springs, MI 49740</p>
+            </div>
+            <div>
+              <h3>Mailing address</h3>
+              <p>
+                Harbor Soccer, Inc.<br />PO Box 223<br />Harbor Springs, MI
+                49740
+              </p>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:harborsoccerinc2943@gmail.com"
+                  >harborsoccerinc2943@gmail.com</a
+                >
+              </p>
+            </div>
+            <div>
+              <h3>Facebook</h3>
+              <p>
+                <a
+                  href="https://www.facebook.com/people/Harbor-Soccer-Inc/100063346320884/"
+                  >Harbor Soccer, Inc.</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <a href="#top" class="brand">
+          <img src="crest.png" alt="" width="42" height="44" />
+          Harbor Soccer, Inc.
+        </a>
+        <nav aria-label="Footer">
+          <a href="#programs">Programs</a>
+          <a href="#registration">Registration</a>
+          <a href="#about">About</a>
+          <a href="#support">Support</a>
+          <a href="#referee">Referee</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <p>© 2026 Harbor Soccer, Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
